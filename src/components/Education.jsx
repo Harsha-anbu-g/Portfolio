@@ -22,7 +22,7 @@ export default function Education() {
                   {edu.school} &middot; {edu.location}
                 </p>
               </div>
-              <span className="text-sm font-medium text-blue-600 dark:text-blue-400">
+              <span className="text-sm font-medium text-indigo-600 dark:text-indigo-400">
                 {edu.period}
               </span>
             </div>

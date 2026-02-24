@@ -1,19 +1,48 @@
+import { useState, useEffect } from "react";
 import profile from "../data/profile";
 
+function useTypingEffect(text, speed = 50) {
+  const [displayed, setDisplayed] = useState("");
+  const [done, setDone] = useState(false);
+
+  useEffect(() => {
+    let i = 0;
+    setDisplayed("");
+    setDone(false);
+    const interval = setInterval(() => {
+      if (i < text.length) {
+        setDisplayed(text.slice(0, i + 1));
+        i++;
+      } else {
+        setDone(true);
+        clearInterval(interval);
+      }
+    }, speed);
+    return () => clearInterval(interval);
+  }, [text, speed]);
+
+  return { displayed, done };
+}
+
 export default function Hero() {
+  const { displayed, done } = useTypingEffect(profile.headline, 40);
+
   return (
     <section
       id="home"
       className="flex min-h-screen items-center justify-center px-6 pt-20"
     >
       <div className="mx-auto max-w-[1100px] text-center">
-        {/* Initials avatar */}
-        <div className="mx-auto mb-6 flex h-20 w-20 items-center justify-center rounded-full bg-blue-600 text-2xl font-bold text-white">
-          {profile.initials}
-        </div>
+        {/* Photo */}
+        <img
+          src={profile.photo}
+          alt={profile.name}
+          className="mx-auto mb-6 h-28 w-28 rounded-full object-cover shadow-lg ring-4 ring-indigo-100 dark:ring-indigo-900"
+        />
 
         <h1 className="mb-4 text-4xl font-bold leading-tight text-gray-900 dark:text-white sm:text-5xl">
-          {profile.headline}
+          {displayed}
+          <span className={`typing-cursor ${done ? "opacity-0" : ""}`}>|</span>
         </h1>
 
         <p className="mx-auto mb-8 max-w-2xl text-lg text-gray-600 dark:text-gray-300">
@@ -23,7 +52,7 @@ export default function Hero() {
         <div className="flex flex-wrap items-center justify-center gap-4">
           <a
             href="#projects"
-            className="rounded-lg bg-blue-600 px-6 py-3 text-sm font-medium text-white transition-colors hover:bg-blue-700"
+            className="rounded-lg bg-indigo-600 px-6 py-3 text-sm font-medium text-white transition-colors hover:bg-indigo-700"
           >
             View Projects
           </a>
@@ -31,13 +60,13 @@ export default function Hero() {
             href="/resume.pdf"
             target="_blank"
             rel="noopener noreferrer"
-            className="rounded-lg border border-gray-300 px-6 py-3 text-sm font-medium text-gray-700 transition-colors hover:border-blue-600 hover:text-blue-600 dark:border-slate-600 dark:text-gray-300 dark:hover:border-blue-400 dark:hover:text-blue-400"
+            className="rounded-lg border border-gray-300 px-6 py-3 text-sm font-medium text-gray-700 transition-colors hover:border-indigo-600 hover:text-indigo-600 dark:border-slate-600 dark:text-gray-300 dark:hover:border-indigo-400 dark:hover:text-indigo-400"
           >
             Download Resume
           </a>
           <a
             href="#contact"
-            className="rounded-lg border border-gray-300 px-6 py-3 text-sm font-medium text-gray-700 transition-colors hover:border-blue-600 hover:text-blue-600 dark:border-slate-600 dark:text-gray-300 dark:hover:border-blue-400 dark:hover:text-blue-400"
+            className="rounded-lg border border-gray-300 px-6 py-3 text-sm font-medium text-gray-700 transition-colors hover:border-indigo-600 hover:text-indigo-600 dark:border-slate-600 dark:text-gray-300 dark:hover:border-indigo-400 dark:hover:text-indigo-400"
           >
             Contact Me
           </a>

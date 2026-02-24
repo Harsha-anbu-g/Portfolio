@@ -1,6 +1,7 @@
 const profile = {
   name: "Harshavardhan Anbuchezhian Gowri",
   initials: "HG",
+  photo: "/photo.jpg",
   title: "Full-Stack Engineer",
   headline:
     "Full-Stack Engineer building reliable and scalable web applications.",
@@ -93,7 +94,7 @@ const profile = {
         "Designed service logic for randomized quiz generation and score calculation.",
         "Tested APIs using Postman.",
       ],
-      github: null,
+      github: "https://github.com/Harsha-anbu-g/quiz-spring",
       live: null,
     },
     {
@@ -105,7 +106,7 @@ const profile = {
         "Implemented probabilistic battle simulations.",
         "Ensured reliability using JUnit testing.",
       ],
-      github: null,
+      github: "https://github.com/Harsha-anbu-g/RiskGame",
       live: null,
     },
   ],

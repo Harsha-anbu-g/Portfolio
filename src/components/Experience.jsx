@@ -23,7 +23,7 @@ export default function Experience() {
                     {job.company} &middot; {job.location}
                   </p>
                 </div>
-                <span className="text-sm font-medium text-blue-600 dark:text-blue-400">
+                <span className="text-sm font-medium text-indigo-600 dark:text-indigo-400">
                   {job.period}
                 </span>
               </div>
@@ -34,7 +34,7 @@ export default function Experience() {
                     key={j}
                     className="flex items-start gap-2 text-sm text-gray-600 dark:text-gray-300"
                   >
-                    <span className="mt-1.5 h-1.5 w-1.5 flex-shrink-0 rounded-full bg-blue-600 dark:bg-blue-400" />
+                    <span className="mt-1.5 h-1.5 w-1.5 flex-shrink-0 rounded-full bg-indigo-600 dark:bg-indigo-400" />
                     {bullet}
                   </li>
                 ))}

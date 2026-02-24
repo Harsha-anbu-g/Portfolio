@@ -7,6 +7,8 @@ import Projects from "./components/Projects";
 import Education from "./components/Education";
 import Contact from "./components/Contact";
 import Footer from "./components/Footer";
+import ScrollToTop from "./components/ScrollToTop";
+import FadeIn from "./components/FadeIn";
 
 export default function App() {
   return (
@@ -14,14 +16,15 @@ export default function App() {
       <Navbar />
       <main>
         <Hero />
-        <About />
-        <Skills />
-        <Experience />
-        <Projects />
-        <Education />
-        <Contact />
+        <FadeIn><div className="bg-gray-50 dark:bg-slate-900"><About /></div></FadeIn>
+        <FadeIn><Skills /></FadeIn>
+        <FadeIn><div className="bg-gray-50 dark:bg-slate-900"><Experience /></div></FadeIn>
+        <FadeIn><Projects /></FadeIn>
+        <FadeIn><div className="bg-gray-50 dark:bg-slate-900"><Education /></div></FadeIn>
+        <FadeIn><Contact /></FadeIn>
       </main>
       <Footer />
+      <ScrollToTop />
     </div>
   );
 }

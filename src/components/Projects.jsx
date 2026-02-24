@@ -22,7 +22,7 @@ export default function Projects() {
                 {project.tech.map((t) => (
                   <span
                     key={t}
-                    className="rounded-md bg-blue-50 px-2 py-0.5 text-xs font-medium text-blue-700 dark:bg-blue-900/30 dark:text-blue-300"
+                    className="rounded-md bg-indigo-50 px-2 py-0.5 text-xs font-medium text-indigo-700 dark:bg-indigo-900/30 dark:text-indigo-300"
                   >
                     {t}
                   </span>
@@ -35,7 +35,7 @@ export default function Projects() {
                     key={j}
                     className="flex items-start gap-2 text-sm text-gray-600 dark:text-gray-300"
                   >
-                    <span className="mt-1.5 h-1.5 w-1.5 flex-shrink-0 rounded-full bg-blue-600 dark:bg-blue-400" />
+                    <span className="mt-1.5 h-1.5 w-1.5 flex-shrink-0 rounded-full bg-indigo-600 dark:bg-indigo-400" />
                     {bullet}
                   </li>
                 ))}
@@ -48,7 +48,7 @@ export default function Projects() {
                     target="_blank"
                     rel="noopener noreferrer"
                     aria-label={`GitHub repo for ${project.title}`}
-                    className="rounded-md border border-gray-300 px-4 py-2 text-xs font-medium text-gray-700 transition-colors hover:border-blue-600 hover:text-blue-600 dark:border-slate-600 dark:text-gray-300 dark:hover:border-blue-400 dark:hover:text-blue-400"
+                    className="rounded-md border border-gray-300 px-4 py-2 text-xs font-medium text-gray-700 transition-colors hover:border-indigo-600 hover:text-indigo-600 dark:border-slate-600 dark:text-gray-300 dark:hover:border-indigo-400 dark:hover:text-indigo-400"
                   >
                     GitHub
                   </a>
@@ -59,7 +59,7 @@ export default function Projects() {
                     target="_blank"
                     rel="noopener noreferrer"
                     aria-label={`Live demo for ${project.title}`}
-                    className="rounded-md bg-blue-600 px-4 py-2 text-xs font-medium text-white transition-colors hover:bg-blue-700"
+                    className="rounded-md bg-indigo-600 px-4 py-2 text-xs font-medium text-white transition-colors hover:bg-indigo-700"
                   >
                     Live Demo
                   </a>
