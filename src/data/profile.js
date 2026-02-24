@@ -130,12 +130,14 @@ const profile = {
       school: "Concordia University",
       location: "Montreal, Canada",
       period: "2025 – 2026",
+      detail: "Completed 40/45 credits",
     },
     {
       degree: "Bachelor's in Information Technology",
       school: "Coimbatore Institute of Technology",
       location: "India",
       period: "2020 – 2024",
+      detail: "GPA: 8.51/10",
     },
   ],
 
@@ -146,6 +148,8 @@ const profile = {
     { label: "Experience", href: "#experience" },
     { label: "Projects", href: "#projects" },
     { label: "Education", href: "#education" },
+    { label: "Coursework", href: "#coursework" },
+    { label: "Beyond Code", href: "#beyond-code" },
     { label: "Contact", href: "#contact" },
   ],
 
@@ -159,12 +163,101 @@ const profile = {
   currentStatus: "Currently pursuing Master's in Applied Computer Science at Concordia University, Montreal",
 
   coursework: [
-    { name: "Advanced Programming Practices", code: "COMP 6481" },
-    { name: "Distributed Systems", code: "COMP 6231" },
-    { name: "Cloud Computing", code: "COMP 6961" },
-    { name: "Design Patterns", code: "COMP 6461" },
-    { name: "Data Structures & Algorithms", code: "COMP 6521" },
-    { name: "Software Engineering", code: "COMP 6411" },
+    {
+      semester: "Winter 2025",
+      courses: [
+        { name: "Program & Problem Solving", code: "COMP 6481" },
+        { name: "Advanced Programming Practices", code: "SOEN 6441" },
+        { name: "Software Project Management", code: "SOEN 6841" },
+      ],
+    },
+    {
+      semester: "Summer 2025",
+      courses: [
+        { name: "Algorithm Design Techniques", code: "COMP 6651" },
+      ],
+    },
+    {
+      semester: "Fall 2025",
+      courses: [
+        { name: "Distributed System Design", code: "COMP 6231" },
+        { name: "Computer Networks & Protocols", code: "COMP 6461" },
+        { name: "Software Comprehension & Maintenance", code: "SOEN 6431" },
+      ],
+    },
+    {
+      semester: "Winter 2026",
+      current: true,
+      courses: [
+        { name: "Immersive Technology", code: "COMP 475" },
+        { name: "Applied Artificial Intelligence", code: "COMP 6721" },
+        { name: "Human Computer Interaction", code: "SOEN 6751" },
+      ],
+    },
+  ],
+
+  beyondCode: {
+    reading: {
+      intro:
+        "I'm deeply interested in personal growth, focus, and systems thinking.",
+      books: [
+        { title: "Atomic Habits", author: "James Clear" },
+        { title: "Deep Work", author: "Cal Newport" },
+        { title: "The Psychology of Money", author: "Morgan Housel" },
+        {
+          title: "How to Build a Billion Dollar App",
+          author: "George Berkowski",
+        },
+      ],
+      note: "These books influence how I approach discipline, consistency, long-term thinking, and building scalable systems.",
+    },
+    travel: {
+      intro: "I enjoy travelling and exploring new cultures and environments.",
+      places: {
+        Canada: ["Vancouver", "Ottawa", "Toronto", "Quebec", "Montreal"],
+        India: [
+          "Kerala",
+          "Delhi",
+          "Manali",
+          "Andaman and Nicobar Islands",
+          "Tamil Nadu",
+        ],
+      },
+    },
+    fitness: {
+      intro: "I prioritize physical and mental fitness.",
+      activities: [
+        "Meditation",
+        "Yoga",
+        "Stretching",
+        "Jogging",
+        "Strength training (gym)",
+      ],
+      note: "I believe physical discipline directly supports mental clarity and professional performance.",
+    },
+    sports: {
+      items: ["Badminton", "Chess"],
+      chessLink: "https://www.chess.com/member/Harsha_ag",
+    },
+    journaling: {
+      note: "I regularly journal and track habits to stay consistent and self-aware.",
+      images: ["/journal-tracker.jpg"],
+    },
+    languages: [
+      { name: "English", level: "Fluent" },
+      { name: "Tamil", level: "Fluent" },
+      { name: "Telugu", level: "Moderate" },
+      { name: "Hindi", level: "Moderate" },
+      { name: "French", level: "Learning" },
+    ],
+    funDetail: "Black coffee. Always.",
+  },
+
+  certifications: [
+    { name: "Google Project Management Professional", status: "completed" },
+    { name: "Google Data Analytics", status: "completed" },
+    { name: "Google Cybersecurity Professional", status: "completed" },
+    { name: "AWS Certified Developer – Associate", status: "in-progress" },
   ],
 };
 

@@ -37,8 +37,12 @@ export default function Hero() {
         <img
           src={profile.photo}
           alt={profile.name}
-          className="mx-auto mb-6 h-32 w-32 rounded-full object-cover object-top shadow-xl ring-4 ring-indigo-200 dark:ring-indigo-800"
+          className="mx-auto mb-4 h-32 w-32 rounded-full object-cover object-top shadow-xl ring-4 ring-indigo-200 dark:ring-indigo-800"
         />
+
+        <p className="mb-6 text-2xl font-bold italic tracking-widest text-gray-300 dark:text-gray-400">
+          "JUST DO IT."
+        </p>
 
         {/* Currently badge */}
         <div className="mb-4 inline-flex items-center gap-2 rounded-full bg-indigo-50 px-4 py-1.5 text-xs font-medium text-indigo-700 dark:bg-indigo-900/40 dark:text-indigo-300">

@@ -5,6 +5,8 @@ import Skills from "./components/Skills";
 import Experience from "./components/Experience";
 import Projects from "./components/Projects";
 import Education from "./components/Education";
+import Coursework from "./components/Coursework";
+import BeyondCode from "./components/BeyondCode";
 import Contact from "./components/Contact";
 import Footer from "./components/Footer";
 import ScrollToTop from "./components/ScrollToTop";
@@ -28,6 +30,10 @@ export default function App() {
         <FadeIn><Projects /></FadeIn>
         <div className="section-divider" />
         <FadeIn><div className="bg-gray-50 dark:bg-slate-900"><Education /></div></FadeIn>
+        <div className="section-divider" />
+        <FadeIn><Coursework /></FadeIn>
+        <div className="section-divider" />
+        <FadeIn><BeyondCode /></FadeIn>
         <div className="section-divider" />
         <FadeIn><div className="bg-gray-50 dark:bg-slate-900"><Contact /></div></FadeIn>
       </main>

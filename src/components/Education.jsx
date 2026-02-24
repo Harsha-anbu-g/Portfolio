@@ -21,6 +21,11 @@ export default function Education() {
                 <p className="text-sm text-gray-600 dark:text-gray-400">
                   {edu.school} &middot; {edu.location}
                 </p>
+                {edu.detail && (
+                  <p className="text-sm text-gray-500 dark:text-gray-400">
+                    {edu.detail}
+                  </p>
+                )}
               </div>
               <span className="text-sm font-medium text-indigo-600 dark:text-indigo-400">
                 {edu.period}
