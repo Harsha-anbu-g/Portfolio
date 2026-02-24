@@ -109,6 +109,18 @@ const profile = {
       github: "https://github.com/Harsha-anbu-g/RiskGame",
       live: null,
     },
+    {
+      title: "Distributed Book Review Analytics with MPI & Docker",
+      tech: ["Python", "MPI", "Docker", "Pandas"],
+      bullets: [
+        "Built a parallel computing system to analyze ~3M book reviews across up to 10 Docker containers using MPI.",
+        "Implemented master–worker architecture for distributing workload and merging partial results.",
+        "Achieved near-linear speedup on row-level queries (148s → 79s with 10 processes).",
+        "Designed four analytical queries using a map-reduce style approach with mpi4py.",
+      ],
+      github: "https://github.com/Harsha-anbu-g/docker-mpi",
+      live: null,
+    },
   ],
 
   education: [

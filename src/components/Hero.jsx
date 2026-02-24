@@ -37,7 +37,7 @@ export default function Hero() {
         <img
           src={profile.photo}
           alt={profile.name}
-          className="mx-auto mb-6 h-28 w-28 rounded-full object-cover shadow-lg ring-4 ring-indigo-100 dark:ring-indigo-900"
+          className="mx-auto mb-6 h-28 w-28 rounded-full object-cover object-top shadow-lg ring-4 ring-indigo-100 dark:ring-indigo-900"
         />
 
         <h1 className="mb-4 text-4xl font-bold leading-tight text-gray-900 dark:text-white sm:text-5xl">
