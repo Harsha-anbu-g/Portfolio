@@ -145,7 +145,6 @@ const profile = {
     { label: "Experience", href: "#experience" },
     { label: "Projects", href: "#projects" },
     { label: "Education", href: "#education" },
-    { label: "Coursework", href: "#coursework" },
     { label: "Contact", href: "#contact" },
   ],
 

@@ -81,23 +81,6 @@ export default function Hero() {
           </a>
         </div>
 
-        {/* Stats bar */}
-        <div className="mt-16 grid grid-cols-2 gap-6 sm:grid-cols-4">
-          {profile.stats.map((stat, i) => (
-            <div
-              key={i}
-              className="stat-item rounded-xl bg-white/70 p-4 shadow-sm backdrop-blur-sm dark:bg-slate-800/70"
-              style={{ animationDelay: `${i * 0.15}s` }}
-            >
-              <p className="text-2xl font-bold text-indigo-600 dark:text-indigo-400">
-                {stat.value}
-              </p>
-              <p className="mt-1 text-xs font-medium text-gray-500 dark:text-gray-400">
-                {stat.label}
-              </p>
-            </div>
-          ))}
-        </div>
       </div>
     </section>
   );

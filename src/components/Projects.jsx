@@ -1,23 +1,5 @@
 import profile from "../data/profile";
 
-const projectColors = [
-  "from-green-400 to-emerald-500",
-  "from-blue-400 to-indigo-500",
-  "from-purple-400 to-violet-500",
-  "from-orange-400 to-red-500",
-];
-
-const projectIcons = [
-  // Quiz - checklist
-  <svg key="quiz" xmlns="http://www.w3.org/2000/svg" className="h-10 w-10 text-white" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={1.5}><path strokeLinecap="round" strokeLinejoin="round" d="M9 5H7a2 2 0 00-2 2v12a2 2 0 002 2h10a2 2 0 002-2V7a2 2 0 00-2-2h-2M9 5a2 2 0 002 2h2a2 2 0 002-2M9 5a2 2 0 012-2h2a2 2 0 012 2m-6 9l2 2 4-4" /></svg>,
-  // Risk Game - puzzle
-  <svg key="risk" xmlns="http://www.w3.org/2000/svg" className="h-10 w-10 text-white" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={1.5}><path strokeLinecap="round" strokeLinejoin="round" d="M14.828 14.828a4 4 0 01-5.656 0M9 10h.01M15 10h.01M21 12a9 9 0 11-18 0 9 9 0 0118 0z" /></svg>,
-  // MPI Docker - server
-  <svg key="mpi" xmlns="http://www.w3.org/2000/svg" className="h-10 w-10 text-white" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={1.5}><path strokeLinecap="round" strokeLinejoin="round" d="M5 12h14M5 12a2 2 0 01-2-2V6a2 2 0 012-2h14a2 2 0 012 2v4a2 2 0 01-2 2M5 12a2 2 0 00-2 2v4a2 2 0 002 2h14a2 2 0 002-2v-4a2 2 0 00-2-2m-2-4h.01M17 16h.01" /></svg>,
-  // Generic
-  <svg key="gen" xmlns="http://www.w3.org/2000/svg" className="h-10 w-10 text-white" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={1.5}><path strokeLinecap="round" strokeLinejoin="round" d="M10 20l4-16m4 4l4 4-4 4M6 16l-4-4 4-4" /></svg>,
-];
-
 export default function Projects() {
   return (
     <section id="projects" className="px-6 py-20">
@@ -32,11 +14,6 @@ export default function Projects() {
               key={i}
               className="project-card flex flex-col overflow-hidden rounded-xl border border-gray-200 dark:border-slate-700 dark:bg-slate-800/50"
             >
-              {/* Project thumbnail */}
-              <div className={`flex h-36 items-center justify-center bg-gradient-to-br ${projectColors[i % projectColors.length]}`}>
-                {projectIcons[i] || projectIcons[3]}
-              </div>
-
               <div className="flex flex-1 flex-col p-6">
                 <h3 className="mb-2 text-lg font-semibold text-gray-900 dark:text-white">
                   {project.title}
