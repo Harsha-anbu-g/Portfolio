@@ -47,7 +47,7 @@ export default function Skills() {
                 {group.items.map((skill) => (
                   <span
                     key={skill}
-                    className="rounded-md bg-gray-100 px-3 py-1 text-sm text-gray-700 dark:bg-slate-800 dark:text-gray-300"
+                    className="skill-badge cursor-default rounded-md bg-gray-100 px-3 py-1.5 text-sm font-medium text-gray-700 hover:bg-indigo-50 hover:text-indigo-700 dark:bg-slate-800 dark:text-gray-300 dark:hover:bg-indigo-900/30 dark:hover:text-indigo-300"
                   >
                     {skill}
                   </span>

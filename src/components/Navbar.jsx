@@ -38,7 +38,7 @@ export default function Navbar() {
           href="#home"
           className="text-lg font-bold text-gray-900 dark:text-white"
         >
-          {profile.initials}
+          Harshavardhan
         </a>
 
         {/* Desktop links */}

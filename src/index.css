@@ -49,3 +49,102 @@ body {
 .typing-cursor {
   animation: blink 0.7s step-end infinite;
 }
+
+/* Page loader */
+@keyframes loader-spin {
+  to { transform: rotate(360deg); }
+}
+
+@keyframes loader-fade-out {
+  to { opacity: 0; visibility: hidden; }
+}
+
+.page-loader {
+  position: fixed;
+  inset: 0;
+  z-index: 9999;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background: #ffffff;
+}
+
+.dark .page-loader {
+  background: #0f172a;
+}
+
+.page-loader.loaded {
+  animation: loader-fade-out 0.5s ease-out forwards;
+}
+
+.page-loader .spinner {
+  width: 40px;
+  height: 40px;
+  border: 3px solid #e5e7eb;
+  border-top-color: #4f46e5;
+  border-radius: 50%;
+  animation: loader-spin 0.7s linear infinite;
+}
+
+.dark .page-loader .spinner {
+  border-color: #334155;
+  border-top-color: #818cf8;
+}
+
+/* Hero gradient background */
+@keyframes gradient-shift {
+  0%, 100% { background-position: 0% 50%; }
+  50% { background-position: 100% 50%; }
+}
+
+.hero-gradient {
+  background: linear-gradient(135deg, #eef2ff 0%, #e0e7ff 25%, #f5f3ff 50%, #ede9fe 75%, #eef2ff 100%);
+  background-size: 200% 200%;
+  animation: gradient-shift 8s ease infinite;
+}
+
+.dark .hero-gradient {
+  background: linear-gradient(135deg, #0f172a 0%, #1e1b4b 25%, #0f172a 50%, #1e1b4b 75%, #0f172a 100%);
+  background-size: 200% 200%;
+  animation: gradient-shift 8s ease infinite;
+}
+
+/* Skill badge hover */
+.skill-badge {
+  transition: transform 0.2s ease, box-shadow 0.2s ease, background-color 0.2s ease;
+}
+
+.skill-badge:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 4px 12px rgba(79, 70, 229, 0.15);
+}
+
+/* Section divider */
+.section-divider {
+  height: 1px;
+  background: linear-gradient(to right, transparent, #d1d5db, transparent);
+}
+
+.dark .section-divider {
+  background: linear-gradient(to right, transparent, #334155, transparent);
+}
+
+/* Project card hover lift */
+.project-card {
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.project-card:hover {
+  transform: translateY(-4px);
+  box-shadow: 0 12px 24px rgba(0, 0, 0, 0.1);
+}
+
+/* Stat counter animation */
+@keyframes count-up {
+  from { opacity: 0; transform: translateY(10px); }
+  to { opacity: 1; transform: translateY(0); }
+}
+
+.stat-item {
+  animation: count-up 0.6s ease-out forwards;
+}

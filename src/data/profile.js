@@ -8,7 +8,7 @@ const profile = {
   subtext:
     "I specialize in React, Spring Boot, and secure backend systems, building production-ready applications with clean architecture and strong fundamentals.",
   about:
-    "Harshavardhan is a Full-Stack Engineer with experience in designing and developing scalable web applications using React and Spring Boot. He focuses on clean API design, secure authentication systems, optimized database architecture, and maintainable code. With experience in Agile environments and strong fundamentals in object-oriented design and system thinking, he builds applications that are both user-focused and technically robust.",
+    "I am a Full-Stack Engineer with experience in designing and developing scalable web applications using React and Spring Boot. I focus on clean API design, secure authentication systems, optimized database architecture, and maintainable code. With experience in Agile environments and strong fundamentals in object-oriented design and system thinking, I build applications that are both user-focused and technically robust.",
 
   contact: {
     email: "agharsha.anbu@gmail.com",
@@ -145,7 +145,26 @@ const profile = {
     { label: "Experience", href: "#experience" },
     { label: "Projects", href: "#projects" },
     { label: "Education", href: "#education" },
+    { label: "Coursework", href: "#coursework" },
     { label: "Contact", href: "#contact" },
+  ],
+
+  stats: [
+    { label: "Projects Built", value: "3+" },
+    { label: "Years Experience", value: "2+" },
+    { label: "Technologies", value: "15+" },
+    { label: "Education", value: "Master's" },
+  ],
+
+  currentStatus: "Currently pursuing Master's in Applied Computer Science at Concordia University, Montreal",
+
+  coursework: [
+    { name: "Advanced Programming Practices", code: "COMP 6481" },
+    { name: "Distributed Systems", code: "COMP 6231" },
+    { name: "Cloud Computing", code: "COMP 6961" },
+    { name: "Design Patterns", code: "COMP 6461" },
+    { name: "Data Structures & Algorithms", code: "COMP 6521" },
+    { name: "Software Engineering", code: "COMP 6411" },
   ],
 };
 
