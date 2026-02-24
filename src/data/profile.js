@@ -15,6 +15,7 @@ const profile = {
     phone: "+1 438-535-5782",
     linkedin: "https://www.linkedin.com/in/harsha-anbu-gowri",
     github: "https://github.com/Harsha-anbu-g",
+    instagram: "https://www.instagram.com/harsha._.ag",
   },
 
   skills: [
