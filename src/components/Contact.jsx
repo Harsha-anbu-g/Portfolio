@@ -18,7 +18,7 @@ export default function Contact() {
           <a
             href={`mailto:${email}`}
             aria-label="Send email"
-            className="flex items-center gap-2 rounded-lg border border-gray-300 px-5 py-3 text-sm font-medium text-gray-700 transition-colors hover:bg-gray-100 dark:border-slate-600 dark:text-gray-300 dark:hover:bg-slate-700"
+            className="flex items-center gap-2 rounded-lg border border-gray-900 px-5 py-3 text-sm font-medium text-gray-900 transition-colors hover:bg-gray-900 hover:text-white dark:border-white dark:text-white dark:hover:bg-white dark:hover:text-gray-900"
           >
             <svg
               xmlns="http://www.w3.org/2000/svg"
@@ -76,7 +76,7 @@ export default function Contact() {
           <a
             href={`tel:${phone}`}
             aria-label="Phone number"
-            className="flex items-center gap-2 rounded-lg border border-gray-300 px-5 py-3 text-sm font-medium text-gray-700 transition-colors hover:bg-gray-100 dark:border-slate-600 dark:text-gray-300 dark:hover:bg-slate-700"
+            className="flex items-center gap-2 rounded-lg border border-gray-900 px-5 py-3 text-sm font-medium text-gray-900 transition-colors hover:bg-gray-900 hover:text-white dark:border-white dark:text-white dark:hover:bg-white dark:hover:text-gray-900"
           >
             <svg
               xmlns="http://www.w3.org/2000/svg"
@@ -100,7 +100,7 @@ export default function Contact() {
             target="_blank"
             rel="noopener noreferrer"
             aria-label="Instagram profile"
-            className="flex items-center gap-2 rounded-lg border border-gray-300 px-5 py-3 text-sm font-medium text-gray-700 transition-colors hover:bg-gray-100 dark:border-slate-600 dark:text-gray-300 dark:hover:bg-slate-700"
+            className="flex items-center gap-2 rounded-lg border border-gray-900 px-5 py-3 text-sm font-medium text-gray-900 transition-colors hover:bg-gray-900 hover:text-white dark:border-white dark:text-white dark:hover:bg-white dark:hover:text-gray-900"
           >
             <svg
               xmlns="http://www.w3.org/2000/svg"
