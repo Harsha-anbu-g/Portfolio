@@ -36,9 +36,11 @@ export default function Navbar() {
       <div className="mx-auto flex max-w-[1100px] items-center justify-between px-6 py-4">
         <a
           href="#home"
-          className="text-lg font-bold text-gray-900 dark:text-white"
+          className="text-lg font-bold leading-tight text-gray-900 dark:text-white"
         >
           Harshavardhan
+          <br />
+          <span className="text-sm font-semibold">Anbuchezhian Gowri</span>
         </a>
 
         {/* Desktop links */}

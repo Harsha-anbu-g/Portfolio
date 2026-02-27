@@ -27,7 +27,7 @@ export default function Coursework() {
                 {sem.courses.map((course, ci) => (
                   <div
                     key={ci}
-                    className="group flex items-center gap-3 rounded-lg border border-gray-200 p-4 transition-all hover:border-indigo-300 hover:shadow-sm dark:border-slate-700 dark:hover:border-indigo-600"
+                    className="group flex items-center gap-3 rounded-lg border border-gray-300 p-4 transition-all hover:border-indigo-300 hover:shadow-sm dark:border-slate-700 dark:hover:border-indigo-600"
                   >
                     <div className="flex h-10 w-10 flex-shrink-0 items-center justify-center rounded-lg bg-indigo-50 text-indigo-600 transition-colors group-hover:bg-indigo-600 group-hover:text-white dark:bg-indigo-900/30 dark:text-indigo-400 dark:group-hover:bg-indigo-600 dark:group-hover:text-white">
                       <svg

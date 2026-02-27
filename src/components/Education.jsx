@@ -12,7 +12,7 @@ export default function Education() {
           {profile.education.map((edu, i) => (
             <div
               key={i}
-              className="flex flex-col gap-1 rounded-lg border border-gray-200 p-6 dark:border-slate-700 dark:bg-slate-800/50 sm:flex-row sm:items-center sm:justify-between"
+              className="flex flex-col gap-1 rounded-lg border border-gray-300 p-6 dark:border-slate-700 dark:bg-slate-800/50 sm:flex-row sm:items-center sm:justify-between"
             >
               <div>
                 <h3 className="text-lg font-semibold text-gray-900 dark:text-white">

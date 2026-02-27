@@ -6,7 +6,7 @@ const { reading, travel, fitness, sports, journaling, languages, funDetail } =
 /* ── tiny reusable card wrapper ── */
 function Card({ title, icon, children }) {
   return (
-    <div className="rounded-lg border border-gray-200 p-6 dark:border-slate-700 dark:bg-slate-800/50">
+    <div className="rounded-lg border border-gray-300 p-6 dark:border-slate-700 dark:bg-slate-800/50">
       <h3 className="mb-4 flex items-center gap-2 text-sm font-semibold uppercase tracking-wider text-indigo-600 dark:text-indigo-400">
         {icon}
         {title}
@@ -209,7 +209,7 @@ export default function BeyondCode() {
                   key={i}
                   src={src}
                   alt={`Journal snapshot ${i + 1}`}
-                  className="w-full rounded-lg border border-gray-200 dark:border-slate-700"
+                  className="w-full rounded-lg border border-gray-300 dark:border-slate-700"
                 />
               ))}
             </div>

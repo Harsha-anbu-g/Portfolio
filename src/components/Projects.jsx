@@ -12,7 +12,7 @@ export default function Projects() {
           {profile.projects.map((project, i) => (
             <div
               key={i}
-              className="project-card flex flex-col overflow-hidden rounded-xl border border-gray-200 dark:border-slate-700 dark:bg-slate-800/50"
+              className="project-card flex flex-col overflow-hidden rounded-xl border border-gray-300 dark:border-slate-700 dark:bg-slate-800/50"
             >
               <div className="flex flex-1 flex-col p-6">
                 <h3 className="mb-2 text-lg font-semibold text-gray-900 dark:text-white">

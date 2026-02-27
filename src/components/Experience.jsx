@@ -12,7 +12,7 @@ export default function Experience() {
           {profile.experience.map((job, i) => (
             <div
               key={i}
-              className="relative rounded-lg border border-gray-200 p-6 transition-shadow hover:shadow-md dark:border-slate-700 dark:bg-slate-800/50"
+              className="relative rounded-lg border border-gray-300 p-6 transition-shadow hover:shadow-md dark:border-slate-700 dark:bg-slate-800/50"
             >
               <div className="mb-3 flex flex-col gap-1 sm:flex-row sm:items-center sm:justify-between">
                 <div>
