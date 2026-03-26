@@ -8,7 +8,7 @@ const profile = {
   subtext:
     "I specialize in React, Spring Boot, and secure backend systems, building production-ready applications with clean architecture and strong fundamentals.",
   about:
-    "I am a Full-Stack Engineer with experience in designing and developing scalable web applications using React and Spring Boot. I focus on clean API design, secure authentication systems, optimized database architecture, and maintainable code. With experience in Agile environments and strong fundamentals in object-oriented design and system thinking, I build applications that are both user-focused and technically robust.",
+    "I'm a Full-Stack Engineer and international student at Concordia University, with hands-on experience building scalable web applications using Java, Spring Boot, and React. I focus on clean API design, secure authentication systems, and maintainable code — drawn to problems that require deep thinking and careful, long-term solutions rather than quick fixes. I enjoy working closely with teams and contributing consistently across every stage of a project, writing code that is reliable and built to last.",
 
   contact: {
     email: "agharsha.anbu@gmail.com",
