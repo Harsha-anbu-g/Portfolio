@@ -1,10 +1,10 @@
 import profile from "../data/profile";
 
 const semesterColors = {
-  "Winter 2025": "#6366F1",
-  "Summer 2025": "#6366F1",
-  "Fall 2025":   "#6366F1",
-  "Winter 2026": "#6366F1",
+  "Winter 2025": "#F96D00",
+  "Summer 2025": "#F96D00",
+  "Fall 2025":   "#F96D00",
+  "Winter 2026": "#F96D00",
 };
 
 export default function Coursework() {
@@ -25,7 +25,7 @@ export default function Coursework() {
         {/* Semester blocks */}
         <div style={{ display: "flex", flexDirection: "column", gap: "3rem" }}>
           {profile.coursework.map((sem, si) => {
-            const color = semesterColors[sem.semester] || "#6366F1";
+            const color = semesterColors[sem.semester] || "#F96D00";
             return (
               <div key={si}>
                 {/* Semester label */}
@@ -51,14 +51,14 @@ export default function Coursework() {
                       display: "inline-flex", alignItems: "center", gap: "0.4rem",
                       fontSize: "0.7rem", fontWeight: 600,
                       background: "rgba(99,102,241,0.1)",
-                      color: "#6366F1",
+                      color: "#F96D00",
                       border: "1px solid rgba(99,102,241,0.25)",
                       borderRadius: "999px",
                       padding: "0.2rem 0.75rem",
                     }}>
                       <span style={{
                         width: 6, height: 6, borderRadius: "50%",
-                        background: "#6366F1",
+                        background: "#F96D00",
                         animation: "pulse-dot 2s infinite",
                       }} />
                       Current
@@ -142,7 +142,7 @@ export default function Coursework() {
         }}>
           <div style={{
             width: 36, height: 36, borderRadius: "50%", flexShrink: 0,
-            background: "#6366F1",
+            background: "#F96D00",
             display: "flex", alignItems: "center", justifyContent: "center",
           }}>
             <svg width="16" height="16" fill="none" viewBox="0 0 24 24" stroke="#fff" strokeWidth={2.5}>
