@@ -23,7 +23,7 @@ function BeyondCard({ icon, title, children }) {
       }}>
         <div style={{
           width: 36, height: 36, borderRadius: "50%",
-          background: "#F96D00",
+          background: "#2563EB",
           display: "flex", alignItems: "center", justifyContent: "center",
           flexShrink: 0,
         }}>
@@ -32,7 +32,7 @@ function BeyondCard({ icon, title, children }) {
         <h3 style={{
           fontSize: "0.75rem", fontWeight: 700,
           letterSpacing: "0.12em", textTransform: "uppercase",
-          color: "#F96D00",
+          color: "#2563EB",
         }}>
           {title}
         </h3>
@@ -88,8 +88,8 @@ export default function BeyondCode() {
               {reading.books.map((b) => (
                 <div key={b.title} style={{
                   padding: "0.6rem 0.9rem",
-                  background: "rgba(249,109,0,0.07)",
-                  borderLeft: "2px solid #F96D00",
+                  background: "rgba(37,99,235,0.07)",
+                  borderLeft: "2px solid #2563EB",
                   borderRadius: "0 3px 3px 0",
                 }}>
                   <p style={{ fontSize: "0.82rem", fontWeight: 600, color: "#fff", marginBottom: "0.1rem" }}>{b.title}</p>
@@ -115,7 +115,7 @@ export default function BeyondCode() {
               <div key={country} style={{ marginBottom: "1.1rem" }}>
                 <p style={{
                   fontSize: "0.68rem", fontWeight: 700, textTransform: "uppercase",
-                  letterSpacing: "0.12em", color: "#F96D00", marginBottom: "0.6rem",
+                  letterSpacing: "0.12em", color: "#2563EB", marginBottom: "0.6rem",
                 }}>
                   {country}
                 </p>
@@ -130,7 +130,7 @@ export default function BeyondCode() {
               rel="noopener noreferrer"
               style={{
                 display: "inline-flex", alignItems: "center", gap: "0.4rem",
-                fontSize: "0.78rem", fontWeight: 600, color: "#F96D00",
+                fontSize: "0.78rem", fontWeight: 600, color: "#2563EB",
                 textDecoration: "none", marginTop: "0.75rem",
               }}
             >
@@ -193,8 +193,8 @@ export default function BeyondCode() {
               {sports.items.map((s) => (
                 <div key={s} style={{
                   padding: "0.75rem 1.25rem",
-                  background: "rgba(249,109,0,0.1)",
-                  border: "1px solid rgba(249,109,0,0.2)",
+                  background: "rgba(37,99,235,0.1)",
+                  border: "1px solid rgba(37,99,235,0.2)",
                   borderRadius: "4px",
                   fontSize: "0.875rem", fontWeight: 600, color: "#fff",
                 }}>

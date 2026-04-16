@@ -1,10 +1,10 @@
 import profile from "../data/profile";
 
 const semesterColors = {
-  "Winter 2025": "#F96D00",
-  "Summer 2025": "#F96D00",
-  "Fall 2025":   "#F96D00",
-  "Winter 2026": "#F96D00",
+  "Winter 2025": "#2563EB",
+  "Summer 2025": "#2563EB",
+  "Fall 2025":   "#2563EB",
+  "Winter 2026": "#2563EB",
 };
 
 export default function Coursework() {
@@ -25,7 +25,7 @@ export default function Coursework() {
         {/* Semester blocks */}
         <div style={{ display: "flex", flexDirection: "column", gap: "3rem" }}>
           {profile.coursework.map((sem, si) => {
-            const color = semesterColors[sem.semester] || "#F96D00";
+            const color = semesterColors[sem.semester] || "#2563EB";
             return (
               <div key={si}>
                 {/* Semester label */}
@@ -50,15 +50,15 @@ export default function Coursework() {
                     <span style={{
                       display: "inline-flex", alignItems: "center", gap: "0.4rem",
                       fontSize: "0.7rem", fontWeight: 600,
-                      background: "rgba(249,109,0,0.1)",
-                      color: "#F96D00",
-                      border: "1px solid rgba(249,109,0,0.25)",
+                      background: "rgba(37,99,235,0.1)",
+                      color: "#2563EB",
+                      border: "1px solid rgba(37,99,235,0.25)",
                       borderRadius: "999px",
                       padding: "0.2rem 0.75rem",
                     }}>
                       <span style={{
                         width: 6, height: 6, borderRadius: "50%",
-                        background: "#F96D00",
+                        background: "#2563EB",
                         animation: "pulse-dot 2s infinite",
                       }} />
                       Current
@@ -81,9 +81,9 @@ export default function Coursework() {
                         alignItems: "center",
                         gap: "1rem",
                         padding: "1.1rem 1.25rem",
-                        border: `1px solid ${sem.current ? "rgba(249,109,0,0.2)" : "rgba(0,0,0,0.08)"}`,
+                        border: `1px solid ${sem.current ? "rgba(37,99,235,0.2)" : "rgba(0,0,0,0.08)"}`,
                         borderRadius: "4px",
-                        background: sem.current ? "rgba(249,109,0,0.03)" : "#fafaf9",
+                        background: sem.current ? "rgba(37,99,235,0.03)" : "#fafaf9",
                         transition: "border-color 0.2s, box-shadow 0.2s",
                         cursor: "default",
                       }}
@@ -92,7 +92,7 @@ export default function Coursework() {
                         e.currentTarget.style.boxShadow = `0 4px 16px rgba(0,0,0,0.06)`;
                       }}
                       onMouseLeave={e => {
-                        e.currentTarget.style.borderColor = sem.current ? "rgba(249,109,0,0.2)" : "rgba(0,0,0,0.08)";
+                        e.currentTarget.style.borderColor = sem.current ? "rgba(37,99,235,0.2)" : "rgba(0,0,0,0.08)";
                         e.currentTarget.style.boxShadow = "none";
                       }}
                     >
@@ -135,14 +135,14 @@ export default function Coursework() {
         <div style={{
           marginTop: "3rem",
           padding: "1.25rem 1.5rem",
-          background: "rgba(249,109,0,0.05)",
-          border: "1px solid rgba(249,109,0,0.15)",
+          background: "rgba(37,99,235,0.05)",
+          border: "1px solid rgba(37,99,235,0.15)",
           borderRadius: "4px",
           display: "flex", alignItems: "center", gap: "1rem",
         }}>
           <div style={{
             width: 36, height: 36, borderRadius: "50%", flexShrink: 0,
-            background: "#F96D00",
+            background: "#2563EB",
             display: "flex", alignItems: "center", justifyContent: "center",
           }}>
             <svg width="16" height="16" fill="none" viewBox="0 0 24 24" stroke="#fff" strokeWidth={2.5}>
