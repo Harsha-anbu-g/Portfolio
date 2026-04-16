@@ -28,7 +28,7 @@ export default function Skills() {
             <div key={i} className="progress-wrap">
               <div className="progress-label">
                 <span>{skill.name}</span>
-                <span style={{ color: "#0EA5E9" }}>{skill.percent}%</span>
+                <span style={{ color: "#1D4ED8" }}>{skill.percent}%</span>
               </div>
               <div className="progress-track">
                 <div
