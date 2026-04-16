@@ -150,6 +150,8 @@ const profile = {
     { label: "Resume", href: "#experience" },
     { label: "Skills", href: "#skills" },
     { label: "Projects", href: "#projects" },
+    { label: "Coursework", href: "#coursework" },
+    { label: "Beyond Code", href: "#beyond-code" },
     { label: "Contact", href: "#contact" },
   ],
 
