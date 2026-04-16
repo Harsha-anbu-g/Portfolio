@@ -254,7 +254,7 @@ export default function BeyondCode() {
         }}>
           <p style={{
             fontSize: "1rem", fontWeight: 500,
-            color: "rgba(255,255,255,0.35)",
+            color: "rgba(255,255,255,0.18)",
             letterSpacing: "0.05em",
           }}>
             ☕ {funDetail}
