@@ -1,9 +1,9 @@
 import profile from "../data/profile";
 
 const semesterColors = {
-  "Winter 2025": "#3b82f6",
-  "Summer 2025": "#f59e0b",
-  "Fall 2025":   "#10b981",
+  "Winter 2025": "#F96D00",
+  "Summer 2025": "#F96D00",
+  "Fall 2025":   "#F96D00",
   "Winter 2026": "#F96D00",
 };
 

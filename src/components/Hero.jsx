@@ -1,13 +1,40 @@
+import { useState, useEffect } from "react";
 import profile from "../data/profile";
 
+const greetings = ["Hello!", "Bonjour!", "நன்றி!"];
+
 export default function Hero() {
+  const [greetIndex, setGreetIndex] = useState(0);
+  const [visible, setVisible] = useState(true);
+
+  useEffect(() => {
+    const cycle = setInterval(() => {
+      setVisible(false);
+      setTimeout(() => {
+        setGreetIndex(i => (i + 1) % greetings.length);
+        setVisible(true);
+      }, 350);
+    }, 2200);
+    return () => clearInterval(cycle);
+  }, []);
+
   return (
     <section id="home" className="hero-section">
       <div className="hero-content">
         {/* ── Left: text ── */}
         <div className="hero-text-side">
           <div>
-            <span className="hero-sub">Hello!</span>
+            <span
+              className="hero-sub"
+              style={{
+                display: "inline-block",
+                transition: "opacity 0.35s ease, transform 0.35s ease",
+                opacity: visible ? 1 : 0,
+                transform: visible ? "translateY(0)" : "translateY(-8px)",
+              }}
+            >
+              {greetings[greetIndex]}
+            </span>
 
             <h1 className="hero-name">
               I'm <span>{profile.name.split(" ")[0]}</span>
