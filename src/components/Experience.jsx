@@ -27,7 +27,7 @@ export default function Experience() {
             }}>
               <span style={{
                 width: 32, height: 32,
-                background: "#6366F1",
+                background: "#F96D00",
                 borderRadius: "50%",
                 display: "flex", alignItems: "center", justifyContent: "center", flexShrink: 0,
               }}>
@@ -65,7 +65,7 @@ export default function Experience() {
             }}>
               <span style={{
                 width: 32, height: 32,
-                background: "#6366F1",
+                background: "#F96D00",
                 borderRadius: "50%",
                 display: "flex", alignItems: "center", justifyContent: "center", flexShrink: 0,
               }}>
@@ -106,11 +106,11 @@ export default function Experience() {
                   }}>
                     <span style={{
                       width: 8, height: 8, borderRadius: "50%", flexShrink: 0,
-                      background: cert.status === "completed" ? "#6366F1" : "#d1d5db",
+                      background: cert.status === "completed" ? "#F96D00" : "#d1d5db",
                     }} />
                     {cert.name}
                     {cert.status === "in-progress" && (
-                      <span style={{ fontSize: "0.7rem", color: "#6366F1", fontWeight: 600 }}>In Progress</span>
+                      <span style={{ fontSize: "0.7rem", color: "#F96D00", fontWeight: 600 }}>In Progress</span>
                     )}
                   </div>
                 ))}
