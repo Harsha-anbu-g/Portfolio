@@ -270,8 +270,8 @@ export default function BeyondCode() {
               borderRadius: "4px",
               fontSize: "0.875rem", fontWeight: 600, color: "#fff",
               textDecoration: "none",
-              background: "linear-gradient(135deg, #a0622a, #963d2a, #8c1f30, #7a1740, #6b1050)",
-              boxShadow: "0 4px 20px rgba(140,31,48,0.2)",
+              background: "linear-gradient(135deg, rgba(240,148,51,0.55), rgba(230,104,60,0.55), rgba(220,39,67,0.55), rgba(204,35,102,0.55), rgba(188,24,136,0.55))",
+              boxShadow: "0 4px 20px rgba(220,39,67,0.12)",
               transition: "opacity 0.2s, transform 0.2s",
             }}
             onMouseEnter={e => { e.currentTarget.style.opacity = "0.88"; e.currentTarget.style.transform = "translateY(-1px)"; }}
