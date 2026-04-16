@@ -31,7 +31,7 @@ export default function Navbar() {
               target="_blank"
               rel="noopener noreferrer"
               style={{
-                background: "#2563EB",
+                background: "#0EA5E9",
                 color: "#fff",
                 padding: "0.4rem 1rem",
                 borderRadius: "3px",
@@ -93,7 +93,7 @@ export default function Navbar() {
             href="/resume.pdf"
             target="_blank"
             rel="noopener noreferrer"
-            style={{ color: "#2563EB" }}
+            style={{ color: "#0EA5E9" }}
             onClick={() => setMenuOpen(false)}
           >
             Resume
