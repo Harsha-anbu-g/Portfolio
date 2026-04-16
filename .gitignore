@@ -22,3 +22,14 @@ dist-ssr
 *.njsproj
 *.sln
 *.sw?
+
+# Reference templates (not part of the project)
+clark-master/
+
+# Playwright test artifacts
+.playwright-mcp/
+
+# Debug screenshots dumped at project root
+/*.png
+/*.jpg
+/*.jpeg

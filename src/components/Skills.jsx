@@ -1,62 +1,79 @@
-import profile from "../data/profile";
-
-const categoryIcons = {
-  Frontend: (
-    <svg xmlns="http://www.w3.org/2000/svg" className="h-5 w-5" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={2}>
-      <path strokeLinecap="round" strokeLinejoin="round" d="M9.75 17L9 20l-1 1h8l-1-1-.75-3M3 13h18M5 17h14a2 2 0 002-2V5a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z" />
-    </svg>
-  ),
-  Backend: (
-    <svg xmlns="http://www.w3.org/2000/svg" className="h-5 w-5" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={2}>
-      <path strokeLinecap="round" strokeLinejoin="round" d="M5 12h14M5 12a2 2 0 01-2-2V6a2 2 0 012-2h14a2 2 0 012 2v4a2 2 0 01-2 2M5 12a2 2 0 00-2 2v4a2 2 0 002 2h14a2 2 0 002-2v-4a2 2 0 00-2-2m-2-4h.01M17 16h.01" />
-    </svg>
-  ),
-  Databases: (
-    <svg xmlns="http://www.w3.org/2000/svg" className="h-5 w-5" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={2}>
-      <path strokeLinecap="round" strokeLinejoin="round" d="M4 7v10c0 2.21 3.582 4 8 4s8-1.79 8-4V7M4 7c0 2.21 3.582 4 8 4s8-1.79 8-4M4 7c0-2.21 3.582-4 8-4s8 1.79 8 4m0 5c0 2.21-3.582 4-8 4s-8-1.79-8-4" />
-    </svg>
-  ),
-  "Cloud & DevOps": (
-    <svg xmlns="http://www.w3.org/2000/svg" className="h-5 w-5" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={2}>
-      <path strokeLinecap="round" strokeLinejoin="round" d="M3 15a4 4 0 004 4h9a5 5 0 10-.1-9.999 5.002 5.002 0 10-9.78 2.096A4.001 4.001 0 003 15z" />
-    </svg>
-  ),
-  Practices: (
-    <svg xmlns="http://www.w3.org/2000/svg" className="h-5 w-5" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={2}>
-      <path strokeLinecap="round" strokeLinejoin="round" d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z" />
-    </svg>
-  ),
-};
+const skillBars = [
+  { name: "Java", percent: 92 },
+  { name: "Spring Boot", percent: 89 },
+  { name: "React", percent: 85 },
+  { name: "JavaScript", percent: 88 },
+  { name: "TypeScript", percent: 76 },
+  { name: "RESTful APIs", percent: 90 },
+  { name: "PostgreSQL / MySQL", percent: 82 },
+  { name: "AWS (EC2, S3, IAM)", percent: 70 },
+  { name: "Docker", percent: 78 },
+  { name: "JUnit & Testing", percent: 81 },
+];
 
 export default function Skills() {
   return (
-    <section id="skills" className="px-6 py-20">
-      <div className="mx-auto max-w-[1100px]">
-        <h2 className="mb-10 text-3xl font-bold text-gray-900 dark:text-white">
-          Skills
-        </h2>
+    <section id="skills" className="clark-section" style={{ background: "#f8f6f1" }}>
+      <div style={{ maxWidth: 1200, margin: "0 auto", padding: "0 5%" }}>
+        {/* Heading */}
+        <div style={{ position: "relative", marginBottom: "3.5rem" }}>
+          <span className="ghost-heading">Skills</span>
+          <span className="section-label">What I Know</span>
+          <h2 className="section-title">My Skills</h2>
+        </div>
 
-        <div className="grid gap-8 sm:grid-cols-2 lg:grid-cols-3">
-          {profile.skills.map((group) => (
-            <div key={group.category}>
-              <h3 className="mb-3 flex items-center gap-2 text-sm font-semibold uppercase tracking-wider text-indigo-600 dark:text-indigo-400">
-                {categoryIcons[group.category]}
-                {group.category}
-              </h3>
-              <div className="flex flex-wrap gap-2">
-                {group.items.map((skill) => (
-                  <span
-                    key={skill}
-                    className="skill-badge cursor-default rounded-md bg-gray-100 px-3 py-1.5 text-sm font-medium text-gray-700 hover:bg-indigo-50 hover:text-indigo-700 dark:bg-slate-800 dark:text-gray-300 dark:hover:bg-indigo-900/30 dark:hover:text-indigo-300"
-                  >
-                    {skill}
-                  </span>
-                ))}
+        {/* Progress bars — two columns */}
+        <div style={{ display: "grid", gridTemplateColumns: "1fr 1fr", gap: "0 4rem" }}>
+          {skillBars.map((skill, i) => (
+            <div key={i} className="progress-wrap">
+              <div className="progress-label">
+                <span>{skill.name}</span>
+                <span style={{ color: "#F96D00" }}>{skill.percent}%</span>
+              </div>
+              <div className="progress-track">
+                <div
+                  className="progress-fill"
+                  style={{
+                    animationDelay: `${i * 0.08}s`,
+                    width: `${skill.percent}%`,
+                  }}
+                />
               </div>
             </div>
           ))}
         </div>
+
+        {/* Tech badges row */}
+        <div style={{ marginTop: "3.5rem", borderTop: "1px solid rgba(0,0,0,0.08)", paddingTop: "2.5rem" }}>
+          <p style={{ fontSize: "0.75rem", fontWeight: 600, letterSpacing: "0.12em", textTransform: "uppercase", color: "#9ca3af", marginBottom: "1rem" }}>
+            Also comfortable with
+          </p>
+          <div style={{ display: "flex", flexWrap: "wrap", gap: "0.6rem" }}>
+            {["Hibernate", "JDBC", "Spring MVC", "JWT Auth", "Git / GitHub", "CI/CD", "Agile / Scrum", "OOP Design", "Figma", "Power BI", "Alteryx"].map((tag) => (
+              <span key={tag} style={{
+                display: "inline-block",
+                padding: "0.35rem 0.85rem",
+                border: "1px solid rgba(0,0,0,0.12)",
+                borderRadius: "3px",
+                fontSize: "0.78rem",
+                fontWeight: 500,
+                color: "#555",
+                background: "#fff",
+              }}>
+                {tag}
+              </span>
+            ))}
+          </div>
+        </div>
       </div>
+
+      <style>{`
+        @media (max-width: 640px) {
+          #skills > div > div:nth-child(2) {
+            grid-template-columns: 1fr !important;
+          }
+        }
+      `}</style>
     </section>
   );
 }

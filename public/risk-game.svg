@@ -1,0 +1,151 @@
+<svg viewBox="0 0 900 600" xmlns="http://www.w3.org/2000/svg" preserveAspectRatio="xMidYMid slice">
+  <defs>
+    <pattern id="grid" width="40" height="40" patternUnits="userSpaceOnUse">
+      <path d="M 40 0 L 0 0 0 40" fill="none" stroke="rgba(100,160,100,0.12)" stroke-width="0.8"/>
+    </pattern>
+    <radialGradient id="glowRed" cx="50%" cy="50%" r="50%">
+      <stop offset="0%" stop-color="#e74c3c" stop-opacity="0.9"/>
+      <stop offset="100%" stop-color="#c0392b" stop-opacity="0.3"/>
+    </radialGradient>
+    <radialGradient id="glowBlue" cx="50%" cy="50%" r="50%">
+      <stop offset="0%" stop-color="#3498db" stop-opacity="0.9"/>
+      <stop offset="100%" stop-color="#2980b9" stop-opacity="0.3"/>
+    </radialGradient>
+    <radialGradient id="glowGreen" cx="50%" cy="50%" r="50%">
+      <stop offset="0%" stop-color="#2ecc71" stop-opacity="0.9"/>
+      <stop offset="100%" stop-color="#27ae60" stop-opacity="0.3"/>
+    </radialGradient>
+    <radialGradient id="glowYellow" cx="50%" cy="50%" r="50%">
+      <stop offset="0%" stop-color="#f39c12" stop-opacity="0.9"/>
+      <stop offset="100%" stop-color="#e67e22" stop-opacity="0.3"/>
+    </radialGradient>
+    <filter id="glow">
+      <feGaussianBlur stdDeviation="3" result="coloredBlur"/>
+      <feMerge><feMergeNode in="coloredBlur"/><feMergeNode in="SourceGraphic"/></feMerge>
+    </filter>
+  </defs>
+
+  <!-- Base background — dark military green -->
+  <rect width="900" height="600" fill="#0a1a0e"/>
+  <!-- Subtle paper texture overlay -->
+  <rect width="900" height="600" fill="url(#grid)"/>
+
+  <!-- ── Continent regions ── -->
+  <!-- North America -->
+  <path d="M 80 80 L 240 60 L 280 100 L 260 180 L 220 220 L 160 240 L 100 200 L 70 150 Z"
+        fill="rgba(52,152,219,0.18)" stroke="rgba(52,152,219,0.5)" stroke-width="1.5"/>
+  <!-- South America -->
+  <path d="M 180 270 L 260 260 L 290 320 L 270 420 L 220 450 L 170 400 L 160 330 Z"
+        fill="rgba(231,76,60,0.18)" stroke="rgba(231,76,60,0.5)" stroke-width="1.5"/>
+  <!-- Europe -->
+  <path d="M 380 60 L 500 50 L 520 120 L 490 170 L 420 180 L 370 140 Z"
+        fill="rgba(46,204,113,0.18)" stroke="rgba(46,204,113,0.5)" stroke-width="1.5"/>
+  <!-- Africa -->
+  <path d="M 390 210 L 510 200 L 540 300 L 520 420 L 450 450 L 380 400 L 360 300 Z"
+        fill="rgba(243,156,18,0.18)" stroke="rgba(243,156,18,0.5)" stroke-width="1.5"/>
+  <!-- Asia -->
+  <path d="M 540 50 L 760 60 L 800 160 L 740 220 L 620 240 L 540 190 L 520 120 Z"
+        fill="rgba(155,89,182,0.18)" stroke="rgba(155,89,182,0.5)" stroke-width="1.5"/>
+  <!-- Australia -->
+  <path d="M 680 320 L 800 310 L 830 400 L 790 450 L 700 460 L 660 400 Z"
+        fill="rgba(231,76,60,0.18)" stroke="rgba(231,76,60,0.4)" stroke-width="1.5"/>
+  <!-- Ocean areas -->
+  <ellipse cx="330" cy="300" rx="40" ry="60" fill="rgba(30,80,140,0.15)"/>
+  <ellipse cx="850" cy="280" rx="30" ry="50" fill="rgba(30,80,140,0.12)"/>
+
+  <!-- ── Territory connection lines ── -->
+  <g stroke="rgba(255,255,255,0.12)" stroke-width="1" stroke-dasharray="4,4">
+    <!-- NA → Europe -->
+    <line x1="240" y1="130" x2="380" y2="100"/>
+    <!-- NA → SA -->
+    <line x1="200" y1="240" x2="210" y2="260"/>
+    <!-- Europe → Africa -->
+    <line x1="450" y1="180" x2="440" y2="210"/>
+    <!-- Europe → Asia -->
+    <line x1="520" y1="110" x2="540" y2="110"/>
+    <!-- Africa → Asia (Middle East) -->
+    <line x1="520" y1="300" x2="580" y2="230"/>
+    <!-- Asia → Australia -->
+    <line x1="750" y1="220" x2="740" y2="310"/>
+  </g>
+
+  <!-- ── Army markers (Red player) ── -->
+  <g filter="url(#glow)">
+    <!-- NA territories -->
+    <circle cx="160" cy="130" r="16" fill="url(#glowRed)"/>
+    <text x="160" y="135" text-anchor="middle" font-family="Georgia,serif" font-size="11" font-weight="bold" fill="#fff">7</text>
+
+    <circle cx="240" cy="85" r="13" fill="url(#glowRed)"/>
+    <text x="240" y="90" text-anchor="middle" font-family="Georgia,serif" font-size="10" font-weight="bold" fill="#fff">4</text>
+
+    <!-- SA territories -->
+    <circle cx="220" cy="350" r="14" fill="url(#glowRed)"/>
+    <text x="220" y="355" text-anchor="middle" font-family="Georgia,serif" font-size="10" font-weight="bold" fill="#fff">5</text>
+  </g>
+
+  <!-- ── Army markers (Blue player) ── -->
+  <g filter="url(#glow)">
+    <!-- Europe territories -->
+    <circle cx="450" cy="100" r="16" fill="url(#glowBlue)"/>
+    <text x="450" y="105" text-anchor="middle" font-family="Georgia,serif" font-size="11" font-weight="bold" fill="#fff">9</text>
+
+    <circle cx="480" cy="145" r="12" fill="url(#glowBlue)"/>
+    <text x="480" y="150" text-anchor="middle" font-family="Georgia,serif" font-size="10" font-weight="bold" fill="#fff">3</text>
+  </g>
+
+  <!-- ── Army markers (Green player) ── -->
+  <g filter="url(#glow)">
+    <!-- Asia territories -->
+    <circle cx="660" cy="110" r="16" fill="url(#glowGreen)"/>
+    <text x="660" y="115" text-anchor="middle" font-family="Georgia,serif" font-size="11" font-weight="bold" fill="#fff">12</text>
+
+    <circle cx="740" cy="160" r="13" fill="url(#glowGreen)"/>
+    <text x="740" y="165" text-anchor="middle" font-family="Georgia,serif" font-size="10" font-weight="bold" fill="#fff">6</text>
+
+    <!-- Australia -->
+    <circle cx="745" cy="385" r="14" fill="url(#glowGreen)"/>
+    <text x="745" y="390" text-anchor="middle" font-family="Georgia,serif" font-size="10" font-weight="bold" fill="#fff">4</text>
+  </g>
+
+  <!-- ── Army markers (Yellow player) ── -->
+  <g filter="url(#glow)">
+    <!-- Africa territories -->
+    <circle cx="450" cy="310" r="15" fill="url(#glowYellow)"/>
+    <text x="450" y="315" text-anchor="middle" font-family="Georgia,serif" font-size="11" font-weight="bold" fill="#fff">8</text>
+
+    <circle cx="490" cy="400" r="12" fill="url(#glowYellow)"/>
+    <text x="490" y="405" text-anchor="middle" font-family="Georgia,serif" font-size="10" font-weight="bold" fill="#fff">3</text>
+  </g>
+
+  <!-- ── Attack indicator (battle arrow) ── -->
+  <g opacity="0.85">
+    <defs>
+      <marker id="arrowhead" markerWidth="8" markerHeight="6" refX="8" refY="3" orient="auto">
+        <polygon points="0 0, 8 3, 0 6" fill="#e74c3c"/>
+      </marker>
+    </defs>
+    <path d="M 275 110 Q 330 90 370 95" fill="none" stroke="#e74c3c" stroke-width="2"
+          stroke-dasharray="6,3" marker-end="url(#arrowhead)"/>
+    <text x="322" y="83" font-family="Georgia,serif" font-size="9" fill="#e74c3c" opacity="0.9" text-anchor="middle">ATTACK</text>
+  </g>
+
+  <!-- ── Legend bottom-left ── -->
+  <rect x="30" y="490" width="260" height="90" rx="4" fill="rgba(0,0,0,0.55)" stroke="rgba(255,255,255,0.1)" stroke-width="1"/>
+  <text x="50" y="512" font-family="Georgia,serif" font-size="10" fill="rgba(255,255,255,0.5)" letter-spacing="2">LEGEND</text>
+
+  <circle cx="52" cy="532" r="7" fill="url(#glowRed)"/>
+  <text x="66" y="536" font-family="Georgia,serif" font-size="10" fill="rgba(255,255,255,0.7)">Player 1 — Americas</text>
+
+  <circle cx="52" cy="552" r="7" fill="url(#glowBlue)"/>
+  <text x="66" y="556" font-family="Georgia,serif" font-size="10" fill="rgba(255,255,255,0.7)">Player 2 — Europe</text>
+
+  <circle cx="52" cy="572" r="7" fill="url(#glowGreen)"/>
+  <text x="66" y="576" font-family="Georgia,serif" font-size="10" fill="rgba(255,255,255,0.7)">Player 3 — Asia / Pacific</text>
+
+  <!-- ── Title bar bottom-right ── -->
+  <rect x="600" y="490" width="270" height="90" rx="4" fill="rgba(0,0,0,0.6)" stroke="rgba(255,255,255,0.08)" stroke-width="1"/>
+  <text x="735" y="525" font-family="Georgia,serif" font-size="28" font-weight="bold" fill="rgba(255,255,255,0.08)" text-anchor="middle" letter-spacing="4">RISK</text>
+  <text x="735" y="524" font-family="Georgia,serif" font-size="28" font-weight="bold" fill="rgba(231,76,60,0.7)" text-anchor="middle" letter-spacing="4">RISK</text>
+  <text x="735" y="548" font-family="Georgia,serif" font-size="9" fill="rgba(255,255,255,0.4)" text-anchor="middle" letter-spacing="3">TURN-BASED STRATEGY GAME</text>
+  <text x="735" y="565" font-family="Georgia,serif" font-size="9" fill="rgba(255,255,255,0.3)" text-anchor="middle">Java · OOP · JUnit · Design Patterns</text>
+</svg>

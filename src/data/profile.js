@@ -1,7 +1,7 @@
 const profile = {
   name: "Harshavardhan Anbuchezhian Gowri",
   initials: "HG",
-  photo: "/photo.jpg",
+  photo: "/Harsha_Photo.jpg",
   title: "Full-Stack Engineer",
   headline:
     "Full-Stack Engineer building reliable and scalable web applications.",
@@ -87,16 +87,17 @@ const profile = {
 
   projects: [
     {
-      title: "Spring Boot Quiz Application",
-      tech: ["Spring Boot", "PostgreSQL", "JPA", "REST APIs"],
+      title: "Full-Stack Quiz Application",
+      tech: ["React", "Spring Boot", "PostgreSQL", "REST APIs"],
       bullets: [
-        "Developed RESTful backend for managing and evaluating quizzes.",
-        "Implemented CRUD operations with layered architecture.",
+        "Built end-to-end quiz platform with React frontend and Spring Boot backend.",
+        "Implemented CRUD operations with layered architecture and JPA.",
         "Designed service logic for randomized quiz generation and score calculation.",
-        "Tested APIs using Postman.",
+        "Features question bank, quiz builder, and live scoring dashboard.",
       ],
-      github: "https://github.com/Harsha-anbu-g/quiz-spring",
+      github: "https://github.com/Harsha-anbu-g/Frontend-and-Backend-Quiz-App",
       live: null,
+      image: "/Home page.png",
     },
     {
       title: "Risk Game Project",
@@ -109,6 +110,7 @@ const profile = {
       ],
       github: "https://github.com/Harsha-anbu-g/RiskGame",
       live: null,
+      image: "/risk-game.svg",
     },
     {
       title: "Distributed Book Review Analytics with MPI & Docker",
@@ -121,6 +123,7 @@ const profile = {
       ],
       github: "https://github.com/Harsha-anbu-g/docker-mpi",
       live: null,
+      image: "/docker.png",
     },
   ],
 
@@ -144,12 +147,9 @@ const profile = {
   navLinks: [
     { label: "Home", href: "#home" },
     { label: "About", href: "#about" },
+    { label: "Resume", href: "#experience" },
     { label: "Skills", href: "#skills" },
-    { label: "Experience", href: "#experience" },
     { label: "Projects", href: "#projects" },
-    { label: "Education", href: "#education" },
-    { label: "Coursework", href: "#coursework" },
-    { label: "Beyond Code", href: "#beyond-code" },
     { label: "Contact", href: "#contact" },
   ],
 
