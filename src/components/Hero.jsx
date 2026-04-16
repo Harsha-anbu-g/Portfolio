@@ -1,7 +1,7 @@
 import { useState, useEffect } from "react";
 import profile from "../data/profile";
 
-const greetings = ["Hello!", "Bonjour!", "நன்றி!"];
+const greetings = ["Hello!", "Bonjour!", "வணக்கம்!"];
 
 export default function Hero() {
   const [greetIndex, setGreetIndex] = useState(0);
