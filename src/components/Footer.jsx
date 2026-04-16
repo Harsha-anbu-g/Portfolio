@@ -62,17 +62,17 @@ export default function Footer() {
                 rel="noopener noreferrer"
                 style={{
                   display: "flex", alignItems: "center", gap: "0.75rem",
-                  background: "rgba(225,48,108,0.12)",
-                  border: "1px solid rgba(225,48,108,0.3)",
+                  background: "rgba(225,48,108,0.06)",
+                  border: "1px solid rgba(225,48,108,0.15)",
                   borderRadius: "4px",
                   padding: "0.6rem 1rem",
                   textDecoration: "none",
                   transition: "background 0.2s, border-color 0.2s",
                 }}
-                onMouseEnter={e => e.currentTarget.style.background = "rgba(225,48,108,0.22)"}
-                onMouseLeave={e => e.currentTarget.style.background = "rgba(225,48,108,0.12)"}
+                onMouseEnter={e => e.currentTarget.style.background = "rgba(225,48,108,0.12)"}
+                onMouseLeave={e => e.currentTarget.style.background = "rgba(225,48,108,0.06)"}
               >
-                <svg width="18" height="18" viewBox="0 0 24 24" fill="none">
+                <svg width="18" height="18" viewBox="0 0 24 24" fill="none" style={{ opacity: 0.65 }}>
                   <defs>
                     <linearGradient id="igGrad" x1="0%" y1="100%" x2="100%" y2="0%">
                       <stop offset="0%" stopColor="#f09433"/>
