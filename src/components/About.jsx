@@ -35,7 +35,7 @@ export default function About() {
                 left: -10,
                 right: 10,
                 bottom: 10,
-                border: "3px solid #1D4ED8",
+                border: "3px solid #6366F1",
                 borderRadius: "2px",
                 zIndex: 0,
                 pointerEvents: "none",
@@ -79,7 +79,7 @@ export default function About() {
               <li>
                 <span className="info-label">Email</span>
                 <span className="info-value">
-                  <a href={`mailto:${profile.contact.email}`} style={{ color: "#1D4ED8", textDecoration: "none" }}>
+                  <a href={`mailto:${profile.contact.email}`} style={{ color: "#6366F1", textDecoration: "none" }}>
                     {profile.contact.email}
                   </a>
                 </span>
@@ -90,7 +90,7 @@ export default function About() {
               </li>
               <li>
                 <span className="info-label">Status</span>
-                <span className="info-value" style={{ color: "#1D4ED8", fontWeight: 600 }}>Open to work</span>
+                <span className="info-value" style={{ color: "#6366F1", fontWeight: 600 }}>Open to work</span>
               </li>
             </ul>
 
@@ -122,7 +122,7 @@ export default function About() {
           display: "grid",
           gridTemplateColumns: "repeat(4, 1fr)",
           marginTop: "5rem",
-          background: "#1D4ED8",
+          background: "#6366F1",
           borderRadius: "4px",
           overflow: "hidden",
         }}>

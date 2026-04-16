@@ -4,7 +4,7 @@
 
 @theme {
   --font-sans: "Poppins", ui-sans-serif, system-ui, -apple-system, sans-serif;
-  --color-accent: #1D4ED8;
+  --color-accent: #6366F1;
   --color-dark: #1d1d1b;
 }
 
@@ -30,7 +30,7 @@ body {
 
 /* ─── Focus ─────────────────────────────────────────── */
 *:focus-visible {
-  outline: 2px solid #1D4ED8;
+  outline: 2px solid #6366F1;
   outline-offset: 2px;
 }
 
@@ -57,7 +57,7 @@ body {
   width: 44px;
   height: 44px;
   border: 3px solid rgba(255,255,255,0.1);
-  border-top-color: #1D4ED8;
+  border-top-color: #6366F1;
   border-radius: 50%;
   animation: loader-spin 0.75s linear infinite;
 }
@@ -105,7 +105,7 @@ body {
   font-weight: 600;
   letter-spacing: 0.15em;
   text-transform: uppercase;
-  color: #1D4ED8;
+  color: #6366F1;
   margin-bottom: 0.5rem;
 }
 
@@ -171,7 +171,7 @@ body {
   display: block;
   font-size: 1rem;
   font-weight: 500;
-  color: #1D4ED8;
+  color: #6366F1;
   letter-spacing: 0.1em;
   margin-bottom: 1rem;
 }
@@ -185,7 +185,7 @@ body {
 }
 
 .hero-name span {
-  color: #1D4ED8;
+  color: #6366F1;
 }
 
 .hero-role {
@@ -232,14 +232,14 @@ body {
   align-items: center;
   gap: 0.5rem;
   padding: 0.85rem 2rem;
-  background: #1D4ED8;
+  background: #6366F1;
   color: #fff;
   font-size: 0.875rem;
   font-weight: 600;
   border-radius: 4px;
   text-decoration: none;
   transition: background 0.2s, transform 0.2s;
-  border: 2px solid #1D4ED8;
+  border: 2px solid #6366F1;
 }
 
 .btn-primary:hover {
@@ -284,7 +284,7 @@ body {
 }
 
 .hero-social-link:hover {
-  color: #1D4ED8;
+  color: #6366F1;
 }
 
 /* ─── About ──────────────────────────────────────────── */
@@ -307,7 +307,7 @@ body {
   left: -12px;
   right: 12px;
   bottom: 12px;
-  border: 3px solid #1D4ED8;
+  border: 3px solid #6366F1;
   border-radius: 2px;
   z-index: 0;
 }
@@ -374,7 +374,7 @@ body {
   top: 6px;
   width: 12px;
   height: 12px;
-  background: #1D4ED8;
+  background: #6366F1;
   border-radius: 50%;
 }
 
@@ -382,7 +382,7 @@ body {
   display: inline-block;
   font-size: 0.75rem;
   font-weight: 600;
-  color: #1D4ED8;
+  color: #6366F1;
   letter-spacing: 0.05em;
   margin-bottom: 0.5rem;
 }
@@ -400,7 +400,7 @@ body {
 
 .resume-place {
   font-size: 0.85rem;
-  color: #1D4ED8;
+  color: #6366F1;
   margin-bottom: 0.75rem;
   font-weight: 500;
 }
@@ -426,7 +426,7 @@ body {
   content: '—';
   position: absolute;
   left: 0;
-  color: #1D4ED8;
+  color: #6366F1;
   font-size: 0.75rem;
 }
 
@@ -462,7 +462,7 @@ body {
 
 .progress-fill {
   height: 100%;
-  background: linear-gradient(to right, #1D4ED8, #ff9a45);
+  background: linear-gradient(to right, #6366F1, #ff9a45);
   border-radius: 999px;
   transform-origin: left;
   animation: fill-bar 1s ease-out forwards;
@@ -531,7 +531,7 @@ body {
   font-weight: 600;
   letter-spacing: 0.12em;
   text-transform: uppercase;
-  color: #1D4ED8;
+  color: #6366F1;
   margin-bottom: 0.4rem;
 }
 
@@ -568,8 +568,8 @@ body {
 }
 
 .project-link-btn:hover {
-  border-color: #1D4ED8;
-  background: #1D4ED8;
+  border-color: #6366F1;
+  background: #6366F1;
 }
 
 /* Code-aesthetic project card backgrounds */
@@ -583,8 +583,8 @@ body {
   position: absolute;
   inset: 0;
   background-image:
-    linear-gradient(rgba(29,78,216,0.06) 1px, transparent 1px),
-    linear-gradient(90deg, rgba(29,78,216,0.06) 1px, transparent 1px);
+    linear-gradient(rgba(99,102,241,0.06) 1px, transparent 1px),
+    linear-gradient(90deg, rgba(99,102,241,0.06) 1px, transparent 1px);
   background-size: 40px 40px;
 }
 
@@ -603,7 +603,7 @@ body {
   font-family: 'Courier New', monospace;
   font-size: 0.7rem;
   line-height: 1.8;
-  color: rgba(29,78,216,0.55);
+  color: rgba(99,102,241,0.55);
   pointer-events: none;
   text-align: left;
 }
@@ -616,7 +616,7 @@ body {
   font-family: 'Courier New', monospace;
   font-size: 0.7rem;
   line-height: 1.9;
-  color: rgba(29,78,216,0.5);
+  color: rgba(99,102,241,0.5);
   white-space: pre;
   text-align: left;
   pointer-events: none;
@@ -624,7 +624,7 @@ body {
 
 /* ─── Stats / Counter bar ────────────────────────────── */
 .stats-bar {
-  background: #1D4ED8;
+  background: #6366F1;
   padding: 3.5rem 0;
 }
 
@@ -660,7 +660,7 @@ body {
 .contact-icon {
   width: 44px;
   height: 44px;
-  background: #1D4ED8;
+  background: #6366F1;
   border-radius: 50%;
   display: flex;
   align-items: center;
@@ -693,7 +693,7 @@ body {
 .contact-form input:focus,
 .contact-form textarea:focus {
   outline: none;
-  border-color: #1D4ED8;
+  border-color: #6366F1;
 }
 
 .contact-form textarea {
@@ -723,7 +723,7 @@ body {
   left: 0;
   width: 32px;
   height: 2px;
-  background: #1D4ED8;
+  background: #6366F1;
 }
 
 .footer-link {
@@ -736,7 +736,7 @@ body {
 }
 
 .footer-link:hover {
-  color: #1D4ED8;
+  color: #6366F1;
 }
 
 .footer-bottom {
@@ -767,8 +767,8 @@ body {
 }
 
 .footer-social a:hover {
-  border-color: #1D4ED8;
-  background: #1D4ED8;
+  border-color: #6366F1;
+  background: #6366F1;
   color: #fff;
 }
 
@@ -806,7 +806,7 @@ body {
 }
 
 .clark-logo span {
-  color: #1D4ED8;
+  color: #6366F1;
 }
 
 .clark-nav-links {
@@ -836,7 +836,7 @@ body {
   left: 0;
   width: 0;
   height: 2px;
-  background: #1D4ED8;
+  background: #6366F1;
   transition: width 0.25s ease;
 }
 
@@ -868,7 +868,7 @@ body {
 }
 
 .clark-mobile-menu a:hover {
-  color: #1D4ED8;
+  color: #6366F1;
 }
 
 /* ─── Scroll to top ──────────────────────────────────── */
@@ -878,14 +878,14 @@ body {
   right: 2rem;
   width: 44px;
   height: 44px;
-  background: #1D4ED8;
+  background: #6366F1;
   color: #fff;
   border-radius: 4px;
   display: flex;
   align-items: center;
   justify-content: center;
   cursor: pointer;
-  box-shadow: 0 4px 14px rgba(29,78,216,0.35);
+  box-shadow: 0 4px 14px rgba(99,102,241,0.35);
   transition: background 0.2s, transform 0.2s;
   z-index: 40;
   border: none;
