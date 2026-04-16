@@ -63,9 +63,14 @@ export default function About() {
             <span className="section-label">Who Am I</span>
             <h2 className="section-title">About Me</h2>
 
-            <p style={{ fontSize: "0.95rem", lineHeight: 1.85, color: "#555", marginBottom: "1.75rem" }}>
-              {profile.about}
-            </p>
+            <ul style={{ padding: 0, margin: 0, marginBottom: "1.75rem", listStyle: "none", display: "flex", flexDirection: "column", gap: "0.75rem" }}>
+              {profile.about.map((point, i) => (
+                <li key={i} style={{ display: "flex", gap: "0.75rem", alignItems: "flex-start", fontSize: "0.95rem", lineHeight: 1.75, color: "#555" }}>
+                  <span style={{ color: "#F96D00", fontWeight: 700, flexShrink: 0, marginTop: "0.05rem" }}>—</span>
+                  {point}
+                </li>
+              ))}
+            </ul>
 
             <ul className="about-info-list">
               <li>

@@ -7,8 +7,12 @@ const profile = {
     "Full-Stack Engineer building reliable and scalable web applications.",
   subtext:
     "I specialize in React, Spring Boot, and secure backend systems, building production-ready applications with clean architecture and strong fundamentals.",
-  about:
-    "I'm a Full-Stack Engineer and international student at Concordia University, with hands-on experience building scalable web applications using Java, Spring Boot, and React. I focus on clean API design, secure authentication systems, and maintainable code — drawn to problems that require deep thinking and careful, long-term solutions rather than quick fixes. I don't just solve problems — I find them first. I enjoy working closely with teams and contributing consistently across every stage of a project, writing code that is reliable and built to last. A deep worker by nature: slow is smooth, and smooth is fast.",
+  about: [
+    "Full-Stack Engineer and international student at Concordia University — building scalable web applications with Java, Spring Boot, and React.",
+    "I don't just solve problems, I find them first. Focused on clean API design, secure authentication, and code that is maintainable and built to last.",
+    "A deep worker by nature — slow is smooth, and smooth is fast. I contribute consistently across every stage of a project, not just where it's visible.",
+    "I leverage AI tools like Claude Code and GitHub Copilot to automate repetitive work, speed up development, and stay focused on what actually matters.",
+  ],
 
   contact: {
     email: "agharsha.anbu@gmail.com",
