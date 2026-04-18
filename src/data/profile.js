@@ -100,7 +100,7 @@ const profile = {
         "Features question bank, quiz builder, and live scoring dashboard.",
       ],
       github: "https://github.com/Harsha-anbu-g/Frontend-and-Backend-Quiz-App",
-      live: null,
+      live: "https://quiz-studio.vercel.app/",
       image: "/Home page.png",
     },
     {

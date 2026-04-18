@@ -33,6 +33,11 @@ export default function Projects() {
                     GitHub →
                   </a>
                 )}
+                {quiz.live && (
+                  <a href={quiz.live} target="_blank" rel="noopener noreferrer" className="project-link-btn">
+                    Live →
+                  </a>
+                )}
               </div>
             </div>
           </div>
