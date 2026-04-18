@@ -120,7 +120,7 @@ export default function Projects() {
       </div>
 
       <style>{`
-        @media (max-width: 640px) {
+        @media (max-width: 768px) {
           #projects > div > div:nth-child(2) {
             grid-template-columns: 1fr !important;
           }

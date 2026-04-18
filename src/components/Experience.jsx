@@ -12,7 +12,7 @@ export default function Experience() {
         </div>
 
         {/* Two columns */}
-        <div style={{ display: "grid", gridTemplateColumns: "1fr 1fr", gap: "4rem" }}>
+        <div className="exp-grid" style={{ display: "grid", gridTemplateColumns: "1fr 1fr", gap: "4rem" }}>
 
           {/* ── Left: Experience ── */}
           <div>
@@ -129,6 +129,14 @@ export default function Experience() {
         }
         .dark .resume-role { color: #f0f0ef; }
         .dark .resume-wrap { border-left-color: rgba(255,255,255,0.1); }
+      `}</style>
+      <style>{`
+        @media (max-width: 768px) {
+          #experience > div > div.exp-grid {
+            grid-template-columns: 1fr !important;
+            gap: 2rem !important;
+          }
+        }
       `}</style>
     </section>
   );

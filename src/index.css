@@ -896,8 +896,19 @@ body {
   transform: translateY(-2px);
 }
 
-/* ─── Responsive hero ────────────────────────────────── */
+/* ─── Responsive ─────────────────────────────────────── */
 @media (max-width: 768px) {
+  /* Sections */
+  .clark-section {
+    padding: 3.5rem 0;
+  }
+
+  /* Ghost heading */
+  .ghost-heading {
+    font-size: clamp(52px, 18vw, 90px);
+  }
+
+  /* Hero */
   .hero-section {
     flex-direction: column;
   }
@@ -906,17 +917,39 @@ body {
   }
   .hero-text-side {
     flex: none;
-    padding: 7rem 6% 2rem;
+    padding: 6rem 6% 2.5rem;
   }
   .hero-photo-side {
     flex: none;
-    height: 55vw;
-    max-height: 320px;
+    height: 60vw;
+    max-height: 300px;
   }
   .hero-photo-side::after {
     background: linear-gradient(to bottom, #1d1d1b 0%, transparent 40%);
   }
-  .ghost-heading {
-    font-size: clamp(60px, 18vw, 100px);
+  .hero-name {
+    font-size: clamp(2rem, 8vw, 3rem);
+  }
+  .hero-btns {
+    flex-direction: column;
+  }
+  .btn-primary,
+  .btn-outline-white {
+    width: 100%;
+    justify-content: center;
+  }
+
+  /* Stat bar */
+  .stat-item {
+    padding: 1.25rem 0.5rem;
+  }
+  .stat-number {
+    font-size: 1.75rem;
+  }
+
+  /* Scroll to top */
+  .scroll-top-btn {
+    bottom: 1.25rem;
+    right: 1.25rem;
   }
 }
