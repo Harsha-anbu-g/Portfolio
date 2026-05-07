@@ -104,17 +104,17 @@ const profile = {
       image: "/Home page.png",
     },
     {
-      title: "Risk Game Project",
-      tech: ["Java", "JUnit", "OOP"],
+      title: "Face Recognition Application",
+      tech: ["Python", "OpenCV", "Deep Learning", "Flask"],
       bullets: [
-        "Developed a turn-based strategy game using graph-based territory logic.",
-        "Applied State, Command, and Observer design patterns.",
-        "Implemented probabilistic battle simulations.",
-        "Ensured reliability using JUnit testing.",
+        "Built a real-time face recognition system using deep learning and OpenCV.",
+        "Implemented face detection, encoding, and matching pipelines for accurate identification.",
+        "Developed a Flask-based web interface for live camera feed and recognition results.",
+        "Optimized model inference for low-latency recognition in real-world conditions.",
       ],
-      github: "https://github.com/Harsha-anbu-g/RiskGame",
+      github: "https://github.com/Harsha-anbu-g/Face-Recognition-Application",
       live: null,
-      image: "/risk-game.svg",
+      image: "/Harsha_Photo.jpg",
     },
     {
       title: "Distributed Book Review Analytics with MPI & Docker",
@@ -193,11 +193,18 @@ const profile = {
     },
     {
       semester: "Winter 2026",
-      current: true,
       courses: [
         { name: "Immersive Technology", code: "COMP 475" },
         { name: "Applied Artificial Intelligence", code: "COMP 6721" },
         { name: "Human Computer Interaction", code: "SOEN 6751" },
+      ],
+    },
+    {
+      semester: "Summer 2026",
+      current: true,
+      courses: [
+        { name: "Comparative Study of Programming Languages", code: "COMP 6411" },
+        { name: "Ethics & Professionalism", code: "ENCS 6201" },
       ],
     },
   ],
