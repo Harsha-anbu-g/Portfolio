@@ -27,7 +27,7 @@ export default function Navbar() {
           ))}
           <li>
             <a
-              href="/resume.pdf"
+              href="/Harshavardhan_AnbuchezhianGowri_Resume.pdf"
               target="_blank"
               rel="noopener noreferrer"
               style={{
@@ -90,7 +90,7 @@ export default function Navbar() {
             </a>
           ))}
           <a
-            href="/resume.pdf"
+            href="/Harshavardhan_AnbuchezhianGowri_Resume.pdf"
             target="_blank"
             rel="noopener noreferrer"
             style={{ color: "#F96D00" }}
