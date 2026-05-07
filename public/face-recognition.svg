@@ -1,0 +1,218 @@
+<svg viewBox="0 0 900 600" xmlns="http://www.w3.org/2000/svg" preserveAspectRatio="xMidYMid slice">
+  <defs>
+    <radialGradient id="bgGrad" cx="50%" cy="50%" r="70%">
+      <stop offset="0%" stop-color="#0d1b2a"/>
+      <stop offset="100%" stop-color="#050d14"/>
+    </radialGradient>
+    <radialGradient id="faceGlow" cx="50%" cy="40%" r="50%">
+      <stop offset="0%" stop-color="#00d4ff" stop-opacity="0.08"/>
+      <stop offset="100%" stop-color="#00d4ff" stop-opacity="0"/>
+    </radialGradient>
+    <filter id="glow" x="-20%" y="-20%" width="140%" height="140%">
+      <feGaussianBlur stdDeviation="2.5" result="coloredBlur"/>
+      <feMerge><feMergeNode in="coloredBlur"/><feMergeNode in="SourceGraphic"/></feMerge>
+    </filter>
+    <filter id="softGlow" x="-30%" y="-30%" width="160%" height="160%">
+      <feGaussianBlur stdDeviation="5" result="coloredBlur"/>
+      <feMerge><feMergeNode in="coloredBlur"/><feMergeNode in="SourceGraphic"/></feMerge>
+    </filter>
+    <pattern id="dots" width="30" height="30" patternUnits="userSpaceOnUse">
+      <circle cx="15" cy="15" r="0.8" fill="rgba(0,212,255,0.08)"/>
+    </pattern>
+  </defs>
+
+  <!-- Background -->
+  <rect width="900" height="600" fill="url(#bgGrad)"/>
+  <rect width="900" height="600" fill="url(#dots)"/>
+  <rect width="900" height="600" fill="url(#faceGlow)"/>
+
+  <!-- Scan lines overlay -->
+  <g opacity="0.04">
+    <line x1="0" y1="60" x2="900" y2="60" stroke="#00d4ff" stroke-width="1"/>
+    <line x1="0" y1="120" x2="900" y2="120" stroke="#00d4ff" stroke-width="1"/>
+    <line x1="0" y1="180" x2="900" y2="180" stroke="#00d4ff" stroke-width="1"/>
+    <line x1="0" y1="240" x2="900" y2="240" stroke="#00d4ff" stroke-width="1"/>
+    <line x1="0" y1="300" x2="900" y2="300" stroke="#00d4ff" stroke-width="1"/>
+    <line x1="0" y1="360" x2="900" y2="360" stroke="#00d4ff" stroke-width="1"/>
+    <line x1="0" y1="420" x2="900" y2="420" stroke="#00d4ff" stroke-width="1"/>
+    <line x1="0" y1="480" x2="900" y2="480" stroke="#00d4ff" stroke-width="1"/>
+    <line x1="0" y1="540" x2="900" y2="540" stroke="#00d4ff" stroke-width="1"/>
+  </g>
+
+  <!-- Face silhouette (centered) -->
+  <g transform="translate(450,290)" filter="url(#softGlow)">
+    <!-- Head outline -->
+    <ellipse cx="0" cy="-20" rx="110" ry="130" fill="none" stroke="rgba(0,212,255,0.18)" stroke-width="1.5"/>
+    <!-- Neck -->
+    <rect x="-28" y="108" width="56" height="40" rx="8" fill="none" stroke="rgba(0,212,255,0.12)" stroke-width="1"/>
+    <!-- Shoulders hint -->
+    <path d="M -28 148 Q -90 165 -130 185" fill="none" stroke="rgba(0,212,255,0.1)" stroke-width="1"/>
+    <path d="M 28 148 Q 90 165 130 185" fill="none" stroke="rgba(0,212,255,0.1)" stroke-width="1"/>
+  </g>
+
+  <!-- Face recognition bounding box (main) -->
+  <g filter="url(#glow)">
+    <!-- Main box -->
+    <rect x="310" y="115" width="280" height="310" rx="3"
+          fill="none" stroke="#00d4ff" stroke-width="1.5" stroke-dasharray="8,4"/>
+    <!-- Corner brackets -->
+    <!-- Top-left -->
+    <polyline points="310,145 310,115 340,115" fill="none" stroke="#00d4ff" stroke-width="3"/>
+    <!-- Top-right -->
+    <polyline points="560,115 590,115 590,145" fill="none" stroke="#00d4ff" stroke-width="3"/>
+    <!-- Bottom-left -->
+    <polyline points="310,395 310,425 340,425" fill="none" stroke="#00d4ff" stroke-width="3"/>
+    <!-- Bottom-right -->
+    <polyline points="590,395 590,425 560,425" fill="none" stroke="#00d4ff" stroke-width="3"/>
+  </g>
+
+  <!-- Facial landmark dots -->
+  <g fill="#00d4ff" filter="url(#glow)" opacity="0.9">
+    <!-- Eyes -->
+    <circle cx="410" cy="245" r="4"/>
+    <circle cx="490" cy="245" r="4"/>
+    <!-- Eye corners -->
+    <circle cx="392" cy="248" r="2.5"/>
+    <circle cx="428" cy="248" r="2.5"/>
+    <circle cx="472" cy="248" r="2.5"/>
+    <circle cx="508" cy="248" r="2.5"/>
+    <!-- Nose bridge -->
+    <circle cx="450" cy="265" r="2.5"/>
+    <circle cx="450" cy="285" r="2.5"/>
+    <!-- Nose tip -->
+    <circle cx="450" cy="300" r="3"/>
+    <circle cx="437" cy="305" r="2.5"/>
+    <circle cx="463" cy="305" r="2.5"/>
+    <!-- Mouth -->
+    <circle cx="425" cy="330" r="2.5"/>
+    <circle cx="450" cy="338" r="3"/>
+    <circle cx="475" cy="330" r="2.5"/>
+    <circle cx="430" cy="350" r="2.5"/>
+    <circle cx="450" cy="354" r="2.5"/>
+    <circle cx="470" cy="350" r="2.5"/>
+    <!-- Jaw line -->
+    <circle cx="360" cy="335" r="2"/>
+    <circle cx="350" cy="310" r="2"/>
+    <circle cx="540" cy="335" r="2"/>
+    <circle cx="550" cy="310" r="2"/>
+    <!-- Eyebrows -->
+    <circle cx="400" cy="225" r="2.5"/>
+    <circle cx="420" cy="220" r="2.5"/>
+    <circle cx="440" cy="218" r="2.5"/>
+    <circle cx="460" cy="218" r="2.5"/>
+    <circle cx="480" cy="220" r="2.5"/>
+    <circle cx="500" cy="225" r="2.5"/>
+    <!-- Cheeks -->
+    <circle cx="382" cy="290" r="2"/>
+    <circle cx="518" cy="290" r="2"/>
+  </g>
+
+  <!-- Landmark connecting lines -->
+  <g stroke="rgba(0,212,255,0.2)" stroke-width="0.8" fill="none">
+    <!-- Left eye outline -->
+    <path d="M 392 248 Q 410 238 428 248 Q 410 258 392 248"/>
+    <!-- Right eye outline -->
+    <path d="M 472 248 Q 490 238 508 248 Q 490 258 472 248"/>
+    <!-- Nose -->
+    <path d="M 450 265 L 450 300 L 437 305 L 463 305 L 450 300"/>
+    <!-- Mouth -->
+    <path d="M 425 330 Q 450 342 475 330 Q 450 358 425 330"/>
+    <!-- Left eyebrow -->
+    <path d="M 400 225 Q 420 217 440 218"/>
+    <!-- Right eyebrow -->
+    <path d="M 460 218 Q 480 217 500 225"/>
+  </g>
+
+  <!-- Scanning line animation effect (static representation) -->
+  <rect x="310" y="270" width="280" height="1.5" fill="rgba(0,212,255,0.5)" filter="url(#glow)"/>
+  <rect x="310" y="270" width="280" height="30" fill="url(#scanGrad)" opacity="0.06"/>
+
+  <!-- Left panel - match confidence -->
+  <rect x="30" y="140" width="240" height="260" rx="6"
+        fill="rgba(0,20,35,0.8)" stroke="rgba(0,212,255,0.2)" stroke-width="1"/>
+  <text x="50" y="170" font-family="monospace" font-size="9" fill="rgba(0,212,255,0.5)" letter-spacing="2">ANALYSIS</text>
+
+  <!-- Confidence bars -->
+  <g font-family="monospace" font-size="9" fill="rgba(0,212,255,0.6)">
+    <text x="50" y="200">Identity Match</text>
+    <rect x="50" y="207" width="190" height="6" rx="3" fill="rgba(0,212,255,0.1)"/>
+    <rect x="50" y="207" width="179" height="6" rx="3" fill="rgba(0,212,255,0.7)" filter="url(#glow)"/>
+    <text x="230" y="218" text-anchor="end" fill="#00d4ff" font-size="8">94.2%</text>
+
+    <text x="50" y="235">Facial Landmarks</text>
+    <rect x="50" y="242" width="190" height="6" rx="3" fill="rgba(0,212,255,0.1)"/>
+    <rect x="50" y="242" width="185" height="6" rx="3" fill="rgba(0,212,255,0.65)" filter="url(#glow)"/>
+    <text x="230" y="253" text-anchor="end" fill="#00d4ff" font-size="8">97.8%</text>
+
+    <text x="50" y="270">Pose Estimate</text>
+    <rect x="50" y="277" width="190" height="6" rx="3" fill="rgba(0,212,255,0.1)"/>
+    <rect x="50" y="277" width="162" height="6" rx="3" fill="rgba(0,212,255,0.55)" filter="url(#glow)"/>
+    <text x="230" y="288" text-anchor="end" fill="#00d4ff" font-size="8">85.4%</text>
+
+    <text x="50" y="305">Liveness Score</text>
+    <rect x="50" y="312" width="190" height="6" rx="3" fill="rgba(0,212,255,0.1)"/>
+    <rect x="50" y="312" width="188" height="6" rx="3" fill="rgba(0,212,255,0.7)" filter="url(#glow)"/>
+    <text x="230" y="323" text-anchor="end" fill="#00d4ff" font-size="8">99.1%</text>
+  </g>
+
+  <!-- Status indicator -->
+  <circle cx="62" cy="360" r="5" fill="#00ff88" filter="url(#glow)"/>
+  <text x="75" y="364" font-family="monospace" font-size="9" fill="#00ff88">MATCH FOUND</text>
+
+  <!-- Encoding vector preview -->
+  <text x="50" y="390" font-family="monospace" font-size="7" fill="rgba(0,212,255,0.3)">embedding: [0.23, -0.71, 0.44...]</text>
+
+  <!-- Right panel - metadata -->
+  <rect x="630" y="140" width="240" height="260" rx="6"
+        fill="rgba(0,20,35,0.8)" stroke="rgba(0,212,255,0.2)" stroke-width="1"/>
+  <text x="650" y="170" font-family="monospace" font-size="9" fill="rgba(0,212,255,0.5)" letter-spacing="2">METADATA</text>
+
+  <g font-family="monospace" font-size="9" fill="rgba(0,212,255,0.5)">
+    <text x="650" y="198">Model</text>
+    <text x="650" y="212" fill="rgba(0,212,255,0.8)">dlib ResNet + HOG</text>
+
+    <text x="650" y="235">Backend</text>
+    <text x="650" y="249" fill="rgba(0,212,255,0.8)">Flask + OpenCV</text>
+
+    <text x="650" y="272">Inference</text>
+    <text x="650" y="286" fill="rgba(0,212,255,0.8)">Real-time · 30fps</text>
+
+    <text x="650" y="309">Faces tracked</text>
+    <text x="650" y="323" fill="rgba(0,212,255,0.8)">1 / frame</text>
+
+    <text x="650" y="346">Latency</text>
+    <text x="650" y="360" fill="rgba(0,212,255,0.8)">&lt; 40ms</text>
+  </g>
+
+  <!-- Stack pills -->
+  <g font-family="monospace" font-size="8">
+    <rect x="650" y="375" width="52" height="16" rx="8" fill="rgba(0,212,255,0.1)" stroke="rgba(0,212,255,0.3)" stroke-width="1"/>
+    <text x="676" y="387" text-anchor="middle" fill="rgba(0,212,255,0.8)">Python</text>
+
+    <rect x="710" y="375" width="52" height="16" rx="8" fill="rgba(0,212,255,0.1)" stroke="rgba(0,212,255,0.3)" stroke-width="1"/>
+    <text x="736" y="387" text-anchor="middle" fill="rgba(0,212,255,0.8)">OpenCV</text>
+
+    <rect x="650" y="396" width="44" height="16" rx="8" fill="rgba(0,212,255,0.1)" stroke="rgba(0,212,255,0.3)" stroke-width="1"/>
+    <text x="672" y="408" text-anchor="middle" fill="rgba(0,212,255,0.8)">Flask</text>
+
+    <rect x="702" y="396" width="52" height="16" rx="8" fill="rgba(0,212,255,0.1)" stroke="rgba(0,212,255,0.3)" stroke-width="1"/>
+    <text x="728" y="408" text-anchor="middle" fill="rgba(0,212,255,0.8)">Deep ML</text>
+  </g>
+
+  <!-- Title -->
+  <text x="450" y="68" text-anchor="middle" font-family="monospace" font-size="11"
+        fill="rgba(0,212,255,0.4)" letter-spacing="6">FACE RECOGNITION SYSTEM</text>
+  <text x="450" y="88" text-anchor="middle" font-family="monospace" font-size="9"
+        fill="rgba(0,212,255,0.25)" letter-spacing="3">real-time · deep learning · python</text>
+
+  <!-- Bottom status bar -->
+  <rect x="0" y="555" width="900" height="45" fill="rgba(0,10,20,0.9)"/>
+  <circle cx="40" cy="577" r="5" fill="#00ff88" filter="url(#glow)"/>
+  <text x="55" y="581" font-family="monospace" font-size="9" fill="rgba(0,212,255,0.6)">CAMERA: ACTIVE</text>
+  <text x="220" y="581" font-family="monospace" font-size="9" fill="rgba(0,212,255,0.4)">|</text>
+  <text x="235" y="581" font-family="monospace" font-size="9" fill="rgba(0,212,255,0.6)">ENCODING: 128-dim vector</text>
+  <text x="500" y="581" font-family="monospace" font-size="9" fill="rgba(0,212,255,0.4)">|</text>
+  <text x="515" y="581" font-family="monospace" font-size="9" fill="rgba(0,212,255,0.6)">FACES IN DB: 512</text>
+  <text x="700" y="581" font-family="monospace" font-size="9" fill="rgba(0,212,255,0.4)">|</text>
+  <text x="715" y="581" font-family="monospace" font-size="9" fill="rgba(0,212,255,0.6)">MODE: IDENTIFY</text>
+</svg>
