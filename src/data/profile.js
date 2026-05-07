@@ -114,7 +114,7 @@ const profile = {
       ],
       github: "https://github.com/Harsha-anbu-g/Face-Recognition-Application",
       live: null,
-      image: "/Harsha_Photo.jpg",
+      image: "/Harsha - InsightFace.png",
     },
     {
       title: "Distributed Book Review Analytics with MPI & Docker",
