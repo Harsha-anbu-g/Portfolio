@@ -101,7 +101,7 @@ const profile = {
       ],
       github: "https://github.com/Harsha-anbu-g/Frontend-and-Backend-Quiz-App",
       live: "https://quiz-studio.vercel.app/",
-      image: "/Home page.png",
+      image: "/quiz.png",
     },
     {
       title: "Face Recognition Application",
