@@ -91,6 +91,19 @@ const profile = {
 
   projects: [
     {
+      title: "ToWin — Trust-Based Social Platform",
+      tech: ["React 19", "Spring Boot", "PostgreSQL", "JWT", "WebSocket", "Docker"],
+      bullets: [
+        "Built ToWin — a social platform connecting elderly people with younger helpers through a progressive trust journey that gradually unlocks messaging, phone, and in-person meeting as users earn each other's confidence.",
+        "Engineered a trust-level state machine where both parties confirm before advancing; reaching PHONE_CALL unlocks contact reveal, backed by a 0–100 trust score from ID/phone verification, completed services, reviews, and reports.",
+        "Implemented real-time messaging over WebSocket, need posting with helper applications, daily streaks, and an emergency SOS flow with inactivity checks and Twilio SMS escalation.",
+        "Backend in Java 21 / Spring Boot 3.2 with Spring Security (JWT), JPA, Flyway, AWS S3 uploads, and optional Redis/Kafka behind feature flags; deployed on Railway (backend + Postgres) and Vercel (React 19 SPA).",
+      ],
+      github: "https://github.com/Harsha-anbu-g/Towin",
+      live: "https://towin.vercel.app",
+      image: "/towin.png",
+    },
+    {
       title: "Full-Stack Quiz Application",
       tech: ["React", "Spring Boot", "PostgreSQL", "REST APIs"],
       bullets: [
@@ -160,7 +173,7 @@ const profile = {
   ],
 
   stats: [
-    { label: "Projects Built", value: "3+" },
+    { label: "Projects Built", value: "4+" },
     { label: "Years Experience", value: "2+" },
     { label: "Technologies", value: "15+" },
     { label: "Education", value: "Master's" },

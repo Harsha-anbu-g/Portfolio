@@ -151,7 +151,7 @@ function ProjectCard({ project, wide = false }) {
 }
 
 export default function Projects() {
-  const [quiz, face, docker] = profile.projects;
+  const [towin, quiz, face, docker] = profile.projects;
 
   return (
     <section id="projects" className="clark-section" style={{ background: "#1d1d1b" }}>
@@ -163,13 +163,14 @@ export default function Projects() {
           <h2 className="section-title" style={{ color: "#fff" }}>My Projects</h2>
         </div>
 
-        {/* Quiz App — wide card */}
+        {/* ToWin — featured wide card */}
         <div style={{ marginBottom: "1.25rem" }}>
-          <ProjectCard project={quiz} wide={true} />
+          <ProjectCard project={towin} wide={true} />
         </div>
 
-        {/* Face + Docker — two columns */}
-        <div style={{ display: "grid", gridTemplateColumns: "1fr 1fr", gap: "1.25rem" }}>
+        {/* Quiz + Face + Docker — three columns */}
+        <div style={{ display: "grid", gridTemplateColumns: "1fr 1fr 1fr", gap: "1.25rem" }}>
+          <ProjectCard project={quiz} />
           <ProjectCard project={face} />
           <ProjectCard project={docker} />
         </div>
@@ -191,14 +192,21 @@ export default function Projects() {
       </div>
 
       <style>{`
+        /* Tablet — drop the project grid to two columns */
+        @media (max-width: 1000px) {
+          #projects > div > div:nth-child(3) {
+            grid-template-columns: 1fr 1fr !important;
+          }
+        }
+        /* Mobile — stack the grid and collapse the wide featured card */
         @media (max-width: 768px) {
-          #projects > div > div:last-child {
+          #projects > div > div:nth-child(3) {
             grid-template-columns: 1fr !important;
           }
-          #projects > div > div:first-child > div {
+          #projects > div > div:nth-child(2) > div {
             flex-direction: column !important;
           }
-          #projects > div > div:first-child > div > div:first-child {
+          #projects > div > div:nth-child(2) > div > div:first-child {
             width: 100% !important;
             height: 200px !important;
           }
