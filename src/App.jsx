@@ -1,5 +1,6 @@
 import Navbar from "./components/Navbar";
 import Hero from "./components/Hero";
+import FeaturedProject from "./components/FeaturedProject";
 import About from "./components/About";
 import Experience from "./components/Experience";
 import Skills from "./components/Skills";
@@ -19,6 +20,7 @@ export default function App() {
       <Navbar />
       <main>
         <Hero />
+        <FeaturedProject />
         <FadeIn><About /></FadeIn>
         <FadeIn><Experience /></FadeIn>
         <FadeIn><Skills /></FadeIn>
