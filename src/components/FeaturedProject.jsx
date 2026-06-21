@@ -76,6 +76,16 @@ export default function FeaturedProject() {
             <GithubIcon /> View Source
           </a>
         </div>
+
+        {/* Link to the rest of the projects */}
+        <div className="featured-more">
+          <a href="#projects" className="featured-more-link">
+            More Projects
+            <svg width="16" height="16" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={2.5}>
+              <path strokeLinecap="round" strokeLinejoin="round" d="M19 14l-7 7m0 0l-7-7m7 7V3" />
+            </svg>
+          </a>
+        </div>
       </div>
 
       <style>{`
@@ -269,6 +279,26 @@ export default function FeaturedProject() {
         .featured-btn-ghost:hover {
           background: rgba(255,255,255,0.12);
           border-color: rgba(255,255,255,0.35);
+        }
+        .featured-more {
+          text-align: right;
+          margin-top: 2.5rem;
+        }
+        .featured-more-link {
+          display: inline-flex;
+          align-items: center;
+          gap: 0.45rem;
+          font-size: 0.85rem;
+          font-weight: 600;
+          letter-spacing: 0.05em;
+          text-transform: uppercase;
+          color: rgba(255,255,255,0.6);
+          text-decoration: none;
+          transition: color 0.2s ease, gap 0.2s ease;
+        }
+        .featured-more-link:hover {
+          color: #F96D00;
+          gap: 0.7rem;
         }
 
         @media (max-width: 900px) {
