@@ -153,12 +153,14 @@ export default function FeaturedProject() {
           object-position: top center;
           transition: transform 0.5s ease;
         }
-        .featured-preview:hover {
-          transform: translateY(-3px);
-          border-color: rgba(249,109,0,0.5);
-        }
-        .featured-preview:hover img {
-          transform: scale(1.02);
+        @media (hover: hover) {
+          .featured-preview:hover {
+            transform: translateY(-3px);
+            border-color: rgba(249,109,0,0.5);
+          }
+          .featured-preview:hover img {
+            transform: scale(1.02);
+          }
         }
         .featured-preview-cta {
           position: absolute;
@@ -196,9 +198,11 @@ export default function FeaturedProject() {
           padding: 1.5rem;
           transition: border-color 0.2s ease, transform 0.2s ease;
         }
-        .featured-feature:hover {
-          border-color: rgba(249,109,0,0.35);
-          transform: translateY(-2px);
+        @media (hover: hover) {
+          .featured-feature:hover {
+            border-color: rgba(249,109,0,0.35);
+            transform: translateY(-2px);
+          }
         }
         .featured-feature h3 {
           font-size: 0.95rem;
@@ -259,8 +263,10 @@ export default function FeaturedProject() {
           text-decoration: none;
           transition: transform 0.2s ease, background 0.2s ease, border-color 0.2s ease;
         }
-        .featured-btn:hover {
-          transform: translateY(-2px);
+        @media (hover: hover) {
+          .featured-btn:hover {
+            transform: translateY(-2px);
+          }
         }
         .featured-btn-primary {
           color: #fff;
@@ -296,9 +302,11 @@ export default function FeaturedProject() {
           text-decoration: none;
           transition: color 0.2s ease, gap 0.2s ease;
         }
-        .featured-more-link:hover {
-          color: #F96D00;
-          gap: 0.7rem;
+        @media (hover: hover) {
+          .featured-more-link:hover {
+            color: #F96D00;
+            gap: 0.7rem;
+          }
         }
 
         @media (max-width: 900px) {
@@ -310,12 +318,25 @@ export default function FeaturedProject() {
           .featured-section {
             padding: 3.5rem 0;
           }
+          .featured-title {
+            font-size: 2rem;
+          }
+          .featured-preview img {
+            max-height: 220px;
+            object-position: top left;
+          }
+          .featured-overview {
+            font-size: 0.92rem;
+          }
           .featured-actions {
             flex-direction: column;
           }
           .featured-btn {
             width: 100%;
             justify-content: center;
+          }
+          .featured-more {
+            text-align: center;
           }
         }
       `}</style>

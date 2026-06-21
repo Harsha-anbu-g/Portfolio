@@ -12,6 +12,8 @@ const ExternalIcon = () => (
   </svg>
 );
 
+const canHover = typeof window !== "undefined" && window.matchMedia("(hover: hover)").matches;
+
 function ProjectCard({ project, wide = false }) {
   return (
     <div style={{
@@ -23,8 +25,8 @@ function ProjectCard({ project, wide = false }) {
       border: "1px solid rgba(255,255,255,0.07)",
       transition: "border-color 0.2s, transform 0.2s",
     }}
-      onMouseEnter={e => { e.currentTarget.style.borderColor = "rgba(249,109,0,0.4)"; e.currentTarget.style.transform = "translateY(-2px)"; }}
-      onMouseLeave={e => { e.currentTarget.style.borderColor = "rgba(255,255,255,0.07)"; e.currentTarget.style.transform = "translateY(0)"; }}
+      onMouseEnter={canHover ? e => { e.currentTarget.style.borderColor = "rgba(249,109,0,0.4)"; e.currentTarget.style.transform = "translateY(-2px)"; } : undefined}
+      onMouseLeave={canHover ? e => { e.currentTarget.style.borderColor = "rgba(255,255,255,0.07)"; e.currentTarget.style.transform = "translateY(0)"; } : undefined}
     >
       {/* Image */}
       <div style={{
@@ -44,8 +46,8 @@ function ProjectCard({ project, wide = false }) {
             objectPosition: "center",
             transition: "transform 0.4s ease",
           }}
-          onMouseEnter={e => e.currentTarget.style.transform = "scale(1.04)"}
-          onMouseLeave={e => e.currentTarget.style.transform = "scale(1)"}
+          onMouseEnter={canHover ? e => { e.currentTarget.style.transform = "scale(1.04)"; } : undefined}
+          onMouseLeave={canHover ? e => { e.currentTarget.style.transform = "scale(1)"; } : undefined}
         />
       </div>
 
@@ -113,8 +115,8 @@ function ProjectCard({ project, wide = false }) {
                 textDecoration: "none",
                 transition: "background 0.2s, border-color 0.2s",
               }}
-              onMouseEnter={e => { e.currentTarget.style.background = "rgba(255,255,255,0.15)"; e.currentTarget.style.borderColor = "rgba(255,255,255,0.3)"; }}
-              onMouseLeave={e => { e.currentTarget.style.background = "rgba(255,255,255,0.08)"; e.currentTarget.style.borderColor = "rgba(255,255,255,0.15)"; }}
+              onMouseEnter={canHover ? e => { e.currentTarget.style.background = "rgba(255,255,255,0.15)"; e.currentTarget.style.borderColor = "rgba(255,255,255,0.3)"; } : undefined}
+              onMouseLeave={canHover ? e => { e.currentTarget.style.background = "rgba(255,255,255,0.08)"; e.currentTarget.style.borderColor = "rgba(255,255,255,0.15)"; } : undefined}
             >
               <GithubIcon /> GitHub
             </a>
@@ -138,8 +140,8 @@ function ProjectCard({ project, wide = false }) {
                 textDecoration: "none",
                 transition: "opacity 0.2s",
               }}
-              onMouseEnter={e => e.currentTarget.style.opacity = "0.85"}
-              onMouseLeave={e => e.currentTarget.style.opacity = "1"}
+              onMouseEnter={canHover ? e => { e.currentTarget.style.opacity = "0.85"; } : undefined}
+              onMouseLeave={canHover ? e => { e.currentTarget.style.opacity = "1"; } : undefined}
             >
               <ExternalIcon /> Live Demo
             </a>

@@ -9,7 +9,7 @@ export default function About() {
           gridTemplateColumns: "1fr 1.25fr",
           gap: "5rem",
           alignItems: "start",
-        }}>
+        }} className="about-grid">
 
           {/* ── Left: photo stack ── */}
           <div style={{ display: "flex", flexDirection: "column", gap: "1.25rem" }}>
@@ -123,7 +123,7 @@ export default function About() {
         </div>
 
         {/* ── Stats bar ── */}
-        <div style={{
+        <div className="about-stats" style={{
           display: "grid",
           gridTemplateColumns: "repeat(4, 1fr)",
           marginTop: "5rem",
@@ -149,12 +149,15 @@ export default function About() {
 
       <style>{`
         @media (max-width: 768px) {
-          #about > div > div:first-child {
+          #about .about-grid {
             grid-template-columns: 1fr !important;
             gap: 2.5rem !important;
           }
-          #about > div > div:last-child {
+          #about .about-stats {
             grid-template-columns: repeat(2, 1fr) !important;
+          }
+          #about .about-photo-wrap img {
+            height: 320px !important;
           }
         }
       `}</style>

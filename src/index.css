@@ -21,6 +21,7 @@ body {
   -moz-osx-font-smoothing: grayscale;
   background: #fff;
   color: #212529;
+  overflow-x: hidden;
 }
 
 .dark body {
@@ -67,10 +68,17 @@ body {
   opacity: 0;
   transform: translateY(28px);
   transition: opacity 0.65s ease-out, transform 0.65s ease-out;
+  will-change: opacity, transform;
 }
 .fade-section.visible {
   opacity: 1;
   transform: translateY(0);
+  will-change: auto;
+}
+@media (max-width: 768px) {
+  .fade-section {
+    transform: translateY(14px);
+  }
 }
 
 /* ─── Section wrapper ────────────────────────────────── */
@@ -124,6 +132,7 @@ body {
 /* ─── Hero ───────────────────────────────────────────── */
 .hero-section {
   min-height: 100vh;
+  min-height: 100svh;
   background: #1d1d1b;
   display: flex;
   align-items: stretch;
@@ -894,6 +903,17 @@ body {
 .scroll-top-btn:hover {
   background: #e05e00;
   transform: translateY(-2px);
+}
+
+/* ─── Touch devices: suppress hover transforms ───────── */
+@media (hover: none) {
+  .btn-primary:hover,
+  .btn-outline-white:hover {
+    transform: none;
+  }
+  .scroll-top-btn:hover {
+    transform: none;
+  }
 }
 
 /* ─── Responsive ─────────────────────────────────────── */
