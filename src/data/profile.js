@@ -164,7 +164,7 @@ const profile = {
   navLinks: [
     { label: "Home", href: "#home" },
     { label: "About", href: "#about" },
-    { label: "Resume", href: "#experience" },
+    { label: "Experience", href: "#experience" },
     { label: "Skills", href: "#skills" },
     { label: "Projects", href: "#projects" },
     { label: "Coursework", href: "#coursework" },
