@@ -28,24 +28,10 @@ export default function About() {
               borderRadius: "2px",
               overflow: "visible",
             }}>
-              {/* Orange border frame — same as main photo */}
-              <div style={{
-                position: "absolute",
-                top: -10,
-                left: -10,
-                right: 10,
-                bottom: 10,
-                border: "3px solid #F96D00",
-                borderRadius: "2px",
-                zIndex: 0,
-                pointerEvents: "none",
-              }} />
               <img
                 src="/linkedin coverpic.jpeg"
                 alt="LinkedIn profile banner"
                 style={{
-                  position: "relative",
-                  zIndex: 1,
                   width: "100%",
                   display: "block",
                   objectFit: "cover",
