@@ -1,15 +1,5 @@
 import profile from "../data/profile";
 
-/* skills highlighted as the core stack */
-const coreSkills = new Set([
-  "Java",
-  "Spring Boot",
-  "React",
-  "RESTful APIs",
-  "PostgreSQL",
-  "Docker",
-]);
-
 const categoryIcons = {
   "Frontend": (
     <path strokeLinecap="round" strokeLinejoin="round" d="M10 20l4-16m4 4l4 4-4 4M6 16l-4-4 4-4" />
@@ -58,10 +48,7 @@ export default function Skills() {
               </div>
               <div className="skill-tags">
                 {group.items.map((item) => (
-                  <span
-                    key={item}
-                    className={`skill-tag${coreSkills.has(item) ? " skill-tag-core" : ""}`}
-                  >
+                  <span key={item} className="skill-tag">
                     {item}
                   </span>
                 ))}

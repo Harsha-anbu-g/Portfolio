@@ -456,13 +456,6 @@ body {
   background: #fafaf9;
 }
 
-.skill-tag-core {
-  border-color: rgba(249,109,0,0.35);
-  background: rgba(249,109,0,0.07);
-  color: #9a4500;
-  font-weight: 600;
-}
-
 /* ─── Stats / Counter bar ────────────────────────────── */
 .stats-bar {
   background: #F96D00;
@@ -768,6 +761,44 @@ body {
   }
 }
 
+/* ─── Micro-interactions polish (same visuals, snappier feel) ── */
+/* Press feedback: buttons physically respond to the tap/click */
+.btn-primary:active,
+.btn-outline-white:active,
+.featured-btn:active,
+.scroll-top-btn:active,
+.featured-preview-cta:active {
+  transform: scale(0.97) !important;
+  transition-duration: 0.1s;
+}
+
+/* Stronger ease-out curve on interactive elements (0.2s stays 0.2s,
+   it just starts fast and settles smooth instead of feeling mushy) */
+.btn-primary,
+.btn-outline-white,
+.featured-btn,
+.scroll-top-btn,
+.clark-nav-links a::after,
+.footer-social a {
+  transition-timing-function: cubic-bezier(0.23, 1, 0.32, 1);
+}
+
+.clark-mobile-menu a:active {
+  color: #F96D00;
+}
+
+/* Invisible tap-area expansion for small icon links (44px min target) */
+.hero-social-link,
+.footer-social a {
+  position: relative;
+}
+.hero-social-link::after,
+.footer-social a::after {
+  content: "";
+  position: absolute;
+  inset: -12px;
+}
+
 /* ─── Responsive ─────────────────────────────────────── */
 @media (max-width: 768px) {
   /* Sections */
@@ -779,6 +810,11 @@ body {
      neighboring sections at phone widths — hide them */
   .ghost-heading {
     display: none;
+  }
+
+  /* Long values (email address) must wrap instead of overflowing the row */
+  .about-info-list li .info-value {
+    overflow-wrap: anywhere;
   }
 
   /* 16px inputs prevent iOS Safari's auto-zoom on focus */

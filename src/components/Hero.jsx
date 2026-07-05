@@ -102,6 +102,8 @@ export default function Hero() {
           <img
             src={profile.photo}
             alt={profile.name}
+            fetchPriority="high"
+            decoding="async"
           />
         </div>
       </div>
