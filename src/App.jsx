@@ -11,12 +11,10 @@ import Contact from "./components/Contact";
 import Footer from "./components/Footer";
 import ScrollToTop from "./components/ScrollToTop";
 import FadeIn from "./components/FadeIn";
-import Loader from "./components/Loader";
 
 export default function App() {
   return (
     <div style={{ fontFamily: "'Poppins', sans-serif" }}>
-      <Loader />
       <Navbar />
       <main>
         <Hero />

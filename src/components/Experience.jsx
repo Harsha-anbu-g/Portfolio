@@ -110,7 +110,7 @@ export default function Experience() {
                     }} />
                     {cert.name}
                     {cert.status === "in-progress" && (
-                      <span style={{ fontSize: "0.7rem", color: "#F96D00", fontWeight: 600 }}>In Progress</span>
+                      <span style={{ fontSize: "0.7rem", color: "#ba5300", fontWeight: 600 }}>In Progress</span>
                     )}
                   </div>
                 ))}
@@ -122,17 +122,7 @@ export default function Experience() {
 
       <style>{`
         @media (max-width: 768px) {
-          #experience > div > div:last-child {
-            grid-template-columns: 1fr !important;
-            gap: 2rem !important;
-          }
-        }
-        .dark .resume-role { color: #f0f0ef; }
-        .dark .resume-wrap { border-left-color: rgba(255,255,255,0.1); }
-      `}</style>
-      <style>{`
-        @media (max-width: 768px) {
-          #experience > div > div.exp-grid {
+          #experience .exp-grid {
             grid-template-columns: 1fr !important;
             gap: 2rem !important;
           }

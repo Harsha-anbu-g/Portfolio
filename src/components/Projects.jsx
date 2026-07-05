@@ -39,6 +39,8 @@ function ProjectCard({ project, wide = false }) {
         <img
           src={project.image}
           alt={project.title}
+          loading="lazy"
+          decoding="async"
           style={{
             width: "100%",
             height: "100%",
@@ -161,7 +163,7 @@ export default function Projects() {
         {/* Heading */}
         <div style={{ position: "relative", marginBottom: "3.5rem" }}>
           <span className="ghost-heading" style={{ color: "rgba(255,255,255,0.04)" }}>Projects</span>
-          <span className="section-label">What I've Built</span>
+          <span className="section-label" style={{ color: "#F96D00" }}>What I've Built</span>
           <h2 className="section-title" style={{ color: "#fff" }}>More Projects</h2>
         </div>
 

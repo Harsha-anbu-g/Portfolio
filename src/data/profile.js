@@ -1,7 +1,7 @@
 const profile = {
   name: "Harshavardhan Anbuchezhian Gowri",
   initials: "HG",
-  photo: "/Harsha_Photo.jpg",
+  photo: "/harsha-photo.webp",
   title: "Full-Stack Engineer",
   headline:
     "Full-Stack Engineer building reliable and scalable web applications.",
@@ -48,6 +48,10 @@ const profile = {
     {
       category: "Practices",
       items: ["Agile/Scrum", "JUnit Testing", "Secure Coding", "OOP Design"],
+    },
+    {
+      category: "Tools & Analytics",
+      items: ["Figma", "Power BI", "Alteryx"],
     },
   ],
 
@@ -101,7 +105,7 @@ const profile = {
       ],
       github: "https://github.com/Harsha-anbu-g/Towin",
       live: "https://towin.vercel.app",
-      image: "/towin.png",
+      image: "/towin.webp",
     },
     {
       title: "Full-Stack Quiz Application",
@@ -114,7 +118,7 @@ const profile = {
       ],
       github: "https://github.com/Harsha-anbu-g/Frontend-and-Backend-Quiz-App",
       live: "https://quiz-studio.vercel.app/",
-      image: "/quiz.png",
+      image: "/quiz.webp",
     },
     {
       title: "Face Recognition Application",
@@ -127,7 +131,7 @@ const profile = {
       ],
       github: "https://github.com/Harsha-anbu-g/Face-Recognition-Application",
       live: null,
-      image: "/Harsha - InsightFace.png",
+      image: "/facevault.webp",
     },
     {
       title: "Distributed Book Review Analytics with MPI & Docker",
@@ -140,7 +144,7 @@ const profile = {
       ],
       github: "https://github.com/Harsha-anbu-g/docker-mpi",
       live: null,
-      image: "/docker.png",
+      image: "/docker.webp",
     },
   ],
 
@@ -267,7 +271,7 @@ const profile = {
     },
     journaling: {
       note: "I regularly journal and track habits to stay consistent and self-aware.",
-      images: ["/journal-tracker.jpg"],
+      images: ["/journal-tracker.webp"],
     },
     languages: [
       { name: "English", level: "Fluent" },

@@ -41,7 +41,7 @@ export default function FeaturedProject() {
           className="featured-preview"
           aria-label="Open ToWin live demo"
         >
-          <img src={towin.image} alt={towin.title} />
+          <img src={towin.image} alt={towin.title} loading="lazy" decoding="async" />
           <span className="featured-preview-cta">
             Open Live <ExternalIcon />
           </span>

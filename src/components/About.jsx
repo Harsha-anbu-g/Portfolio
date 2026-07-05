@@ -16,8 +16,10 @@ export default function About() {
             {/* Main professional photo */}
             <div className="about-photo-wrap">
               <img
-                src="/photo.jpg"
+                src="/photo.webp"
                 alt={profile.name}
+                loading="lazy"
+                decoding="async"
                 style={{ width: "100%", height: 460, objectFit: "cover", objectPosition: "top center", display: "block" }}
               />
             </div>
@@ -31,6 +33,8 @@ export default function About() {
               <img
                 src="/linkedin coverpic.jpeg"
                 alt="LinkedIn profile banner"
+                loading="lazy"
+                decoding="async"
                 style={{
                   width: "100%",
                   display: "block",
@@ -70,7 +74,7 @@ export default function About() {
               <li>
                 <span className="info-label">Email</span>
                 <span className="info-value">
-                  <a href={`mailto:${profile.contact.email}`} style={{ color: "#F96D00", textDecoration: "none" }}>
+                  <a href={`mailto:${profile.contact.email}`} style={{ color: "#ba5300", textDecoration: "none" }}>
                     {profile.contact.email}
                   </a>
                 </span>
@@ -81,7 +85,7 @@ export default function About() {
               </li>
               <li>
                 <span className="info-label">Status</span>
-                <span className="info-value" style={{ color: "#F96D00", fontWeight: 600 }}>Open to work</span>
+                <span className="info-value" style={{ color: "#ba5300", fontWeight: 600 }}>Open to work</span>
               </li>
             </ul>
 

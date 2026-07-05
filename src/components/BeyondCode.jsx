@@ -65,7 +65,7 @@ export default function BeyondCode() {
         {/* Heading */}
         <div style={{ position: "relative", marginBottom: "3.5rem" }}>
           <span className="ghost-heading" style={{ color: "rgba(255,255,255,0.04)" }}>Life</span>
-          <span className="section-label">Off The Clock</span>
+          <span className="section-label" style={{ color: "#F96D00" }}>Off The Clock</span>
           <h2 className="section-title" style={{ color: "#fff" }}>Beyond Code</h2>
           <p style={{ fontSize: "0.9rem", color: "rgba(255,255,255,0.45)", marginTop: "-0.5rem" }}>
             The habits, interests and values that shape how I think and work.
@@ -73,7 +73,7 @@ export default function BeyondCode() {
         </div>
 
         {/* Main grid */}
-        <div style={{ display: "grid", gridTemplateColumns: "1fr 1fr 1fr", gap: "1.25rem" }}>
+        <div className="beyond-grid" style={{ display: "grid", gridTemplateColumns: "1fr 1fr 1fr", gap: "1.25rem" }}>
 
           {/* ── Reading ── */}
           <BeyondCard title="Reading" icon={
@@ -88,7 +88,7 @@ export default function BeyondCode() {
               {reading.books.map((b) => (
                 <div key={b.title} style={{
                   padding: "0.6rem 0.9rem",
-                  background: "rgba(99,102,241,0.07)",
+                  background: "rgba(249,109,0,0.07)",
                   borderLeft: "2px solid #F96D00",
                   borderRadius: "0 3px 3px 0",
                 }}>
@@ -193,8 +193,8 @@ export default function BeyondCode() {
               {sports.items.map((s) => (
                 <div key={s} style={{
                   padding: "0.75rem 1.25rem",
-                  background: "rgba(99,102,241,0.1)",
-                  border: "1px solid rgba(99,102,241,0.2)",
+                  background: "rgba(249,109,0,0.1)",
+                  border: "1px solid rgba(249,109,0,0.2)",
                   borderRadius: "4px",
                   fontSize: "0.875rem", fontWeight: 600, color: "#fff",
                 }}>
@@ -239,6 +239,8 @@ export default function BeyondCode() {
                   key={i}
                   src={src}
                   alt={`Habit tracker ${i + 1}`}
+                  loading="lazy"
+                  decoding="async"
                   style={{ width: "100%", display: "block", objectFit: "cover" }}
                 />
               ))}
@@ -288,12 +290,12 @@ export default function BeyondCode() {
 
       <style>{`
         @media (max-width: 900px) {
-          #beyond-code > div > div:nth-child(3) {
+          #beyond-code .beyond-grid {
             grid-template-columns: 1fr 1fr !important;
           }
         }
         @media (max-width: 600px) {
-          #beyond-code > div > div:nth-child(3) {
+          #beyond-code .beyond-grid {
             grid-template-columns: 1fr !important;
           }
         }

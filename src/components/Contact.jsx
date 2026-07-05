@@ -42,7 +42,7 @@ export default function Contact() {
                 </svg>
               </div>
               <div>
-                <p style={{ fontSize: "0.75rem", fontWeight: 600, textTransform: "uppercase", letterSpacing: "0.1em", color: "#9ca3af", marginBottom: "0.2rem" }}>Email</p>
+                <p style={{ fontSize: "0.75rem", fontWeight: 600, textTransform: "uppercase", letterSpacing: "0.1em", color: "#6b7280", marginBottom: "0.2rem" }}>Email</p>
                 <a href={`mailto:${profile.contact.email}`} style={{ fontSize: "0.9rem", color: "#1d1d1b", textDecoration: "none", fontWeight: 500 }}>
                   {profile.contact.email}
                 </a>
@@ -56,7 +56,7 @@ export default function Contact() {
                 </svg>
               </div>
               <div>
-                <p style={{ fontSize: "0.75rem", fontWeight: 600, textTransform: "uppercase", letterSpacing: "0.1em", color: "#9ca3af", marginBottom: "0.2rem" }}>Phone</p>
+                <p style={{ fontSize: "0.75rem", fontWeight: 600, textTransform: "uppercase", letterSpacing: "0.1em", color: "#6b7280", marginBottom: "0.2rem" }}>Phone</p>
                 <a href={`tel:${profile.contact.phone}`} style={{ fontSize: "0.9rem", color: "#1d1d1b", textDecoration: "none", fontWeight: 500 }}>
                   {profile.contact.phone}
                 </a>
@@ -71,7 +71,7 @@ export default function Contact() {
                 </svg>
               </div>
               <div>
-                <p style={{ fontSize: "0.75rem", fontWeight: 600, textTransform: "uppercase", letterSpacing: "0.1em", color: "#9ca3af", marginBottom: "0.2rem" }}>Location</p>
+                <p style={{ fontSize: "0.75rem", fontWeight: 600, textTransform: "uppercase", letterSpacing: "0.1em", color: "#6b7280", marginBottom: "0.2rem" }}>Location</p>
                 <span style={{ fontSize: "0.9rem", color: "#1d1d1b", fontWeight: 500 }}>Montreal, Quebec, Canada</span>
               </div>
             </div>
@@ -83,7 +83,7 @@ export default function Contact() {
                 </svg>
               </div>
               <div>
-                <p style={{ fontSize: "0.75rem", fontWeight: 600, textTransform: "uppercase", letterSpacing: "0.1em", color: "#9ca3af", marginBottom: "0.2rem" }}>LinkedIn</p>
+                <p style={{ fontSize: "0.75rem", fontWeight: 600, textTransform: "uppercase", letterSpacing: "0.1em", color: "#6b7280", marginBottom: "0.2rem" }}>LinkedIn</p>
                 <a href={profile.contact.linkedin} target="_blank" rel="noopener noreferrer" style={{ fontSize: "0.9rem", color: "#1d1d1b", textDecoration: "none", fontWeight: 500 }}>
                   harsha-anbu-gowri
                 </a>

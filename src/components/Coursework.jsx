@@ -1,10 +1,11 @@
 import profile from "../data/profile";
 
+/* dark orange: passes 4.5:1 for the small labels/codes on this light section */
 const semesterColors = {
-  "Winter 2025": "#F96D00",
-  "Summer 2025": "#F96D00",
-  "Fall 2025":   "#F96D00",
-  "Winter 2026": "#F96D00",
+  "Winter 2025": "#ba5300",
+  "Summer 2025": "#ba5300",
+  "Fall 2025":   "#ba5300",
+  "Winter 2026": "#ba5300",
 };
 
 export default function Coursework() {
@@ -25,7 +26,7 @@ export default function Coursework() {
         {/* Semester blocks */}
         <div style={{ display: "flex", flexDirection: "column", gap: "3rem" }}>
           {profile.coursework.map((sem, si) => {
-            const color = semesterColors[sem.semester] || "#F96D00";
+            const color = semesterColors[sem.semester] || "#ba5300";
             return (
               <div key={si}>
                 {/* Semester label */}
@@ -50,9 +51,9 @@ export default function Coursework() {
                     <span style={{
                       display: "inline-flex", alignItems: "center", gap: "0.4rem",
                       fontSize: "0.7rem", fontWeight: 600,
-                      background: "rgba(99,102,241,0.1)",
-                      color: "#F96D00",
-                      border: "1px solid rgba(99,102,241,0.25)",
+                      background: "rgba(249,109,0,0.1)",
+                      color: "#ba5300",
+                      border: "1px solid rgba(249,109,0,0.25)",
                       borderRadius: "999px",
                       padding: "0.2rem 0.75rem",
                     }}>
@@ -81,9 +82,9 @@ export default function Coursework() {
                         alignItems: "center",
                         gap: "1rem",
                         padding: "1.1rem 1.25rem",
-                        border: `1px solid ${sem.current ? "rgba(99,102,241,0.2)" : "rgba(0,0,0,0.08)"}`,
+                        border: `1px solid ${sem.current ? "rgba(249,109,0,0.25)" : "rgba(0,0,0,0.08)"}`,
                         borderRadius: "4px",
-                        background: sem.current ? "rgba(99,102,241,0.03)" : "#fafaf9",
+                        background: sem.current ? "rgba(249,109,0,0.04)" : "#fafaf9",
                         transition: "border-color 0.2s, box-shadow 0.2s",
                         cursor: "default",
                       }}
@@ -92,7 +93,7 @@ export default function Coursework() {
                         e.currentTarget.style.boxShadow = `0 4px 16px rgba(0,0,0,0.06)`;
                       }}
                       onMouseLeave={e => {
-                        e.currentTarget.style.borderColor = sem.current ? "rgba(99,102,241,0.2)" : "rgba(0,0,0,0.08)";
+                        e.currentTarget.style.borderColor = sem.current ? "rgba(249,109,0,0.25)" : "rgba(0,0,0,0.08)";
                         e.currentTarget.style.boxShadow = "none";
                       }}
                     >
@@ -135,8 +136,8 @@ export default function Coursework() {
         <div style={{
           marginTop: "3rem",
           padding: "1.25rem 1.5rem",
-          background: "rgba(99,102,241,0.05)",
-          border: "1px solid rgba(99,102,241,0.15)",
+          background: "rgba(249,109,0,0.05)",
+          border: "1px solid rgba(249,109,0,0.18)",
           borderRadius: "4px",
           display: "flex", alignItems: "center", gap: "1rem",
         }}>
