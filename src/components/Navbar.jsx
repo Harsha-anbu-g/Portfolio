@@ -47,7 +47,8 @@ export default function Navbar() {
         <button
           onClick={() => setMenuOpen(!menuOpen)}
           aria-label="Toggle menu"
-          className="md:hidden flex flex-col gap-1.5 p-2"
+          aria-expanded={menuOpen}
+          className="md:hidden flex flex-col justify-center gap-1.5 p-3 min-h-11 min-w-11"
         >
           <span
             style={{
@@ -56,7 +57,7 @@ export default function Navbar() {
               height: "2px",
               background: "#fff",
               transition: "transform 0.3s",
-              transform: menuOpen ? "rotate(45deg) translateY(6px)" : "none",
+              transform: menuOpen ? "translateY(8px) rotate(45deg)" : "none",
             }}
           />
           <span
@@ -76,7 +77,7 @@ export default function Navbar() {
               height: "2px",
               background: "#fff",
               transition: "transform 0.3s",
-              transform: menuOpen ? "rotate(-45deg) translateY(-6px)" : "none",
+              transform: menuOpen ? "translateY(-8px) rotate(-45deg)" : "none",
             }}
           />
         </button>

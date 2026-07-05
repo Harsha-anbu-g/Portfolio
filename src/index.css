@@ -11,6 +11,12 @@
 /* ─── Base ─────────────────────────────────────────── */
 html {
   scroll-behavior: smooth;
+  overflow-x: clip;
+}
+
+a, button {
+  touch-action: manipulation;
+  -webkit-tap-highlight-color: transparent;
 }
 
 body {
@@ -805,8 +811,10 @@ body {
   color: #F96D00;
 }
 
+/* display is controlled by the `hidden md:flex` utilities on the element;
+   declaring it here would out-cascade Tailwind's layered utilities and
+   leak the desktop links onto mobile */
 .clark-nav-links {
-  display: flex;
   gap: 2rem;
   align-items: center;
   list-style: none;
@@ -847,20 +855,38 @@ body {
 .clark-mobile-menu {
   background: #161614;
   border-top: 1px solid rgba(255,255,255,0.06);
-  padding: 1rem 5%;
+  padding: 0.5rem 5% 1rem;
+  max-height: calc(100dvh - 70px);
+  overflow-y: auto;
+  animation: mobile-menu-in 0.22s ease-out;
+}
+
+@keyframes mobile-menu-in {
+  from { opacity: 0; transform: translateY(-6px); }
+  to { opacity: 1; transform: translateY(0); }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .clark-mobile-menu {
+    animation: none;
+  }
 }
 
 .clark-mobile-menu a {
   display: block;
-  font-size: 0.8rem;
+  font-size: 0.9rem;
   font-weight: 500;
-  color: rgba(255,255,255,0.6);
+  color: rgba(255,255,255,0.75);
   text-transform: uppercase;
   letter-spacing: 0.05em;
-  padding: 0.6rem 0;
+  padding: 0.9rem 0;
   text-decoration: none;
   transition: color 0.2s;
   border-bottom: 1px solid rgba(255,255,255,0.04);
+}
+
+.clark-mobile-menu a:last-child {
+  border-bottom: none;
 }
 
 .clark-mobile-menu a:hover {
@@ -881,7 +907,7 @@ body {
   align-items: center;
   justify-content: center;
   cursor: pointer;
-  box-shadow: 0 4px 14px rgba(99,102,241,0.35);
+  box-shadow: 0 4px 14px rgba(249,109,0,0.35);
   transition: background 0.2s, transform 0.2s;
   z-index: 40;
   border: none;
@@ -910,9 +936,16 @@ body {
     padding: 3.5rem 0;
   }
 
-  /* Ghost heading */
+  /* Ghost headings overlap the real titles and bleed into
+     neighboring sections at phone widths — hide them */
   .ghost-heading {
-    font-size: clamp(52px, 18vw, 90px);
+    display: none;
+  }
+
+  /* 16px inputs prevent iOS Safari's auto-zoom on focus */
+  .contact-form input,
+  .contact-form textarea {
+    font-size: 1rem;
   }
 
   /* Hero */
@@ -954,9 +987,9 @@ body {
     font-size: 1.75rem;
   }
 
-  /* Scroll to top */
+  /* Scroll to top — keep clear of the iOS home-indicator area */
   .scroll-top-btn {
-    bottom: 1.25rem;
+    bottom: calc(1.25rem + env(safe-area-inset-bottom));
     right: 1.25rem;
   }
 }
