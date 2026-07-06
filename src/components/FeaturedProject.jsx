@@ -19,6 +19,9 @@ export default function FeaturedProject() {
   const featureTitles = [
     "Progressive Trust Journey",
     "Real-Time & Safety",
+    "Event-Driven Backend",
+    "AI-Accelerated Workflow",
+    "Automated Quality & Security",
     "Production Architecture",
   ];
   const features = details.map((text, i) => ({ title: featureTitles[i] ?? "", text }));
@@ -223,7 +226,7 @@ export default function FeaturedProject() {
           border-radius: 2px;
         }
         .featured-feature p {
-          font-size: 0.85rem;
+          font-size: 0.9rem;
           line-height: 1.6;
           color: rgba(255,255,255,0.55);
           margin: 0;

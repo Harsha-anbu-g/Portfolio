@@ -89,7 +89,7 @@ function ProjectCard({ project, wide = false }) {
 
         {/* Description */}
         <p style={{
-          fontSize: "0.85rem",
+          fontSize: "0.9rem",
           color: "rgba(255,255,255,0.6)",
           margin: 0,
           lineHeight: 1.6,

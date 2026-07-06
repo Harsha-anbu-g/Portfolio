@@ -40,9 +40,23 @@ export default function Experience() {
 
             {profile.experience.map((job, i) => (
               <div key={i} className="resume-wrap">
-                <span className="resume-date">{job.period}</span>
+                <span className="resume-date" style={{ display: "inline-flex", alignItems: "center", gap: "0.35rem" }}>
+                  <svg width="12" height="12" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={2} aria-hidden="true">
+                    <path strokeLinecap="round" strokeLinejoin="round" d="M8 7V3m8 4V3m-9 8h10M5 21h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v12a2 2 0 002 2z" />
+                  </svg>
+                  {job.period}
+                </span>
                 <h4 className="resume-role">{job.role}</h4>
-                <p className="resume-place">{job.company} · {job.location}</p>
+                <p className="resume-place">
+                  {job.company} ·{" "}
+                  <span style={{ display: "inline-flex", alignItems: "center", gap: "0.3rem", whiteSpace: "nowrap" }}>
+                    <svg width="12" height="12" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={2} aria-hidden="true">
+                      <path strokeLinecap="round" strokeLinejoin="round" d="M17.657 16.657L13.414 20.9a1.998 1.998 0 01-2.827 0l-4.244-4.243a8 8 0 1111.314 0z" />
+                      <path strokeLinecap="round" strokeLinejoin="round" d="M15 11a3 3 0 11-6 0 3 3 0 016 0z" />
+                    </svg>
+                    {job.location}
+                  </span>
+                </p>
                 <ul className="resume-bullets">
                   {job.bullets.map((b, j) => (
                     <li key={j}>{b}</li>
@@ -79,9 +93,23 @@ export default function Experience() {
 
             {profile.education.map((edu, i) => (
               <div key={i} className="resume-wrap">
-                <span className="resume-date">{edu.period}</span>
+                <span className="resume-date" style={{ display: "inline-flex", alignItems: "center", gap: "0.35rem" }}>
+                  <svg width="12" height="12" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={2} aria-hidden="true">
+                    <path strokeLinecap="round" strokeLinejoin="round" d="M8 7V3m8 4V3m-9 8h10M5 21h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v12a2 2 0 002 2z" />
+                  </svg>
+                  {edu.period}
+                </span>
                 <h4 className="resume-role">{edu.degree}</h4>
-                <p className="resume-place">{edu.school} · {edu.location}</p>
+                <p className="resume-place">
+                  {edu.school} ·{" "}
+                  <span style={{ display: "inline-flex", alignItems: "center", gap: "0.3rem", whiteSpace: "nowrap" }}>
+                    <svg width="12" height="12" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={2} aria-hidden="true">
+                      <path strokeLinecap="round" strokeLinejoin="round" d="M17.657 16.657L13.414 20.9a1.998 1.998 0 01-2.827 0l-4.244-4.243a8 8 0 1111.314 0z" />
+                      <path strokeLinecap="round" strokeLinejoin="round" d="M15 11a3 3 0 11-6 0 3 3 0 016 0z" />
+                    </svg>
+                    {edu.location}
+                  </span>
+                </p>
                 {edu.detail && (
                   <ul className="resume-bullets">
                     <li>{edu.detail}</li>

@@ -6,12 +6,12 @@ const profile = {
   headline:
     "Full-Stack Engineer building reliable and scalable web applications.",
   subtext:
-    "I specialize in React, Spring Boot, and secure backend systems, building production-ready applications with clean architecture and strong fundamentals.",
+    "I specialize in React, Spring Boot, and secure backend systems, building production-ready applications with clean architecture, strong fundamentals, and an AI-accelerated workflow built on Claude Code.",
   about: [
     "Full-Stack Engineer and international student at Concordia University — building scalable web applications with Java, Spring Boot, and React.",
     "I don't just solve problems, I find them first. Focused on clean API design, secure authentication, and code that is maintainable and built to last.",
     "A deep worker by nature — slow is smooth, and smooth is fast. I contribute consistently across every stage of a project, not just where it's visible.",
-    "I leverage AI tools like Claude Code and GitHub Copilot to automate repetitive work, speed up development, and stay focused on what actually matters.",
+    "I design AI-accelerated workflows with Claude Code — specialized sub-agents, custom MCP servers, and tailored Skills and plugins — alongside GitHub Copilot, automating scaffolding, testing, and code review to stay focused on what actually matters.",
   ],
 
   contact: {
@@ -24,30 +24,77 @@ const profile = {
 
   skills: [
     {
-      category: "Frontend",
-      items: ["React", "JavaScript", "TypeScript"],
+      category: "AI & Tooling",
+      items: [
+        "Claude Code",
+        "Claude Sub-Agents",
+        "Model Context Protocol (MCP)",
+        "Custom MCP Servers",
+        "AI Skills & Plugins",
+        "GitHub Copilot",
+        "Prompt Engineering",
+        "AI-Accelerated Development",
+      ],
+    },
+    {
+      category: "Languages",
+      items: ["Java", "JavaScript", "TypeScript", "Python", "C++"],
     },
     {
       category: "Backend",
       items: [
-        "Java",
         "Spring Boot",
         "Spring MVC",
+        "Spring Data JPA",
+        "Hibernate",
         "RESTful APIs",
-        "JWT Authentication",
+        "WebSocket",
+        "Maven",
       ],
     },
     {
-      category: "Databases",
-      items: ["MySQL", "PostgreSQL", "Hibernate", "JDBC"],
+      category: "Frontend",
+      items: ["React", "HTML", "CSS"],
+    },
+    {
+      category: "Databases & Messaging",
+      items: ["PostgreSQL", "MySQL", "Redis", "Apache Kafka", "Flyway", "JDBC"],
     },
     {
       category: "Cloud & DevOps",
-      items: ["AWS (EC2, S3, IAM)", "Docker", "CI/CD", "Git/GitHub"],
+      items: [
+        "AWS (EC2, S3, IAM)",
+        "Linux",
+        "Docker",
+        "Kubernetes",
+        "CI/CD Pipelines",
+        "GitHub Actions",
+        "Git/GitHub",
+      ],
+    },
+    {
+      category: "Security",
+      items: [
+        "OWASP Top 10",
+        "OAuth2",
+        "OpenID Connect (OIDC)",
+        "Spring Security",
+        "JWT",
+        "RBAC",
+        "SonarQube",
+        "Snyk",
+        "Secure Coding",
+      ],
     },
     {
       category: "Practices",
-      items: ["Agile/Scrum", "JUnit Testing", "Secure Coding", "OOP Design"],
+      items: [
+        "Agile/Scrum",
+        "SDLC",
+        "OOP Design",
+        "Unit Testing (JUnit)",
+        "Event-Driven Architecture",
+      ],
     },
     {
       category: "Tools & Analytics",
@@ -57,27 +104,37 @@ const profile = {
 
   experience: [
     {
-      role: "Data Assurance Analyst",
-      company: "Ernst & Young (S. R. Batliboi & Associates LLP)",
-      location: "Chennai, India",
-      period: "Dec 2023 – Feb 2024",
+      role: "Backend Developer (Internship)",
+      company: "Vosyn AI",
+      location: "Canada (Remote)",
+      period: "May 2026 – Aug 2026",
       bullets: [
-        "Performed SQL-based extraction and analysis on large financial datasets.",
-        "Conducted sentiment analysis to support strategic audit insights.",
-        "Worked with Chartered Accountants to deliver data-driven assessments.",
-        "Used Alteryx, Helix, and Excel for reporting automation.",
+        "Building backend services for AI-driven products in a fast-moving startup environment.",
+        "Developing and maintaining RESTful APIs and data workflows that support the platform's AI features.",
+        "Collaborating with cross-functional teams in Agile sprints to ship scalable, production-ready features.",
       ],
     },
     {
-      role: "Full-Stack Developer (Part-Time)",
+      role: "Data Analyst (Internship)",
+      company: "Ernst & Young (S. R. Batliboi & Associates LLP)",
+      location: "Chennai, India",
+      period: "Dec 2023 – May 2024",
+      bullets: [
+        "Improved financial assessment accuracy by extracting and analyzing large datasets using SQL, directly supporting audit decisions made by senior Chartered Accountants at a Big Four firm.",
+        "Cut manual reporting effort by streamlining audit workflows with Alteryx, Helix, and Excel, delivering audit data reports for 2–3 client companies per day across concurrent engagements.",
+        "Conducted sentiment analysis to support strategic audit insights.",
+      ],
+    },
+    {
+      role: "Full-Stack Developer",
       company: "Coimbatore Institute of Technology",
       location: "India",
       period: "Sep 2022 – Aug 2023",
       bullets: [
-        "Built scalable features using Java, Spring Boot, React, and TypeScript.",
-        "Designed RESTful APIs with role-based access control (RBAC).",
-        "Optimized MySQL/PostgreSQL databases.",
-        "Contributed in Agile sprint cycles.",
+        "Improved platform reliability by delivering scalable full-stack features using Java, Spring Boot, React, and TypeScript, directly enhancing usability for faculty and students across the institution.",
+        "Reduced security vulnerabilities by implementing RBAC authentication across MySQL and PostgreSQL, protecting sensitive institutional data from unauthorized access.",
+        "Designed RESTful APIs and optimized MySQL/PostgreSQL databases for scalable institutional workloads.",
+        "Accelerated sprint delivery by gathering requirements directly from faculty stakeholders and translating business needs into working features within each Agile/Scrum cycle.",
       ],
     },
     {
@@ -96,25 +153,29 @@ const profile = {
   projects: [
     {
       title: "ToWin — Trust-Based Social Platform",
-      tech: ["React 19", "Spring Boot", "PostgreSQL", "JWT", "WebSocket", "Docker"],
+      tech: ["React 19", "Spring Boot", "Apache Kafka", "PostgreSQL", "Redis", "JWT", "WebSocket", "Docker", "Claude Code", "MCP"],
       bullets: [
         "Built ToWin — a social platform connecting elderly people with younger helpers through a progressive trust journey that gradually unlocks messaging, phone, and in-person meeting as users earn each other's confidence.",
         "Engineered a trust-level state machine where both parties confirm before advancing; reaching PHONE_CALL unlocks contact reveal, backed by a 0–100 trust score from ID/phone verification, completed services, reviews, and reports.",
         "Implemented real-time messaging over WebSocket, need posting with helper applications, daily streaks, and an emergency SOS flow with inactivity checks and Twilio SMS escalation.",
-        "Backend in Java 21 / Spring Boot 3.2 with Spring Security (JWT), JPA, Flyway, AWS S3 uploads, and optional Redis/Kafka behind feature flags; deployed on Railway (backend + Postgres) and Vercel (React 19 SPA).",
+        "Architected an event-driven backend in Java 21 and Spring Boot with Apache Kafka producers and consumers for connection and trust-progression events, owning every architectural decision end-to-end.",
+        "Designed a custom AI-accelerated workflow using Claude Code with specialized sub-agents, custom MCP servers, and tailored Skills and plugins for Spring Boot scaffolding, JPA mapping, and JUnit generation — shipping features 4x faster.",
+        "Automated JUnit and Mockito test generation, AI-driven code review, and refactoring through sub-agents, then hardened the pipeline with SonarQube static analysis and Snyk dependency scanning against OWASP Top 10 risks.",
+        "Built supporting infra with Redis caching for Haversine geospatial discovery, AWS S3 for media and ID documents, PostgreSQL + Flyway migrations, Spring Security with OAuth2/OpenID Connect and JWT, RBAC, and Docker Compose; deployed on Railway and Vercel.",
       ],
       github: "https://github.com/Harsha-anbu-g/Towin",
       live: "https://towin.vercel.app",
       image: "/towin.webp",
     },
     {
-      title: "Full-Stack Quiz Application",
-      tech: ["React", "Spring Boot", "PostgreSQL", "REST APIs"],
+      title: "Quiz Studio — Role-Based Quiz Platform",
+      tech: ["React", "Spring Boot", "Spring Security", "JWT", "PostgreSQL", "REST APIs"],
       bullets: [
-        "Built end-to-end quiz platform with React + Vite frontend and Spring Boot 3 backend, deployed live on Vercel and Railway.",
-        "Designed REST APIs for question CRUD and quiz management; used a DTO (QuestionWrapper) to hide correct answers from users during exams.",
+        "Built Quiz Studio — a production-ready quiz platform with role-based access for Teachers and Students, using a React + Vite frontend and Spring Boot 3 backend, deployed live on Vercel and Railway.",
+        "Secured all API endpoints with Spring Security and JWT, implementing a custom JwtAuthFilter, role-based access control (RBAC), and a guest login flow that issues scoped tokens without credentials.",
+        "Designed a normalized PostgreSQL schema with a Many-to-Many quiz–question relationship and REST APIs for question CRUD and quiz management; a QuestionWrapper DTO strips correct answers from responses during exams.",
         "Implemented category and difficulty filtering for quiz generation with randomized question selection from PostgreSQL via Spring Data JPA.",
-        "Covered backend with JUnit 5 and Mockito tests; configured environment-variable-driven DB connection for seamless local and production deployments.",
+        "Covered backend with JUnit 5 and Mockito tests, enforced quality with a CI/CD pipeline via GitHub Actions, and configured environment-variable-driven DB connection for seamless local and production deployments.",
       ],
       github: "https://github.com/Harsha-anbu-g/Frontend-and-Backend-Quiz-App",
       live: "https://quiz-studio.vercel.app/",
@@ -179,7 +240,7 @@ const profile = {
   stats: [
     { label: "Projects Built", value: "4+" },
     { label: "Years Experience", value: "2+" },
-    { label: "Technologies", value: "15+" },
+    { label: "Technologies", value: "25+" },
     { label: "Education", value: "Master's" },
   ],
 
@@ -238,6 +299,12 @@ const profile = {
           title: "How to Build a Billion Dollar App",
           author: "George Berkowski",
         },
+        {
+          title: "Bhagavad Gita As It Is",
+          author: "A.C. Bhaktivedanta Swami Prabhupada",
+        },
+        { title: "Siddhartha", author: "Hermann Hesse" },
+        { title: "Thirukkural", author: "Thiruvalluvar" },
       ],
       note: "These books influence how I approach discipline, consistency, long-term thinking, and building scalable systems.",
     },
@@ -251,6 +318,7 @@ const profile = {
           "Manali",
           "Andaman and Nicobar Islands",
           "Tamil Nadu",
+          "Karnataka",
         ],
       },
     },
@@ -258,6 +326,7 @@ const profile = {
       intro: "I prioritize physical and mental fitness.",
       activities: [
         "Meditation",
+        "Kirtan",
         "Yoga",
         "Stretching",
         "Jogging",
@@ -281,6 +350,8 @@ const profile = {
       { name: "French", level: "Learning" },
     ],
     funDetail: "Black coffee. Always.",
+    contentCreation:
+      "I also enjoy social media content creation — sharing travel, fitness, and student life along the way.",
   },
 
   certifications: [
