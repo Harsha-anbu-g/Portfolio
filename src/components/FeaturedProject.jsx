@@ -80,6 +80,32 @@ export default function FeaturedProject() {
           </a>
         </div>
 
+        {/* Small card → the interactive system-architecture diagram viewer.
+            Plain anchor to a static file (public/architecture.html). */}
+        <a
+          href="/architecture.html"
+          target="_blank"
+          rel="noopener noreferrer"
+          className="featured-arch"
+          aria-label="Open the ToWin system architecture diagrams"
+        >
+          <span className="featured-arch-icon" aria-hidden="true">
+            <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth={2} strokeLinecap="round" strokeLinejoin="round">
+              <rect x="9" y="2.5" width="6" height="4" rx="1" />
+              <rect x="2.5" y="17.5" width="6" height="4" rx="1" />
+              <rect x="15.5" y="17.5" width="6" height="4" rx="1" />
+              <path d="M12 6.5v4M5.5 17.5v-3h13v3" />
+            </svg>
+          </span>
+          <span className="featured-arch-text">
+            <span className="featured-arch-title">System Architecture</span>
+            <span className="featured-arch-sub">Interactive diagrams — request flow, database, trust engine &amp; module maps</span>
+          </span>
+          <svg className="featured-arch-arrow" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth={2.5} strokeLinecap="round" strokeLinejoin="round" aria-hidden="true">
+            <path d="M5 12h14M13 6l6 6-6 6" />
+          </svg>
+        </a>
+
         {/* Link to the rest of the projects */}
         <div className="featured-more">
           <a href="#projects" className="featured-more-link">
@@ -312,6 +338,78 @@ export default function FeaturedProject() {
           }
         }
 
+        .featured-arch {
+          display: flex;
+          align-items: center;
+          gap: 1rem;
+          max-width: 640px;
+          margin: 1.75rem auto 0;
+          padding: 1rem 1.25rem;
+          background: #1f1f1d;
+          border: 1px solid rgba(255,255,255,0.08);
+          border-radius: 10px;
+          text-decoration: none;
+          transition: transform 0.2s ease, border-color 0.2s ease, background 0.2s ease;
+        }
+        @media (hover: hover) {
+          .featured-arch:hover {
+            transform: translateY(-2px);
+            border-color: rgba(249,109,0,0.5);
+            background: #232321;
+          }
+          .featured-arch:hover .featured-arch-arrow {
+            transform: translateX(3px);
+            color: #F96D00;
+          }
+        }
+        .featured-arch-icon {
+          display: inline-flex;
+          align-items: center;
+          justify-content: center;
+          flex-shrink: 0;
+          width: 44px;
+          height: 44px;
+          border-radius: 9px;
+          color: #F96D00;
+          background: rgba(249,109,0,0.1);
+          border: 1px solid rgba(249,109,0,0.25);
+        }
+        .featured-arch-text {
+          display: flex;
+          flex-direction: column;
+          gap: 0.15rem;
+          min-width: 0;
+          text-align: left;
+        }
+        .featured-arch-title {
+          font-size: 0.98rem;
+          font-weight: 700;
+          color: #fff;
+        }
+        .featured-arch-sub {
+          font-size: 0.82rem;
+          line-height: 1.45;
+          color: rgba(255,255,255,0.55);
+        }
+        .featured-arch-arrow {
+          flex-shrink: 0;
+          margin-left: auto;
+          color: rgba(255,255,255,0.4);
+          transition: transform 0.2s ease, color 0.2s ease;
+        }
+        @media (prefers-reduced-motion: reduce) {
+          .featured-arch,
+          .featured-arch-arrow {
+            transition: border-color 0.2s ease, color 0.2s ease;
+          }
+          .featured-arch:hover {
+            transform: none;
+          }
+          .featured-arch:hover .featured-arch-arrow {
+            transform: none;
+          }
+        }
+
         @media (max-width: 900px) {
           .featured-features {
             grid-template-columns: 1fr;
@@ -337,6 +435,13 @@ export default function FeaturedProject() {
           .featured-btn {
             width: 100%;
             justify-content: center;
+          }
+          .featured-arch {
+            padding: 0.9rem 1rem;
+            gap: 0.85rem;
+          }
+          .featured-arch-sub {
+            font-size: 0.78rem;
           }
           .featured-more {
             text-align: center;
