@@ -25,7 +25,21 @@
 - **Rule:** A broad complaint ("UI/UX is not good") still means the smallest targeted
   fix. Read requests narrowly first; widen only if the user asks after seeing it.
 
-## 2026-07-10 — Full redesign rejected AGAIN (user-driven this time)
+## 2026-07-10 — CORRECTION (later same day): the golden redesign was ACCEPTED
+- **What actually happened:** "back to the original" did NOT mean the orange live design —
+  it meant back to the golden design as it was before the night-mode toggle work. The user
+  clarified: "i said you to only remove the dark and bright mode" and "i love the golden
+  one you did." I over-reverted based on the 07-05 lesson pattern.
+- **Rule:** When the user says "back to the original / revert," ask ONE plain question:
+  back to WHICH state? (list the 2-3 candidate states by what they look like). Don't let
+  a prior lesson bias the reading — the lesson said redesigns get reverted, and that
+  expectation caused a misread of the correction's target.
+- **Rule:** "No dark mode and light mode" = remove the theme-switching FEATURE, not the
+  design. Feature removal ≠ design reversion.
+- **Final state:** Paper & Gold is the locked identity (see PRODUCT.md visual system).
+  Primary buttons are ink-filled — gold is never a large fill (mustard complaint).
+
+## 2026-07-10 — (superseded by correction above) Full redesign rejected AGAIN (user-driven this time)
 - **Pattern:** User asked "does the orange look good? feels AI-generated, give me ideas."
   I ran a full exploration: ember → blue → emerald → paper&gold + serif → dark-first night
   mode via Ralph. User approved each step in the moment, then ended with "back to the

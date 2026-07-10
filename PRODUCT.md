@@ -31,13 +31,17 @@ Disciplined, warm, hands-on. Professional engineer first, with a genuine persona
 
 ## Accessibility & Inclusion
 
-- Keep text contrast ≥ 4.5:1 (the light-section orange is darkened to #ba5300 for this reason; keep vivid #F96D00 for dark sections only).
+- Keep text contrast ≥ 4.5:1 (small gold text on paper uses deep gold #8A6D1B; brighter golds are for large text, graphics, and dark bands only).
 - Respect `prefers-reduced-motion` for any new animation; existing reveals are subtle fades.
 - All icon-only links carry `aria-label`s.
 
-## Visual system (summary)
+## Visual system (summary) — "Paper & Gold" (locked 2026-07-10, owner: "I love the golden one")
 
-- Font: Poppins (single family, weight contrast). Accent: #F96D00 (dark bg) / #ba5300 (light bg). Darks: #111110–#252523 band; light sections: #f8f6f1.
-- Section grammar: `.clark-section` + `.ghost-heading` watermark + `.section-label` (uppercase orange) + `.section-title`.
-- Cards/panels: near-flat, 1px rgba white/black borders, 4–10px radii, hover = translateY(-2px) + orange border tint.
-- Tags/chips: `.skill-tag` pattern — small, bordered, quiet.
+- Fonts: Lora (serif display — headings, hero name w/ italic gold accent) + Poppins (body). Single theme; NO dark/light mode toggle.
+- Palette: paper #FAF7F1 / alt #F3EEE4 / cards #FFFDF9; warm ink #221E16; golds — bronze #9C7A2A (graphics on paper), deep #8A6D1B (small text on paper), classic #C9A227 (accents on dark bands).
+- Dark-ink bands: Beyond Code + Footer stay dark (#201C15 family) with #C9A227 gold — deliberate rhythm, not leftovers.
+- Buttons: primary actions are INK-filled pills (#221E16 bg / #FAF7F1 text); gold is never a large button fill (owner rejected mustard fills).
+- Section grammar: `.clark-section` + `.ghost-heading` watermark + `.section-label` (uppercase deep gold) + serif `.section-title`.
+- Cards/panels: near-flat, 1px hairline borders rgba(34,30,22,0.06–0.14), 4–12px radii, hover = translateY(-2px) + gold border tint.
+- Tags/chips: small, bordered, quiet; gold-tinted on paper.
+- History: previous orange/dark identity preserved at commit c847e27; golden adopted at 519e981→8c65151 after owner approval.
