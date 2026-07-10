@@ -19,7 +19,7 @@ export default function Experience() {
             <h3 style={{
               fontSize: "1.1rem",
               fontWeight: 700,
-              color: "#1d1d1b",
+              color: "#221E16",
               marginBottom: "2rem",
               display: "flex",
               alignItems: "center",
@@ -27,7 +27,7 @@ export default function Experience() {
             }}>
               <span style={{
                 width: 32, height: 32,
-                background: "#F96D00",
+                background: "#9C7A2A",
                 borderRadius: "50%",
                 display: "flex", alignItems: "center", justifyContent: "center", flexShrink: 0,
               }}>
@@ -71,7 +71,7 @@ export default function Experience() {
             <h3 style={{
               fontSize: "1.1rem",
               fontWeight: 700,
-              color: "#1d1d1b",
+              color: "#221E16",
               marginBottom: "2rem",
               display: "flex",
               alignItems: "center",
@@ -79,7 +79,7 @@ export default function Experience() {
             }}>
               <span style={{
                 width: 32, height: 32,
-                background: "#F96D00",
+                background: "#9C7A2A",
                 borderRadius: "50%",
                 display: "flex", alignItems: "center", justifyContent: "center", flexShrink: 0,
               }}>
@@ -120,7 +120,7 @@ export default function Experience() {
 
             {/* Certifications */}
             <div style={{ marginTop: "2.5rem" }}>
-              <h4 style={{ fontSize: "0.9rem", fontWeight: 700, color: "#1d1d1b", marginBottom: "1rem", textTransform: "uppercase", letterSpacing: "0.08em" }}>
+              <h4 style={{ fontSize: "0.9rem", fontWeight: 700, color: "#221E16", marginBottom: "1rem", textTransform: "uppercase", letterSpacing: "0.08em" }}>
                 Certifications
               </h4>
               <div style={{ display: "flex", flexDirection: "column", gap: "0.6rem" }}>
@@ -134,11 +134,11 @@ export default function Experience() {
                   }}>
                     <span style={{
                       width: 8, height: 8, borderRadius: "50%", flexShrink: 0,
-                      background: cert.status === "completed" ? "#F96D00" : "#d1d5db",
+                      background: cert.status === "completed" ? "#9C7A2A" : "#d1d5db",
                     }} />
                     {cert.name}
                     {cert.status === "in-progress" && (
-                      <span style={{ fontSize: "0.7rem", color: "#ba5300", fontWeight: 600 }}>In Progress</span>
+                      <span style={{ fontSize: "0.7rem", color: "#8A6D1B", fontWeight: 600 }}>In Progress</span>
                     )}
                   </div>
                 ))}

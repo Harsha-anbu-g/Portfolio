@@ -15,27 +15,36 @@ const ExternalIcon = () => (
 const canHover = typeof window !== "undefined" && window.matchMedia("(hover: hover)").matches;
 
 function ProjectCard({ project, wide = false }) {
+  const imageLink = project.live || project.github;
   return (
     <div style={{
-      background: "#252523",
+      background: "#FFFDF9",
       borderRadius: 8,
       overflow: "hidden",
       display: "flex",
       flexDirection: wide ? "row" : "column",
-      border: "1px solid rgba(255,255,255,0.07)",
+      border: "1px solid rgba(34, 30, 22, 0.06)",
       transition: "border-color 0.2s, transform 0.2s",
     }}
-      onMouseEnter={canHover ? e => { e.currentTarget.style.borderColor = "rgba(249,109,0,0.4)"; e.currentTarget.style.transform = "translateY(-2px)"; } : undefined}
-      onMouseLeave={canHover ? e => { e.currentTarget.style.borderColor = "rgba(255,255,255,0.07)"; e.currentTarget.style.transform = "translateY(0)"; } : undefined}
+      onMouseEnter={canHover ? e => { e.currentTarget.style.borderColor = "rgba(156, 122, 42,0.4)"; e.currentTarget.style.transform = "translateY(-2px)"; } : undefined}
+      onMouseLeave={canHover ? e => { e.currentTarget.style.borderColor = "rgba(34, 30, 22, 0.06)"; e.currentTarget.style.transform = "translateY(0)"; } : undefined}
     >
-      {/* Image */}
-      <div style={{
-        flexShrink: 0,
-        width: wide ? "55%" : "100%",
-        height: wide ? 280 : 200,
-        overflow: "hidden",
-        background: "#1a1a18",
-      }}>
+      {/* Image — clicking opens the project's live site (or GitHub) */}
+      <a
+        href={imageLink}
+        target="_blank"
+        rel="noopener noreferrer"
+        aria-label={`Open ${project.title}`}
+        style={{
+          display: "block",
+          flexShrink: 0,
+          width: wide ? "55%" : "100%",
+          height: wide ? 280 : 200,
+          overflow: "hidden",
+          background: "#EFE9DD",
+          cursor: "pointer",
+        }}
+      >
         <img
           src={project.image}
           alt={project.title}
@@ -51,7 +60,7 @@ function ProjectCard({ project, wide = false }) {
           onMouseEnter={canHover ? e => { e.currentTarget.style.transform = "scale(1.04)"; } : undefined}
           onMouseLeave={canHover ? e => { e.currentTarget.style.transform = "scale(1)"; } : undefined}
         />
-      </div>
+      </a>
 
       {/* Content */}
       <div style={{
@@ -69,9 +78,9 @@ function ProjectCard({ project, wide = false }) {
               fontWeight: 600,
               letterSpacing: "0.08em",
               textTransform: "uppercase",
-              color: "#F96D00",
-              background: "rgba(249,109,0,0.1)",
-              border: "1px solid rgba(249,109,0,0.25)",
+              color: "#8A6D1B",
+              background: "rgba(156, 122, 42,0.1)",
+              border: "1px solid rgba(156, 122, 42,0.25)",
               borderRadius: 3,
               padding: "0.2rem 0.55rem",
             }}>{t}</span>
@@ -82,7 +91,7 @@ function ProjectCard({ project, wide = false }) {
         <h3 style={{
           fontSize: wide ? "1.25rem" : "1rem",
           fontWeight: 700,
-          color: "#fff",
+          color: "#221E16",
           margin: 0,
           lineHeight: 1.3,
         }}>{project.title}</h3>
@@ -90,7 +99,7 @@ function ProjectCard({ project, wide = false }) {
         {/* Description */}
         <p style={{
           fontSize: "0.9rem",
-          color: "rgba(255,255,255,0.6)",
+          color: "rgba(34, 30, 22, 0.72)",
           margin: 0,
           lineHeight: 1.6,
           flex: 1,
@@ -109,16 +118,16 @@ function ProjectCard({ project, wide = false }) {
                 gap: "0.4rem",
                 fontSize: "0.78rem",
                 fontWeight: 600,
-                color: "#fff",
-                background: "rgba(255,255,255,0.08)",
-                border: "1px solid rgba(255,255,255,0.15)",
+                color: "#221E16",
+                background: "rgba(34, 30, 22, 0.06)",
+                border: "1px solid rgba(34, 30, 22, 0.14)",
                 borderRadius: 4,
                 padding: "0.45rem 0.9rem",
                 textDecoration: "none",
                 transition: "background 0.2s, border-color 0.2s",
               }}
-              onMouseEnter={canHover ? e => { e.currentTarget.style.background = "rgba(255,255,255,0.15)"; e.currentTarget.style.borderColor = "rgba(255,255,255,0.3)"; } : undefined}
-              onMouseLeave={canHover ? e => { e.currentTarget.style.background = "rgba(255,255,255,0.08)"; e.currentTarget.style.borderColor = "rgba(255,255,255,0.15)"; } : undefined}
+              onMouseEnter={canHover ? e => { e.currentTarget.style.background = "rgba(34, 30, 22, 0.14)"; e.currentTarget.style.borderColor = "rgba(34, 30, 22, 0.35)"; } : undefined}
+              onMouseLeave={canHover ? e => { e.currentTarget.style.background = "rgba(34, 30, 22, 0.06)"; e.currentTarget.style.borderColor = "rgba(34, 30, 22, 0.14)"; } : undefined}
             >
               <GithubIcon /> GitHub
             </a>
@@ -134,9 +143,9 @@ function ProjectCard({ project, wide = false }) {
                 gap: "0.4rem",
                 fontSize: "0.78rem",
                 fontWeight: 600,
-                color: "#fff",
-                background: "#F96D00",
-                border: "1px solid #F96D00",
+                color: "#221E16",
+                background: "#9C7A2A",
+                border: "1px solid #9C7A2A",
                 borderRadius: 4,
                 padding: "0.45rem 0.9rem",
                 textDecoration: "none",
@@ -145,7 +154,7 @@ function ProjectCard({ project, wide = false }) {
               onMouseEnter={canHover ? e => { e.currentTarget.style.opacity = "0.85"; } : undefined}
               onMouseLeave={canHover ? e => { e.currentTarget.style.opacity = "1"; } : undefined}
             >
-              <ExternalIcon /> Live Demo
+              <ExternalIcon /> Open Live Website
             </a>
           )}
         </div>
@@ -158,13 +167,13 @@ export default function Projects() {
   const [, quiz, face, docker] = profile.projects;
 
   return (
-    <section id="projects" className="clark-section" style={{ background: "#1d1d1b" }}>
+    <section id="projects" className="clark-section" style={{ background: "#FAF7F1" }}>
       <div style={{ maxWidth: 1200, margin: "0 auto", padding: "0 5%" }}>
         {/* Heading */}
         <div style={{ position: "relative", marginBottom: "3.5rem" }}>
-          <span className="ghost-heading" style={{ color: "rgba(255,255,255,0.04)" }}>Projects</span>
-          <span className="section-label" style={{ color: "#F96D00" }}>What I've Built</span>
-          <h2 className="section-title" style={{ color: "#fff" }}>More Projects</h2>
+          <span className="ghost-heading" style={{ color: "rgba(34, 30, 22, 0.06)" }}>Projects</span>
+          <span className="section-label" style={{ color: "#8A6D1B" }}>What I've Built</span>
+          <h2 className="section-title" style={{ color: "#221E16" }}>More Projects</h2>
         </div>
 
         {/* Quiz + Face + Docker — three columns */}

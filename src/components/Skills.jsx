@@ -50,7 +50,7 @@ export default function Skills() {
           {profile.skills.map((group) => (
             <div key={group.category} className="skill-group">
               <div className="skill-group-head">
-                <svg width="18" height="18" fill="none" viewBox="0 0 24 24" stroke="#ba5300" strokeWidth={2}>
+                <svg width="18" height="18" fill="none" viewBox="0 0 24 24" stroke="#8A6D1B" strokeWidth={2}>
                   {categoryIcons[group.category]}
                 </svg>
                 <h3 className="skill-group-title">{group.category}</h3>

@@ -24,23 +24,6 @@ const profile = {
 
   skills: [
     {
-      category: "AI & Tooling",
-      items: [
-        "Claude Code",
-        "Claude Sub-Agents",
-        "Model Context Protocol (MCP)",
-        "Custom MCP Servers",
-        "AI Skills & Plugins",
-        "GitHub Copilot",
-        "Prompt Engineering",
-        "AI-Accelerated Development",
-      ],
-    },
-    {
-      category: "Languages",
-      items: ["Java", "JavaScript", "TypeScript", "Python", "C++"],
-    },
-    {
       category: "Backend",
       items: [
         "Spring Boot",
@@ -53,12 +36,25 @@ const profile = {
       ],
     },
     {
+      category: "Databases & Messaging",
+      items: ["PostgreSQL", "MySQL", "Redis", "Apache Kafka", "Flyway", "JDBC"],
+    },
+    {
       category: "Frontend",
       items: ["React", "HTML", "CSS"],
     },
     {
-      category: "Databases & Messaging",
-      items: ["PostgreSQL", "MySQL", "Redis", "Apache Kafka", "Flyway", "JDBC"],
+      category: "AI & Tooling",
+      items: [
+        "Claude Code",
+        "Claude Sub-Agents",
+        "Model Context Protocol (MCP)",
+        "Custom MCP Servers",
+        "AI Skills & Plugins",
+        "GitHub Copilot",
+        "Prompt Engineering",
+        "AI-Accelerated Development",
+      ],
     },
     {
       category: "Cloud & DevOps",
@@ -99,6 +95,10 @@ const profile = {
     {
       category: "Tools & Analytics",
       items: ["Figma", "Power BI", "Alteryx"],
+    },
+    {
+      category: "Languages",
+      items: ["Java", "JavaScript", "TypeScript", "Python", "C++"],
     },
   ],
 
