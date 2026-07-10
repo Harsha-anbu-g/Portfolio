@@ -56,7 +56,7 @@ export default function About() {
             <ul style={{ padding: 0, margin: 0, marginBottom: "1.75rem", listStyle: "none", display: "flex", flexDirection: "column", gap: "0.75rem" }}>
               {profile.about.map((point, i) => (
                 <li key={i} style={{ display: "flex", gap: "0.75rem", alignItems: "flex-start", fontSize: "0.95rem", lineHeight: 1.75, color: "#555" }}>
-                  <span style={{ color: "#F96D00", fontWeight: 700, flexShrink: 0, marginTop: "0.05rem" }}>—</span>
+                  <span style={{ color: "#8A6D1B", fontWeight: 700, flexShrink: 0, marginTop: "0.05rem" }}>—</span>
                   {point}
                 </li>
               ))}
@@ -65,7 +65,7 @@ export default function About() {
             <ul className="about-info-list">
               <li>
                 <span className="info-label" style={{ display: "flex", alignItems: "center", gap: "0.45rem" }}>
-                  <svg width="13" height="13" fill="none" viewBox="0 0 24 24" stroke="#ba5300" strokeWidth={2} aria-hidden="true" style={{ flexShrink: 0 }}>
+                  <svg width="13" height="13" fill="none" viewBox="0 0 24 24" stroke="#8A6D1B" strokeWidth={2} aria-hidden="true" style={{ flexShrink: 0 }}>
                     <path strokeLinecap="round" strokeLinejoin="round" d="M16 7a4 4 0 11-8 0 4 4 0 018 0zM12 14a7 7 0 00-7 7h14a7 7 0 00-7-7z" />
                   </svg>
                   Name
@@ -74,7 +74,7 @@ export default function About() {
               </li>
               <li>
                 <span className="info-label" style={{ display: "flex", alignItems: "center", gap: "0.45rem" }}>
-                  <svg width="13" height="13" fill="none" viewBox="0 0 24 24" stroke="#ba5300" strokeWidth={2} aria-hidden="true" style={{ flexShrink: 0 }}>
+                  <svg width="13" height="13" fill="none" viewBox="0 0 24 24" stroke="#8A6D1B" strokeWidth={2} aria-hidden="true" style={{ flexShrink: 0 }}>
                     <path strokeLinecap="round" strokeLinejoin="round" d="M17.657 16.657L13.414 20.9a1.998 1.998 0 01-2.827 0l-4.244-4.243a8 8 0 1111.314 0z" />
                     <path strokeLinecap="round" strokeLinejoin="round" d="M15 11a3 3 0 11-6 0 3 3 0 016 0z" />
                   </svg>
@@ -84,20 +84,20 @@ export default function About() {
               </li>
               <li>
                 <span className="info-label" style={{ display: "flex", alignItems: "center", gap: "0.45rem" }}>
-                  <svg width="13" height="13" fill="none" viewBox="0 0 24 24" stroke="#ba5300" strokeWidth={2} aria-hidden="true" style={{ flexShrink: 0 }}>
+                  <svg width="13" height="13" fill="none" viewBox="0 0 24 24" stroke="#8A6D1B" strokeWidth={2} aria-hidden="true" style={{ flexShrink: 0 }}>
                     <path strokeLinecap="round" strokeLinejoin="round" d="M3 8l7.89 5.26a2 2 0 002.22 0L21 8M5 19h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z" />
                   </svg>
                   Email
                 </span>
                 <span className="info-value">
-                  <a href={`mailto:${profile.contact.email}`} style={{ color: "#ba5300", textDecoration: "none" }}>
+                  <a href={`mailto:${profile.contact.email}`} style={{ color: "#8A6D1B", textDecoration: "none" }}>
                     {profile.contact.email}
                   </a>
                 </span>
               </li>
               <li>
                 <span className="info-label" style={{ display: "flex", alignItems: "center", gap: "0.45rem" }}>
-                  <svg width="13" height="13" fill="none" viewBox="0 0 24 24" stroke="#ba5300" strokeWidth={2} aria-hidden="true" style={{ flexShrink: 0 }}>
+                  <svg width="13" height="13" fill="none" viewBox="0 0 24 24" stroke="#8A6D1B" strokeWidth={2} aria-hidden="true" style={{ flexShrink: 0 }}>
                     <path strokeLinecap="round" strokeLinejoin="round" d="M3 5a2 2 0 012-2h3.28a1 1 0 01.948.684l1.498 4.493a1 1 0 01-.502 1.21l-2.257 1.13a11.042 11.042 0 005.516 5.516l1.13-2.257a1 1 0 011.21-.502l4.493 1.498a1 1 0 01.684.949V19a2 2 0 01-2 2h-1C9.716 21 3 14.284 3 6V5z" />
                   </svg>
                   Phone
@@ -110,12 +110,12 @@ export default function About() {
               </li>
               <li>
                 <span className="info-label" style={{ display: "flex", alignItems: "center", gap: "0.45rem" }}>
-                  <svg width="13" height="13" fill="none" viewBox="0 0 24 24" stroke="#ba5300" strokeWidth={2} aria-hidden="true" style={{ flexShrink: 0 }}>
+                  <svg width="13" height="13" fill="none" viewBox="0 0 24 24" stroke="#8A6D1B" strokeWidth={2} aria-hidden="true" style={{ flexShrink: 0 }}>
                     <path strokeLinecap="round" strokeLinejoin="round" d="M21 13.255A23.931 23.931 0 0112 15c-3.183 0-6.22-.62-9-1.745M16 6V4a2 2 0 00-2-2h-4a2 2 0 00-2 2v2m4 6h.01M5 20h14a2 2 0 002-2V8a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z" />
                   </svg>
                   Status
                 </span>
-                <span className="info-value" style={{ color: "#ba5300", fontWeight: 600 }}>Open to work</span>
+                <span className="info-value" style={{ color: "#8A6D1B", fontWeight: 600 }}>Open to work</span>
               </li>
             </ul>
 
@@ -131,7 +131,7 @@ export default function About() {
                 target="_blank"
                 rel="noopener noreferrer"
                 className="btn-outline-white"
-                style={{ color: "#1d1d1b", borderColor: "rgba(0,0,0,0.25)" }}
+                style={{ color: "#221E16", borderColor: "rgba(0,0,0,0.25)" }}
               >
                 LinkedIn
                 <svg width="13" height="13" fill="currentColor" viewBox="0 0 24 24">
@@ -147,7 +147,7 @@ export default function About() {
           display: "grid",
           gridTemplateColumns: "repeat(4, 1fr)",
           marginTop: "5rem",
-          background: "#F96D00",
+          background: "#9C7A2A",
           borderRadius: "4px",
           overflow: "hidden",
         }}>

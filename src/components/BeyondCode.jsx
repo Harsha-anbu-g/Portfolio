@@ -10,7 +10,7 @@ const levelStyle = {
 };
 
 /* Shared 24-viewbox stroke icon */
-const Icon = ({ size = 18, color = "#F96D00", width = 2, children, style }) => (
+const Icon = ({ size = 18, color = "#C9A227", width = 2, children, style }) => (
   <svg
     width={size}
     height={size}
@@ -101,13 +101,13 @@ export default function BeyondCode() {
   const countryCount = Object.keys(travel.places).length;
 
   return (
-    <section id="beyond-code" className="clark-section" style={{ background: "#131311" }}>
+    <section id="beyond-code" className="clark-section" style={{ background: "#201C15" }}>
       <div style={{ maxWidth: 1200, margin: "0 auto", padding: "0 5%" }}>
 
         {/* Heading */}
         <div style={{ position: "relative", marginBottom: "3.5rem" }}>
           <span className="ghost-heading" style={{ color: "rgba(255,255,255,0.04)" }}>Life</span>
-          <span className="section-label" style={{ color: "#F96D00" }}>Off The Clock</span>
+          <span className="section-label" style={{ color: "#C9A227" }}>Off The Clock</span>
           <h2 className="section-title" style={{ color: "#fff" }}>Beyond Code</h2>
           <p style={{ fontSize: "0.9rem", color: "rgba(255,255,255,0.5)", marginTop: "-0.5rem" }}>
             The habits, interests and values that shape how I think and work.
@@ -123,7 +123,7 @@ export default function BeyondCode() {
             <div>
               {reading.books.map((b) => (
                 <div key={b.title} className="bc-book">
-                  <Icon size={13} width={1.8} color="rgba(249,109,0,0.8)" style={{ marginTop: 3 }}>
+                  <Icon size={13} width={1.8} color="rgba(201, 162, 39,0.8)" style={{ marginTop: 3 }}>
                     {paths.bookClosed}
                   </Icon>
                   <div>
@@ -281,7 +281,7 @@ export default function BeyondCode() {
         }
         @media (hover: hover) {
           .bc-block:hover {
-            border-color: rgba(249,109,0,0.35);
+            border-color: rgba(201, 162, 39,0.35);
           }
         }
         .bc-head {
@@ -348,7 +348,7 @@ export default function BeyondCode() {
           font-weight: 700;
           text-transform: uppercase;
           letter-spacing: 0.12em;
-          color: #F96D00;
+          color: #C9A227;
           margin: 0 0 0.6rem;
         }
         .bc-chip {
@@ -366,8 +366,8 @@ export default function BeyondCode() {
           align-items: center;
           gap: 0.5rem;
           padding: 0.65rem 1rem;
-          background: rgba(249,109,0,0.09);
-          border: 1px solid rgba(249,109,0,0.22);
+          background: rgba(201, 162, 39,0.09);
+          border: 1px solid rgba(201, 162, 39,0.22);
           border-radius: 4px;
           font-size: 0.85rem;
           font-weight: 600;
@@ -379,7 +379,7 @@ export default function BeyondCode() {
           gap: 0.45rem;
           font-size: 0.78rem;
           font-weight: 600;
-          color: #F96D00;
+          color: #C9A227;
           text-decoration: none;
           margin-top: 1.1rem;
         }

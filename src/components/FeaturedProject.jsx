@@ -66,7 +66,7 @@ export default function FeaturedProject() {
         {/* Tech stack */}
         <div className="featured-tech">
           {towin.tech.map((t) => (
-            <span key={t}>{t}</span>
+            <span key={t} className="featured-tech-item">{t}</span>
           ))}
         </div>
 
@@ -119,10 +119,10 @@ export default function FeaturedProject() {
 
       <style>{`
         .featured-section {
-          background: #161614;
+          background: #F3EEE4;
           padding: 5.5rem 0;
-          border-top: 1px solid rgba(255,255,255,0.05);
-          border-bottom: 1px solid rgba(255,255,255,0.05);
+          border-top: 1px solid rgba(34, 30, 22, 0.06);
+          border-bottom: 1px solid rgba(34, 30, 22, 0.06);
         }
         .featured-inner {
           max-width: 1100px;
@@ -141,24 +141,25 @@ export default function FeaturedProject() {
           font-weight: 700;
           letter-spacing: 0.18em;
           text-transform: uppercase;
-          color: #F96D00;
-          background: rgba(249,109,0,0.1);
-          border: 1px solid rgba(249,109,0,0.3);
+          color: #8A6D1B;
+          background: rgba(156, 122, 42,0.1);
+          border: 1px solid rgba(156, 122, 42,0.3);
           border-radius: 999px;
           padding: 0.4rem 1.1rem;
           margin-bottom: 1.25rem;
         }
         .featured-title {
+          font-family: var(--font-serif);
           font-size: clamp(2.2rem, 5vw, 3.4rem);
-          font-weight: 800;
-          color: #fff;
+          font-weight: 600;
+          color: #221E16;
           margin: 0 0 0.5rem;
           line-height: 1.1;
           letter-spacing: -0.02em;
         }
         .featured-subtitle {
           font-size: clamp(1rem, 2.2vw, 1.3rem);
-          color: rgba(255,255,255,0.55);
+          color: rgba(34, 30, 22, 0.60);
           margin: 0;
           font-weight: 400;
         }
@@ -167,10 +168,10 @@ export default function FeaturedProject() {
           position: relative;
           border-radius: 12px;
           overflow: hidden;
-          border: 1px solid rgba(255,255,255,0.08);
+          border: 1px solid rgba(34, 30, 22, 0.06);
           box-shadow: 0 24px 60px rgba(0,0,0,0.45);
           margin-bottom: 2.75rem;
-          background: #1a1a18;
+          background: #EFE9DD;
           transition: transform 0.3s ease, border-color 0.3s ease;
         }
         .featured-preview img {
@@ -185,7 +186,7 @@ export default function FeaturedProject() {
         @media (hover: hover) {
           .featured-preview:hover {
             transform: translateY(-3px);
-            border-color: rgba(249,109,0,0.5);
+            border-color: rgba(156, 122, 42,0.5);
           }
           .featured-preview:hover img {
             transform: scale(1.02);
@@ -200,8 +201,8 @@ export default function FeaturedProject() {
           gap: 0.45rem;
           font-size: 0.78rem;
           font-weight: 600;
-          color: #fff;
-          background: rgba(249,109,0,0.95);
+          color: #FAF7F1;
+          background: rgba(22, 19, 16, 0.88);
           padding: 0.5rem 1rem;
           border-radius: 999px;
           box-shadow: 0 4px 14px rgba(0,0,0,0.35);
@@ -212,7 +213,7 @@ export default function FeaturedProject() {
           text-align: center;
           font-size: clamp(0.95rem, 1.8vw, 1.1rem);
           line-height: 1.75;
-          color: rgba(255,255,255,0.72);
+          color: rgba(34, 30, 22, 0.72);
         }
         .featured-features {
           display: grid;
@@ -221,22 +222,22 @@ export default function FeaturedProject() {
           margin-bottom: 2.5rem;
         }
         .featured-feature {
-          background: #1f1f1d;
-          border: 1px solid rgba(255,255,255,0.07);
+          background: #FFFDF9;
+          border: 1px solid rgba(34, 30, 22, 0.06);
           border-radius: 10px;
           padding: 1.5rem;
           transition: border-color 0.2s ease, transform 0.2s ease;
         }
         @media (hover: hover) {
           .featured-feature:hover {
-            border-color: rgba(249,109,0,0.35);
+            border-color: rgba(156, 122, 42,0.35);
             transform: translateY(-2px);
           }
         }
         .featured-feature h3 {
           font-size: 0.95rem;
           font-weight: 700;
-          color: #fff;
+          color: #221E16;
           margin: 0 0 0.6rem;
           padding-left: 0.85rem;
           position: relative;
@@ -248,32 +249,40 @@ export default function FeaturedProject() {
           top: 0.15rem;
           bottom: 0.15rem;
           width: 3px;
-          background: #F96D00;
+          background: #9C7A2A;
           border-radius: 2px;
         }
         .featured-feature p {
           font-size: 0.9rem;
           line-height: 1.6;
-          color: rgba(255,255,255,0.55);
+          color: rgba(34, 30, 22, 0.60);
           margin: 0;
         }
         .featured-tech {
           display: flex;
           flex-wrap: wrap;
           justify-content: center;
-          gap: 0.5rem;
-          margin-bottom: 2.75rem;
+          gap: 0.55rem;
+          max-width: 680px;
+          margin: 0 auto 2.75rem;
         }
-        .featured-tech span {
-          font-size: 0.72rem;
-          font-weight: 600;
-          letter-spacing: 0.06em;
-          text-transform: uppercase;
-          color: #F96D00;
-          background: rgba(249,109,0,0.1);
-          border: 1px solid rgba(249,109,0,0.25);
-          border-radius: 4px;
-          padding: 0.3rem 0.7rem;
+        .featured-tech-item {
+          font-size: 0.8rem;
+          font-weight: 500;
+          letter-spacing: 0.01em;
+          color: rgba(34, 30, 22, 0.82);
+          background: rgba(34, 30, 22, 0.04);
+          border: 1px solid rgba(34, 30, 22, 0.12);
+          border-radius: 8px;
+          padding: 0.45rem 0.9rem;
+          transition: border-color 0.2s ease, background 0.2s ease, transform 0.2s ease;
+        }
+        @media (hover: hover) {
+          .featured-tech-item:hover {
+            border-color: rgba(156, 122, 42, 0.55);
+            background: rgba(156, 122, 42, 0.08);
+            transform: translateY(-1px);
+          }
         }
         .featured-actions {
           display: flex;
@@ -298,22 +307,22 @@ export default function FeaturedProject() {
           }
         }
         .featured-btn-primary {
-          color: #fff;
-          background: #F96D00;
-          border: 2px solid #F96D00;
+          color: #FAF7F1;
+          background: #221E16;
+          border: 2px solid #221E16;
         }
         .featured-btn-primary:hover {
-          background: #e05e00;
-          border-color: #e05e00;
+          background: #3A342A;
+          border-color: #3A342A;
         }
         .featured-btn-ghost {
-          color: #fff;
-          background: rgba(255,255,255,0.06);
-          border: 2px solid rgba(255,255,255,0.18);
+          color: #221E16;
+          background: transparent;
+          border: 2px solid rgba(34, 30, 22, 0.25);
         }
         .featured-btn-ghost:hover {
-          background: rgba(255,255,255,0.12);
-          border-color: rgba(255,255,255,0.35);
+          background: rgba(34, 30, 22, 0.14);
+          border-color: rgba(34, 30, 22, 0.35);
         }
         .featured-more {
           text-align: right;
@@ -327,13 +336,13 @@ export default function FeaturedProject() {
           font-weight: 600;
           letter-spacing: 0.05em;
           text-transform: uppercase;
-          color: rgba(255,255,255,0.6);
+          color: rgba(34, 30, 22, 0.72);
           text-decoration: none;
           transition: color 0.2s ease, gap 0.2s ease;
         }
         @media (hover: hover) {
           .featured-more-link:hover {
-            color: #F96D00;
+            color: #8A6D1B;
             gap: 0.7rem;
           }
         }
@@ -345,8 +354,8 @@ export default function FeaturedProject() {
           max-width: 640px;
           margin: 1.75rem auto 0;
           padding: 1rem 1.25rem;
-          background: #1f1f1d;
-          border: 1px solid rgba(255,255,255,0.08);
+          background: #FFFDF9;
+          border: 1px solid rgba(34, 30, 22, 0.06);
           border-radius: 10px;
           text-decoration: none;
           transition: transform 0.2s ease, border-color 0.2s ease, background 0.2s ease;
@@ -354,12 +363,12 @@ export default function FeaturedProject() {
         @media (hover: hover) {
           .featured-arch:hover {
             transform: translateY(-2px);
-            border-color: rgba(249,109,0,0.5);
-            background: #232321;
+            border-color: rgba(156, 122, 42,0.5);
+            background: #FFFDF9;
           }
           .featured-arch:hover .featured-arch-arrow {
             transform: translateX(3px);
-            color: #F96D00;
+            color: #8A6D1B;
           }
         }
         .featured-arch-icon {
@@ -370,9 +379,9 @@ export default function FeaturedProject() {
           width: 44px;
           height: 44px;
           border-radius: 9px;
-          color: #F96D00;
-          background: rgba(249,109,0,0.1);
-          border: 1px solid rgba(249,109,0,0.25);
+          color: #8A6D1B;
+          background: rgba(156, 122, 42,0.1);
+          border: 1px solid rgba(156, 122, 42,0.25);
         }
         .featured-arch-text {
           display: flex;
@@ -384,17 +393,17 @@ export default function FeaturedProject() {
         .featured-arch-title {
           font-size: 0.98rem;
           font-weight: 700;
-          color: #fff;
+          color: #221E16;
         }
         .featured-arch-sub {
           font-size: 0.82rem;
           line-height: 1.45;
-          color: rgba(255,255,255,0.55);
+          color: rgba(34, 30, 22, 0.60);
         }
         .featured-arch-arrow {
           flex-shrink: 0;
           margin-left: auto;
-          color: rgba(255,255,255,0.4);
+          color: rgba(34, 30, 22, 0.55);
           transition: transform 0.2s ease, color 0.2s ease;
         }
         @media (prefers-reduced-motion: reduce) {

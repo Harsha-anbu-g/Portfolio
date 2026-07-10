@@ -2,10 +2,10 @@ import profile from "../data/profile";
 
 /* dark orange: passes 4.5:1 for the small labels/codes on this light section */
 const semesterColors = {
-  "Winter 2025": "#ba5300",
-  "Summer 2025": "#ba5300",
-  "Fall 2025":   "#ba5300",
-  "Winter 2026": "#ba5300",
+  "Winter 2025": "#8A6D1B",
+  "Summer 2025": "#8A6D1B",
+  "Fall 2025":   "#8A6D1B",
+  "Winter 2026": "#8A6D1B",
 };
 
 export default function Coursework() {
@@ -26,7 +26,7 @@ export default function Coursework() {
         {/* Semester blocks */}
         <div style={{ display: "flex", flexDirection: "column", gap: "3rem" }}>
           {profile.coursework.map((sem, si) => {
-            const color = semesterColors[sem.semester] || "#ba5300";
+            const color = semesterColors[sem.semester] || "#8A6D1B";
             return (
               <div key={si}>
                 {/* Semester label */}
@@ -51,15 +51,15 @@ export default function Coursework() {
                     <span style={{
                       display: "inline-flex", alignItems: "center", gap: "0.4rem",
                       fontSize: "0.7rem", fontWeight: 600,
-                      background: "rgba(249,109,0,0.1)",
-                      color: "#ba5300",
-                      border: "1px solid rgba(249,109,0,0.25)",
+                      background: "rgba(156, 122, 42,0.1)",
+                      color: "#8A6D1B",
+                      border: "1px solid rgba(156, 122, 42,0.25)",
                       borderRadius: "999px",
                       padding: "0.2rem 0.75rem",
                     }}>
                       <span style={{
                         width: 6, height: 6, borderRadius: "50%",
-                        background: "#F96D00",
+                        background: "#9C7A2A",
                         animation: "pulse-dot 2s infinite",
                       }} />
                       Current
@@ -82,9 +82,9 @@ export default function Coursework() {
                         alignItems: "center",
                         gap: "1rem",
                         padding: "1.1rem 1.25rem",
-                        border: `1px solid ${sem.current ? "rgba(249,109,0,0.25)" : "rgba(0,0,0,0.08)"}`,
+                        border: `1px solid ${sem.current ? "rgba(156, 122, 42,0.25)" : "rgba(0,0,0,0.08)"}`,
                         borderRadius: "4px",
-                        background: sem.current ? "rgba(249,109,0,0.04)" : "#fafaf9",
+                        background: sem.current ? "rgba(156, 122, 42,0.04)" : "#fafaf9",
                         transition: "border-color 0.2s, box-shadow 0.2s",
                         cursor: "default",
                       }}
@@ -93,7 +93,7 @@ export default function Coursework() {
                         e.currentTarget.style.boxShadow = `0 4px 16px rgba(0,0,0,0.06)`;
                       }}
                       onMouseLeave={e => {
-                        e.currentTarget.style.borderColor = sem.current ? "rgba(249,109,0,0.25)" : "rgba(0,0,0,0.08)";
+                        e.currentTarget.style.borderColor = sem.current ? "rgba(156, 122, 42,0.25)" : "rgba(0,0,0,0.08)";
                         e.currentTarget.style.boxShadow = "none";
                       }}
                     >
@@ -101,7 +101,7 @@ export default function Coursework() {
                       <div>
                         <p style={{
                           fontSize: "0.875rem", fontWeight: 600,
-                          color: "#1d1d1b", marginBottom: "0.2rem", lineHeight: 1.3,
+                          color: "#221E16", marginBottom: "0.2rem", lineHeight: 1.3,
                         }}>
                           {course.name}
                         </p>
@@ -125,14 +125,14 @@ export default function Coursework() {
         <div style={{
           marginTop: "3rem",
           padding: "1.25rem 1.5rem",
-          background: "rgba(249,109,0,0.05)",
-          border: "1px solid rgba(249,109,0,0.18)",
+          background: "rgba(156, 122, 42,0.05)",
+          border: "1px solid rgba(156, 122, 42,0.18)",
           borderRadius: "4px",
           display: "flex", alignItems: "center", gap: "1rem",
         }}>
           <div style={{
             width: 36, height: 36, borderRadius: "50%", flexShrink: 0,
-            background: "#F96D00",
+            background: "#9C7A2A",
             display: "flex", alignItems: "center", justifyContent: "center",
           }}>
             <svg width="16" height="16" fill="none" viewBox="0 0 24 24" stroke="#fff" strokeWidth={2.5}>
@@ -140,7 +140,7 @@ export default function Coursework() {
             </svg>
           </div>
           <div>
-            <p style={{ fontSize: "0.875rem", fontWeight: 600, color: "#1d1d1b", marginBottom: "0.15rem" }}>
+            <p style={{ fontSize: "0.875rem", fontWeight: 600, color: "#221E16", marginBottom: "0.15rem" }}>
               Completed 40 / 45 credits
             </p>
             <p style={{ fontSize: "0.8rem", color: "#6b7280" }}>

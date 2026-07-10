@@ -24,3 +24,20 @@
   the React site. Diagram/content styling is content — never re-theme it.
 - **Rule:** A broad complaint ("UI/UX is not good") still means the smallest targeted
   fix. Read requests narrowly first; widen only if the user asks after seeing it.
+
+## 2026-07-10 — Full redesign rejected AGAIN (user-driven this time)
+- **Pattern:** User asked "does the orange look good? feels AI-generated, give me ideas."
+  I ran a full exploration: ember → blue → emerald → paper&gold + serif → dark-first night
+  mode via Ralph. User approved each step in the moment, then ended with "back to the
+  original, that's the problem, but other things are ok." Hours of churn → reverted to
+  the exact live design. Same outcome as 2026-07-05, even though the user initiated it.
+- **Rule:** Even when the USER asks for design change ideas, treat it as exploration, not
+  commitment. Show cheap previews (the /palette-preview.html comparison page worked
+  great — decisions came fast) and change NOTHING in src/ until a direction survives a
+  day. Momentum-approval ("its good", "g8 is good") ≠ final approval.
+- **Rule:** Content/functional edits (labels, links, ordering, new assets) are safe and
+  stick. Visual identity edits (palette, fonts, backgrounds) get reverted. Bias effort
+  accordingly.
+- **Note:** The full paper&gold redesign is preserved at commit 519e981; the night-mode
+  token work is parked on branch ralph/night-mode (US-001/US-002 done + WIP US-003).
+  If the user ever wants them back, they exist.
