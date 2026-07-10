@@ -4,13 +4,8 @@
 
 @theme {
   --font-sans: "Poppins", ui-sans-serif, system-ui, -apple-system, sans-serif;
-  --font-serif: "Lora", Georgia, "Times New Roman", serif;
-  /* Paper & Gold — ToWin's design language: warm paper, warm ink, champagne gold */
-  --color-accent: #C9A227;      /* champagne gold — graphics, italic accents */
-  --color-accent-deep: #8A6D1B; /* deep gold — small text/labels on paper (AA) */
-  --color-paper: #FAF7F1;
-  --color-ink: #221E16;
-  --color-dark: #221E16;
+  --color-accent: #F96D00;
+  --color-dark: #1d1d1b;
 }
 
 /* ─── Base ─────────────────────────────────────────── */
@@ -53,7 +48,7 @@ body {
 
 /* ─── Focus ─────────────────────────────────────────── */
 *:focus-visible {
-  outline: 2px solid #8A6D1B;
+  outline: 2px solid #F96D00;
   outline-offset: 2px;
 }
 
@@ -101,23 +96,22 @@ body {
 }
 
 /* ─── Section heading style ──────────────────────────── */
-/* #8A6D1B = brand orange darkened to pass 4.5:1 on white/cream;
-   dark sections override back to the vivid #9C7A2A inline */
+/* #ba5300 = brand orange darkened to pass 4.5:1 on white/cream;
+   dark sections override back to the vivid #F96D00 inline */
 .section-label {
   display: block;
   font-size: 0.75rem;
   font-weight: 600;
   letter-spacing: 0.15em;
   text-transform: uppercase;
-  color: #8A6D1B;
+  color: #ba5300;
   margin-bottom: 0.5rem;
 }
 
 .section-title {
-  font-family: var(--font-serif);
   font-size: clamp(1.75rem, 4vw, 2.5rem);
-  font-weight: 600;
-  color: #221E16;
+  font-weight: 700;
+  color: #1d1d1b;
   margin-bottom: 1.5rem;
   line-height: 1.2;
 }
@@ -130,7 +124,7 @@ body {
 .hero-section {
   min-height: 100vh;
   min-height: 100svh;
-  background: #FAF7F1;
+  background: #1d1d1b;
   display: flex;
   align-items: stretch;
   position: relative;
@@ -169,40 +163,35 @@ body {
   content: '';
   position: absolute;
   inset: 0;
-  background: linear-gradient(to right, #FAF7F1 0%, transparent 40%);
+  background: linear-gradient(to right, #1d1d1b 0%, transparent 40%);
   pointer-events: none;
 }
 
 .hero-sub {
   display: block;
-  font-family: var(--font-serif);
-  font-style: italic;
-  font-size: 1.15rem;
+  font-size: 1rem;
   font-weight: 500;
-  color: #8A6D1B;
-  letter-spacing: 0.02em;
+  color: #F96D00;
+  letter-spacing: 0.1em;
   margin-bottom: 1rem;
 }
 
 .hero-name {
-  font-family: var(--font-serif);
   font-size: clamp(2.5rem, 5vw, 4rem);
-  font-weight: 600;
-  color: #221E16;
-  line-height: 1.12;
-  letter-spacing: -0.01em;
+  font-weight: 800;
+  color: #fff;
+  line-height: 1.1;
   margin-bottom: 0.75rem;
 }
 
 .hero-name span {
-  color: #9C7A2A;
-  font-style: italic;
+  color: #F96D00;
 }
 
 .hero-role {
   font-size: clamp(1rem, 2.5vw, 1.4rem);
   font-weight: 400;
-  color: #6E6659;
+  color: rgba(255,255,255,0.65);
   margin-bottom: 2rem;
 }
 
@@ -211,12 +200,12 @@ body {
   align-items: center;
   gap: 0.5rem;
   font-size: 0.8rem;
-  color: #6E6659;
+  color: rgba(255,255,255,0.5);
   margin-bottom: 2.5rem;
-  background: rgba(34,30,22,0.04);
+  background: rgba(255,255,255,0.06);
   padding: 0.4rem 1rem;
   border-radius: 999px;
-  border: 1px solid rgba(34,30,22,0.12);
+  border: 1px solid rgba(255,255,255,0.08);
 }
 
 .hero-status-dot {
@@ -243,19 +232,19 @@ body {
   align-items: center;
   gap: 0.5rem;
   padding: 0.85rem 2rem;
-  background: #221E16;
-  color: #FAF7F1;
+  background: #F96D00;
+  color: #fff;
   font-size: 0.875rem;
   font-weight: 600;
-  border-radius: 999px;
+  border-radius: 4px;
   text-decoration: none;
   transition: background 0.2s, transform 0.2s;
-  border: 2px solid #221E16;
+  border: 2px solid #F96D00;
 }
 
 .btn-primary:hover {
-  background: #3A342A;
-  border-color: #3A342A;
+  background: #e05e00;
+  border-color: #e05e00;
   transform: translateY(-1px);
 }
 
@@ -265,18 +254,18 @@ body {
   gap: 0.5rem;
   padding: 0.85rem 2rem;
   background: transparent;
-  color: #221E16;
+  color: #fff;
   font-size: 0.875rem;
   font-weight: 600;
-  border-radius: 999px;
+  border-radius: 4px;
   text-decoration: none;
-  border: 2px solid rgba(34,30,22,0.28);
+  border: 2px solid rgba(255,255,255,0.3);
   transition: border-color 0.2s, background 0.2s, transform 0.2s;
 }
 
 .btn-outline-white:hover {
-  border-color: #221E16;
-  background: rgba(34,30,22,0.05);
+  border-color: #fff;
+  background: rgba(255,255,255,0.08);
   transform: translateY(-1px);
 }
 
@@ -288,14 +277,14 @@ body {
 }
 
 .hero-social-link {
-  color: #8A8074;
+  color: rgba(255,255,255,0.65);
   transition: color 0.2s;
   display: flex;
   align-items: center;
 }
 
 .hero-social-link:hover {
-  color: #8A6D1B;
+  color: #F96D00;
 }
 
 /* ─── About ──────────────────────────────────────────── */
@@ -336,7 +325,7 @@ body {
 
 .about-info-list li .info-label {
   font-weight: 600;
-  color: #221E16;
+  color: #1d1d1b;
   min-width: 80px;
   flex-shrink: 0;
 }
@@ -372,7 +361,7 @@ body {
   top: 6px;
   width: 12px;
   height: 12px;
-  background: #9C7A2A;
+  background: #F96D00;
   border-radius: 50%;
 }
 
@@ -380,7 +369,7 @@ body {
   display: inline-block;
   font-size: 0.75rem;
   font-weight: 600;
-  color: #8A6D1B;
+  color: #ba5300;
   letter-spacing: 0.05em;
   margin-bottom: 0.5rem;
 }
@@ -388,7 +377,7 @@ body {
 .resume-role {
   font-size: 1.05rem;
   font-weight: 700;
-  color: #221E16;
+  color: #1d1d1b;
   margin-bottom: 0.25rem;
 }
 
@@ -398,7 +387,7 @@ body {
 
 .resume-place {
   font-size: 0.85rem;
-  color: #8A6D1B;
+  color: #ba5300;
   margin-bottom: 0.75rem;
   font-weight: 500;
 }
@@ -424,7 +413,7 @@ body {
   content: '—';
   position: absolute;
   left: 0;
-  color: #8A6D1B;
+  color: #F96D00;
   font-size: 0.75rem;
 }
 
@@ -452,7 +441,7 @@ body {
   font-weight: 700;
   letter-spacing: 0.12em;
   text-transform: uppercase;
-  color: #8A6D1B;
+  color: #ba5300;
   margin: 0;
 }
 
@@ -475,7 +464,7 @@ body {
 
 /* ─── Stats / Counter bar ────────────────────────────── */
 .stats-bar {
-  background: #9C7A2A;
+  background: #F96D00;
   padding: 3.5rem 0;
 }
 
@@ -511,7 +500,7 @@ body {
 .contact-icon {
   width: 44px;
   height: 44px;
-  background: #9C7A2A;
+  background: #F96D00;
   border-radius: 50%;
   display: flex;
   align-items: center;
@@ -528,7 +517,7 @@ body {
   border-radius: 4px;
   font-family: var(--font-sans);
   font-size: 0.875rem;
-  color: #221E16;
+  color: #1d1d1b;
   background: #fff;
   transition: border-color 0.2s;
   margin-bottom: 1rem;
@@ -544,7 +533,7 @@ body {
 .contact-form input:focus,
 .contact-form textarea:focus {
   outline: none;
-  border-color: #8A6D1B;
+  border-color: #F96D00;
 }
 
 .contact-form textarea {
@@ -574,7 +563,7 @@ body {
   left: 0;
   width: 32px;
   height: 2px;
-  background: #9C7A2A;
+  background: #F96D00;
 }
 
 .footer-link {
@@ -587,7 +576,7 @@ body {
 }
 
 .footer-link:hover {
-  color: #8A6D1B;
+  color: #F96D00;
 }
 
 .footer-bottom {
@@ -618,8 +607,8 @@ body {
 }
 
 .footer-social a:hover {
-  border-color: #8A6D1B;
-  background: #9C7A2A;
+  border-color: #F96D00;
+  background: #F96D00;
   color: #fff;
 }
 
@@ -630,15 +619,12 @@ body {
   left: 0;
   right: 0;
   z-index: 50;
-  background: rgba(250,247,241,0.94);
-  backdrop-filter: blur(8px);
-  -webkit-backdrop-filter: blur(8px);
-  border-bottom: 1px solid rgba(34,30,22,0.08);
+  background: #1d1d1b;
   transition: box-shadow 0.3s;
 }
 
 .clark-nav.scrolled {
-  box-shadow: 0 2px 20px rgba(34,30,22,0.08);
+  box-shadow: 0 2px 20px rgba(0,0,0,0.4);
 }
 
 .clark-nav-inner {
@@ -652,16 +638,15 @@ body {
 }
 
 .clark-logo {
-  font-family: var(--font-serif);
-  font-size: 1.15rem;
-  font-weight: 700;
-  color: #221E16;
+  font-size: 1.1rem;
+  font-weight: 800;
+  color: #fff;
   text-decoration: none;
   letter-spacing: -0.02em;
 }
 
 .clark-logo span {
-  color: #9C7A2A;
+  color: #F96D00;
 }
 
 /* display is controlled by the `hidden md:flex` utilities on the element;
@@ -678,7 +663,7 @@ body {
 .clark-nav-links a {
   font-size: 0.8rem;
   font-weight: 500;
-  color: #6E6659;
+  color: rgba(255,255,255,0.75);
   text-decoration: none;
   letter-spacing: 0.05em;
   text-transform: uppercase;
@@ -693,12 +678,12 @@ body {
   left: 0;
   width: 0;
   height: 2px;
-  background: #9C7A2A;
+  background: #F96D00;
   transition: width 0.25s ease;
 }
 
 .clark-nav-links a:hover {
-  color: #221E16;
+  color: #fff;
 }
 
 .clark-nav-links a:hover::after {
@@ -706,8 +691,8 @@ body {
 }
 
 .clark-mobile-menu {
-  background: #F4EFE6;
-  border-top: 1px solid rgba(34,30,22,0.08);
+  background: #161614;
+  border-top: 1px solid rgba(255,255,255,0.06);
   padding: 0.5rem 5% 1rem;
   max-height: calc(100dvh - 70px);
   overflow-y: auto;
@@ -729,13 +714,13 @@ body {
   display: block;
   font-size: 0.9rem;
   font-weight: 500;
-  color: #55503F;
+  color: rgba(255,255,255,0.75);
   text-transform: uppercase;
   letter-spacing: 0.05em;
   padding: 0.9rem 0;
   text-decoration: none;
   transition: color 0.2s;
-  border-bottom: 1px solid rgba(34,30,22,0.06);
+  border-bottom: 1px solid rgba(255,255,255,0.04);
 }
 
 .clark-mobile-menu a:last-child {
@@ -743,7 +728,7 @@ body {
 }
 
 .clark-mobile-menu a:hover {
-  color: #8A6D1B;
+  color: #F96D00;
 }
 
 /* ─── Scroll to top ──────────────────────────────────── */
@@ -753,21 +738,21 @@ body {
   right: 2rem;
   width: 44px;
   height: 44px;
-  background: #9C7A2A;
+  background: #F96D00;
   color: #fff;
   border-radius: 4px;
   display: flex;
   align-items: center;
   justify-content: center;
   cursor: pointer;
-  box-shadow: 0 4px 14px rgba(156, 122, 42,0.35);
+  box-shadow: 0 4px 14px rgba(249,109,0,0.35);
   transition: background 0.2s, transform 0.2s;
   z-index: 40;
   border: none;
 }
 
 .scroll-top-btn:hover {
-  background: #8A6D1B;
+  background: #e05e00;
   transform: translateY(-2px);
 }
 
@@ -805,7 +790,7 @@ body {
 }
 
 .clark-mobile-menu a:active {
-  color: #8A6D1B;
+  color: #F96D00;
 }
 
 /* Invisible tap-area expansion for small icon links (44px min target) */
