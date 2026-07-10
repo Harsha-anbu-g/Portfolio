@@ -31,8 +31,8 @@ export default function Navbar() {
               target="_blank"
               rel="noopener noreferrer"
               style={{
-                background: "#221E16",
-                color: "#FAF7F1",
+                background: "#F0EAE0",
+                color: "#201C15",
                 padding: "0.4rem 1.1rem",
                 borderRadius: "999px",
                 letterSpacing: "0.05em",
@@ -55,7 +55,7 @@ export default function Navbar() {
               display: "block",
               width: "22px",
               height: "2px",
-              background: "#221E16",
+              background: "#F0EAE0",
               transition: "transform 0.3s",
               transform: menuOpen ? "translateY(8px) rotate(45deg)" : "none",
             }}
@@ -65,7 +65,7 @@ export default function Navbar() {
               display: "block",
               width: "22px",
               height: "2px",
-              background: "#221E16",
+              background: "#F0EAE0",
               opacity: menuOpen ? 0 : 1,
               transition: "opacity 0.2s",
             }}
@@ -75,7 +75,7 @@ export default function Navbar() {
               display: "block",
               width: "22px",
               height: "2px",
-              background: "#221E16",
+              background: "#F0EAE0",
               transition: "transform 0.3s",
               transform: menuOpen ? "translateY(-8px) rotate(-45deg)" : "none",
             }}
@@ -94,7 +94,7 @@ export default function Navbar() {
             href="/Harshavardhan_AnbuchezhianGowri_Resume.pdf"
             target="_blank"
             rel="noopener noreferrer"
-            style={{ color: "#8A6D1B" }}
+            style={{ color: "#C9A227" }}
             onClick={() => setMenuOpen(false)}
           >
             Resume
