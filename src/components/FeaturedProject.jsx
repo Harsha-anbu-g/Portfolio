@@ -34,6 +34,13 @@ export default function FeaturedProject() {
           <span className="featured-tag">★ Featured Project</span>
           <h2 className="featured-title">ToWin</h2>
           <p className="featured-subtitle">A Trust-Based Social Platform</p>
+          <p className="featured-note">
+            <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth={2} strokeLinecap="round" strokeLinejoin="round" aria-hidden="true">
+              <rect x="2" y="4" width="20" height="13" rx="2" />
+              <path d="M8 21h8M12 17v4" />
+            </svg>
+            Best opened on a laptop or computer — ToWin is crafted for the big screen, not mobile.
+          </p>
         </div>
 
         {/* Big clickable preview */}
@@ -162,6 +169,23 @@ export default function FeaturedProject() {
           color: rgba(34, 30, 22, 0.60);
           margin: 0;
           font-weight: 400;
+        }
+        .featured-note {
+          display: inline-flex;
+          align-items: center;
+          gap: 0.45rem;
+          margin: 0.9rem auto 0;
+          font-size: 0.8rem;
+          font-weight: 500;
+          color: #8A6D1B;
+          background: rgba(156, 122, 42, 0.1);
+          border: 1px solid rgba(156, 122, 42, 0.28);
+          border-radius: 999px;
+          padding: 0.4rem 0.95rem;
+          line-height: 1.4;
+        }
+        .featured-note svg {
+          flex-shrink: 0;
         }
         .featured-preview {
           display: block;
