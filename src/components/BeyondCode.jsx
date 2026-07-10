@@ -1,3 +1,5 @@
+import { useEffect, useState } from "react";
+import { createPortal } from "react-dom";
 import profile from "../data/profile";
 
 const { reading, travel, fitness, sports, journaling, languages, funDetail, contentCreation } =
@@ -99,6 +101,20 @@ const chip = (label) => (
 export default function BeyondCode() {
   const placeCount = Object.values(travel.places).reduce((n, cities) => n + cities.length, 0);
   const countryCount = Object.keys(travel.places).length;
+  const [lightbox, setLightbox] = useState(null);
+
+  useEffect(() => {
+    if (!lightbox) return;
+    const onKey = (e) => {
+      if (e.key === "Escape") setLightbox(null);
+    };
+    document.addEventListener("keydown", onKey);
+    document.body.style.overflow = "hidden";
+    return () => {
+      document.removeEventListener("keydown", onKey);
+      document.body.style.overflow = "";
+    };
+  }, [lightbox]);
 
   return (
     <section id="beyond-code" className="clark-section" style={{ background: "#FAF7F1" }}>
@@ -215,14 +231,21 @@ export default function BeyondCode() {
             <p className="bc-intro">{journaling.note}</p>
             <div style={{ borderRadius: 6, overflow: "hidden", border: "1px solid rgba(34, 30, 22, 0.1)" }}>
               {journaling.images.map((src, i) => (
-                <img
+                <button
                   key={i}
-                  src={src}
-                  alt={`Habit tracker ${i + 1}`}
-                  loading="lazy"
-                  decoding="async"
-                  style={{ width: "100%", display: "block", objectFit: "cover", maxHeight: 240, objectPosition: "top" }}
-                />
+                  type="button"
+                  className="bc-zoom-trigger"
+                  onClick={() => setLightbox(src)}
+                  aria-label={`View habit tracker ${i + 1} enlarged`}
+                >
+                  <img
+                    src={src}
+                    alt={`Habit tracker ${i + 1}`}
+                    loading="lazy"
+                    decoding="async"
+                    style={{ width: "100%", display: "block", objectFit: "cover", maxHeight: 240, objectPosition: "top" }}
+                  />
+                </button>
               ))}
             </div>
           </Block>
@@ -261,6 +284,32 @@ export default function BeyondCode() {
           </a>
         </div>
       </div>
+
+      {/* ── Image lightbox (click journaling image → zoomed view).
+          Portaled to <body>: the .fade-section wrapper is transformed,
+          which would otherwise trap position:fixed inside the section. ── */}
+      {lightbox &&
+        createPortal(
+          <div
+            className="bc-lightbox"
+            role="dialog"
+            aria-modal="true"
+            aria-label="Enlarged habit tracker image — press Escape or click to close"
+            onClick={() => setLightbox(null)}
+          >
+            <button
+              type="button"
+              className="bc-lightbox-close"
+              onClick={() => setLightbox(null)}
+              aria-label="Close enlarged image"
+              autoFocus
+            >
+              ×
+            </button>
+            <img src={lightbox} alt="Habit tracker, enlarged view" />
+          </div>,
+          document.body
+        )}
 
       <style>{`
         .bc-grid {
@@ -460,9 +509,67 @@ export default function BeyondCode() {
             align-items: flex-start;
           }
         }
+        .bc-zoom-trigger {
+          display: block;
+          width: 100%;
+          padding: 0;
+          border: none;
+          background: none;
+          cursor: zoom-in;
+        }
+        .bc-lightbox {
+          position: fixed;
+          inset: 0;
+          z-index: 100;
+          background: rgba(12, 10, 7, 0.92);
+          display: flex;
+          align-items: center;
+          justify-content: center;
+          padding: 4vmin;
+          cursor: zoom-out;
+          animation: bc-lightbox-in 0.22s ease-out;
+        }
+        .bc-lightbox img {
+          max-width: 92vw;
+          max-height: 88vh;
+          border-radius: 8px;
+          box-shadow: 0 30px 80px rgba(0,0,0,0.6);
+          animation: bc-lightbox-img-in 0.22s ease-out;
+        }
+        .bc-lightbox-close {
+          position: absolute;
+          top: 1rem;
+          right: 1.25rem;
+          width: 44px;
+          height: 44px;
+          border: 1px solid rgba(240,234,224,0.3);
+          border-radius: 999px;
+          background: rgba(240,234,224,0.08);
+          color: #F0EAE0;
+          font-size: 1.5rem;
+          line-height: 1;
+          cursor: pointer;
+          transition: background 0.2s ease;
+        }
+        .bc-lightbox-close:hover {
+          background: rgba(240,234,224,0.18);
+        }
+        @keyframes bc-lightbox-in {
+          from { opacity: 0; }
+          to { opacity: 1; }
+        }
+        @keyframes bc-lightbox-img-in {
+          from { opacity: 0; transform: scale(0.96); }
+          to { opacity: 1; transform: scale(1); }
+        }
+
         @media (prefers-reduced-motion: reduce) {
           .bc-block, .bc-btn {
             transition: none;
+          }
+          .bc-lightbox,
+          .bc-lightbox img {
+            animation: none;
           }
         }
       `}</style>
