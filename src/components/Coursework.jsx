@@ -2,23 +2,23 @@ import profile from "../data/profile";
 
 /* dark orange: passes 4.5:1 for the small labels/codes on this light section */
 const semesterColors = {
-  "Winter 2025": "#8A6D1B",
-  "Summer 2025": "#8A6D1B",
-  "Fall 2025":   "#8A6D1B",
-  "Winter 2026": "#8A6D1B",
+  "Winter 2025": "#C9A227",
+  "Summer 2025": "#C9A227",
+  "Fall 2025":   "#C9A227",
+  "Winter 2026": "#C9A227",
 };
 
 export default function Coursework() {
   return (
-    <section id="coursework" className="clark-section" style={{ background: "#fff" }}>
+    <section id="coursework" className="clark-section" style={{ background: "#201C15" }}>
       <div style={{ maxWidth: 1200, margin: "0 auto", padding: "0 5%" }}>
 
         {/* Heading */}
         <div style={{ position: "relative", marginBottom: "3.5rem" }}>
-          <span className="ghost-heading">Courses</span>
-          <span className="section-label">Concordia University</span>
-          <h2 className="section-title">Relevant Coursework</h2>
-          <p style={{ fontSize: "0.9rem", color: "#6b7280", marginTop: "-0.5rem" }}>
+          <span className="ghost-heading" style={{ color: "rgba(255,255,255,0.04)" }}>Courses</span>
+          <span className="section-label" style={{ color: "#C9A227" }}>Concordia University</span>
+          <h2 className="section-title" style={{ color: "#F0EAE0" }}>Relevant Coursework</h2>
+          <p style={{ fontSize: "0.9rem", color: "rgba(240,234,224,0.55)", marginTop: "-0.5rem" }}>
             Master's in Applied Computer Science — key courses across all semesters
           </p>
         </div>
@@ -26,7 +26,7 @@ export default function Coursework() {
         {/* Semester blocks */}
         <div style={{ display: "flex", flexDirection: "column", gap: "3rem" }}>
           {profile.coursework.map((sem, si) => {
-            const color = semesterColors[sem.semester] || "#8A6D1B";
+            const color = semesterColors[sem.semester] || "#C9A227";
             return (
               <div key={si}>
                 {/* Semester label */}
@@ -51,21 +51,21 @@ export default function Coursework() {
                     <span style={{
                       display: "inline-flex", alignItems: "center", gap: "0.4rem",
                       fontSize: "0.7rem", fontWeight: 600,
-                      background: "rgba(156, 122, 42,0.1)",
-                      color: "#8A6D1B",
-                      border: "1px solid rgba(156, 122, 42,0.25)",
+                      background: "rgba(201, 162, 39, 0.12)",
+                      color: "#C9A227",
+                      border: "1px solid rgba(201, 162, 39, 0.3)",
                       borderRadius: "999px",
                       padding: "0.2rem 0.75rem",
                     }}>
                       <span style={{
                         width: 6, height: 6, borderRadius: "50%",
-                        background: "#9C7A2A",
+                        background: "#C9A227",
                         animation: "pulse-dot 2s infinite",
                       }} />
                       Current
                     </span>
                   )}
-                  <div style={{ flex: 1, height: 1, background: "rgba(0,0,0,0.07)" }} />
+                  <div style={{ flex: 1, height: 1, background: "rgba(240,234,224,0.1)" }} />
                 </div>
 
                 {/* Course cards */}
@@ -82,18 +82,18 @@ export default function Coursework() {
                         alignItems: "center",
                         gap: "1rem",
                         padding: "1.1rem 1.25rem",
-                        border: `1px solid ${sem.current ? "rgba(156, 122, 42,0.25)" : "rgba(0,0,0,0.08)"}`,
+                        border: `1px solid ${sem.current ? "rgba(201, 162, 39, 0.3)" : "rgba(240,234,224,0.09)"}`,
                         borderRadius: "4px",
-                        background: sem.current ? "rgba(156, 122, 42,0.04)" : "#fafaf9",
+                        background: sem.current ? "rgba(201, 162, 39, 0.06)" : "#2A251C",
                         transition: "border-color 0.2s, box-shadow 0.2s",
                         cursor: "default",
                       }}
                       onMouseEnter={e => {
                         e.currentTarget.style.borderColor = color;
-                        e.currentTarget.style.boxShadow = `0 4px 16px rgba(0,0,0,0.06)`;
+                        e.currentTarget.style.boxShadow = `0 4px 16px rgba(0,0,0,0.35)`;
                       }}
                       onMouseLeave={e => {
-                        e.currentTarget.style.borderColor = sem.current ? "rgba(156, 122, 42,0.25)" : "rgba(0,0,0,0.08)";
+                        e.currentTarget.style.borderColor = sem.current ? "rgba(201, 162, 39, 0.3)" : "rgba(240,234,224,0.09)";
                         e.currentTarget.style.boxShadow = "none";
                       }}
                     >
@@ -101,7 +101,7 @@ export default function Coursework() {
                       <div>
                         <p style={{
                           fontSize: "0.875rem", fontWeight: 600,
-                          color: "#221E16", marginBottom: "0.2rem", lineHeight: 1.3,
+                          color: "#F0EAE0", marginBottom: "0.2rem", lineHeight: 1.3,
                         }}>
                           {course.name}
                         </p>
@@ -125,25 +125,25 @@ export default function Coursework() {
         <div style={{
           marginTop: "3rem",
           padding: "1.25rem 1.5rem",
-          background: "rgba(156, 122, 42,0.05)",
-          border: "1px solid rgba(156, 122, 42,0.18)",
+          background: "rgba(201, 162, 39, 0.08)",
+          border: "1px solid rgba(201, 162, 39, 0.25)",
           borderRadius: "4px",
           display: "flex", alignItems: "center", gap: "1rem",
         }}>
           <div style={{
             width: 36, height: 36, borderRadius: "50%", flexShrink: 0,
-            background: "#9C7A2A",
+            background: "#C9A227",
             display: "flex", alignItems: "center", justifyContent: "center",
           }}>
-            <svg width="16" height="16" fill="none" viewBox="0 0 24 24" stroke="#fff" strokeWidth={2.5}>
+            <svg width="16" height="16" fill="none" viewBox="0 0 24 24" stroke="#201C15" strokeWidth={2.5}>
               <path strokeLinecap="round" strokeLinejoin="round" d="M9 12l2 2 4-4M7.835 4.697a3.42 3.42 0 001.946-.806 3.42 3.42 0 014.438 0 3.42 3.42 0 001.946.806 3.42 3.42 0 013.138 3.138 3.42 3.42 0 00.806 1.946 3.42 3.42 0 010 4.438 3.42 3.42 0 00-.806 1.946 3.42 3.42 0 01-3.138 3.138 3.42 3.42 0 00-1.946.806 3.42 3.42 0 01-4.438 0 3.42 3.42 0 00-1.946-.806 3.42 3.42 0 01-3.138-3.138 3.42 3.42 0 00-.806-1.946 3.42 3.42 0 010-4.438 3.42 3.42 0 00.806-1.946 3.42 3.42 0 013.138-3.138z" />
             </svg>
           </div>
           <div>
-            <p style={{ fontSize: "0.875rem", fontWeight: 600, color: "#221E16", marginBottom: "0.15rem" }}>
+            <p style={{ fontSize: "0.875rem", fontWeight: 600, color: "#F0EAE0", marginBottom: "0.15rem" }}>
               Completed 40 / 45 credits
             </p>
-            <p style={{ fontSize: "0.8rem", color: "#6b7280" }}>
+            <p style={{ fontSize: "0.8rem", color: "rgba(240,234,224,0.55)" }}>
               Master of Applied Computer Science · Concordia University, Montreal
             </p>
           </div>

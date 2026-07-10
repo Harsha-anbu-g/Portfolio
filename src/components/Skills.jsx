@@ -32,13 +32,13 @@ const categoryIcons = {
 
 export default function Skills() {
   return (
-    <section id="skills" className="clark-section" style={{ background: "#f8f6f1" }}>
+    <section id="skills" className="clark-section" style={{ background: "#201C15" }}>
       <div style={{ maxWidth: 1200, margin: "0 auto", padding: "0 5%" }}>
         {/* Heading */}
         <div style={{ position: "relative", marginBottom: "3.5rem" }}>
-          <span className="ghost-heading">Skills</span>
-          <span className="section-label">What I Know</span>
-          <h2 className="section-title">My Skills</h2>
+          <span className="ghost-heading" style={{ color: "rgba(255,255,255,0.04)" }}>Skills</span>
+          <span className="section-label" style={{ color: "#C9A227" }}>What I Know</span>
+          <h2 className="section-title" style={{ color: "#F0EAE0" }}>My Skills</h2>
         </div>
 
         {/* Category cards */}
@@ -50,7 +50,7 @@ export default function Skills() {
           {profile.skills.map((group) => (
             <div key={group.category} className="skill-group">
               <div className="skill-group-head">
-                <svg width="18" height="18" fill="none" viewBox="0 0 24 24" stroke="#8A6D1B" strokeWidth={2}>
+                <svg width="18" height="18" fill="none" viewBox="0 0 24 24" stroke="#C9A227" strokeWidth={2}>
                   {categoryIcons[group.category]}
                 </svg>
                 <h3 className="skill-group-title">{group.category}</h3>
