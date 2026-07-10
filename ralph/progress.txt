@@ -1,0 +1,16 @@
+# Ralph Progress Log
+Started: 2026-07-10
+---
+
+## Codebase Patterns
+- Design language: "Paper & Gold" (ToWin-aligned). Light: paper #FAF7F1, ink #221E16, bronze accent #9C7A2A, deep gold small-text #8A6D1B. Dark bands + night accents: classic gold #C9A227. Serif display: Lora (var(--font-serif)); body: Poppins (var(--font-sans)). Tokens belong in the @theme block / :root of src/index.css.
+- Styles are SPLIT: global rules in src/index.css AND inline JSX style objects in src/components/*.jsx. FeaturedProject.jsx and BeyondCode.jsx also embed <style> blocks via JSX. When migrating to tokens, inline styles take var(--x) strings, e.g. color: "var(--text)".
+- BeyondCode.jsx (#1E1A13/#201C15 family) and Footer.jsx (#201C15/#28231A) are PERMANENTLY dark bands in both themes — do not lighten them; only harmonize seams.
+- Tailwind v4 via @import "tailwindcss" + @custom-variant dark (&:where(.dark, .dark *)). The dark class goes on <html> (document.documentElement).
+- No typecheck in this repo (plain JS). Quality gates: `npx eslint src` and `npm run build`.
+- Dev server: `npm run dev` — often ALREADY RUNNING on http://localhost:5176 (ports 5173-5175 are taken by other apps). Check before starting another.
+- Browser verification: Playwright MCP tools. If "Browser is already in use" error: `pkill -f mcp-chrome` and retry.
+- DO NOT touch public/architecture.html or public/palette-preview.html (temp file, gitignored, pending deletion).
+- Git rules (user-mandated): NEVER `git push`. NEVER add Co-Authored-By or "Generated with Claude Code" lines to commits. Commit messages: `feat: [Story ID] - [Story Title]`.
+- The green status dot (#22c55e) and per-brand icon colors (LinkedIn blue, Instagram gradient) are intentionally theme-independent.
+---

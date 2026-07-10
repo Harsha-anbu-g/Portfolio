@@ -4,12 +4,12 @@
 
 The portfolio was redesigned to the "Paper & Gold" language: warm paper (`#FAF7F1`), warm ink (`#221E16`), bronze accents (`#9C7A2A`) on light sections, classic gold (`#C9A227`) on the two dark bands (Beyond Code, Footer), and Lora serif display type. The codebase contains 12 stale `.dark` CSS rules and a Tailwind v4 `@custom-variant dark` definition, but **nothing toggles the class — night mode is dead code**.
 
-This feature builds a real, first-class night mode: a "Night Paper" theme (warm blacks, cream text, G3 classic gold `#C9A227` accents — the same treatment the Beyond Code band already uses), a sun/moon toggle in the navbar, and a persisted preference. The site defaults to light for everyone; the visitor's manual choice is remembered.
+This feature builds a real, first-class night mode: a "Night Paper" theme (warm blacks, cream text, G3 classic gold `#C9A227` accents — the same treatment the Beyond Code band already uses), a sun/moon toggle in the navbar, and a persisted preference. The site defaults to NIGHT (dark) for everyone — the black look is the first impression; the visitor's manual choice is remembered.
 
 ## Goals
 
 - A working sun/moon toggle in the navbar (desktop and mobile) that switches the whole site between Paper (light) and Night Paper (dark)
-- Choice persists across visits (localStorage); **default is always light** on first visit
+- Choice persists across visits (localStorage); **default is always night (dark)** on first visit
 - No flash of wrong theme on page load
 - Every section themed consistently: hero, about, experience, skills, featured, projects, coursework, beyond code, contact, footer
 - Replace hardcoded colors with a two-theme CSS custom-property token system (this also removes/upgrades the 12 stale `.dark` rules)
@@ -47,9 +47,9 @@ This feature builds a real, first-class night mode: a "Night Paper" theme (warm 
 **Acceptance Criteria:**
 - [ ] Round icon button in the desktop navbar (right side, near Resume) and in the mobile menu: moon icon in light mode, sun icon in night mode
 - [ ] Clicking toggles the `dark` class on `document.documentElement` and saves `"light"`/`"dark"` to `localStorage` key `theme`
-- [ ] Inline `<script>` in `index.html` `<head>` applies the saved theme before first paint (no flash); missing/unknown value → light
+- [ ] Inline `<script>` in `index.html` `<head>` applies the saved theme before first paint (no flash); missing/unknown value → night (dark)
 - [ ] Button has `aria-label` ("Switch to night mode"/"Switch to light mode") and visible focus ring in both themes
-- [ ] Verify in browser: toggle works, reload keeps choice, first visit (cleared storage) is light
+- [ ] Verify in browser: toggle works, reload keeps choice, first visit (cleared storage) is night (dark)
 
 ### US-003: Global stylesheet on tokens
 **Description:** As a visitor, I want the shell of the site (navbar, hero, buttons, section headings, timeline, skills, contact form, footer strip, scroll-top) to look right in both themes.
@@ -104,7 +104,7 @@ This feature builds a real, first-class night mode: a "Night Paper" theme (warm 
 - FR-1: The system must define all theme colors as CSS custom properties on `:root` (light) with `.dark` overrides (night), per the palette table
 - FR-2: The navbar must show a round sun/moon toggle button on desktop and inside the mobile menu
 - FR-3: Clicking the toggle must add/remove `dark` on `document.documentElement` and persist `theme` = `"light"` | `"dark"` in localStorage
-- FR-4: An inline head script must apply the persisted theme before first paint; first-time visitors always get light
+- FR-4: An inline head script must apply the persisted theme before first paint; first-time visitors always get night (dark)
 - FR-5: All ten sections must derive their colors from the tokens; no hardcoded light-only colors may remain visible in night mode
 - FR-6: Beyond Code and Footer must remain dark in both themes, using G3 gold accents
 - FR-7: The toggle must be keyboard-operable with a visible focus indicator and correct `aria-label` in both states
@@ -113,7 +113,7 @@ This feature builds a real, first-class night mode: a "Night Paper" theme (warm 
 ## Non-Goals (Out of Scope)
 
 - No night mode for `public/architecture.html` (separate static page — explicitly deferred)
-- No `prefers-color-scheme` auto-detection (product decision: always light first)
+- No `prefers-color-scheme` auto-detection (product decision: always night/dark first)
 - No theme-transition animations beyond a simple color transition; no view-transitions API
 - No per-section theme overrides or a third theme
 - `public/palette-preview.html` is a temp file, not part of this feature (pending deletion decision)

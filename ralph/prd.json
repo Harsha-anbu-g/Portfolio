@@ -1,0 +1,118 @@
+{
+  "project": "Portfolio",
+  "branchName": "ralph/night-mode",
+  "description": "Night Mode for the Paper & Gold portfolio — dark-first 'Night Paper' theme (warm blacks, cream text, G3 gold #C9A227), navbar sun/moon toggle, persisted preference, full token migration. PRD: tasks/prd-night-mode.md",
+  "userStories": [
+    {
+      "id": "US-001",
+      "title": "Two-theme token foundation",
+      "description": "As a developer, I need all theme colors defined once as CSS custom properties so both themes derive from one source of truth.",
+      "acceptanceCriteria": [
+        ":root defines light tokens: --bg #FAF7F1, --bg-alt #F3EEE4, --bg-card #FFFDF9, --bg-img #EFE9DD, --text #221E16, --text-muted #6E6659, --accent #9C7A2A, --accent-text #8A6D1B, --hairline rgba(34,30,22,0.10)",
+        ".dark overrides: --bg #161310, --bg-alt #1B1712, --bg-card #242018, --bg-img #2A251C, --text #F0EAE0, --text-muted rgba(240,234,224,0.65), --accent #C9A227, --accent-text #D9B84A, --hairline rgba(240,234,224,0.12)",
+        "The 12 stale .dark rules in src/index.css are removed or rewritten in terms of tokens",
+        "Light mode renders visually identical to before (screenshot hero + one section, compare)",
+        "Lint passes (npx eslint src)",
+        "Build passes (npm run build)"
+      ],
+      "priority": 1,
+      "passes": false,
+      "notes": ""
+    },
+    {
+      "id": "US-002",
+      "title": "Navbar sun/moon toggle, dark-first persistence",
+      "description": "As a visitor, I land on the black Night Paper look by default and can switch to light with a familiar sun/moon button; my choice is remembered.",
+      "acceptanceCriteria": [
+        "Round icon button in desktop navbar (right side, near Resume) and in the mobile menu: moon icon shown in light mode, sun icon in night mode",
+        "Clicking toggles the 'dark' class on document.documentElement and saves 'light'/'dark' to localStorage key 'theme'",
+        "Inline <script> in index.html <head> applies persisted theme before first paint (no flash); missing/unknown value defaults to DARK",
+        "Button has aria-label ('Switch to light mode' / 'Switch to night mode') and visible focus ring in both themes",
+        "Verify in browser using Playwright MCP (dev server http://localhost:5176): toggle works, reload keeps choice, cleared localStorage lands on dark",
+        "Lint passes (npx eslint src)",
+        "Build passes (npm run build)"
+      ],
+      "priority": 2,
+      "passes": false,
+      "notes": ""
+    },
+    {
+      "id": "US-003",
+      "title": "Global stylesheet (index.css) on tokens",
+      "description": "As a visitor, I want the site shell — navbar, hero, buttons, section headings, timeline, skills groups, contact form, scroll-top — correct in both themes.",
+      "acceptanceCriteria": [
+        "All hardcoded colors in src/index.css replaced with var(--…) tokens (intentionally fixed colors like the green status dot may stay)",
+        "Hero photo edge gradient uses var(--bg) so the portrait blends into the background in both themes",
+        "Navbar background/blur, logo, links, and mobile menu themed correctly in both modes",
+        "Verify in browser using Playwright MCP in BOTH themes: hero, navbar, buttons, one timeline entry",
+        "Lint passes (npx eslint src)",
+        "Build passes (npm run build)"
+      ],
+      "priority": 3,
+      "passes": false,
+      "notes": ""
+    },
+    {
+      "id": "US-004",
+      "title": "Light components on tokens",
+      "description": "As a visitor, I want About, Experience, Skills, Coursework, Contact, and Projects to render correctly in night mode.",
+      "acceptanceCriteria": [
+        "Inline hex/rgba styles in About.jsx, Experience.jsx, Skills.jsx, Coursework.jsx, Contact.jsx, Projects.jsx replaced with var(--…) tokens",
+        "Project cards: card surface, tag chips, GitHub and Open Live Website buttons legible in both themes",
+        "Coursework 'Current' pill and completed-credits banner legible in both themes",
+        "Verify in browser using Playwright MCP in BOTH themes: each of the six sections",
+        "Lint passes (npx eslint src)",
+        "Build passes (npm run build)"
+      ],
+      "priority": 4,
+      "passes": false,
+      "notes": ""
+    },
+    {
+      "id": "US-005",
+      "title": "Featured (ToWin) section on tokens",
+      "description": "As a visitor, I want the flagship ToWin showcase to look deliberate in night mode.",
+      "acceptanceCriteria": [
+        "FeaturedProject.jsx <style> block converted to tokens: section bg, tag, title, feature cards, tech chips, buttons, architecture card, preview border/shadow",
+        "ToWin screenshot gets a subtle hairline border in night mode so the light image doesn't glare",
+        "Verify in browser using Playwright MCP in BOTH themes",
+        "Lint passes (npx eslint src)",
+        "Build passes (npm run build)"
+      ],
+      "priority": 5,
+      "passes": false,
+      "notes": ""
+    },
+    {
+      "id": "US-006",
+      "title": "Dark bands and seams in night mode",
+      "description": "As a visitor, I want Beyond Code and the Footer (permanently dark) to feel continuous with night mode instead of separate slabs.",
+      "acceptanceCriteria": [
+        "In night mode, seams between the dark bands and adjacent night sections use the hairline token — visible but subtle",
+        "Beyond Code cards and Footer keep G3 gold (#C9A227) accents in both themes",
+        "Verify in browser using Playwright MCP in BOTH themes: scroll the seams above/below both bands",
+        "Lint passes (npx eslint src)",
+        "Build passes (npm run build)"
+      ],
+      "priority": 6,
+      "passes": false,
+      "notes": ""
+    },
+    {
+      "id": "US-007",
+      "title": "Accessibility and full-sweep verification",
+      "description": "As any visitor, I can read and navigate everything in both themes on desktop and mobile.",
+      "acceptanceCriteria": [
+        "Small gold text meets >=4.5:1 contrast in both themes (#8A6D1B on #FAF7F1; #D9B84A on #161310 — compute and record the ratios in notes)",
+        "Focus rings visible in both themes",
+        "prefers-reduced-motion behavior unchanged (scroll-behavior auto, mobile menu animation off)",
+        "Verify in browser using Playwright MCP: full top-to-bottom scroll in BOTH themes at 1280px and 390px widths; no unreadable text, invisible borders, or light-mode remnants in night mode",
+        "Lint passes (npx eslint src)",
+        "Build passes (npm run build)"
+      ],
+      "priority": 7,
+      "passes": false,
+      "notes": ""
+    }
+  ]
+}

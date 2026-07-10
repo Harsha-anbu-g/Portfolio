@@ -33,3 +33,7 @@ clark-master/
 /*.png
 /*.jpg
 /*.jpeg
+
+# Temp files pending user decision — must not ship
+public/palette-preview.html
+*.heic
