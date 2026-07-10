@@ -39,7 +39,7 @@ Disciplined, warm, hands-on. Professional engineer first, with a genuine persona
 
 - Fonts: Lora (serif display — headings, hero name w/ italic gold accent) + Poppins (body). Single theme; NO dark/light mode toggle.
 - Palette: paper #FAF7F1 / alt #F3EEE4 / cards #FFFDF9; warm ink #221E16; golds — bronze #9C7A2A (graphics on paper), deep #8A6D1B (small text on paper), classic #C9A227 (accents on dark bands).
-- Dark-ink bands: HERO, Skills, Coursework, Beyond Code + Footer are dark #201C15 with #C9A227 gold, cream #F0EAE0 text, and #2A251C card surfaces; navbar is permanently dark. Paper sections between them (About, Experience, Featured, Projects, Contact).
+- Dark-ink bands: HERO, Skills, Coursework, Contact + Footer are dark #201C15 with #C9A227 gold, cream #F0EAE0 text, and #2A251C card surfaces; navbar is permanently dark. Paper sections between them (About, Experience, Featured, Projects, Beyond Code).
 - Buttons: primary actions are INK-filled pills (#221E16 bg / #FAF7F1 text) on paper; CREAM-filled (#F0EAE0 bg / #201C15 text) on the dark hero. Gold is never a large button fill (owner rejected mustard fills).
 - Section grammar: `.clark-section` + `.ghost-heading` watermark + `.section-label` (uppercase deep gold) + serif `.section-title`.
 - Cards/panels: near-flat, 1px hairline borders rgba(34,30,22,0.06–0.14), 4–12px radii, hover = translateY(-2px) + gold border tint.

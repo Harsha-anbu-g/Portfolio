@@ -17,20 +17,20 @@ export default function Contact() {
   };
 
   return (
-    <section id="contact" className="clark-section" style={{ background: "#f8f6f1" }}>
+    <section id="contact" className="clark-section" style={{ background: "#201C15" }}>
       <div style={{ maxWidth: 1200, margin: "0 auto", padding: "0 5%" }}>
         {/* Heading */}
         <div style={{ position: "relative", marginBottom: "3.5rem" }}>
-          <span className="ghost-heading">Contact</span>
-          <span className="section-label">Reach Out</span>
-          <h2 className="section-title">Get In Touch</h2>
+          <span className="ghost-heading" style={{ color: "rgba(255,255,255,0.04)" }}>Contact</span>
+          <span className="section-label" style={{ color: "#C9A227" }}>Reach Out</span>
+          <h2 className="section-title" style={{ color: "#F0EAE0" }}>Get In Touch</h2>
         </div>
 
         <div style={{ display: "grid", gridTemplateColumns: "1fr 1.2fr", gap: "5rem", alignItems: "start" }}>
 
           {/* ── Left: info ── */}
           <div>
-            <p style={{ fontSize: "0.95rem", lineHeight: 1.8, color: "#555", marginBottom: "2.5rem" }}>
+            <p style={{ fontSize: "0.95rem", lineHeight: 1.8, color: "rgba(240,234,224,0.65)", marginBottom: "2.5rem" }}>
               I'm open to full-time and part-time opportunities in full-stack development.
               Whether it's a quick question or a project idea — feel free to reach out.
             </p>
@@ -42,8 +42,8 @@ export default function Contact() {
                 </svg>
               </div>
               <div>
-                <p style={{ fontSize: "0.75rem", fontWeight: 600, textTransform: "uppercase", letterSpacing: "0.1em", color: "#6b7280", marginBottom: "0.2rem" }}>Email</p>
-                <a href={`mailto:${profile.contact.email}`} style={{ fontSize: "0.9rem", color: "#221E16", textDecoration: "none", fontWeight: 500 }}>
+                <p style={{ fontSize: "0.75rem", fontWeight: 600, textTransform: "uppercase", letterSpacing: "0.1em", color: "rgba(240,234,224,0.5)", marginBottom: "0.2rem" }}>Email</p>
+                <a href={`mailto:${profile.contact.email}`} style={{ fontSize: "0.9rem", color: "#F0EAE0", textDecoration: "none", fontWeight: 500 }}>
                   {profile.contact.email}
                 </a>
               </div>
@@ -56,8 +56,8 @@ export default function Contact() {
                 </svg>
               </div>
               <div>
-                <p style={{ fontSize: "0.75rem", fontWeight: 600, textTransform: "uppercase", letterSpacing: "0.1em", color: "#6b7280", marginBottom: "0.2rem" }}>Phone</p>
-                <a href={`tel:${profile.contact.phone}`} style={{ fontSize: "0.9rem", color: "#221E16", textDecoration: "none", fontWeight: 500 }}>
+                <p style={{ fontSize: "0.75rem", fontWeight: 600, textTransform: "uppercase", letterSpacing: "0.1em", color: "rgba(240,234,224,0.5)", marginBottom: "0.2rem" }}>Phone</p>
+                <a href={`tel:${profile.contact.phone}`} style={{ fontSize: "0.9rem", color: "#F0EAE0", textDecoration: "none", fontWeight: 500 }}>
                   {profile.contact.phone}
                 </a>
               </div>
@@ -71,8 +71,8 @@ export default function Contact() {
                 </svg>
               </div>
               <div>
-                <p style={{ fontSize: "0.75rem", fontWeight: 600, textTransform: "uppercase", letterSpacing: "0.1em", color: "#6b7280", marginBottom: "0.2rem" }}>Location</p>
-                <span style={{ fontSize: "0.9rem", color: "#221E16", fontWeight: 500 }}>Montreal, Quebec, Canada</span>
+                <p style={{ fontSize: "0.75rem", fontWeight: 600, textTransform: "uppercase", letterSpacing: "0.1em", color: "rgba(240,234,224,0.5)", marginBottom: "0.2rem" }}>Location</p>
+                <span style={{ fontSize: "0.9rem", color: "#F0EAE0", fontWeight: 500 }}>Montreal, Quebec, Canada</span>
               </div>
             </div>
 
@@ -83,8 +83,8 @@ export default function Contact() {
                 </svg>
               </div>
               <div>
-                <p style={{ fontSize: "0.75rem", fontWeight: 600, textTransform: "uppercase", letterSpacing: "0.1em", color: "#6b7280", marginBottom: "0.2rem" }}>LinkedIn</p>
-                <a href={profile.contact.linkedin} target="_blank" rel="noopener noreferrer" style={{ fontSize: "0.9rem", color: "#221E16", textDecoration: "none", fontWeight: 500 }}>
+                <p style={{ fontSize: "0.75rem", fontWeight: 600, textTransform: "uppercase", letterSpacing: "0.1em", color: "rgba(240,234,224,0.5)", marginBottom: "0.2rem" }}>LinkedIn</p>
+                <a href={profile.contact.linkedin} target="_blank" rel="noopener noreferrer" style={{ fontSize: "0.9rem", color: "#F0EAE0", textDecoration: "none", fontWeight: 500 }}>
                   harsha-anbu-gowri
                 </a>
               </div>
@@ -97,8 +97,8 @@ export default function Contact() {
                 </svg>
               </div>
               <div>
-                <p style={{ fontSize: "0.75rem", fontWeight: 600, textTransform: "uppercase", letterSpacing: "0.1em", color: "#6b7280", marginBottom: "0.2rem" }}>GitHub</p>
-                <a href={profile.contact.github} target="_blank" rel="noopener noreferrer" style={{ fontSize: "0.9rem", color: "#221E16", textDecoration: "none", fontWeight: 500 }}>
+                <p style={{ fontSize: "0.75rem", fontWeight: 600, textTransform: "uppercase", letterSpacing: "0.1em", color: "rgba(240,234,224,0.5)", marginBottom: "0.2rem" }}>GitHub</p>
+                <a href={profile.contact.github} target="_blank" rel="noopener noreferrer" style={{ fontSize: "0.9rem", color: "#F0EAE0", textDecoration: "none", fontWeight: 500 }}>
                   Harsha-anbu-g
                 </a>
               </div>
@@ -111,8 +111,8 @@ export default function Contact() {
                 </svg>
               </div>
               <div>
-                <p style={{ fontSize: "0.75rem", fontWeight: 600, textTransform: "uppercase", letterSpacing: "0.1em", color: "#6b7280", marginBottom: "0.2rem" }}>Instagram</p>
-                <a href={profile.contact.instagram} target="_blank" rel="noopener noreferrer" style={{ fontSize: "0.9rem", color: "#221E16", textDecoration: "none", fontWeight: 500 }}>
+                <p style={{ fontSize: "0.75rem", fontWeight: 600, textTransform: "uppercase", letterSpacing: "0.1em", color: "rgba(240,234,224,0.5)", marginBottom: "0.2rem" }}>Instagram</p>
+                <a href={profile.contact.instagram} target="_blank" rel="noopener noreferrer" style={{ fontSize: "0.9rem", color: "#F0EAE0", textDecoration: "none", fontWeight: 500 }}>
                   harsha._.ag
                 </a>
               </div>

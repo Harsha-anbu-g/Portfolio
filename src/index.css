@@ -280,6 +280,18 @@ body {
   transform: translateY(-1px);
 }
 
+/* Dark-ink bands (#201C15): hero + contact invert their primary buttons */
+#contact .btn-primary {
+  background: #F0EAE0;
+  color: #201C15;
+  border-color: #F0EAE0;
+}
+
+#contact .btn-primary:hover {
+  background: #fff;
+  border-color: #fff;
+}
+
 /* Hero sits on the dark-ink band (#201C15) — invert its buttons/socials */
 .hero-section .btn-primary {
   background: #F0EAE0;
@@ -533,7 +545,8 @@ body {
 .contact-icon {
   width: 44px;
   height: 44px;
-  background: #9C7A2A;
+  background: #C9A227;
+  color: #201C15;
   border-radius: 50%;
   display: flex;
   align-items: center;
@@ -546,27 +559,25 @@ body {
 .contact-form textarea {
   width: 100%;
   padding: 0.875rem 1rem;
-  border: 1px solid rgba(0,0,0,0.12);
+  border: 1px solid rgba(240,234,224,0.15);
   border-radius: 4px;
   font-family: var(--font-sans);
   font-size: 0.875rem;
-  color: #221E16;
-  background: #fff;
+  color: #F0EAE0;
+  background: #2A251C;
   transition: border-color 0.2s;
   margin-bottom: 1rem;
 }
 
-.dark .contact-form input,
-.dark .contact-form textarea {
-  background: #1a1a18;
-  border-color: rgba(255,255,255,0.1);
-  color: #e5e5e5;
+.contact-form input::placeholder,
+.contact-form textarea::placeholder {
+  color: rgba(240,234,224,0.45);
 }
 
 .contact-form input:focus,
 .contact-form textarea:focus {
   outline: none;
-  border-color: #8A6D1B;
+  border-color: #C9A227;
 }
 
 .contact-form textarea {
