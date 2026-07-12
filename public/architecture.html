@@ -7,7 +7,7 @@
 <style>
   :root {
     --bg: #faf6ef; --panel: #ffffff; --ink: #2b2620; --line: #e4dccd;
-    --blue: #2f7fd1; --muted: #857c6d;
+    --blue: #2f7fd1; --muted: #857c6d; --gold: #C9A227;
   }
   * { box-sizing: border-box; margin: 0; }
   body {
@@ -21,12 +21,24 @@
     border-bottom: 1px solid var(--line);
   }
   header h1 { font-size: 19px; font-weight: 600; white-space: nowrap; }
-  select {
-    font: inherit; font-size: 15px; padding: 8px 10px;
-    flex: 1 1 260px; min-width: 0; max-width: 100%; text-overflow: ellipsis;
-    border: 1px solid var(--line); border-radius: 8px;
-    background: var(--panel); color: var(--ink);
+  .tabs {
+    flex: 1 1 100%; order: 3;
+    display: flex; gap: 8px; overflow-x: auto;
+    padding: 2px 0 6px; scrollbar-width: thin;
   }
+  .tab {
+    flex: none; font: inherit; font-size: 13.5px; font-weight: 600;
+    padding: 7px 14px; border-radius: 999px; cursor: pointer;
+    border: 1px solid var(--line); background: var(--panel); color: var(--ink);
+    white-space: nowrap;
+  }
+  @media (hover: hover) {
+    .tab:hover { border-color: var(--gold); }
+  }
+  .tab:focus-visible { outline: 2px solid var(--gold); outline-offset: 2px; }
+  .tab.active { background: var(--ink); color: #fff; border-color: var(--ink); }
+  .tab .num { color: var(--muted); }
+  .tab.active .num { color: var(--gold); }
   .zoom {
     display: flex; align-items: center; flex: none;
     border: 1px solid var(--line); border-radius: 8px;
@@ -55,12 +67,12 @@
     color: var(--muted); font-size: 15px; pointer-events: none;
   }
 
-  /* Phones: 2 rows — title + zoom cluster share the top row, picker below. */
+  /* Phones: 2 rows — title + zoom cluster share the top row, tabs below. */
   @media (max-width: 640px) {
     header { padding: 8px 12px; gap: 8px 10px; }
     header h1 { font-size: 16px; flex: 1; order: 0; }
     .zoom { order: 1; }
-    select { order: 2; flex: 1 1 100%; font-size: 16px; }  /* 16px stops iOS focus-zoom */
+    .tab { min-height: 36px; }
     .zoom button { min-height: 40px; padding: 6px 10px; }
     .hint { display: none; }
   }
@@ -69,7 +81,7 @@
 <body>
 <header>
   <h1>ToWin architecture</h1>
-  <select id="picker" aria-label="Choose a diagram"></select>
+  <nav class="tabs" id="tabs" aria-label="Choose a diagram"></nav>
   <div class="zoom">
     <button id="zin"  title="Zoom in">+</button>
     <button id="zout" title="Zoom out">−</button>
@@ -87,7 +99,7 @@
 import mermaid from "https://cdn.jsdelivr.net/npm/mermaid@11/dist/mermaid.esm.min.mjs";
 
 const diagrams = JSON.parse(document.getElementById("diagram-data").textContent);
-const picker = document.getElementById("picker");
+const tabs = document.getElementById("tabs");
 const stage  = document.getElementById("stage");
 const canvas = document.getElementById("canvas");
 const status = document.getElementById("status");
@@ -104,11 +116,35 @@ mermaid.initialize({
   er:        { useMaxWidth: false },
 });
 
+// Short tab labels; full titles stay available as tooltips.
+const SHORT_LABELS = {
+  "01-flowchart": "Flowchart",
+  "02-sequence-login": "Login",
+  "03-sequence-apply-need": "Apply",
+  "04-er-database": "Database",
+  "05-state-need": "Need lifecycle",
+  "06-state-connection": "Connection",
+  "07-state-trust-ladder": "Trust ladder",
+  "08-c4-big-picture": "Big picture",
+  "09-class-need-slice": "Need slice",
+  "10-project-structure": "Mindmap",
+  "11-backend-code": "Backend map",
+  "12-backend-code-flowchart": "Backend flow",
+  "13-frontend-code": "Frontend map",
+  "14-frontend-code-flowchart": "Frontend flow",
+  "15-frontend-deps": "Imports",
+};
 for (const [i, d] of diagrams.entries()) {
-  const opt = document.createElement("option");
-  opt.value = i;
-  opt.textContent = d.title;
-  picker.appendChild(opt);
+  const tab = document.createElement("button");
+  tab.type = "button";
+  tab.className = "tab";
+  tab.title = d.title;
+  const num = document.createElement("span");
+  num.className = "num";
+  num.textContent = String(i + 1).padStart(2, "0");
+  tab.append(num, " " + (SHORT_LABELS[d.slug] || d.title));
+  tab.addEventListener("click", () => show(i));
+  tabs.appendChild(tab);
 }
 
 const reduceMotion = matchMedia("(prefers-reduced-motion: reduce)").matches;
@@ -156,6 +192,15 @@ function fit(animate) {
 let seq = 0;
 async function show(i) {
   const d = diagrams[i];
+  for (const [j, tab] of [...tabs.children].entries()) {
+    tab.classList.toggle("active", j === i);
+    if (j === i) tab.setAttribute("aria-current", "true");
+    else tab.removeAttribute("aria-current");
+  }
+  tabs.children[i]?.scrollIntoView({
+    inline: "center", block: "nearest",
+    behavior: reduceMotion ? "auto" : "smooth",
+  });
   status.textContent = "Rendering…";
   status.style.display = "grid";
   canvas.innerHTML = "";
@@ -174,8 +219,6 @@ async function show(i) {
     status.textContent = "This diagram failed to render: " + e.message;
   }
 }
-
-picker.addEventListener("change", () => show(+picker.value));
 
 // --- pan (1 finger / mouse) + pinch-zoom (2 fingers) ---
 // touch-action:none on #stage hands raw pointers to us; move/up live on
@@ -256,7 +299,6 @@ window.addEventListener("resize", fit);
 // deep-link: viewer.html#12-backend-code-flowchart
 const want = location.hash.slice(1);
 const start = Math.max(0, diagrams.findIndex(d => d.slug === want));
-picker.value = start;
 show(start);
 </script>
 </body>
