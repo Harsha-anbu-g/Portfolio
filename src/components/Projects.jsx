@@ -14,7 +14,7 @@ const ExternalIcon = () => (
 
 const canHover = typeof window !== "undefined" && window.matchMedia("(hover: hover)").matches;
 
-function ProjectCard({ project, wide = false }) {
+function ProjectCard({ project, wide = false, imageFit = "cover" }) {
   const imageLink = project.live || project.github;
   return (
     <div style={{
@@ -53,7 +53,7 @@ function ProjectCard({ project, wide = false }) {
           style={{
             width: "100%",
             height: "100%",
-            objectFit: "cover",
+            objectFit: imageFit,
             objectPosition: "center",
             transition: "transform 0.4s ease",
           }}
@@ -164,7 +164,7 @@ function ProjectCard({ project, wide = false }) {
 }
 
 export default function Projects() {
-  const [, quiz, face, docker] = profile.projects;
+  const [towin, quiz, face, docker] = profile.projects;
 
   return (
     <section id="projects" className="clark-section" style={{ background: "#FAF7F1" }}>
@@ -176,8 +176,9 @@ export default function Projects() {
           <h2 className="section-title" style={{ color: "#221E16" }}>More Projects</h2>
         </div>
 
-        {/* Quiz + Face + Docker — three columns */}
-        <div style={{ display: "grid", gridTemplateColumns: "1fr 1fr 1fr", gap: "1.25rem" }}>
+        {/* ToWin + Quiz + Face + Docker — 2×2 grid */}
+        <div style={{ display: "grid", gridTemplateColumns: "1fr 1fr", gap: "1.25rem" }}>
+          <ProjectCard project={towin} imageFit="contain" />
           <ProjectCard project={quiz} />
           <ProjectCard project={face} />
           <ProjectCard project={docker} />
@@ -200,12 +201,6 @@ export default function Projects() {
       </div>
 
       <style>{`
-        /* Tablet — drop the project grid to two columns */
-        @media (max-width: 1000px) {
-          #projects > div > div:nth-child(2) {
-            grid-template-columns: 1fr 1fr !important;
-          }
-        }
         /* Mobile — stack the grid */
         @media (max-width: 768px) {
           #projects > div > div:nth-child(2) {
