@@ -75,26 +75,33 @@ export default function Coursework() {
                   gap: "1rem",
                 }}>
                   {sem.courses.map((course, ci) => (
-                    <div
+                    <a
                       key={ci}
+                      href={course.link}
+                      target="_blank"
+                      rel="noopener noreferrer"
+                      aria-label={`${course.name} (${course.code}) — Concordia course page`}
                       style={{
                         display: "flex",
-                        alignItems: "center",
+                        alignItems: "flex-start",
                         gap: "1rem",
                         padding: "1.1rem 1.25rem",
                         border: `1px solid ${sem.current ? "rgba(201, 162, 39, 0.3)" : "rgba(240,234,224,0.09)"}`,
                         borderRadius: "4px",
                         background: sem.current ? "rgba(201, 162, 39, 0.06)" : "#2A251C",
                         transition: "border-color 0.2s, box-shadow 0.2s",
-                        cursor: "default",
+                        cursor: "pointer",
+                        textDecoration: "none",
                       }}
                       onMouseEnter={e => {
                         e.currentTarget.style.borderColor = color;
                         e.currentTarget.style.boxShadow = `0 4px 16px rgba(0,0,0,0.35)`;
+                        e.currentTarget.querySelector(".course-link-arrow").style.opacity = 1;
                       }}
                       onMouseLeave={e => {
                         e.currentTarget.style.borderColor = sem.current ? "rgba(201, 162, 39, 0.3)" : "rgba(240,234,224,0.09)";
                         e.currentTarget.style.boxShadow = "none";
+                        e.currentTarget.querySelector(".course-link-arrow").style.opacity = 0.35;
                       }}
                     >
                       {/* Text */}
@@ -112,8 +119,34 @@ export default function Coursework() {
                         }}>
                           {course.code}
                         </p>
+                        {course.description && (
+                          <p style={{
+                            fontSize: "0.78rem",
+                            color: "rgba(240,234,224,0.55)",
+                            lineHeight: 1.55,
+                            marginTop: "0.6rem",
+                          }}>
+                            {course.description}
+                          </p>
+                        )}
                       </div>
-                    </div>
+                      {/* External-link affordance */}
+                      <span
+                        className="course-link-arrow"
+                        aria-hidden="true"
+                        style={{
+                          marginLeft: "auto",
+                          color,
+                          opacity: 0.35,
+                          transition: "opacity 0.2s",
+                          flexShrink: 0,
+                        }}
+                      >
+                        <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth={2}>
+                          <path strokeLinecap="round" strokeLinejoin="round" d="M7 17L17 7M17 7H8M17 7v9" />
+                        </svg>
+                      </span>
+                    </a>
                   ))}
                 </div>
               </div>

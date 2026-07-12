@@ -1,3 +1,11 @@
+/* Concordia calendar pages — each course deep-links to its entry via anchor id */
+const GRAD_CSSE_COURSES =
+  "https://www.concordia.ca/academics/graduate/calendar/current/gina-cody-school-of-engineering-and-computer-science-courses/computer-science-and-software-engineering-master-s-and-phd-courses.html";
+const GRAD_ENCS_COURSES =
+  "https://www.concordia.ca/academics/graduate/calendar/current/gina-cody-school-of-engineering-and-computer-science-courses/engineering-and-computer-science-courses.html";
+const UGRAD_CSSE_COURSES =
+  "https://www.concordia.ca/academics/undergraduate/calendar/current/section-71-gina-cody-school-of-engineering-and-computer-science/section-71-70-department-of-computer-science-and-software-engineering/section-71-70-10-computer-science-and-software-engineering-courses.html";
+
 const profile = {
   name: "Harshavardhan Anbuchezhian Gowri",
   initials: "HG",
@@ -117,6 +125,7 @@ const profile = {
     {
       role: "Data Analyst (Internship)",
       company: "Ernst & Young (S. R. Batliboi & Associates LLP)",
+      website: "https://www.ey.com/en_in",
       location: "Chennai, India",
       period: "Dec 2023 – May 2024",
       bullets: [
@@ -128,6 +137,7 @@ const profile = {
     {
       role: "Full-Stack Developer",
       company: "Coimbatore Institute of Technology",
+      website: "https://www.cit.edu.in",
       location: "India",
       period: "Sep 2022 – Aug 2023",
       bullets: [
@@ -213,6 +223,7 @@ const profile = {
     {
       degree: "Master's in Applied Computer Science",
       school: "Concordia University",
+      website: "https://www.concordia.ca",
       location: "Montreal, Canada",
       period: "2025 – 2026",
       detail: "Completed 40/45 credits",
@@ -220,6 +231,7 @@ const profile = {
     {
       degree: "Bachelor's in Information Technology",
       school: "Coimbatore Institute of Technology",
+      website: "https://www.cit.edu.in",
       location: "India",
       period: "2020 – 2024",
       detail: "GPA: 8.51/10",
@@ -250,39 +262,111 @@ const profile = {
     {
       semester: "Winter 2025",
       courses: [
-        { name: "Program & Problem Solving", code: "COMP 6481" },
-        { name: "Advanced Programming Practices", code: "SOEN 6441" },
-        { name: "Software Project Management", code: "SOEN 6841" },
+        {
+          name: "Program & Problem Solving",
+          code: "COMP 6481",
+          link: `${GRAD_CSSE_COURSES}#18726`,
+          description:
+            "Overview of programming, problem solving, widely-used data structures and the design of fundamental and advanced algorithms using object oriented programming: arrays, lists and iterators; sorting and searching; software testing; complexity analysis; recursion; trees, maps and hash tables; graphs and graph-based algorithms.",
+        },
+        {
+          name: "Advanced Programming Practices",
+          code: "SOEN 6441",
+          link: `${GRAD_CSSE_COURSES}#16286`,
+          description:
+            "Problems of writing and managing code. Managing code complexity and quality through a programming process. Self-documenting code and documentation generation. Software configuration management. Best practices for writing unit tests. Advanced practices such as multi-threading concurrency, code reuse, and fault tolerance. A project is required.",
+        },
+        {
+          name: "Software Project Management",
+          code: "SOEN 6841",
+          link: `${GRAD_CSSE_COURSES}#16295`,
+          description:
+            "Fundamental concepts of management activities and how they support software engineering: software development processes; quality considerations; activity planning; risk management; monitoring and control; maintenance and evolution; professional ethics and legal issues. A project is required.",
+        },
       ],
     },
     {
       semester: "Summer 2025",
       courses: [
-        { name: "Algorithm Design Techniques", code: "COMP 6651" },
+        {
+          name: "Algorithm Design Techniques",
+          code: "COMP 6651",
+          link: `${GRAD_CSSE_COURSES}#16036`,
+          description:
+            "Empirical and theoretical measures of algorithm efficiency; optimization and combinatorial techniques including greedy algorithms, dynamic programming, branch-and-bound and graph network algorithms; amortized complexity analysis; string matching; NP-complete problems and approximate solutions; probabilistic algorithms. A project is required.",
+        },
       ],
     },
     {
       semester: "Fall 2025",
       courses: [
-        { name: "Distributed System Design", code: "COMP 6231" },
-        { name: "Computer Networks & Protocols", code: "COMP 6461" },
-        { name: "Software Comprehension & Maintenance", code: "SOEN 6431" },
+        {
+          name: "Distributed System Design",
+          code: "COMP 6231",
+          link: `${GRAD_CSSE_COURSES}#16018`,
+          description:
+            "Principles of distributed computing: scalability, transparency, concurrency, consistency, fault tolerance. Client-server interaction technologies: sockets, RPC, remote method invocation, web services. Distributed server design: process replication, high availability through active replication, coordination and agreement, transactions and concurrency control.",
+        },
+        {
+          name: "Computer Networks & Protocols",
+          code: "COMP 6461",
+          link: `${GRAD_CSSE_COURSES}#16030`,
+          description:
+            "Direct link networks: encoding, framing, error detection, flow control. Packet switching and forwarding: bridges, switches. Internetworking: Internet Protocol, routing, addressing, IPv6, multicasting, mobile IP. End-to-end protocols: UDP, TCP. Network security concepts. Application-level protocols.",
+        },
+        {
+          name: "Software Comprehension & Maintenance",
+          code: "SOEN 6431",
+          link: `${GRAD_CSSE_COURSES}#16285`,
+          description:
+            "Technical and managerial views of software comprehension and maintenance: cognitive models, software visualization, CASE tools, reverse engineering, static and dynamic source code analysis, software configuration management, and current research topics in software maintenance and program comprehension. A project is required.",
+        },
       ],
     },
     {
       semester: "Winter 2026",
       courses: [
-        { name: "Immersive Technology", code: "COMP 475" },
-        { name: "Applied Artificial Intelligence", code: "COMP 6721" },
-        { name: "Human Computer Interaction", code: "SOEN 6751" },
+        {
+          name: "Immersive Technology",
+          code: "COMP 475",
+          link: `${UGRAD_CSSE_COURSES}#21266`,
+          description:
+            "Fundamentals of immersive technologies: history, case studies of interactive experiences, and the main challenges of the current state of the art. Basic principles of 3D graphics for creating virtual assets and environments, and concepts and technologies for interaction. A project provides hands-on experience designing immersive interactive experiences.",
+        },
+        {
+          name: "Applied Artificial Intelligence",
+          code: "COMP 6721",
+          link: `${GRAD_CSSE_COURSES}#16039`,
+          description:
+            "Heuristic and adversarial searches for concrete applications. Automated reasoning, advanced knowledge representation and dealing with uncertainty for Artificial Intelligence applications. Autoencoders, recurrent neural networks and sequence-to-sequence models. A project is required.",
+        },
+        {
+          name: "Human Computer Interaction",
+          code: "SOEN 6751",
+          link: `${GRAD_CSSE_COURSES}#16293`,
+          description:
+            "Introduction to human computer interaction. User-centered design process. User modelling. Task analysis. User interface design knowledge (principles, guidelines and patterns). User interface prototyping. User interface evaluation. A project is required.",
+        },
       ],
     },
     {
       semester: "Summer 2026",
       current: true,
       courses: [
-        { name: "Comparative Study of Programming Languages", code: "COMP 6411" },
-        { name: "Ethics & Professionalism", code: "ENCS 6201" },
+        {
+          name: "Comparative Study of Programming Languages",
+          code: "COMP 6411",
+          link: `${GRAD_CSSE_COURSES}#16028`,
+          description:
+            "Comparison of several high-level programming languages with respect to application areas, design, efficiency, and ease of use. Programming paradigms such as functional, logical, and scripting. Static and dynamic typing. Compilation and interpretation. Advanced implementation techniques. A project is required.",
+        },
+        {
+          name: "Ethics & Professionalism",
+          code: "ENCS 6201",
+          link: `${GRAD_ENCS_COURSES}#42066`,
+          description:
+            "The wide spectrum of roles and responsibilities that guide the professional practice of engineers: professionalism, the engineering code and ethical practice with special reference to Quebec and Canada, plus legal aspects such as intellectual property, occupational health and safety, contracts, and liability.",
+        },
       ],
     },
   ],

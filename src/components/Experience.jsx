@@ -48,7 +48,13 @@ export default function Experience() {
                 </span>
                 <h4 className="resume-role">{job.role}</h4>
                 <p className="resume-place">
-                  {job.company} ·{" "}
+                  {job.website ? (
+                    <a href={job.website} target="_blank" rel="noopener noreferrer" className="place-link">
+                      {job.company}
+                    </a>
+                  ) : (
+                    job.company
+                  )} ·{" "}
                   <span style={{ display: "inline-flex", alignItems: "center", gap: "0.3rem", whiteSpace: "nowrap" }}>
                     <svg width="12" height="12" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={2} aria-hidden="true">
                       <path strokeLinecap="round" strokeLinejoin="round" d="M17.657 16.657L13.414 20.9a1.998 1.998 0 01-2.827 0l-4.244-4.243a8 8 0 1111.314 0z" />
@@ -101,7 +107,13 @@ export default function Experience() {
                 </span>
                 <h4 className="resume-role">{edu.degree}</h4>
                 <p className="resume-place">
-                  {edu.school} ·{" "}
+                  {edu.website ? (
+                    <a href={edu.website} target="_blank" rel="noopener noreferrer" className="place-link">
+                      {edu.school}
+                    </a>
+                  ) : (
+                    edu.school
+                  )} ·{" "}
                   <span style={{ display: "inline-flex", alignItems: "center", gap: "0.3rem", whiteSpace: "nowrap" }}>
                     <svg width="12" height="12" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={2} aria-hidden="true">
                       <path strokeLinecap="round" strokeLinejoin="round" d="M17.657 16.657L13.414 20.9a1.998 1.998 0 01-2.827 0l-4.244-4.243a8 8 0 1111.314 0z" />
@@ -149,6 +161,15 @@ export default function Experience() {
       </div>
 
       <style>{`
+        #experience .place-link {
+          color: inherit;
+          text-decoration: none;
+          border-bottom: 1px dotted currentColor;
+          transition: border-bottom-color 0.2s;
+        }
+        #experience .place-link:hover {
+          border-bottom-style: solid;
+        }
         @media (max-width: 768px) {
           #experience .exp-grid {
             grid-template-columns: 1fr !important;
