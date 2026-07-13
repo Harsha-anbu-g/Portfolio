@@ -175,6 +175,7 @@ const profile = {
       ],
       github: "https://github.com/Harsha-anbu-g/Towin",
       live: "https://towin.vercel.app",
+      video: "https://www.linkedin.com/posts/harsha-anbu-gowri_fullstackdeveloper-springboot-java-ugcPost-7481541368083918848-WYBQ/",
       image: "/towin.webp",
     },
     {

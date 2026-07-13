@@ -113,6 +113,29 @@ export default function FeaturedProject() {
           </svg>
         </a>
 
+        {/* Matching card → the walkthrough video, played on LinkedIn. */}
+        <a
+          href={towin.video}
+          target="_blank"
+          rel="noopener noreferrer"
+          className="featured-arch featured-arch-video"
+          aria-label="Watch the ToWin walkthrough video on LinkedIn"
+        >
+          <span className="featured-arch-icon" aria-hidden="true">
+            <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth={2} strokeLinecap="round" strokeLinejoin="round">
+              <rect x="2.5" y="4.5" width="19" height="15" rx="2.5" />
+              <path d="M10.2 9.3l4.6 2.7-4.6 2.7z" fill="currentColor" stroke="none" />
+            </svg>
+          </span>
+          <span className="featured-arch-text">
+            <span className="featured-arch-title">Watch the Walkthrough</span>
+            <span className="featured-arch-sub">12-minute demo on LinkedIn — the trust ladder, messaging &amp; SOS flow in action</span>
+          </span>
+          <svg className="featured-arch-arrow" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth={2.5} strokeLinecap="round" strokeLinejoin="round" aria-hidden="true">
+            <path d="M5 12h14M13 6l6 6-6 6" />
+          </svg>
+        </a>
+
         {/* Link to the rest of the projects */}
         <div className="featured-more">
           <a href="#projects" className="featured-more-link">
@@ -384,6 +407,8 @@ export default function FeaturedProject() {
           text-decoration: none;
           transition: transform 0.2s ease, border-color 0.2s ease, background 0.2s ease;
         }
+        /* Sits directly under the architecture card, so the two read as a pair. */
+        .featured-arch-video { margin-top: 0.75rem; }
         @media (hover: hover) {
           .featured-arch:hover {
             transform: translateY(-2px);
