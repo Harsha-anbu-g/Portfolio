@@ -237,6 +237,14 @@ const profile = {
       period: "2020 – 2024",
       detail: "GPA: 8.51/10",
     },
+    {
+      degree: "Higher Secondary — Maths & Computer Science",
+      school: "Maharishi International Residential School",
+      website: "https://www.maharishiirschennai.com/",
+      location: "Kanchipuram, India",
+      period: "2018 – 2020",
+      detail: "CBSE · FIITJEE-integrated program",
+    },
   ],
 
   navLinks: [
