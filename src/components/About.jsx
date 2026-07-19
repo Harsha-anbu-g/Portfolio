@@ -145,7 +145,7 @@ export default function About() {
         {/* ── Stats bar ── */}
         <div className="about-stats" style={{
           display: "grid",
-          gridTemplateColumns: "repeat(4, 1fr)",
+          gridTemplateColumns: `repeat(${profile.stats.length}, 1fr)`,
           marginTop: "5rem",
           background: "#9C7A2A",
           borderRadius: "4px",
@@ -153,7 +153,7 @@ export default function About() {
         }}>
           {profile.stats.map((stat, i) => (
             <div key={i} className="stat-item" style={{
-              borderRight: i < 3 ? "1px solid rgba(255,255,255,0.2)" : "none",
+              borderRight: i < profile.stats.length - 1 ? "1px solid rgba(255,255,255,0.2)" : "none",
             }}>
               <div className="stat-number">{stat.value}</div>
               <div className="stat-label">{stat.label}</div>

@@ -237,7 +237,6 @@ const profile = {
 
   stats: [
     { label: "Projects Built", value: "4+" },
-    { label: "Years Experience", value: "2+" },
     { label: "Technologies", value: "25+" },
     { label: "Education", value: "Master's" },
   ],
