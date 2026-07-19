@@ -17,6 +17,7 @@ const profile = {
     "I specialize in React, Spring Boot, and secure backend systems, building production-ready applications with clean architecture, strong fundamentals, and an AI-accelerated workflow built on Claude Code.",
   about: [
     "Full-Stack Engineer and international student at Concordia University — building scalable web applications with Java, Spring Boot, and React.",
+    "Creator of ToWin — a trust-based social platform that connects elderly people with younger helpers through a progressive trust journey. I own it end-to-end: an event-driven Java 21 / Spring Boot backend with Apache Kafka, a React 19 frontend, real-time WebSocket messaging, a 0–100 trust-score engine, and an emergency SOS flow with Twilio SMS — backed by PostgreSQL, Redis, and Docker, and deployed live on Railway and Vercel.",
     "I don't just solve problems, I find them first. Focused on clean API design, secure authentication, and code that is maintainable and built to last.",
     "A deep worker by nature — slow is smooth, and smooth is fast. I contribute consistently across every stage of a project, not just where it's visible.",
     "I design AI-accelerated workflows with Claude Code — specialized sub-agents, custom MCP servers, and tailored Skills and plugins — alongside GitHub Copilot, automating scaffolding, testing, and code review to stay focused on what actually matters.",
