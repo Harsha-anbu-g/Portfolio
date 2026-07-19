@@ -32,7 +32,10 @@ export default function FeaturedProject() {
         {/* Heading */}
         <div className="featured-head">
           <span className="featured-tag">★ Featured Project</span>
-          <h2 className="featured-title">ToWin</h2>
+          <h2 className="featured-title">
+            <img src="/towin-logo.png" alt="" aria-hidden="true" className="featured-title-logo" />
+            ToWin
+          </h2>
           <p className="featured-subtitle">A Trust-Based Social Platform</p>
           <p className="featured-note">
             <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth={2} strokeLinecap="round" strokeLinejoin="round" aria-hidden="true">
@@ -179,6 +182,10 @@ export default function FeaturedProject() {
           margin-bottom: 1.25rem;
         }
         .featured-title {
+          display: flex;
+          align-items: center;
+          justify-content: center;
+          gap: 0.3em;
           font-family: var(--font-serif);
           font-size: clamp(2.2rem, 5vw, 3.4rem);
           font-weight: 600;
@@ -186,6 +193,15 @@ export default function FeaturedProject() {
           margin: 0 0 0.5rem;
           line-height: 1.1;
           letter-spacing: -0.02em;
+        }
+        /* ToWin turtle mark — sized in em so it tracks the title on mobile */
+        .featured-title-logo {
+          width: 1em;
+          height: 1em;
+          border-radius: 22%;
+          background: #FFFFFF;
+          border: 1px solid rgba(34, 30, 22, 0.1);
+          box-shadow: 0 2px 10px rgba(0, 0, 0, 0.08);
         }
         .featured-subtitle {
           font-size: clamp(1rem, 2.2vw, 1.3rem);
