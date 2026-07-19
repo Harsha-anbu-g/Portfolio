@@ -134,30 +134,6 @@ const profile = {
         "Conducted sentiment analysis to support strategic audit insights.",
       ],
     },
-    {
-      role: "Full-Stack Developer",
-      company: "Coimbatore Institute of Technology",
-      website: "https://www.cit.edu.in",
-      location: "India",
-      period: "Sep 2022 – Aug 2023",
-      bullets: [
-        "Improved platform reliability by delivering scalable full-stack features using Java, Spring Boot, React, and TypeScript, directly enhancing usability for faculty and students across the institution.",
-        "Reduced security vulnerabilities by implementing RBAC authentication across MySQL and PostgreSQL, protecting sensitive institutional data from unauthorized access.",
-        "Designed RESTful APIs and optimized MySQL/PostgreSQL databases for scalable institutional workloads.",
-        "Accelerated sprint delivery by gathering requirements directly from faculty stakeholders and translating business needs into working features within each Agile/Scrum cycle.",
-      ],
-    },
-    {
-      role: "UI/UX Developer",
-      company: "CODA Technology Solution",
-      location: "Chennai, India",
-      period: "May 2022 – Aug 2022",
-      bullets: [
-        "Developed prototypes using Figma.",
-        "Improved project efficiency by 13%.",
-        "Applied Power BI for visual analytics dashboards.",
-      ],
-    },
   ],
 
   projects: [
