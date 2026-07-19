@@ -448,10 +448,14 @@ const profile = {
   },
 
   certifications: [
+    {
+      name: "AWS Certified Developer – Associate",
+      status: "completed",
+      badge: "/aws-developer-associate.png",
+    },
     { name: "Google Project Management Professional", status: "completed" },
     { name: "Google Data Analytics", status: "completed" },
     { name: "Google Cybersecurity Professional", status: "completed" },
-    { name: "AWS Certified Developer – Associate", status: "in-progress" },
   ],
 };
 

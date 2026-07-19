@@ -144,10 +144,19 @@ export default function Experience() {
                     fontSize: "0.85rem",
                     color: cert.status === "in-progress" ? "#6b7280" : "#212529",
                   }}>
-                    <span style={{
-                      width: 8, height: 8, borderRadius: "50%", flexShrink: 0,
-                      background: cert.status === "completed" ? "#9C7A2A" : "#d1d5db",
-                    }} />
+                    {cert.badge ? (
+                      <img
+                        src={cert.badge}
+                        alt={`${cert.name} badge`}
+                        loading="lazy"
+                        style={{ width: 40, height: 40, flexShrink: 0, objectFit: "contain" }}
+                      />
+                    ) : (
+                      <span style={{
+                        width: 8, height: 8, borderRadius: "50%", flexShrink: 0,
+                        background: cert.status === "completed" ? "#9C7A2A" : "#d1d5db",
+                      }} />
+                    )}
                     {cert.name}
                     {cert.status === "in-progress" && (
                       <span style={{ fontSize: "0.7rem", color: "#8A6D1B", fontWeight: 600 }}>In Progress</span>
