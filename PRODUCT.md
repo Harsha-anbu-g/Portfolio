@@ -10,7 +10,7 @@ Recruiters, hiring managers, and engineers evaluating Harsha (Harshavardhan Anbu
 
 ## Product Purpose
 
-A single-page portfolio (React + Vite, deployed on Vercel at portfolioharsha.vercel.app) that mirrors and expands his resume: featured project (ToWin), more projects, experience, skills, coursework, and a personal "Beyond Code" section. Success = a recruiter contacts him or opens a project's live demo/GitHub.
+A single-page portfolio (React + Vite, deployed on Vercel at harshavardhanag.com) that mirrors and expands his resume: featured project (ToWin), more projects, experience, skills, coursework, and a personal "Beyond Code" section. Success = a recruiter contacts him or opens a project's live demo/GitHub.
 
 ## Brand Personality
 

@@ -151,7 +151,7 @@ const profile = {
         "Built supporting infra with Redis caching for Haversine geospatial discovery, AWS S3 for media and ID documents, PostgreSQL + Flyway migrations, Spring Security with OAuth2/OpenID Connect and JWT, RBAC, and Docker Compose; deployed on Railway and Vercel.",
       ],
       github: "https://github.com/Harsha-anbu-g/Towin",
-      live: "https://towin.vercel.app",
+      live: "https://www.towinly.com/",
       video: "https://www.linkedin.com/posts/harsha-anbu-gowri_fullstackdeveloper-springboot-java-ugcPost-7481541368083918848-WYBQ/",
       image: "/towin.webp",
     },
