@@ -150,6 +150,16 @@ const profile = {
         "Automated JUnit and Mockito test generation, AI-driven code review, and refactoring through sub-agents, then hardened the pipeline with SonarQube static analysis and Snyk dependency scanning against OWASP Top 10 risks.",
         "Built supporting infra with Redis caching for Haversine geospatial discovery, AWS S3 for media and ID documents, PostgreSQL + Flyway migrations, Spring Security with OAuth2/OpenID Connect and JWT, RBAC, and Docker Compose; deployed on Railway and Vercel.",
       ],
+      // Measured from the ToWin repository — code lines exclude blanks and comments.
+      metrics: [
+        { label: "Lines of Code", value: "35K+" },
+        { label: "Commits", value: "780+" },
+        { label: "REST Endpoints", value: "99" },
+        { label: "Automated Tests", value: "469" },
+        { label: "React Components", value: "87" },
+        { label: "Database Tables", value: "18" },
+      ],
+      metricsNote: "Built solo, end to end — 783 commits across a Java 21 backend and a React 19 frontend, April to July 2026.",
       github: "https://github.com/Harsha-anbu-g/Towin",
       live: "https://www.towinly.com/",
       video: "https://www.linkedin.com/posts/harsha-anbu-gowri_fullstackdeveloper-springboot-java-ugcPost-7481541368083918848-WYBQ/",

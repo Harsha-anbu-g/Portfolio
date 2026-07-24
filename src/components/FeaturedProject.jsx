@@ -60,6 +60,17 @@ export default function FeaturedProject() {
           </span>
         </a>
 
+        {/* Project scale — real numbers measured from the ToWin repository */}
+        <div className="featured-metrics">
+          {towin.metrics.map((m) => (
+            <div key={m.label} className="featured-metric">
+              <span className="featured-metric-value">{m.value}</span>
+              <span className="featured-metric-label">{m.label}</span>
+            </div>
+          ))}
+        </div>
+        <p className="featured-metrics-note">{towin.metricsNote}</p>
+
         {/* Overview */}
         <p className="featured-overview">{overview}</p>
 
@@ -269,6 +280,50 @@ export default function FeaturedProject() {
           padding: 0.5rem 1rem;
           border-radius: 999px;
           box-shadow: 0 4px 14px rgba(0,0,0,0.35);
+        }
+        /* Scale strip. The 1px grid gap doubles as the hairline between cells. */
+        .featured-metrics {
+          display: grid;
+          grid-template-columns: repeat(6, 1fr);
+          gap: 1px;
+          background: rgba(34, 30, 22, 0.10);
+          border: 1px solid rgba(34, 30, 22, 0.10);
+          border-radius: 10px;
+          overflow: hidden;
+        }
+        .featured-metric {
+          display: flex;
+          flex-direction: column;
+          align-items: center;
+          justify-content: center;
+          gap: 0.35rem;
+          padding: 1.2rem 0.5rem;
+          background: #FFFDF9;
+          text-align: center;
+        }
+        .featured-metric-value {
+          font-family: var(--font-serif);
+          font-size: clamp(1.4rem, 2.6vw, 1.9rem);
+          font-weight: 600;
+          line-height: 1;
+          letter-spacing: -0.01em;
+          color: #8A6D1B;
+        }
+        .featured-metric-label {
+          font-size: 0.66rem;
+          font-weight: 600;
+          letter-spacing: 0.1em;
+          text-transform: uppercase;
+          line-height: 1.35;
+          color: rgba(34, 30, 22, 0.55);
+        }
+        .featured-metrics-note {
+          text-align: center;
+          font-size: 0.8rem;
+          line-height: 1.55;
+          color: rgba(34, 30, 22, 0.52);
+          margin: 0.9rem auto 2.75rem;
+          max-width: 620px;
         }
         .featured-overview {
           max-width: 800px;
@@ -488,6 +543,9 @@ export default function FeaturedProject() {
           .featured-features {
             grid-template-columns: 1fr;
           }
+          .featured-metrics {
+            grid-template-columns: repeat(3, 1fr);
+          }
         }
         @media (max-width: 768px) {
           .featured-section {
@@ -519,6 +577,18 @@ export default function FeaturedProject() {
           }
           .featured-more {
             text-align: center;
+          }
+          .featured-metric {
+            padding: 1rem 0.4rem;
+          }
+          .featured-metrics-note {
+            font-size: 0.76rem;
+            margin-bottom: 2.25rem;
+          }
+        }
+        @media (max-width: 520px) {
+          .featured-metrics {
+            grid-template-columns: repeat(2, 1fr);
           }
         }
       `}</style>
