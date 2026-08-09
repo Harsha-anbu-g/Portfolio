@@ -17,7 +17,7 @@ const profile = {
     "I specialize in React, Spring Boot, and secure backend systems, building production-ready applications with clean architecture, strong fundamentals, and an AI-accelerated workflow built on Claude Code.",
   about: [
     "Full-Stack Engineer and international student at Concordia University — building scalable web applications with Java, Spring Boot, and React.",
-    "Creator of ToWin — a trust-based social platform that connects elderly people with younger helpers through a progressive trust journey. I own it end-to-end: an event-driven Java 21 / Spring Boot backend with Apache Kafka, a React 19 frontend, real-time WebSocket messaging, a 0–100 trust-score engine, and an emergency SOS flow with Twilio SMS — backed by PostgreSQL, Redis, and Docker, and deployed live on Railway and Vercel.",
+    "Creator of Towinly — a trust-based social platform that connects elderly people with younger helpers through a progressive trust journey. I own it end-to-end: an event-driven Java 21 / Spring Boot backend with Apache Kafka, a React 19 frontend, real-time WebSocket messaging, a 0–100 trust-score engine, and an emergency SOS flow with Twilio SMS — backed by PostgreSQL, Redis, and Docker, and deployed live on Railway and Vercel.",
     "I don't just solve problems, I find them first. Focused on clean API design, secure authentication, and code that is maintainable and built to last.",
     "A deep worker by nature — slow is smooth, and smooth is fast. I contribute consistently across every stage of a project, not just where it's visible.",
     "I design AI-accelerated workflows with Claude Code — specialized sub-agents, custom MCP servers, and tailored Skills and plugins — alongside GitHub Copilot, automating scaffolding, testing, and code review to stay focused on what actually matters.",
@@ -139,10 +139,10 @@ const profile = {
 
   projects: [
     {
-      title: "ToWin — Trust-Based Social Platform",
+      title: "Towinly — Trust-Based Social Platform",
       tech: ["React 19", "Spring Boot", "Apache Kafka", "PostgreSQL", "Redis", "JWT", "WebSocket", "Docker", "Claude Code", "MCP"],
       bullets: [
-        "Built ToWin — a social platform connecting elderly people with younger helpers through a progressive trust journey that gradually unlocks messaging, phone, and in-person meeting as users earn each other's confidence.",
+        "Built Towinly — a social platform connecting elderly people with younger helpers through a progressive trust journey that gradually unlocks messaging, phone, and in-person meeting as users earn each other's confidence.",
         "Engineered a trust-level state machine where both parties confirm before advancing; reaching PHONE_CALL unlocks contact reveal, backed by a 0–100 trust score from ID/phone verification, completed services, reviews, and reports.",
         "Implemented real-time messaging over WebSocket, need posting with helper applications, daily streaks, and an emergency SOS flow with inactivity checks and Twilio SMS escalation.",
         "Architected an event-driven backend in Java 21 and Spring Boot with Apache Kafka producers and consumers for connection and trust-progression events, owning every architectural decision end-to-end.",
@@ -150,7 +150,7 @@ const profile = {
         "Automated JUnit and Mockito test generation, AI-driven code review, and refactoring through sub-agents, then hardened the pipeline with SonarQube static analysis and Snyk dependency scanning against OWASP Top 10 risks.",
         "Built supporting infra with Redis caching for Haversine geospatial discovery, AWS S3 for media and ID documents, PostgreSQL + Flyway migrations, Spring Security with OAuth2/OpenID Connect and JWT, RBAC, and Docker Compose; deployed on Railway and Vercel.",
       ],
-      // Measured from the ToWin repository — code lines exclude blanks and comments.
+      // Measured from the Towinly repository — code lines exclude blanks and comments.
       metrics: [
         { label: "Lines of Code", value: "35K+" },
         { label: "Commits", value: "780+" },

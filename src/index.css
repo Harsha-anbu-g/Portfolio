@@ -5,7 +5,7 @@
 @theme {
   --font-sans: "Poppins", ui-sans-serif, system-ui, -apple-system, sans-serif;
   --font-serif: "Lora", Georgia, "Times New Roman", serif;
-  /* Paper & Gold — ToWin's design language: warm paper, warm ink, champagne gold */
+  /* Paper & Gold — Towinly's design language: warm paper, warm ink, champagne gold */
   --color-accent: #C9A227;      /* champagne gold — graphics, italic accents */
   --color-accent-deep: #8A6D1B; /* deep gold — small text/labels on paper (AA) */
   --color-paper: #FAF7F1;

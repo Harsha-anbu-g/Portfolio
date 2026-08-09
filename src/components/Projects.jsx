@@ -176,7 +176,7 @@ export default function Projects() {
           <h2 className="section-title" style={{ color: "#221E16" }}>More Projects</h2>
         </div>
 
-        {/* ToWin + Quiz + Face + Docker — 2×2 grid */}
+        {/* Towinly + Quiz + Face + Docker — 2×2 grid */}
         <div style={{ display: "grid", gridTemplateColumns: "1fr 1fr", gap: "1.25rem" }}>
           <ProjectCard project={towin} imageFit="contain" />
           <ProjectCard project={quiz} />

@@ -34,7 +34,7 @@ export default function FeaturedProject() {
           <span className="featured-tag">★ Featured Project</span>
           <h2 className="featured-title">
             <img src="/towin-logo.png" alt="" aria-hidden="true" className="featured-title-logo" />
-            ToWin
+            Towinly
           </h2>
           <p className="featured-subtitle">A Trust-Based Social Platform</p>
           <p className="featured-note">
@@ -42,7 +42,7 @@ export default function FeaturedProject() {
               <rect x="2" y="4" width="20" height="13" rx="2" />
               <path d="M8 21h8M12 17v4" />
             </svg>
-            Best opened on a laptop or computer — ToWin is crafted for the big screen, not mobile.
+            Best opened on a laptop or computer — Towinly is crafted for the big screen, not mobile.
           </p>
         </div>
 
@@ -52,7 +52,7 @@ export default function FeaturedProject() {
           target="_blank"
           rel="noopener noreferrer"
           className="featured-preview"
-          aria-label="Open ToWin live website"
+          aria-label="Open Towinly live website"
         >
           <img src={towin.image} alt={towin.title} loading="lazy" decoding="async" />
           <span className="featured-preview-cta">
@@ -60,7 +60,7 @@ export default function FeaturedProject() {
           </span>
         </a>
 
-        {/* Project scale — real numbers measured from the ToWin repository */}
+        {/* Project scale — real numbers measured from the Towinly repository */}
         <div className="featured-metrics">
           {towin.metrics.map((m) => (
             <div key={m.label} className="featured-metric">
@@ -108,7 +108,7 @@ export default function FeaturedProject() {
           target="_blank"
           rel="noopener noreferrer"
           className="featured-arch"
-          aria-label="Open the ToWin system architecture diagrams"
+          aria-label="Open the Towinly system architecture diagrams"
         >
           <span className="featured-arch-icon" aria-hidden="true">
             <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth={2} strokeLinecap="round" strokeLinejoin="round">
@@ -133,7 +133,7 @@ export default function FeaturedProject() {
           target="_blank"
           rel="noopener noreferrer"
           className="featured-arch featured-arch-video"
-          aria-label="Watch the ToWin walkthrough video on LinkedIn"
+          aria-label="Watch the Towinly walkthrough video on LinkedIn"
         >
           <span className="featured-arch-icon" aria-hidden="true">
             <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth={2} strokeLinecap="round" strokeLinejoin="round">
@@ -205,7 +205,7 @@ export default function FeaturedProject() {
           line-height: 1.1;
           letter-spacing: -0.02em;
         }
-        /* ToWin turtle mark — sized in em so it tracks the title on mobile */
+        /* Towinly turtle mark — sized in em so it tracks the title on mobile */
         .featured-title-logo {
           width: 1em;
           height: 1em;
