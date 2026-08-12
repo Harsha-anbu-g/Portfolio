@@ -113,6 +113,29 @@ const profile = {
 
   experience: [
     {
+      role: "Backend Developer (Internship)",
+      company: "Vosyn AI",
+      location: "Canada (Remote)",
+      period: "May 2026 – Aug 2026",
+      bullets: [
+        "Building backend services for AI-driven products in a fast-moving startup environment.",
+        "Developing and maintaining RESTful APIs and data workflows that support the platform's AI features.",
+        "Collaborating with cross-functional teams in Agile sprints to ship scalable, production-ready features.",
+      ],
+    },
+    {
+      role: "Data Analyst (Internship)",
+      company: "Ernst & Young (S. R. Batliboi & Associates LLP)",
+      website: "https://www.ey.com/en_in",
+      location: "Chennai, India",
+      period: "Dec 2023 – May 2024",
+      bullets: [
+        "Improved financial assessment accuracy by extracting and analyzing large datasets using SQL, directly supporting audit decisions made by senior Chartered Accountants at a Big Four firm.",
+        "Cut manual reporting effort by streamlining audit workflows with Alteryx, Helix, and Excel, delivering audit data reports for 2–3 client companies per day across concurrent engagements.",
+        "Conducted sentiment analysis to support strategic audit insights.",
+      ],
+    },
+    {
       role: "Full Stack Developer",
       company: "Ideal Corporate Services",
       location: "Chennai, India",
