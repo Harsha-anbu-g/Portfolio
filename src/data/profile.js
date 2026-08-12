@@ -113,26 +113,24 @@ const profile = {
 
   experience: [
     {
-      role: "Backend Developer (Internship)",
-      company: "Vosyn AI",
-      location: "Canada (Remote)",
-      period: "May 2026 – Aug 2026",
+      role: "Backend Developer",
+      company: "Vosyn",
+      location: "Canada",
+      period: "Apr 2026 – Jul 2026",
       bullets: [
-        "Building backend services for AI-driven products in a fast-moving startup environment.",
-        "Developing and maintaining RESTful APIs and data workflows that support the platform's AI features.",
-        "Collaborating with cross-functional teams in Agile sprints to ship scalable, production-ready features.",
+        "Shipped backend work on VosynEnterprise's ad-serving path, measured by delivery inside a Scrum pod against a monetization initiative tracked as a company-wide C-suite OKR, by building with FastAPI and Django on the pod that owns ad delivery.",
+        "Unblocked local development on an unfamiliar multi-service platform, measured by 3 backing services (PostgreSQL, Redis, Kafka) verified running together end to end, by validating the Dockerfile base image and configuring Docker Compose from a single env file.",
+        "Kept ad decisions off a database round trip on every call, measured by a 60-second ceiling on stale campaign data through dual invalidation, by building two cache-aside Redis caches, one for active campaigns and one for creative metadata, each with a defined key schema, database loader, and startup warm-load, fronting an independently scalable ad-decision microservice on GCP Cloud Run.",
       ],
     },
     {
-      role: "Data Analyst (Internship)",
-      company: "Ernst & Young (S. R. Batliboi & Associates LLP)",
+      role: "Data Assurance Analyst",
+      company: "Ernst & Young (EY)",
       website: "https://www.ey.com/en_in",
       location: "Chennai, India",
-      period: "Dec 2023 – May 2024",
+      period: "Dec 2023 – Feb 2024",
       bullets: [
-        "Improved financial assessment accuracy by extracting and analyzing large datasets using SQL, directly supporting audit decisions made by senior Chartered Accountants at a Big Four firm.",
-        "Cut manual reporting effort by streamlining audit workflows with Alteryx, Helix, and Excel, delivering audit data reports for 2–3 client companies per day across concurrent engagements.",
-        "Conducted sentiment analysis to support strategic audit insights.",
+        "Improved financial assessment accuracy for senior Chartered Accountants at a Big Four firm, measured by audit reports for 2–3 client companies per day and several hours saved weekly, by optimizing SQL and streamlining workflows with Alteryx.",
       ],
     },
     {
@@ -143,7 +141,7 @@ const profile = {
       bullets: [
         "Designed and built the backend for client websites across education, healthcare, government, and real estate, including a Tamil Nadu government portal (TNPCB), measured by 5–10 sites in production through 2023, by defining the REST API structure in Java and Spring Boot, the relational schema in MySQL or PostgreSQL, and MongoDB for select non-relational use cases.",
         "Designed the caching that kept high-traffic client pages responsive, measured by a 100-product e-commerce catalog staying stable through sale-day traffic spikes, by keying Redis entries per day and resource so appointment-availability checks stopped hitting the database on every request, caching full listing and category pages, and removing an N+1 query pattern.",
-        "Kept the client portfolio healthy in production, measured by 5–15 bug tickets resolved a month.",
+        "Kept the client portfolio healthy in production, measured by 5–15 bug tickets resolved a month through QA and client escalation channels, by diagnosing and fixing backend issues across the portfolio's Spring Boot services and SQL queries.",
       ],
     },
   ],
