@@ -113,26 +113,14 @@ const profile = {
 
   experience: [
     {
-      role: "Backend Developer (Internship)",
-      company: "Vosyn AI",
-      location: "Canada (Remote)",
-      period: "May 2026 – Aug 2026",
-      bullets: [
-        "Building backend services for AI-driven products in a fast-moving startup environment.",
-        "Developing and maintaining RESTful APIs and data workflows that support the platform's AI features.",
-        "Collaborating with cross-functional teams in Agile sprints to ship scalable, production-ready features.",
-      ],
-    },
-    {
-      role: "Data Analyst (Internship)",
-      company: "Ernst & Young (S. R. Batliboi & Associates LLP)",
-      website: "https://www.ey.com/en_in",
+      role: "Full Stack Developer",
+      company: "Ideal Corporate Services",
       location: "Chennai, India",
-      period: "Dec 2023 – May 2024",
+      period: "Jan 2021 – Aug 2023",
       bullets: [
-        "Improved financial assessment accuracy by extracting and analyzing large datasets using SQL, directly supporting audit decisions made by senior Chartered Accountants at a Big Four firm.",
-        "Cut manual reporting effort by streamlining audit workflows with Alteryx, Helix, and Excel, delivering audit data reports for 2–3 client companies per day across concurrent engagements.",
-        "Conducted sentiment analysis to support strategic audit insights.",
+        "Designed and built the backend for client websites across education, healthcare, government, and real estate, including a Tamil Nadu government portal (TNPCB), measured by 5–10 sites in production through 2023, by defining the REST API structure in Java and Spring Boot, the relational schema in MySQL or PostgreSQL, and MongoDB for select non-relational use cases.",
+        "Designed the caching that kept high-traffic client pages responsive, measured by a 100-product e-commerce catalog staying stable through sale-day traffic spikes, by keying Redis entries per day and resource so appointment-availability checks stopped hitting the database on every request, caching full listing and category pages, and removing an N+1 query pattern.",
+        "Kept the client portfolio healthy in production, measured by 5–15 bug tickets resolved a month.",
       ],
     },
   ],
@@ -221,7 +209,6 @@ const profile = {
       school: "Coimbatore Institute of Technology",
       website: "https://www.cit.edu.in",
       location: "India",
-      period: "2020 – 2024",
       detail: "GPA: 8.51/10",
     },
     {
@@ -229,7 +216,6 @@ const profile = {
       school: "Maharishi International Residential School",
       website: "https://www.maharishiirschennai.com/",
       location: "Kanchipuram, India",
-      period: "2018 – 2020",
       detail: "CBSE · FIITJEE-integrated program",
     },
   ],
