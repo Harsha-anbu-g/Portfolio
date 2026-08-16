@@ -3,8 +3,6 @@ const GRAD_CSSE_COURSES =
   "https://www.concordia.ca/academics/graduate/calendar/current/gina-cody-school-of-engineering-and-computer-science-courses/computer-science-and-software-engineering-master-s-and-phd-courses.html";
 const GRAD_ENCS_COURSES =
   "https://www.concordia.ca/academics/graduate/calendar/current/gina-cody-school-of-engineering-and-computer-science-courses/engineering-and-computer-science-courses.html";
-const UGRAD_CSSE_COURSES =
-  "https://www.concordia.ca/academics/undergraduate/calendar/current/section-71-gina-cody-school-of-engineering-and-computer-science/section-71-70-department-of-computer-science-and-software-engineering/section-71-70-10-computer-science-and-software-engineering-courses.html";
 
 const profile = {
   name: "Harshavardhan Anbuchezhian Gowri",
@@ -16,7 +14,7 @@ const profile = {
   subtext:
     "I specialize in React, Spring Boot, and secure backend systems, building production-ready applications with clean architecture, strong fundamentals, and an AI-accelerated workflow built on Claude Code.",
   about: [
-    "Full-Stack Engineer and international student at Concordia University — building scalable web applications with Java, Spring Boot, and React.",
+    "Full-Stack Engineer with a Master's in Applied Computer Science from Concordia University, Montreal — building scalable web applications with Java, Spring Boot, and React.",
     "Creator of Towinly — a trust-based social platform that connects elderly people with younger helpers through a progressive trust journey. I own it end-to-end: an event-driven Java 21 / Spring Boot backend with Apache Kafka, a React 19 frontend, real-time WebSocket messaging, a 0–100 trust-score engine, and an emergency SOS flow with Twilio SMS — backed by PostgreSQL, Redis, and Docker, and deployed live on Railway and Vercel.",
     "I don't just solve problems, I find them first. Focused on clean API design, secure authentication, and code that is maintainable and built to last.",
     "A deep worker by nature — slow is smooth, and smooth is fast. I contribute consistently across every stage of a project, not just where it's visible.",
@@ -223,7 +221,7 @@ const profile = {
       website: "https://www.concordia.ca",
       location: "Montreal, Canada",
       period: "2025 – 2026",
-      detail: "Completed 40/45 credits",
+      detail: "Completed · 45/45 credits",
     },
     {
       degree: "Bachelor's in Information Technology",
@@ -258,7 +256,7 @@ const profile = {
     { label: "Education", value: "Master's" },
   ],
 
-  currentStatus: "Currently pursuing Master's in Applied Computer Science at Concordia University, Montreal",
+  currentStatus: "Master's in Applied Computer Science, Concordia University, Montreal — completed 2026",
 
   coursework: [
     {
@@ -329,9 +327,9 @@ const profile = {
       semester: "Winter 2026",
       courses: [
         {
-          name: "Immersive Technology",
-          code: "COMP 475",
-          link: `${UGRAD_CSSE_COURSES}#21266`,
+          name: "Immersive Technologies",
+          code: "COMP 6371",
+          link: `${GRAD_CSSE_COURSES}#16026`,
           description:
             "Fundamentals of immersive technologies: history, case studies of interactive experiences, and the main challenges of the current state of the art. Basic principles of 3D graphics for creating virtual assets and environments, and concepts and technologies for interaction. A project provides hands-on experience designing immersive interactive experiences.",
         },
@@ -353,7 +351,6 @@ const profile = {
     },
     {
       semester: "Summer 2026",
-      current: true,
       courses: [
         {
           name: "Comparative Study of Programming Languages",
