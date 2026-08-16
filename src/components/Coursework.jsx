@@ -174,7 +174,7 @@ export default function Coursework() {
           </div>
           <div>
             <p style={{ fontSize: "0.875rem", fontWeight: 600, color: "#F0EAE0", marginBottom: "0.15rem" }}>
-              Completed 40 / 45 credits
+              Completed 45 / 45 credits
             </p>
             <p style={{ fontSize: "0.8rem", color: "rgba(240,234,224,0.55)" }}>
               Master of Applied Computer Science · Concordia University, Montreal
