@@ -22,7 +22,7 @@ export default function FeaturedProject() {
     "Event-Driven Backend",
     "AI-Accelerated Workflow",
     "Automated Quality & Security",
-    "Production Architecture",
+    "iOS App in TestFlight",
   ];
   const features = details.map((text, i) => ({ title: featureTitles[i] ?? "", text }));
 
@@ -42,7 +42,7 @@ export default function FeaturedProject() {
               <rect x="2" y="4" width="20" height="13" rx="2" />
               <path d="M8 21h8M12 17v4" />
             </svg>
-            Best opened on a laptop or computer — Towinly is crafted for the big screen, not mobile.
+            Opens on laptops and phones. The iOS app is in TestFlight.
           </p>
         </div>
 
@@ -97,7 +97,10 @@ export default function FeaturedProject() {
             <ExternalIcon /> Open Live Website
           </a>
           <a href={towin.github} target="_blank" rel="noopener noreferrer" className="featured-btn featured-btn-ghost">
-            <GithubIcon /> View Source
+            <GithubIcon /> Web Source
+          </a>
+          <a href={towin.appGithub} target="_blank" rel="noopener noreferrer" className="featured-btn featured-btn-ghost">
+            <GithubIcon /> iOS App Source
           </a>
         </div>
 
