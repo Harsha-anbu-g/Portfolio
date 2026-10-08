@@ -4,6 +4,13 @@ const GRAD_CSSE_COURSES =
 const GRAD_ENCS_COURSES =
   "https://www.concordia.ca/academics/graduate/calendar/current/gina-cody-school-of-engineering-and-computer-science-courses/engineering-and-computer-science-courses.html";
 
+/* Towinly's public surfaces. Declared once so the work-history entry and the
+   project entry can never drift apart. The Instagram and LinkedIn URLs match
+   the links in the product's own site footer. */
+const TOWINLY_SITE = "https://www.towinly.com/";
+const TOWINLY_INSTAGRAM = "https://www.instagram.com/towinly.trust/";
+const TOWINLY_LINKEDIN = "https://www.linkedin.com/company/towinly/";
+
 const profile = {
   name: "Harshavardhan Anbuchezhian Gowri",
   initials: "HG",
@@ -111,6 +118,23 @@ const profile = {
 
   experience: [
     {
+      role: "Founder and Full Stack Developer",
+      company: "Towinly",
+      website: TOWINLY_SITE,
+      instagram: TOWINLY_INSTAGRAM,
+      linkedin: TOWINLY_LINKEDIN,
+      location: "Montreal, Canada",
+      period: "Mar 2026 \u2013 Present",
+      bullets: [
+        "Built and deployed a full stack platform that matches older adults with vetted helpers nearby, measured by 130 REST endpoints, 26 JPA entities, and 59 Flyway migrations live on PostgreSQL, by owning every decision in Spring Boot 3.5 and Java 21.",
+        "Kept personal details like phone numbers hidden until both people agree, measured by a 7-stage mutual-consent Trust Ladder where each stage unlocks only on confirmation from both sides, by designing the trust scoring system behind it.",
+        "Closed real holes in my own authentication before launch, measured by account lockout bypasses, user enumeration leaks, and gaps between demo accounts and real users all found and fixed, by securing the API with Spring Security, JWT, Google OAuth 2.0, and role-based access control.",
+        "Kept a solo build safe to refactor, measured by 990 JUnit 5 and Mockito tests gating every push alongside SonarQube and Snyk scans in GitHub Actions, by generating tests through AI sub-agents and reviewing each one.",
+        "Cleared the dependency backlog without breaking the build, measured by 90 vulnerable dependency paths cut to 0 (6 critical, 46 high), by upgrading Spring Boot, the AWS SDK, and Twilio with no breaking changes.",
+        "Put one backend behind two clients, measured by a React Native and Expo iOS app shipped to TestFlight next to a React 19 and TypeScript web client on Vercel, by reusing the Spring Boot API unchanged and deploying it on Railway.",
+      ],
+    },
+    {
       role: "Backend Developer",
       company: "Vosyn",
       location: "Canada",
@@ -155,6 +179,8 @@ const profile = {
         "Architected a Java 21 and Spring Boot backend with Apache Kafka events for connections and trust progress: 130 REST endpoints, 26 JPA entities, and 59 Flyway migrations on PostgreSQL, with Redis caching, AWS S3 storage, and OAuth2 and JWT security.",
         "Designed an AI-accelerated workflow with Claude Code: specialized sub-agents, custom MCP servers, and tailored Skills and plugins that scaffold Spring Boot code, map JPA entities, and generate JUnit tests.",
         "Automated 990 JUnit and Mockito backend tests and 1,396 Jest tests for the iOS app, with Snyk and SonarQube scanning every push to main and AES-GCM encryption on the sealed letter box.",
+        "Hardened the API against my own mistakes: found and fixed account lockout bypasses, user enumeration leaks, and gaps between demo accounts and real users, behind Spring Security with JWT, Google OAuth 2.0, and role-based access control.",
+        "Cut 90 vulnerable dependency paths to 0, including 6 critical and 46 high, by upgrading Spring Boot, the AWS SDK, and Twilio with no breaking changes.",
         "Shipped a React Native and Expo iOS app to TestFlight: 54 screens on the same Spring Boot backend, delivered as signed EAS builds under my Apple Developer account.",
       ],
       // Measured 2026-09-11 from the Towinly web repo (main) and the ToWin-App repo (career-ops towin.md section 15).
@@ -169,7 +195,9 @@ const profile = {
       metricsNote: "Built end to end: 876 commits on the web platform and 397 on the iOS app, April to September 2026.",
       github: "https://github.com/Harsha-anbu-g/Towin",
       appGithub: "https://github.com/Harsha-anbu-g/ToWin-App",
-      live: "https://www.towinly.com/",
+      live: TOWINLY_SITE,
+      instagram: TOWINLY_INSTAGRAM,
+      linkedin: TOWINLY_LINKEDIN,
       video: "https://www.linkedin.com/posts/harsha-anbu-gowri_fullstackdeveloper-springboot-java-ugcPost-7481541368083918848-WYBQ/",
       image: "/towin.webp",
     },
