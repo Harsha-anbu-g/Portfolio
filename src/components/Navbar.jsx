@@ -1,15 +1,43 @@
 import { useState, useEffect } from "react";
 import profile from "../data/profile";
 
+const NAV_HEIGHT = 70;
+
+/* Jakob: one-page sites mark the section in view. The section covering the
+   most viewport below the fixed bar is current; the hero counts so that no
+   link lights up while the top of the page dominates. */
+function sectionInView(sections) {
+  const viewportBottom = window.innerHeight;
+  return sections.reduce(
+    (best, section) => {
+      const rect = section.getBoundingClientRect();
+      const visible = Math.min(rect.bottom, viewportBottom) - Math.max(rect.top, NAV_HEIGHT);
+      return visible > best.visible ? { id: section.id, visible } : best;
+    },
+    { id: "", visible: 0 }
+  ).id;
+}
+
 export default function Navbar() {
   const [menuOpen, setMenuOpen] = useState(false);
   const [scrolled, setScrolled] = useState(false);
+  const [activeId, setActiveId] = useState("");
 
   useEffect(() => {
-    const onScroll = () => setScrolled(window.scrollY > 20);
-    window.addEventListener("scroll", onScroll);
+    const sections = ["#home", ...profile.navLinks.map((link) => link.href)]
+      .map((href) => document.querySelector(href))
+      .filter(Boolean);
+    const onScroll = () => {
+      setScrolled(window.scrollY > 20);
+      setActiveId(sectionInView(sections));
+    };
+    onScroll();
+    window.addEventListener("scroll", onScroll, { passive: true });
     return () => window.removeEventListener("scroll", onScroll);
   }, []);
+
+  const linkProps = (href) =>
+    activeId === href.slice(1) ? { className: "active", "aria-current": "true" } : {};
 
   return (
     <nav className={`clark-nav${scrolled ? " scrolled" : ""}`}>
@@ -22,7 +50,7 @@ export default function Navbar() {
         <ul className="clark-nav-links hidden md:flex">
           {profile.navLinks.map((link) => (
             <li key={link.href}>
-              <a href={link.href}>{link.label}</a>
+              <a href={link.href} {...linkProps(link.href)}>{link.label}</a>
             </li>
           ))}
           <li>
@@ -86,7 +114,7 @@ export default function Navbar() {
       {menuOpen && (
         <div className="clark-mobile-menu md:hidden">
           {profile.navLinks.map((link) => (
-            <a key={link.href} href={link.href} onClick={() => setMenuOpen(false)}>
+            <a key={link.href} href={link.href} onClick={() => setMenuOpen(false)} {...linkProps(link.href)}>
               {link.label}
             </a>
           ))}

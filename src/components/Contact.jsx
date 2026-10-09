@@ -11,7 +11,10 @@ export default function Contact() {
     e.preventDefault();
     const { name, email, subject, message } = form;
     const mailtoLink = `mailto:${profile.contact.email}?subject=${encodeURIComponent(subject || `Portfolio contact from ${name}`)}&body=${encodeURIComponent(`Name: ${name}\nEmail: ${email}\n\n${message}`)}`;
-    window.open(mailtoLink, "_blank");
+    /* Jakob: there is no backend. The form composes the message and hands it to
+       the visitor's own email app, in this tab, so no pop-up blocker gets in the
+       way and the wording never claims a send that did not happen. */
+    window.location.href = mailtoLink;
     setSent(true);
     setTimeout(() => setSent(false), 4000);
   };
@@ -32,7 +35,7 @@ export default function Contact() {
           <div>
             <p style={{ fontSize: "0.95rem", lineHeight: 1.8, color: "rgba(240,234,224,0.65)", marginBottom: "2.5rem" }}>
               I'm open to full-time and part-time opportunities in full-stack development.
-              Whether it's a quick question or a project idea — feel free to reach out.
+              Whether it's a quick question or a project idea, feel free to reach out.
             </p>
 
             <div className="contact-info-item">
@@ -159,13 +162,16 @@ export default function Contact() {
               className="btn-primary"
               style={{ border: "none", cursor: "pointer", width: "100%", justifyContent: "center" }}
             >
-              {sent ? "Message Sent ✓" : "Send Message"}
+              {sent ? "Opening your email app…" : "Send via Email"}
               {!sent && (
                 <svg width="14" height="14" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={2.5}>
                   <path strokeLinecap="round" strokeLinejoin="round" d="M12 19l9 2-9-18-9 18 9-2zm0 0v-8" />
                 </svg>
               )}
             </button>
+            <p style={{ margin: "0.75rem 0 0", fontSize: "0.78rem", lineHeight: 1.5, color: "rgba(240,234,224,0.5)" }}>
+              This opens your email app with the message filled in, addressed to {profile.contact.email}.
+            </p>
           </form>
         </div>
       </div>

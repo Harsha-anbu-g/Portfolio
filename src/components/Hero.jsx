@@ -57,7 +57,7 @@ export default function Hero() {
                 </svg>
               </a>
               <a href="#featured" className="btn-outline-white">
-                My Works
+                View Projects
               </a>
             </div>
 

@@ -797,6 +797,17 @@ body {
   width: 100%;
 }
 
+/* Jakob: the section in view gets the same gold rule as hover. */
+.clark-nav-links a.active {
+  color: #F0EAE0;
+}
+.clark-nav-links a.active::after {
+  width: 100%;
+}
+.clark-mobile-menu a.active {
+  color: #C9A227;
+}
+
 .clark-mobile-menu {
   background: #201C15;
   border-top: 1px solid rgba(240,234,224,0.08);

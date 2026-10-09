@@ -129,23 +129,6 @@ function ProjectCard({ project, wide = false, imageFit = "cover" }) {
         gap: "0.75rem",
         flex: 1,
       }}>
-        {/* Tech tags */}
-        <div style={{ display: "flex", flexWrap: "wrap", gap: "0.4rem" }}>
-          {project.tech.map(t => (
-            <span key={t} style={{
-              fontSize: "0.65rem",
-              fontWeight: 600,
-              letterSpacing: "0.08em",
-              textTransform: "uppercase",
-              color: "#8A6D1B",
-              background: "rgba(156, 122, 42,0.1)",
-              border: "1px solid rgba(156, 122, 42,0.25)",
-              borderRadius: 3,
-              padding: "0.2rem 0.55rem",
-            }}>{t}</span>
-          ))}
-        </div>
-
         {/* Title */}
         <h3 style={{
           fontSize: wide ? "1.25rem" : "1rem",
@@ -178,7 +161,25 @@ function ProjectCard({ project, wide = false, imageFit = "cover" }) {
           flex: 1,
         }}>{project.bullets[0]}</p>
 
-        {/* Links — always visible */}
+        {/* Jakob: tags after the description, as metadata beside the actions,
+            the order every project card on the web uses. */}
+        <div style={{ display: "flex", flexWrap: "wrap", gap: "0.4rem" }}>
+          {project.tech.map(t => (
+            <span key={t} style={{
+              fontSize: "0.65rem",
+              fontWeight: 600,
+              letterSpacing: "0.08em",
+              textTransform: "uppercase",
+              color: "#8A6D1B",
+              background: "rgba(156, 122, 42,0.1)",
+              border: "1px solid rgba(156, 122, 42,0.25)",
+              borderRadius: 3,
+              padding: "0.2rem 0.55rem",
+            }}>{t}</span>
+          ))}
+        </div>
+
+        {/* Links, always visible */}
         <div style={{ display: "flex", gap: "0.6rem", marginTop: "0.25rem", flexWrap: "wrap" }}>
           {project.github && (
             <a
