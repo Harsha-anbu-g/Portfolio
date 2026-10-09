@@ -56,11 +56,20 @@ export default function Skills() {
                 <h3 className="skill-group-title">{group.category}</h3>
               </div>
               <div className="skill-tags">
-                {group.items.map((item) => (
-                  <span key={item} className="skill-tag">
-                    {item}
-                  </span>
-                ))}
+                {group.items.map((item) => {
+                  const isCore = profile.coreSkills.includes(item);
+                  return (
+                    <span key={item} className={isCore ? "skill-tag skill-tag-core" : "skill-tag"}>
+                      {isCore && (
+                        <>
+                          <span className="sr-only">Core skill: </span>
+                          <span aria-hidden="true">★ </span>
+                        </>
+                      )}
+                      {item}
+                    </span>
+                  );
+                })}
               </div>
             </div>
           ))}

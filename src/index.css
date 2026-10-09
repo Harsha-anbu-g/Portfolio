@@ -556,6 +556,16 @@ body {
   background: rgba(240,234,224,0.04);
 }
 
+/* Hick + Von Restorff: the handful of skills the resume leads with read as the
+   odd ones out among the equal tags. Gold tint, same size, plus a star so the
+   difference is not colour alone. */
+.skill-tag-core {
+  color: #F0EAE0;
+  font-weight: 600;
+  border-color: rgba(201, 162, 39, 0.55);
+  background: rgba(201, 162, 39, 0.12);
+}
+
 /* ─── Stats / Counter bar ────────────────────────────── */
 .stats-bar {
   background: #9C7A2A;

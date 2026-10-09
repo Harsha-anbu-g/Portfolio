@@ -37,6 +37,11 @@ const profile = {
     instagram: "https://www.instagram.com/harsha._.ag",
   },
 
+  /* The skills the resume summary leads with. Skills.jsx renders these as the
+     odd ones out among the full list, so a recruiter scanning for a stack
+     finds it without reading all ~70 tags. */
+  coreSkills: ["Java", "Spring Boot", "React", "React Native", "PostgreSQL", "Claude Code"],
+
   skills: [
     {
       category: "Backend",
@@ -199,7 +204,7 @@ const profile = {
 
   projects: [
     {
-      title: "Towinly: Trust-Based Social Platform",
+      title: "Towinly: Connecting Older People With Younger Helpers",
       tech: ["React 19", "React Native", "Expo", "Spring Boot", "Apache Kafka", "PostgreSQL", "Redis", "JWT", "WebSocket", "Docker", "Claude Code", "MCP"],
       bullets: [
         "Built Towinly, a platform that connects elderly people with younger helpers nearby. Trust grows in seven stages, and each stage unlocks more contact: messages first, then phone and video calls, then meeting in person.",
@@ -298,8 +303,8 @@ const profile = {
     },
   ],
 
+  // Hick: no "Home" entry. The logo goes home, as visitors expect.
   navLinks: [
-    { label: "Home", href: "#home" },
     { label: "About", href: "#about" },
     { label: "Experience", href: "#experience" },
     { label: "Skills", href: "#skills" },
