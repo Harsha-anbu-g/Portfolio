@@ -18,12 +18,16 @@ export default function FeaturedProject() {
   /* Show the domain exactly as registered, derived from the live URL so the two never drift apart. */
   const liveDomain = new URL(towin.live).hostname;
 
+  /* One title per detail bullet in profile.js, in the same order. When a bullet
+     is added there, add its title here or the card renders without a heading. */
   const featureTitles = [
     "Progressive Trust Journey",
     "Real-Time & Safety",
     "Event-Driven Backend",
     "AI-Accelerated Workflow",
     "Automated Quality & Security",
+    "Security Hardening",
+    "Dependency Hygiene",
     "iOS App in TestFlight",
   ];
   const features = details.map((text, i) => ({ title: featureTitles[i] ?? "", text }));
@@ -115,8 +119,8 @@ export default function FeaturedProject() {
 
         {/* Feature details */}
         <div className="featured-features">
-          {features.map((f) => (
-            <div key={f.title} className="featured-feature">
+          {features.map((f, i) => (
+            <div key={i} className="featured-feature">
               <h3>{f.title}</h3>
               <p>{f.text}</p>
             </div>
