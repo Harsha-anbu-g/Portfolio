@@ -73,7 +73,7 @@ const ghostHoverOut = canHover
   ? e => { e.currentTarget.style.background = "rgba(34, 30, 22, 0.06)"; e.currentTarget.style.borderColor = "rgba(34, 30, 22, 0.14)"; }
   : undefined;
 
-function ProjectCard({ project, wide = false, imageFit = "cover" }) {
+function ProjectCard({ project, wide = false, imageFit = "cover", featured = false }) {
   const imageLink = project.live || project.github;
   return (
     <div style={{
@@ -129,6 +129,14 @@ function ProjectCard({ project, wide = false, imageFit = "cover" }) {
         gap: "0.75rem",
         flex: 1,
       }}>
+        {/* Von Restorff: the one card that repeats the featured project says so,
+            instead of reading as a fourth equal item. */}
+        {featured && (
+          <span className="card-featured-tag">
+            <span aria-hidden="true">★ </span>Featured above
+          </span>
+        )}
+
         {/* Title */}
         <h3 style={{
           fontSize: wide ? "1.25rem" : "1rem",
@@ -275,7 +283,7 @@ export default function Projects() {
 
         {/* Towinly + Quiz + Face + Docker — 2×2 grid */}
         <div style={{ display: "grid", gridTemplateColumns: "1fr 1fr", gap: "1.25rem" }}>
-          <ProjectCard project={towin} imageFit="contain" />
+          <ProjectCard project={towin} imageFit="contain" featured />
           <ProjectCard project={quiz} />
           <ProjectCard project={face} />
           <ProjectCard project={docker} />

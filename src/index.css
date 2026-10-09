@@ -421,6 +421,31 @@ body {
   margin-bottom: 0.5rem;
 }
 
+/* Von Restorff: one work entry is his own product and one grid card is the
+   project featured above. Both get the gold pill grammar of the featured tag,
+   so each is the odd one out in its row. */
+.resume-own-tag,
+.card-featured-tag {
+  display: inline-flex;
+  align-items: center;
+  font-size: 0.66rem;
+  font-weight: 700;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  color: #8A6D1B;
+  background: rgba(156, 122, 42, 0.1);
+  border: 1px solid rgba(156, 122, 42, 0.3);
+  border-radius: 999px;
+  padding: 0.2rem 0.7rem;
+}
+.resume-own-tag {
+  margin-left: 0.6rem;
+  vertical-align: middle;
+}
+.card-featured-tag {
+  align-self: flex-start;
+}
+
 .resume-role {
   font-size: 1.05rem;
   font-weight: 700;

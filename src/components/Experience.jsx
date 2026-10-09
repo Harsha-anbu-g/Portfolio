@@ -46,6 +46,13 @@ export default function Experience() {
                   </svg>
                   {job.period}
                 </span>
+                {/* Von Restorff: four entries share one treatment; the own product is
+                    the odd one out, so a recruiter reads it as a venture, not a job. */}
+                {job.ownVenture && (
+                  <span className="resume-own-tag">
+                    <span aria-hidden="true">★ </span>Own product
+                  </span>
+                )}
                 <h4 className="resume-role">{job.role}</h4>
                 <p className="resume-place">
                   {/* Fitts: when the entry has its own links row below, the domain link there

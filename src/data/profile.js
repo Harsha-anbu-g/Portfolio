@@ -154,6 +154,8 @@ const profile = {
     {
       role: "Founder and Full Stack Developer",
       company: "Towinly",
+      // Von Restorff: the one entry that is his own product, marked as such.
+      ownVenture: true,
       website: TOWINLY_SITE,
       instagram: TOWINLY_INSTAGRAM,
       linkedin: TOWINLY_LINKEDIN,
@@ -314,10 +316,12 @@ const profile = {
     { label: "Contact", href: "#contact" },
   ],
 
+  /* Von Restorff: this band is the loudest block on the page, so it carries
+     the three facts other candidates cannot claim, taken from the resume. */
   stats: [
-    { label: "Projects Built", value: "4+" },
-    { label: "Technologies", value: "25+" },
-    { label: "Education", value: "Master's" },
+    { label: "Years Experience", value: "4" },
+    { label: "REST Endpoints", value: "129" },
+    { label: "Automated Tests", value: "2,402" },
   ],
 
   currentStatus: "Master's in Applied Computer Science, Concordia University, Montreal — completed 2026",
