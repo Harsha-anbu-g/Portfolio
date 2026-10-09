@@ -38,7 +38,7 @@ export default function FeaturedProject() {
             <img src="/towin-logo.png" alt="" aria-hidden="true" className="featured-title-logo" />
             Towinly
           </h2>
-          <p className="featured-subtitle">A Trust-Based Social Platform</p>
+          <p className="featured-subtitle">Connecting Older People With Younger Helpers Nearby</p>
           <div className="featured-links">
             <a
               href={towin.live}
