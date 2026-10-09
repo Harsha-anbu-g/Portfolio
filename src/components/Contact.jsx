@@ -43,7 +43,7 @@ export default function Contact() {
               </div>
               <div>
                 <p style={{ fontSize: "0.75rem", fontWeight: 600, textTransform: "uppercase", letterSpacing: "0.1em", color: "rgba(240,234,224,0.5)", marginBottom: "0.2rem" }}>Email</p>
-                <a href={`mailto:${profile.contact.email}`} style={{ fontSize: "0.9rem", color: "#F0EAE0", textDecoration: "none", fontWeight: 500 }}>
+                <a href={`mailto:${profile.contact.email}`} className="contact-link" style={{ fontSize: "0.9rem", color: "#F0EAE0", textDecoration: "none", fontWeight: 500 }}>
                   {profile.contact.email}
                 </a>
               </div>
@@ -57,7 +57,7 @@ export default function Contact() {
               </div>
               <div>
                 <p style={{ fontSize: "0.75rem", fontWeight: 600, textTransform: "uppercase", letterSpacing: "0.1em", color: "rgba(240,234,224,0.5)", marginBottom: "0.2rem" }}>Phone</p>
-                <a href={`tel:${profile.contact.phone}`} style={{ fontSize: "0.9rem", color: "#F0EAE0", textDecoration: "none", fontWeight: 500 }}>
+                <a href={`tel:${profile.contact.phone}`} className="contact-link" style={{ fontSize: "0.9rem", color: "#F0EAE0", textDecoration: "none", fontWeight: 500 }}>
                   {profile.contact.phone}
                 </a>
               </div>
@@ -84,7 +84,7 @@ export default function Contact() {
               </div>
               <div>
                 <p style={{ fontSize: "0.75rem", fontWeight: 600, textTransform: "uppercase", letterSpacing: "0.1em", color: "rgba(240,234,224,0.5)", marginBottom: "0.2rem" }}>LinkedIn</p>
-                <a href={profile.contact.linkedin} target="_blank" rel="noopener noreferrer" style={{ fontSize: "0.9rem", color: "#F0EAE0", textDecoration: "none", fontWeight: 500 }}>
+                <a href={profile.contact.linkedin} target="_blank" rel="noopener noreferrer" className="contact-link" style={{ fontSize: "0.9rem", color: "#F0EAE0", textDecoration: "none", fontWeight: 500 }}>
                   harsha-anbu-gowri
                 </a>
               </div>
@@ -98,7 +98,7 @@ export default function Contact() {
               </div>
               <div>
                 <p style={{ fontSize: "0.75rem", fontWeight: 600, textTransform: "uppercase", letterSpacing: "0.1em", color: "rgba(240,234,224,0.5)", marginBottom: "0.2rem" }}>GitHub</p>
-                <a href={profile.contact.github} target="_blank" rel="noopener noreferrer" style={{ fontSize: "0.9rem", color: "#F0EAE0", textDecoration: "none", fontWeight: 500 }}>
+                <a href={profile.contact.github} target="_blank" rel="noopener noreferrer" className="contact-link" style={{ fontSize: "0.9rem", color: "#F0EAE0", textDecoration: "none", fontWeight: 500 }}>
                   Harsha-anbu-g
                 </a>
               </div>
@@ -112,7 +112,7 @@ export default function Contact() {
               </div>
               <div>
                 <p style={{ fontSize: "0.75rem", fontWeight: 600, textTransform: "uppercase", letterSpacing: "0.1em", color: "rgba(240,234,224,0.5)", marginBottom: "0.2rem" }}>Instagram</p>
-                <a href={profile.contact.instagram} target="_blank" rel="noopener noreferrer" style={{ fontSize: "0.9rem", color: "#F0EAE0", textDecoration: "none", fontWeight: 500 }}>
+                <a href={profile.contact.instagram} target="_blank" rel="noopener noreferrer" className="contact-link" style={{ fontSize: "0.9rem", color: "#F0EAE0", textDecoration: "none", fontWeight: 500 }}>
                   harsha._.ag
                 </a>
               </div>

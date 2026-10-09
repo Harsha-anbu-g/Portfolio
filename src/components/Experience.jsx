@@ -48,7 +48,9 @@ export default function Experience() {
                 </span>
                 <h4 className="resume-role">{job.role}</h4>
                 <p className="resume-place">
-                  {job.website ? (
+                  {/* Fitts: when the entry has its own links row below, the domain link there
+                      is the target. A second link 5px above it would be a duplicate. */}
+                  {job.website && !(job.instagram || job.linkedin) ? (
                     <a href={job.website} target="_blank" rel="noopener noreferrer" className="place-link">
                       {job.company}
                     </a>

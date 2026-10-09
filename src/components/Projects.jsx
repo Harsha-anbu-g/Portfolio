@@ -59,7 +59,9 @@ const ghostLinkStyle = {
   background: "rgba(34, 30, 22, 0.06)",
   border: "1px solid rgba(34, 30, 22, 0.14)",
   borderRadius: 4,
-  padding: "0.45rem 0.9rem",
+  padding: "0.55rem 0.95rem",
+  minHeight: 40,
+  boxSizing: "border-box",
   textDecoration: "none",
   transition: "background 0.2s, border-color 0.2s",
 };
@@ -159,6 +161,7 @@ function ProjectCard({ project, wide = false, imageFit = "cover" }) {
             href={project.live}
             target="_blank"
             rel="noopener noreferrer"
+            className="card-domain"
             style={cardDomainStyle}
           >
             <GlobeIcon />
@@ -182,6 +185,7 @@ function ProjectCard({ project, wide = false, imageFit = "cover" }) {
               href={project.github}
               target="_blank"
               rel="noopener noreferrer"
+              className="card-link"
               style={ghostLinkStyle}
               onMouseEnter={ghostHoverIn}
               onMouseLeave={ghostHoverOut}
@@ -194,6 +198,7 @@ function ProjectCard({ project, wide = false, imageFit = "cover" }) {
               href={project.live}
               target="_blank"
               rel="noopener noreferrer"
+              className="card-link"
               style={{
                 display: "inline-flex",
                 alignItems: "center",
@@ -204,7 +209,9 @@ function ProjectCard({ project, wide = false, imageFit = "cover" }) {
                 background: "#221E16",
                 border: "1px solid #221E16",
                 borderRadius: 4,
-                padding: "0.45rem 0.9rem",
+                padding: "0.55rem 0.95rem",
+                minHeight: 40,
+                boxSizing: "border-box",
                 textDecoration: "none",
                 transition: "opacity 0.2s",
               }}
@@ -221,7 +228,8 @@ function ProjectCard({ project, wide = false, imageFit = "cover" }) {
               target="_blank"
               rel="noopener noreferrer"
               aria-label={`${project.title} on Instagram`}
-              style={{ ...ghostLinkStyle, padding: "0.45rem 0.65rem" }}
+              className="card-link"
+              style={{ ...ghostLinkStyle, padding: "0.55rem 0.7rem", minWidth: 40, justifyContent: "center" }}
               onMouseEnter={ghostHoverIn}
               onMouseLeave={ghostHoverOut}
             >
@@ -234,7 +242,8 @@ function ProjectCard({ project, wide = false, imageFit = "cover" }) {
               target="_blank"
               rel="noopener noreferrer"
               aria-label={`${project.title} on LinkedIn`}
-              style={{ ...ghostLinkStyle, padding: "0.45rem 0.65rem" }}
+              className="card-link"
+              style={{ ...ghostLinkStyle, padding: "0.55rem 0.7rem", minWidth: 40, justifyContent: "center" }}
               onMouseEnter={ghostHoverIn}
               onMouseLeave={ghostHoverOut}
             >

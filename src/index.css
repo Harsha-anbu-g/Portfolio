@@ -902,6 +902,73 @@ body {
   inset: -12px;
 }
 
+/* Fitts: the same expansion for small text links. Layout is untouched; the
+   hit box grows to roughly 40px tall. ::before so it never collides with an
+   ::after underline. */
+.featured-domain,
+.featured-social,
+.featured-more-link,
+.resume-domain,
+.resume-social,
+.place-link,
+.card-domain,
+.bc-link,
+.about-info-list a,
+.contact-link,
+.footer-text-link {
+  position: relative;
+}
+.featured-domain::before,
+.featured-social::before,
+.featured-more-link::before,
+.resume-domain::before,
+.resume-social::before,
+.place-link::before,
+.card-domain::before,
+.bc-link::before,
+.about-info-list a::before,
+.contact-link::before,
+.footer-text-link::before {
+  content: "";
+  position: absolute;
+  inset: -12px -4px;
+}
+
+/* Fitts: nav links get a real hit height inside the 70px bar. The underline
+   keeps its 4px offset below the text box. */
+.clark-nav-links a {
+  display: inline-block;
+  padding: 0.55rem 0;
+}
+.clark-nav-links a::after {
+  bottom: 4px;
+}
+.clark-logo {
+  display: inline-block;
+  padding: 0.5rem 0;
+}
+
+/* Fitts: footer quick links become rows, not thin lines. */
+.footer-link {
+  padding: 0.5rem 0;
+  margin-bottom: 0;
+}
+
+/* Fitts: icon pitch at 44px so the expanded hit boxes no longer overlap. */
+.hero-socials {
+  gap: 1.5rem;
+}
+
+@media (hover: none) {
+  .footer-link {
+    padding: 0.75rem 0;
+  }
+  #projects .card-link,
+  .bc-btn {
+    min-height: 44px;
+  }
+}
+
 /* ─── Responsive ─────────────────────────────────────── */
 @media (max-width: 768px) {
   /* Sections */
