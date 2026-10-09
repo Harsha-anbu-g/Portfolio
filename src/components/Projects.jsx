@@ -161,8 +161,10 @@ function ProjectCard({ project, wide = false, imageFit = "cover" }) {
           flex: 1,
         }}>{project.bullets[0]}</p>
 
-        {/* Jakob: tags after the description, as metadata beside the actions,
-            the order every project card on the web uses. */}
+        {/* Proximity: tags and actions form one footer group, set apart from the
+            description. Jakob: tags after the description, the order every
+            project card on the web uses. */}
+        <div style={{ display: "flex", flexDirection: "column", gap: "0.6rem", marginTop: "0.35rem" }}>
         <div style={{ display: "flex", flexWrap: "wrap", gap: "0.4rem" }}>
           {project.tech.map(t => (
             <span key={t} style={{
@@ -180,7 +182,7 @@ function ProjectCard({ project, wide = false, imageFit = "cover" }) {
         </div>
 
         {/* Links, always visible */}
-        <div style={{ display: "flex", gap: "0.6rem", marginTop: "0.25rem", flexWrap: "wrap" }}>
+        <div style={{ display: "flex", gap: "0.6rem", flexWrap: "wrap" }}>
           {project.github && (
             <a
               href={project.github}
@@ -251,6 +253,7 @@ function ProjectCard({ project, wide = false, imageFit = "cover" }) {
               <LinkedInIcon />
             </a>
           )}
+        </div>
         </div>
       </div>
     </div>
