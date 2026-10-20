@@ -443,6 +443,8 @@ const profile = {
       intro:
         "I'm deeply interested in personal growth, focus, and systems thinking.",
       books: [
+        // `current` marks the one being read now; BeyondCode shows it with a chip.
+        { title: "Psycho-Cybernetics", author: "Maxwell Maltz", current: true },
         { title: "Atomic Habits", author: "James Clear" },
         { title: "Deep Work", author: "Cal Newport" },
         { title: "The Psychology of Money", author: "Morgan Housel" },

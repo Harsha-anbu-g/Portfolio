@@ -143,7 +143,10 @@ export default function BeyondCode() {
                     {paths.bookClosed}
                   </Icon>
                   <div>
-                    <p className="bc-book-title">{b.title}</p>
+                    <p className="bc-book-title">
+                      {b.title}
+                      {b.current && <span className="bc-book-now">Reading now</span>}
+                    </p>
                     <p className="bc-book-author">{b.author}</p>
                   </div>
                 </div>
@@ -388,6 +391,21 @@ export default function BeyondCode() {
           font-size: 0.72rem;
           color: rgba(34, 30, 22, 0.55);
           margin: 0.15rem 0 0;
+        }
+        /* The one book being read now: the same gold pill as the featured tag. */
+        .bc-book-now {
+          display: inline-block;
+          margin-left: 0.5rem;
+          vertical-align: middle;
+          font-size: 0.6rem;
+          font-weight: 700;
+          letter-spacing: 0.1em;
+          text-transform: uppercase;
+          color: #8A6D1B;
+          background: rgba(156, 122, 42, 0.1);
+          border: 1px solid rgba(156, 122, 42, 0.3);
+          border-radius: 999px;
+          padding: 0.12rem 0.55rem;
         }
         .bc-country {
           display: flex;
