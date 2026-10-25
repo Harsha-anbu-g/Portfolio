@@ -15,8 +15,10 @@ const profile = {
   name: "Harshavardhan Anbuchezhian Gowri",
   initials: "HG",
   photo: "/harsha-photo.webp",
-  /* Rendered as the hero role line. The page <title> is set separately in index.html. */
-  title: "Full-Stack Engineer · Founder of Towinly",
+  /* Rendered as the hero role line. The page <title> is set separately in index.html.
+     founderOf adds "· Founder of <name>" with the name linked to the site. */
+  title: "Full-Stack Engineer",
+  founderOf: { name: "Towinly", url: TOWINLY_SITE },
   headline:
     "Full-Stack Engineer building reliable and scalable web applications.",
   subtext:

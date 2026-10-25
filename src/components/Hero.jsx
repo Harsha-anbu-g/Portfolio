@@ -42,7 +42,22 @@ export default function Hero() {
               {profile.name.split(" ").slice(1).join(" ")}
             </h1>
 
-            <p className="hero-role">{profile.title}</p>
+            <p className="hero-role">
+              {profile.title}
+              {profile.founderOf && (
+                <>
+                  {" · Founder of "}
+                  <a
+                    href={profile.founderOf.url}
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className="hero-role-link"
+                  >
+                    {profile.founderOf.name}
+                  </a>
+                </>
+              )}
+            </p>
 
             <div className="hero-status">
               <span className="hero-status-dot" />
