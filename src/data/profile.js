@@ -83,6 +83,9 @@ const profile = {
         "Claude Sub-Agents",
         "Model Context Protocol (MCP)",
         "Custom MCP Servers",
+        "RAG & pgvector",
+        "LLM Guardrails & Evals",
+        "Agent2Agent (A2A)",
         "AI Skills & Plugins",
         "GitHub Copilot",
         "Prompt Engineering",
@@ -209,12 +212,13 @@ const profile = {
   projects: [
     {
       title: "Towinly: Connecting Older People With Younger Helpers",
-      tech: ["React 19", "React Native", "Expo", "Spring Boot", "Apache Kafka", "PostgreSQL", "Redis", "JWT", "WebSocket", "Docker", "Claude Code", "MCP"],
+      tech: ["React 19", "React Native", "Expo", "Spring Boot", "Apache Kafka", "PostgreSQL", "pgvector", "Redis", "JWT", "WebSocket", "Docker", "Claude Code", "MCP", "Groq"],
       bullets: [
         "Built Towinly, a platform that connects elderly people with younger helpers nearby. Trust grows in seven stages, and each stage unlocks more contact: messages first, then phone and video calls, then meeting in person.",
         "Both people confirm every step up the seven-stage Trust Ladder. An elder sees a helper's Trust Score, built per friendship from ladder stages, reviews, and profile completeness, before saying yes.",
         "Built WebSocket chat, push notifications for messages and help activity, daily check-ins that family can see, server-side blocking in both directions, and an emergency SOS flow with inactivity checks and Twilio SMS.",
         "Architected a Java 21 and Spring Boot backend with Apache Kafka events for connections and trust progress: 129 OpenAPI-documented REST endpoints, 26 JPA entities, 59 Flyway migrations, and 43 indexes on PostgreSQL, with Redis caching, AWS S3 storage, and OAuth2 and JWT security.",
+        "Built Ask AI, an in-app assistant for elders. A Groq-hosted model answers from the real user guide through pgvector retrieval over 201 passages, calls read-only tools for the person's own data, and can propose a check-in or a help request that the person confirms in a native dialog before anything is written.",
         "Designed an AI-accelerated workflow with Claude Code: specialized sub-agents, custom MCP servers, and tailored Skills and plugins that scaffold Spring Boot code, map JPA entities, and generate JUnit tests.",
         "Automated 1,006 JUnit 5 and Mockito backend tests and 1,396 Jest tests for the iOS app, with Snyk and SonarQube scanning every push to main and AES-GCM encryption on the sealed letter box.",
         "Hardened the API against my own mistakes: found and fixed account lockout bypasses, user enumeration leaks, and gaps between demo accounts and real users, behind Spring Security with JWT, Google OAuth 2.0, and role-based access control.",
@@ -238,6 +242,13 @@ const profile = {
       instagram: TOWINLY_INSTAGRAM,
       linkedin: TOWINLY_LINKEDIN,
       video: "https://www.linkedin.com/posts/harsha-anbu-gowri_fullstackdeveloper-springboot-java-ugcPost-7481541368083918848-WYBQ/",
+      /* Standalone case study (public/towinly-ai.html). The featured block
+         renders it as a link card beside the architecture and video cards. */
+      aiCaseStudy: {
+        href: "/towinly-ai.html",
+        title: "Everything AI in Towinly",
+        sub: "The full case study: Ask AI, retrieval on pgvector, a 93-tool MCP server, agents and 11 tested safety layers",
+      },
       image: "/towin.webp",
     },
     {

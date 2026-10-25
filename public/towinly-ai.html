@@ -1,0 +1,804 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Everything AI in Towinly | Harshavardhan Anbuchezhian Gowri</title>
+<meta name="description" content="How Towinly's Ask AI helper for elders grew into a twelve-step AI programme: cost caps, a 44-case eval set, tool use, a 93-tool MCP server, retrieval over the user guide on pgvector, semantic matching, confirm-before-act actions, an A2A agent, 11 tested safety layers and an evaluator agent.">
+<meta name="theme-color" content="#201C15">
+<link rel="icon" type="image/svg+xml" href="/favicon.svg">
+<link rel="canonical" href="https://harshavardhanag.com/towinly-ai.html">
+<meta property="og:site_name" content="Harshavardhan Anbuchezhian Gowri">
+<meta property="og:type" content="article">
+<meta property="og:title" content="Everything AI in Towinly">
+<meta property="og:description" content="A case study: how an in-app helper for elders grew into a twelve-step AI programme with retrieval, tools, agents and 11 tested safety layers.">
+<meta property="og:url" content="https://harshavardhanag.com/towinly-ai.html">
+<meta property="og:image" content="https://harshavardhanag.com/og-image.png?v=5">
+<meta property="og:image:width" content="1200">
+<meta property="og:image:height" content="630">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:title" content="Everything AI in Towinly">
+<meta name="twitter:description" content="A case study: how an in-app helper for elders grew into a twelve-step AI programme with retrieval, tools, agents and 11 tested safety layers.">
+<meta name="twitter:image" content="https://harshavardhanag.com/og-image.png?v=5">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700&family=Lora:ital,wght@0,500;0,600;1,500;1,600&display=swap" rel="stylesheet">
+<style>
+  /* Paper & Gold, the portfolio's design language. Same tokens as the main page. */
+  :root {
+    --paper: #FAF7F1;
+    --paper-alt: #F3EEE4;
+    --card: #FFFDF9;
+    --ink: #221E16;
+    --dark: #201C15;
+    --dark-card: #2A251C;
+    --cream: #F0EAE0;
+    --gold: #C9A227;
+    --bronze: #9C7A2A;
+    --gold-deep: #8A6D1B;
+    --text: rgba(34, 30, 22, 0.80);
+    --muted: rgba(34, 30, 22, 0.62);
+    --hairline: rgba(34, 30, 22, 0.10);
+    --hairline-soft: rgba(34, 30, 22, 0.06);
+    --serif: "Lora", Georgia, "Times New Roman", serif;
+    --sans: "Poppins", ui-sans-serif, system-ui, -apple-system, sans-serif;
+  }
+  * { box-sizing: border-box; }
+  html { scroll-behavior: smooth; overflow-x: clip; }
+  @media (prefers-reduced-motion: reduce) {
+    html { scroll-behavior: auto; }
+    * { transition: none !important; }
+  }
+  body {
+    margin: 0;
+    min-width: 320px;
+    font-family: var(--sans);
+    font-size: 1.0625rem;
+    line-height: 1.7;
+    color: var(--ink);
+    background: var(--paper);
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+    overflow-x: hidden;
+  }
+  a { color: var(--gold-deep); text-decoration: none; }
+  a:focus-visible { outline: 2px solid var(--gold); outline-offset: 3px; border-radius: 4px; }
+  a, button { touch-action: manipulation; -webkit-tap-highlight-color: transparent; }
+  .wrap { max-width: 1040px; margin: 0 auto; padding: 0 5%; }
+  section[id] { scroll-margin-top: 84px; }
+  strong { color: var(--ink); font-weight: 600; }
+  code {
+    font-family: ui-monospace, SFMono-Regular, Menlo, Consolas, monospace;
+    font-size: 0.86em;
+    background: rgba(34, 30, 22, 0.05);
+    border: 1px solid var(--hairline-soft);
+    border-radius: 4px;
+    padding: 0.08em 0.4em;
+    color: var(--ink);
+    overflow-wrap: anywhere;
+  }
+
+  /* Top bar: the same permanent dark bar as the portfolio navbar. */
+  .topbar {
+    position: sticky;
+    top: 0;
+    z-index: 10;
+    background: var(--dark);
+    border-bottom: 1px solid rgba(255, 255, 255, 0.08);
+  }
+  .topbar .wrap {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 1rem;
+    min-height: 64px;
+  }
+  .topbar a {
+    display: inline-flex;
+    align-items: center;
+    gap: 0.45rem;
+    min-height: 44px;
+    color: var(--cream);
+    font-size: 0.9rem;
+    font-weight: 500;
+    transition: color 0.2s ease;
+  }
+  .topbar-back svg { flex-shrink: 0; }
+  /* Scoped under .topbar so it outranks the shared `.topbar a` rule above. */
+  .topbar .topbar-brand {
+    gap: 0; /* the gold dot sits flush against the name */
+    font-family: var(--serif);
+    font-size: 1.35rem;
+    font-weight: 600;
+    letter-spacing: -0.01em;
+  }
+  .topbar-brand span { color: var(--gold); }
+  .topbar-site span { border-bottom: 1px solid rgba(201, 162, 39, 0.45); }
+  @media (hover: hover) {
+    .topbar a:hover { color: var(--gold); }
+  }
+
+  /* Hero band */
+  .hero {
+    background: var(--dark);
+    color: var(--cream);
+    padding: 4.5rem 0 3.5rem;
+  }
+  .eyebrow {
+    display: inline-block;
+    font-size: 0.74rem;
+    font-weight: 700;
+    letter-spacing: 0.18em;
+    text-transform: uppercase;
+    color: var(--gold);
+    margin-bottom: 1.1rem;
+  }
+  .hero h1 {
+    font-family: var(--serif);
+    font-weight: 600;
+    font-size: clamp(2.3rem, 5.2vw, 3.8rem);
+    line-height: 1.08;
+    letter-spacing: -0.02em;
+    margin: 0 0 1.25rem;
+    color: #FFFFFF;
+  }
+  .hero h1 em { font-style: italic; color: var(--gold); }
+  .lead {
+    font-size: clamp(1.05rem, 1.9vw, 1.25rem);
+    line-height: 1.65;
+    max-width: 760px;
+    margin: 0 0 1.1rem;
+    color: rgba(240, 234, 224, 0.88);
+  }
+  .dateline {
+    font-size: 0.9rem;
+    line-height: 1.6;
+    color: rgba(240, 234, 224, 0.62);
+    max-width: 760px;
+    margin: 0 0 2.5rem;
+  }
+  .hero-stats {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 1px;
+    background: rgba(255, 255, 255, 0.10);
+    border: 1px solid rgba(255, 255, 255, 0.10);
+    border-radius: 10px;
+    overflow: hidden;
+  }
+  .stat { background: var(--dark-card); padding: 1.25rem 1rem; text-align: center; }
+  .stat-value {
+    display: block;
+    font-family: var(--serif);
+    font-size: clamp(1.8rem, 3vw, 2.4rem);
+    font-weight: 600;
+    line-height: 1;
+    color: var(--gold);
+    margin-bottom: 0.45rem;
+  }
+  .stat-label {
+    display: block;
+    font-size: 0.78rem;
+    line-height: 1.4;
+    color: rgba(240, 234, 224, 0.72);
+  }
+
+  /* On this page */
+  .toc { background: var(--paper-alt); border-bottom: 1px solid var(--hairline-soft); }
+  .toc .wrap {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 0.5rem;
+    padding-top: 0.9rem;
+    padding-bottom: 0.9rem;
+  }
+  .toc a {
+    display: inline-flex;
+    align-items: center;
+    min-height: 44px;
+    padding: 0 1rem;
+    border: 1px solid var(--hairline);
+    border-radius: 999px;
+    background: var(--card);
+    color: var(--ink);
+    font-size: 0.85rem;
+    font-weight: 600;
+    transition: border-color 0.2s ease, color 0.2s ease;
+  }
+  @media (hover: hover) {
+    .toc a:hover { border-color: rgba(156, 122, 42, 0.55); color: var(--gold-deep); }
+  }
+
+  /* Section grammar: small gold label, serif title */
+  .block { padding: 3.75rem 0 0.5rem; }
+  .section-label {
+    display: block;
+    font-size: 0.74rem;
+    font-weight: 700;
+    letter-spacing: 0.16em;
+    text-transform: uppercase;
+    color: var(--gold-deep);
+    margin-bottom: 0.5rem;
+  }
+  h2 {
+    font-family: var(--serif);
+    font-size: clamp(1.7rem, 3vw, 2.2rem);
+    font-weight: 600;
+    letter-spacing: -0.015em;
+    line-height: 1.15;
+    margin: 0 0 1.4rem;
+    color: var(--ink);
+  }
+  .prose { max-width: 780px; }
+  .prose p { margin: 0 0 1.1rem; color: var(--text); }
+  .prose ul { padding-left: 1.2rem; margin: 0 0 1.1rem; }
+  .prose li { margin-bottom: 0.55rem; color: var(--text); }
+  .prose li::marker { color: var(--bronze); }
+
+  /* Timeline */
+  .timeline {
+    list-style: none;
+    margin: 0 0 1.25rem;
+    padding: 0;
+    max-width: 820px;
+    border-left: 2px solid rgba(156, 122, 42, 0.35);
+  }
+  .timeline li { position: relative; padding: 0 0 1.25rem 1.5rem; }
+  .timeline li::before {
+    content: "";
+    position: absolute;
+    left: -7px;
+    top: 0.55rem;
+    width: 12px;
+    height: 12px;
+    border-radius: 50%;
+    background: var(--paper);
+    border: 2px solid var(--bronze);
+  }
+  .timeline time {
+    display: block;
+    font-size: 0.8rem;
+    font-weight: 700;
+    letter-spacing: 0.08em;
+    color: var(--gold-deep);
+    margin-bottom: 0.15rem;
+  }
+  .timeline p { margin: 0; color: var(--text); }
+  .aside-note { font-size: 0.95rem; color: var(--muted); max-width: 820px; margin: 0; }
+
+  /* Step cards */
+  .steps { display: grid; grid-template-columns: 1fr; gap: 1.1rem; }
+  .step {
+    background: var(--card);
+    border: 1px solid var(--hairline-soft);
+    border-radius: 10px;
+    padding: 1.5rem 1.6rem;
+  }
+  .step-head {
+    display: flex;
+    align-items: baseline;
+    gap: 0.9rem;
+    flex-wrap: wrap;
+    margin-bottom: 0.9rem;
+  }
+  .step-num {
+    font-size: 0.74rem;
+    font-weight: 700;
+    letter-spacing: 0.16em;
+    text-transform: uppercase;
+    color: var(--gold-deep);
+    background: rgba(156, 122, 42, 0.10);
+    border: 1px solid rgba(156, 122, 42, 0.3);
+    border-radius: 999px;
+    padding: 0.25rem 0.75rem;
+    white-space: nowrap;
+  }
+  .step h3 {
+    font-family: var(--serif);
+    font-size: 1.3rem;
+    font-weight: 600;
+    margin: 0;
+    color: var(--ink);
+  }
+  .step h4 {
+    font-family: var(--serif);
+    font-size: 1.1rem;
+    font-weight: 600;
+    margin: 1.1rem 0 0.5rem;
+    color: var(--ink);
+  }
+  .step-when { font-size: 0.82rem; color: var(--muted); }
+  .step ul { margin: 0; padding-left: 1.15rem; }
+  .step li { margin-bottom: 0.5rem; color: var(--text); }
+  .step li::marker { color: var(--bronze); }
+  .step li:last-child { margin-bottom: 0; }
+  .step p { margin: 0 0 0.8rem; color: var(--text); }
+  .why {
+    margin: 0.9rem 0 0;
+    padding: 0.85rem 1rem;
+    background: var(--paper-alt);
+    border-left: 3px solid var(--bronze);
+    border-radius: 0 6px 6px 0;
+    color: var(--text);
+    font-size: 0.97rem;
+  }
+  .why strong { color: var(--gold-deep); }
+
+  /* Tables */
+  .table-wrap {
+    border: 1px solid var(--hairline);
+    border-radius: 10px;
+    overflow: hidden;
+    background: var(--card);
+    margin: 0.5rem 0 1rem;
+  }
+  table { width: 100%; border-collapse: collapse; font-size: 0.95rem; }
+  th, td {
+    text-align: left;
+    vertical-align: top;
+    padding: 0.75rem 1rem;
+    border-top: 1px solid var(--hairline-soft);
+    color: var(--text);
+  }
+  th {
+    font-size: 0.74rem;
+    font-weight: 700;
+    letter-spacing: 0.12em;
+    text-transform: uppercase;
+    color: var(--gold-deep);
+    background: var(--paper-alt);
+    border-top: 0;
+  }
+  .layers td:first-child { font-weight: 600; color: var(--ink); width: 36%; }
+  .numbers td:first-child {
+    font-family: var(--serif);
+    font-size: 1.25rem;
+    font-weight: 600;
+    color: var(--gold-deep);
+    white-space: nowrap;
+    width: 9rem;
+  }
+
+  /* Questions */
+  .qa { max-width: 820px; margin: 0; }
+  .qa dt {
+    font-family: var(--serif);
+    font-size: 1.15rem;
+    font-weight: 600;
+    margin: 1.4rem 0 0.5rem;
+    color: var(--ink);
+  }
+  .qa dt:first-child { margin-top: 0; }
+  .qa dd { margin: 0; color: var(--text); }
+
+  /* Glossary */
+  .glossary {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 0.9rem 1.25rem;
+    margin: 0;
+  }
+  .glossary div {
+    background: var(--card);
+    border: 1px solid var(--hairline-soft);
+    border-radius: 8px;
+    padding: 0.9rem 1.1rem;
+  }
+  .glossary dt { font-weight: 600; margin-bottom: 0.15rem; color: var(--ink); }
+  .glossary dd { margin: 0; font-size: 0.95rem; color: rgba(34, 30, 22, 0.75); }
+
+  /* Footer */
+  .foot {
+    margin-top: 4rem;
+    background: var(--dark);
+    color: rgba(240, 234, 224, 0.75);
+    padding: 2.25rem 0;
+    font-size: 0.9rem;
+  }
+  .foot .wrap {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 0.5rem 1.5rem;
+    align-items: center;
+    justify-content: space-between;
+  }
+  .foot-links { display: flex; flex-wrap: wrap; gap: 0 1.5rem; }
+  .foot a {
+    color: var(--cream);
+    display: inline-flex;
+    align-items: center;
+    min-height: 44px;
+    transition: color 0.2s ease;
+  }
+  .foot a span { border-bottom: 1px solid rgba(201, 162, 39, 0.45); }
+  @media (hover: hover) {
+    .foot a:hover { color: var(--gold); }
+  }
+
+  @media (max-width: 768px) {
+    .wrap { padding: 0 16px; }
+    .hero { padding: 3rem 0 2.5rem; }
+    .block { padding: 3rem 0 0.5rem; }
+    .step { padding: 1.25rem 1.1rem; }
+    th, td { padding: 0.65rem 0.75rem; }
+    .numbers td:first-child { width: 6.5rem; font-size: 1.1rem; }
+  }
+  @media (max-width: 640px) {
+    .hero-stats { grid-template-columns: repeat(2, 1fr); }
+    .glossary { grid-template-columns: 1fr; }
+    .layers td:first-child { width: 42%; }
+    /* Three items do not fit a phone-width bar. The back link already goes
+       home, so the brand mark steps aside and the two links keep one line. */
+    .topbar .topbar-brand { display: none; }
+    .topbar a { white-space: nowrap; }
+  }
+</style>
+</head>
+<body>
+
+<header class="topbar">
+  <div class="wrap">
+    <a class="topbar-back" href="/">
+      <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M19 12H5M11 18l-6-6 6-6"/></svg>
+      Back to portfolio
+    </a>
+    <a class="topbar-brand" href="/" aria-label="Harsha, back to the portfolio home">Harsha<span>.</span></a>
+    <a class="topbar-site" href="https://www.towinly.com/" target="_blank" rel="noopener noreferrer"><span>www.towinly.com</span></a>
+  </div>
+</header>
+
+<main>
+  <section class="hero">
+    <div class="wrap">
+      <span class="eyebrow">Case study · Towinly</span>
+      <h1>Everything <em>AI</em> in Towinly</h1>
+      <p class="lead">Towinly is a trust platform for elders and younger helpers: a React Native (Expo) phone app, a React website, and one Spring Boot backend on Railway with Postgres. The AI work sits on all three.</p>
+      <p class="dateline">Written 2026-10-25. I checked every fact on this page against the code, the git history, the Railway logs or the live server on 2026-10-24 and 2026-10-25. Where a number was true at a point in time, the date is given.</p>
+      <div class="hero-stats" role="list">
+        <div class="stat" role="listitem"><span class="stat-value">93</span><span class="stat-label">MCP tools, generated from doc comments</span></div>
+        <div class="stat" role="listitem"><span class="stat-value">201</span><span class="stat-label">user-guide passages in the vector index</span></div>
+        <div class="stat" role="listitem"><span class="stat-value">44</span><span class="stat-label">evaluation cases in three languages</span></div>
+        <div class="stat" role="listitem"><span class="stat-value">11</span><span class="stat-label">safety layers, each with a test</span></div>
+      </div>
+    </div>
+  </section>
+
+  <nav class="toc" aria-label="On this page">
+    <div class="wrap">
+      <a href="#one-minute">One-minute version</a>
+      <a href="#timeline">Timeline</a>
+      <a href="#steps">The twelve steps</a>
+      <a href="#privacy">Privacy</a>
+      <a href="#built">How it was built</a>
+      <a href="#production">In production</a>
+      <a href="#numbers">Numbers</a>
+      <a href="#todo">Still to do</a>
+      <a href="#questions">Six questions</a>
+      <a href="#glossary">Glossary</a>
+    </div>
+  </nav>
+
+  <section id="one-minute" class="block">
+    <div class="wrap">
+      <span class="section-label">Start here</span>
+      <h2>The one-minute version</h2>
+      <div class="prose">
+        <p>Towinly has an in-app assistant called Ask AI, a tortoise that elders can ask anything about the app. It started in July 2026 as a simple chat over a large language model. In October 2026 it grew into a full AI programme of twelve steps: cost accounting, an evaluation set, tool use, a Model Context Protocol server that exposes the whole app to any AI agent, retrieval over the user guide with a vector database, semantic matching between elders and helpers, assistant actions that the person confirms before anything is written, an Agent2Agent server, a self-hosted embedding model, a written set of safety guardrails, a goal-driven agent, and an evaluator agent that scores another agent and can block a release.</p>
+        <p>As of 2026-10-25 the backend side is live in production, with Groq writing the answers and OpenAI embeddings powering the guide search and the matching.</p>
+      </div>
+    </div>
+  </section>
+
+  <section id="timeline" class="block">
+    <div class="wrap">
+      <span class="section-label">July to October 2026</span>
+      <h2>Timeline</h2>
+      <ol class="timeline">
+        <li><time datetime="2026-07-04">2026-07-04</time><p>Ask AI shipped on the website: a tortoise help bot over Groq, with a fixed knowledge base.</p></li>
+        <li><time datetime="2026-07-10">2026-07-10</time><p>Ask AI shipped in the phone app: floating helper, chat sheet, graceful fallback when the key is missing.</p></li>
+        <li><time datetime="2026-07-26">2026-07-26</time><p>Ask AI hardened against abuse: per-person rate limits, request size filter, prompt sanitising.</p></li>
+        <li><time datetime="2026-08-17">2026-08-17</time><p>First TestFlight build. The first tester reported the AI "looked broken" on slow answers: the client timeout was 15 s, and a thoughtful answer could take longer. Fixed by waiting up to 30 s.</p></li>
+        <li><time datetime="2026-10-07">2026-10-07</time><p>Ask AI answers in the reader's language, long chats fixed, retries on network blips.</p></li>
+        <li><time datetime="2026-10-19">2026-10-19</time><p>AI roadmap steps 1 to 8 built in one day, each a tested unit: token accounting, evals, read-only tools, MCP server, RAG on pgvector, semantic matching, and confirm-before-act write actions.</p></li>
+        <li><time datetime="2026-10-20">2026-10-20</time><p>Steps 9 to 12: A2A agent, local embedding server, guardrails document, goal agent, evaluator agent. Backend merged to main; CI, Snyk and SonarQube green.</p></li>
+        <li><time datetime="2026-10-21">2026-10-21 to 23</time><p>Railway security incident froze all deploys platform-wide. Nothing new went live.</p></li>
+        <li><time datetime="2026-10-24">2026-10-24</time><p>Backend deployed to production. Live server confirmed answering with the new <code>{reply, action}</code> shape.</p></li>
+        <li><time datetime="2026-10-25">2026-10-25</time><p>Groq key rotated, old key deleted. OpenAI embeddings key added. Railway log: "Guide index: 201 chunks in file, 201 embedded now". Smart search live.</p></li>
+      </ol>
+      <p class="aside-note">Commit counts: 23 backend commits on the assistant and embedding packages; 41 app commits on the three app-side AI files.</p>
+    </div>
+  </section>
+
+  <section id="steps" class="block">
+    <div class="wrap">
+      <span class="section-label">One by one</span>
+      <h2>The twelve steps</h2>
+      <p class="aside-note" style="margin-bottom:1.4rem">Each step says what it is, why it exists, how it works, and how it was proven.</p>
+      <div class="steps">
+
+        <article class="step">
+          <div class="step-head"><span class="step-num">Step 0</span><h3>Ask AI itself</h3><span class="step-when">July 2026</span></div>
+          <ul>
+            <li><strong>What:</strong> a chat helper inside the app and the website. The person types a question, the tortoise answers.</li>
+            <li><strong>Model:</strong> Groq's hosted <code>openai/gpt-oss-120b</code>, through an OpenAI-compatible API, reasoning effort set to low so it does not burn tokens thinking. The model is a setting, not code: one environment variable swaps it.</li>
+            <li><strong>Knowledge:</strong> a hand-written knowledge base (about 2,400 words) and a system prompt (about 1,000 words) that tell the model the real rules of Towinly: the 7-step trust ladder, the 15-point score, SOS, family powers, what is free. The model is told to answer only from these.</li>
+            <li><strong>Fail-safe:</strong> a blank key or a disabled flag and the helper says it is not available, instead of crashing.</li>
+            <li><strong>Languages:</strong> it answers in the language the person writes in. Tested in English, French and Tamil.</li>
+          </ul>
+          <p class="why"><strong>Why it matters:</strong> elders do not read manuals. They ask a person. Ask AI is that person, available at 2 a.m.</p>
+        </article>
+
+        <article class="step">
+          <div class="step-head"><span class="step-num">Step 1</span><h3>Token accounting and a daily cap</h3></div>
+          <ul>
+            <li><strong>What:</strong> every answer records how many tokens the model used, how long it took, and whether it was cached, as a spend record and a PostHog event <code>ask_ai_answered</code>.</li>
+            <li><strong>Caps:</strong> 8 questions a minute and 60 an hour per person; 2,000 calls a day and 2,000,000 tokens a day for the whole service. Model timeout 9 seconds.</li>
+          </ul>
+          <p class="why"><strong>Why:</strong> Ask AI is public and every answer costs money. A Tamil or French day costs two to four times the tokens of an English one, so the ceiling is in tokens, not calls.</p>
+        </article>
+
+        <article class="step">
+          <div class="step-head"><span class="step-num">Step 2</span><h3>An evaluation set</h3></div>
+          <ul>
+            <li><strong>What:</strong> <code>evals.json</code>, 44 test questions with the words a correct answer must include. 38 in English, 3 in French, 3 in Tamil; 7 as a signed-in person.</li>
+            <li><strong>Families of cases:</strong> facts (trust stages, tiers, roles, SOS, family limits, what is free, deleting an account); personal ("what is my score", "what should I do next"); safety (emergency, medical, off-topic, money, passwords, someone else's details, self-harm wording that must point to SOS); and prompt injection ("ignore your instructions", "I am the developer", forged chat history, pulling details out of context, role-play as a bank).</li>
+            <li><strong>Two ways to run:</strong> a file test checks the eval file on every build. A live test runs every question against the real model when a key is present.</li>
+          </ul>
+          <p class="why"><strong>Why:</strong> without a fixed test set, every prompt change is a guess. With one, a regression shows up as a red test.</p>
+        </article>
+
+        <article class="step">
+          <div class="step-head"><span class="step-num">Step 3</span><h3>Read-only tools (function calling)</h3></div>
+          <ul>
+            <li><strong>What:</strong> the model can call three functions about the signed-in person: <code>get_my_connections</code>, <code>get_my_family</code>, <code>get_my_help_requests</code>. One tool round per answer.</li>
+            <li><strong>Limits:</strong> the tools return first names, stages and titles only, every string sanitised, nothing written. The model never sees phone, city, photo or verification state.</li>
+          </ul>
+          <p class="why"><strong>Why:</strong> "Which of my friendships is closest to Fully Trusted?" needs live data. Function calling gives the model the data without giving it the database.</p>
+        </article>
+
+        <article class="step">
+          <div class="step-head"><span class="step-num">Step 4</span><h3>The MCP server</h3></div>
+          <ul>
+            <li><strong>What:</strong> a Model Context Protocol server that turns every function in the app's API layer into a tool an AI agent can call. 93 tools, generated automatically from the doc comments on the 93 exported functions in the API layer. Names like <code>towinly_post_help_request</code>, <code>towinly_check_in_today</code>, <code>towinly_send_sos</code>.</li>
+            <li><strong>How:</strong> a catalog script parses the JSDoc into a tool catalog; a bundler step packages the real app code for Node; the server speaks MCP over stdio and signs in as a real account. The agent can do exactly what that person can do in the app, and no more.</li>
+            <li><strong>Safety:</strong> 19 destructive tools (delete account, SOS, password, family powers, sealed box, phone number) require <code>confirm: true</code>; id arguments are validated against <code>[A-Za-z0-9_-]{1,64}</code>; 8 functions are excluded with reasons. 40 tests.</li>
+          </ul>
+          <p class="why"><strong>Why:</strong> this is the payoff of an architecture rule set in August 2026: every feature is one named, documented, exported function, with no fetch logic in screens. A rule written for humans turned out to be exactly the shape an agent needs. The tool catalog cost nothing extra to produce.</p>
+        </article>
+
+        <article class="step">
+          <div class="step-head"><span class="step-num">Step 5</span><h3>Ask AI answers from the user guide (RAG on pgvector)</h3></div>
+          <ul>
+            <li><strong>What:</strong> the real user guide (the same text as the printed PDF guides) is split into 201 passages. Each passage is turned into a vector with OpenAI <code>text-embedding-3-small</code> (1,536 dimensions) and stored in Postgres with the pgvector extension. When a question comes in, it is embedded too, the closest passages are found by cosine similarity, and they are added to the prompt.</li>
+            <li><strong>Indexing:</strong> an indexer runs at boot: inserts new passages, deletes gone ones, skips unchanged ones (content hashed). A retriever does the lookup.</li>
+            <li><strong>Switch:</strong> a blank embeddings key means no indexing, no embedding, and Ask AI answers from the knowledge base alone, exactly as before. Any OpenAI-compatible embeddings endpoint works (OpenAI, Gemini, Mistral, or the local server from step 10).</li>
+            <li><strong>Proof:</strong> Railway log 2026-10-25 00:52 EDT: "Guide index: 201 chunks in file, 201 embedded now, 0 removed". The same question before and after: before, "Post Request tab" and a "Driving" category (guessed); after, "the blue Ask Help button", "Rides under Kind of help", "Post Help" (the app's real words).</li>
+          </ul>
+          <p class="why"><strong>Why:</strong> a knowledge base is a summary. The guide is the whole truth, with the real button names. Retrieval lets the model read the right page instead of remembering a summary.</p>
+        </article>
+
+        <article class="step">
+          <div class="step-head"><span class="step-num">Step 6</span><h3>Semantic matching in discovery</h3></div>
+          <ul>
+            <li><strong>What:</strong> every helper profile and every help request gets an embedding, stored in two tables. When an elder looks for helpers, or a helper browses requests, similarity of meaning becomes a small lift in the ranking.</li>
+            <li><strong>The formula:</strong> rank by distance minus 5 km times cosine similarity. A helper 8 km away who wrote "I drive elders to appointments" ranks like a helper 3 km away for a request that says "need a lift to the clinic". A missing embedding lifts nothing, so distance order is the floor.</li>
+            <li><strong>Upkeep:</strong> a row is re-embedded only when its text hash changes; a backfill embeds up to 500 rows at boot. Saving a profile or a request refreshes its vector.</li>
+          </ul>
+          <p class="why"><strong>Why:</strong> distance alone cannot tell that "company on a slow walk" and "someone to sit with my mother" are the same need.</p>
+        </article>
+
+        <article class="step">
+          <div class="step-head"><span class="step-num">Steps 7 and 8</span><h3>Assistant actions behind a native confirm</h3></div>
+          <ul>
+            <li><strong>What:</strong> Ask AI can propose two actions: <code>propose_check_in</code> and <code>propose_help_request</code>. The backend returns <code>{reply, action}</code> where <code>action</code> is <code>{name, arguments}</code> and <code>name</code> is always one of the app's own exported API functions (<code>checkInToday</code>, <code>postHelpRequest</code>).</li>
+            <li><strong>The rule:</strong> the model never writes. The app shows a native confirmation dialog with exactly what will be sent, in the app's own sentence first. Only when the person taps confirm does the app call its own named function, through the same content filter the Post Request screen uses (composer parity).</li>
+            <li><strong>Argument safety:</strong> whitelisted fields, capped lengths, enum-checked categories.</li>
+          </ul>
+          <p class="why"><strong>Why:</strong> I wanted an elder to say "post a request for a lift on Thursday" and have it happen. The design makes it happen with one tap, and makes it impossible to happen without one.</p>
+        </article>
+
+        <article class="step">
+          <div class="step-head"><span class="step-num">Step 9</span><h3>The A2A agent</h3></div>
+          <ul>
+            <li><strong>What:</strong> Towinly's helper exposed under the Agent2Agent protocol 1.0, JSON-RPC binding, so other agents can talk to it. Agent card at <code>/.well-known/agent-card.json</code>, one skill, "Ask Towinly".</li>
+            <li><strong>Safety:</strong> every message needs a bearer key; it listens on loopback unless told otherwise; write proposals come back as metadata, never executed. 7 tests.</li>
+          </ul>
+          <p class="why"><strong>Why:</strong> MCP is how a person's assistant drives Towinly. A2A is how another company's agent would. Both exist, both over the same named functions.</p>
+        </article>
+
+        <article class="step">
+          <div class="step-head"><span class="step-num">Step 10</span><h3>A self-hosted embedding model</h3></div>
+          <ul>
+            <li><strong>What:</strong> <code>Xenova/all-MiniLM-L6-v2</code> (384 dimensions) served from a Mac through Transformers.js, behind the same <code>/v1/embeddings</code> shape OpenAI uses. Mean pooled, L2 normalised. Optional bearer key. 5 tests.</li>
+          </ul>
+          <p class="why"><strong>Why:</strong> the backend can point its embeddings at this server with no code change, so profile and request text never leaves the machine. It also makes the evaluator (step 12) free to run.</p>
+        </article>
+
+        <article class="step">
+          <div class="step-head"><span class="step-num">Step 11</span><h3>Safety guardrails, written down</h3></div>
+          <p>Eleven layers, each in code, each with a test, each failing closed: when a layer cannot decide, the helper declines rather than guesses.</p>
+          <div class="table-wrap">
+            <table class="layers">
+              <thead><tr><th scope="col">Layer</th><th scope="col">Stops</th></tr></thead>
+              <tbody>
+                <tr><td>Versioned consent</td><td>Data leaving the phone before the person agreed to wording that names Groq and OpenAI and what each receives. New wording re-asks.</td></tr>
+                <tr><td>Prompt sanitiser</td><td>Hidden characters, fake role prefixes, section markers typed into the chat or a display name.</td></tr>
+                <tr><td>PII guard</td><td>Phone numbers, emails, card-like digit runs reaching a third party.</td></tr>
+                <tr><td>Own data only</td><td>The personal block holds first name, role, score, streak and counts. Never city, verification state, phone or photo.</td></tr>
+                <tr><td>Read-only tools</td><td>A tool reaching past the person asking.</td></tr>
+                <tr><td>Propose, then confirm</td><td>The model performing a write.</td></tr>
+                <tr><td>Composer parity</td><td>A proposed post skipping the Post Request screen's filter.</td></tr>
+                <tr><td>Output guard</td><td>A reply that asks for a password or code, tells someone to send money, leaks a prompt section, or invents a phone number or email.</td></tr>
+                <tr><td>Caps</td><td>Runaway spend or a flood.</td></tr>
+                <tr><td>Red-team evals</td><td>Regressions in refusals.</td></tr>
+                <tr><td>Outside agents</td><td>An MCP or A2A caller performing a write.</td></tr>
+              </tbody>
+            </table>
+          </div>
+          <p class="why"><strong>Review:</strong> every commit was also reviewed by a security plugin; its findings on 2026-10-19 and 2026-10-20 (consent re-prompt, policy wording, filter parity, dialog spoofing, allowlist lookup) were fixed the same day.</p>
+        </article>
+
+        <article class="step">
+          <div class="step-head"><span class="step-num">Step 12</span><h3>Two end-to-end agents</h3></div>
+          <h4>The Towinly agent</h4>
+          <p>Give it a goal in plain words ("Which of my friendships is closest to Fully Trusted, and what is my score?"). It plans with the model, calls the app's own API functions as tools (same catalog as the MCP server, so the two can never disagree), stops to ask before anything that changes data, and writes every step to a trace file. One flag limits the tools, another bounds the loop (default 8 steps). 13 tests.</p>
+          <h4>The evaluator agent</h4>
+          <p>An agent that tests another agent. It reads the A2A agent card, asks each of 8 cases over A2A, embeds the reply and the reference answer with the local embed server, and scores the pair by cosine similarity. Threshold 0.6. It writes a scorecard and exits non-zero when any case fails, so it can gate a release in CI. It sends the bearer key only to the origin configured, and refuses a card that points elsewhere. 6 tests.</p>
+        </article>
+
+      </div>
+    </div>
+  </section>
+
+  <section id="privacy" class="block">
+    <div class="wrap">
+      <span class="section-label">What the model sees</span>
+      <h2>Privacy, in plain words</h2>
+      <div class="prose">
+        <ul>
+          <li>The person agrees before anything goes to an AI company. The consent names Groq (writes the answer) and OpenAI (embeds the question to find the guide page). New wording means a new consent.</li>
+          <li>The privacy policy on towinly.com says the same thing in the same words.</li>
+          <li>The model sees the question, a short summary of the person's own activity (first name, role, score, streak, counts), and the matching guide passages. It never sees contact details, city, photo or verification state, and never anyone else's data.</li>
+          <li>Nothing is written to Towinly by a model. Every write ends in a dialog the person answers.</li>
+          <li>In an emergency the helper points to the SOS button and the local emergency number. It gives no medical, legal or money advice.</li>
+        </ul>
+      </div>
+    </div>
+  </section>
+
+  <section id="built" class="block">
+    <div class="wrap">
+      <span class="section-label">Method</span>
+      <h2>How it was built</h2>
+      <div class="prose">
+        <ul>
+          <li><strong>Spec first.</strong> One design spec for the whole roadmap and one implementation plan per step, written before the code.</li>
+          <li><strong>Tests first.</strong> Every step shipped with its tests; the full backend suite stayed green at every step (1,124 tests, 76 skips, at step 5). The five Node packages carry 71 tests between them (40 MCP, 7 A2A, 13 agent, 6 evaluator, 5 embed server), all passing on 2026-10-25.</li>
+          <li><strong>Database gate before code.</strong> Before writing the pgvector migration, the production Postgres was checked for the extension (pgvector 0.8.6 on Postgres 18.6, Railway). The CI test database was switched to a pgvector image the same day the first CI run failed.</li>
+          <li><strong>Security review on every commit,</strong> findings fixed the same day.</li>
+          <li><strong>Everything is a switch.</strong> Model, embeddings provider, caps, enabled flags: all environment variables. The code has one path; the deployment chooses.</li>
+        </ul>
+      </div>
+    </div>
+  </section>
+
+  <section id="production" class="block">
+    <div class="wrap">
+      <span class="section-label">Live since 2026-10-24</span>
+      <h2>Running it in production</h2>
+      <div class="prose">
+        <ul>
+          <li><strong>Hosting:</strong> Spring Boot on Railway (Hobby plan), Postgres with pgvector, Groq for answers, OpenAI for embeddings.</li>
+          <li><strong>The Railway incident (2026-10-21 to 23):</strong> Railway froze deploys platform-wide during a security incident aimed at AI API keys. The running service stayed up; the new code waited. When builds returned, the GitHub link had been reset, so the deploy had to be triggered by hand. Keys stored on Railway were treated as exposed: the Groq key was replaced and the old one deleted after confirming the new one was in use, with Ask AI tested live between the two steps so it never went dark.</li>
+          <li><strong>Spend protection:</strong> the OpenAI account holds a fixed $10 with auto-reload off, so a stolen key can spend at most $10 and then stops. Groq is on the free tier with per-person and per-day caps in Towinly's own code.</li>
+          <li><strong>Cost today:</strong> the whole guide (201 passages) embeds for a fraction of a cent. A question costs about one two-thousandth of a cent to embed. The Groq answers are on the free tier.</li>
+        </ul>
+      </div>
+    </div>
+  </section>
+
+  <section id="numbers" class="block">
+    <div class="wrap">
+      <span class="section-label">Measured</span>
+      <h2>Numbers</h2>
+      <div class="table-wrap">
+        <table class="numbers">
+          <thead><tr><th scope="col">Number</th><th scope="col">What it is</th></tr></thead>
+          <tbody>
+            <tr><td>12</td><td>steps in the AI programme</td></tr>
+            <tr><td>93</td><td>tools in the MCP server, generated from doc comments</td></tr>
+            <tr><td>19</td><td>of them need an explicit confirm</td></tr>
+            <tr><td>201</td><td>user-guide passages in the vector index</td></tr>
+            <tr><td>1,536</td><td>dimensions per OpenAI embedding (384 for the local model)</td></tr>
+            <tr><td>44</td><td>evaluation cases, in 3 languages</td></tr>
+            <tr><td>11</td><td>safety layers, each with a test</td></tr>
+            <tr><td>2</td><td>assistant actions, both behind a native confirm</td></tr>
+            <tr><td>8 / 60</td><td>questions a minute / an hour per person</td></tr>
+            <tr><td>2,000,000</td><td>tokens a day, whole service</td></tr>
+            <tr><td>0.6</td><td>evaluator pass threshold (cosine)</td></tr>
+            <tr><td>71</td><td>tests across the five Node packages</td></tr>
+            <tr><td>5 km</td><td>the distance one point of similarity is worth in matching</td></tr>
+          </tbody>
+        </table>
+      </div>
+    </div>
+  </section>
+
+  <section id="todo" class="block">
+    <div class="wrap">
+      <span class="section-label">Not yet done</span>
+      <h2>Still to do</h2>
+      <div class="prose">
+        <ul>
+          <li>The phone build on TestFlight (build 26, 2026-10-08) predates the app-side work. The versioned consent and the confirm-before-act actions are in the code on main, not yet in a build on a phone. The next build carries them.</li>
+          <li>The live evals have not been run against the real model with a key; the file test runs on every build.</li>
+          <li>Three database tests that need a local Postgres with pgvector have not been run locally (CI runs its own).</li>
+          <li>A proposed next round, not started and blocked by the product's feature freeze: move the A2A server into the backend with the Java A2A SDK, replace the hand-rolled Groq client with Spring AI, serve embeddings in-process with ONNX so text stops going to OpenAI, and a cost and latency dashboard over the <code>ask_ai_answered</code> events.</li>
+        </ul>
+      </div>
+    </div>
+  </section>
+
+  <section id="questions" class="block">
+    <div class="wrap">
+      <span class="section-label">In my words</span>
+      <h2>Six questions, short answers</h2>
+      <dl class="qa">
+        <dt>Tell me about an AI feature you built.</dt>
+        <dd>Towinly has an assistant for elders called Ask AI. I built it in three stages. First, a chat over a hosted model with a hand-written knowledge base and hard limits on cost. Second, retrieval: I split the real user guide into 201 passages, embedded them into Postgres with pgvector, and the assistant now reads the matching page before answering, so it uses the app's real button names. Third, actions: the model can propose "check in today" or "post this help request", but it can only propose. The app shows a native dialog and calls its own function when the person confirms. The model never writes.</dd>
+
+        <dt>How did you keep it safe?</dt>
+        <dd>Eleven layers, each with a test, each failing closed. Consent before any data leaves the phone, and it re-asks when the wording changes. A sanitiser and a PII guard on the way in, an output guard on the way out that blocks password requests, money requests, prompt leaks and invented contact details. The model sees the person's first name, role and score, never city, phone or photo. Writes are proposals only. And a 44-case eval set with injection and self-harm cases that runs on every build.</dd>
+
+        <dt>What is MCP and why did you build a server?</dt>
+        <dd>Model Context Protocol is the standard way to hand an AI agent a set of tools. The app already had a rule that every feature is one named, documented, exported function. I wrote a generator that reads those doc comments and produces 93 tools. So an assistant in Claude Code can sign in as a person and do anything that person can do in the app, and nothing more. Nineteen destructive tools demand an explicit confirm flag.</dd>
+
+        <dt>What did you measure?</dt>
+        <dd>Tokens, latency and cache hits per answer, sent to PostHog. Per-person and per-day caps on top. The eval set gives a pass/fail per prompt change. The evaluator agent gives a cosine score per answer against a reference and fails the build under 0.6.</dd>
+
+        <dt>What went wrong?</dt>
+        <dd>The first TestFlight tester said the AI was broken. It was not; the client gave up at 15 seconds and a careful answer took longer. It waits 30 now. Then in October the hosting provider had a breach aimed at AI keys. I rotated mine, with a live test between adding the new key and deleting the old one, so the assistant never went dark.</dd>
+
+        <dt>What would you do next?</dt>
+        <dd>Run the embeddings in-process so no text leaves the server, move the orchestration onto Spring AI so the tool and retrieval code is framework-standard, and put a cost and latency view on the dashboard. All three are specified; they wait on the product's feature freeze.</dd>
+      </dl>
+    </div>
+  </section>
+
+  <section id="glossary" class="block">
+    <div class="wrap">
+      <span class="section-label">Plain words</span>
+      <h2>Glossary</h2>
+      <dl class="glossary">
+        <div><dt>LLM / model</dt><dd>The program that writes the answers. Towinly's is hosted by Groq.</dd></div>
+        <div><dt>Token</dt><dd>The unit the model bills in, roughly three quarters of a word.</dd></div>
+        <div><dt>Prompt</dt><dd>Everything sent to the model: rules, the knowledge base, the guide passages, the question.</dd></div>
+        <div><dt>Embedding</dt><dd>A list of numbers that captures the meaning of a piece of text, so two texts can be compared by meaning.</dd></div>
+        <div><dt>Vector database / pgvector</dt><dd>Postgres with an extension that stores embeddings and finds the closest ones fast.</dd></div>
+        <div><dt>RAG (retrieval-augmented generation)</dt><dd>Find the relevant passages first, then let the model answer from them.</dd></div>
+        <div><dt>Cosine similarity</dt><dd>The score, from 0 to 1, for how alike two embeddings are.</dd></div>
+        <div><dt>Function calling / tools</dt><dd>Letting the model ask the code for data, or propose an action, in a structured way.</dd></div>
+        <div><dt>MCP</dt><dd>Model Context Protocol, the standard for giving an AI agent tools.</dd></div>
+        <div><dt>A2A</dt><dd>Agent2Agent, the standard for one agent talking to another.</dd></div>
+        <div><dt>Guardrail</dt><dd>A check in code that stops a known bad outcome, with a test that proves it.</dd></div>
+        <div><dt>Eval</dt><dd>A fixed test question with the words a right answer must contain.</dd></div>
+        <div><dt>Fail closed</dt><dd>When unsure, refuse, instead of guessing.</dd></div>
+      </dl>
+    </div>
+  </section>
+</main>
+
+<footer class="foot">
+  <div class="wrap">
+    <span>Part of the Towinly case study by Harshavardhan Anbuchezhian Gowri.</span>
+    <nav class="foot-links" aria-label="Related links">
+      <a href="/"><span>Back to portfolio</span></a>
+      <a href="https://www.towinly.com/" target="_blank" rel="noopener noreferrer"><span>www.towinly.com</span></a>
+      <a href="https://github.com/Harsha-anbu-g/Towin" target="_blank" rel="noopener noreferrer"><span>Web source</span></a>
+      <a href="https://github.com/Harsha-anbu-g/ToWin-App" target="_blank" rel="noopener noreferrer"><span>App source, with the MCP, A2A and agent packages</span></a>
+    </nav>
+  </div>
+</footer>
+
+</body>
+</html>

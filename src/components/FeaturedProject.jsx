@@ -24,6 +24,7 @@ export default function FeaturedProject() {
     "Progressive Trust Journey",
     "Real-Time & Safety",
     "Event-Driven Backend",
+    "Ask AI Assistant",
     "AI-Accelerated Workflow",
     "Automated Quality & Security",
     "Security Hardening",
@@ -181,7 +182,7 @@ export default function FeaturedProject() {
           href={towin.video}
           target="_blank"
           rel="noopener noreferrer"
-          className="featured-arch featured-arch-video"
+          className="featured-arch"
           aria-label="Watch the Towinly walkthrough video on LinkedIn"
         >
           <span className="featured-arch-icon" aria-hidden="true">
@@ -198,6 +199,25 @@ export default function FeaturedProject() {
             <path d="M5 12h14M13 6l6 6-6 6" />
           </svg>
         </a>
+
+        {/* Third card → the AI case study, a standalone page (public/towinly-ai.html)
+            on this site, so it opens in place. Text comes from profile.js. */}
+        {towin.aiCaseStudy && (
+          <a href={towin.aiCaseStudy.href} className="featured-arch">
+            <span className="featured-arch-icon" aria-hidden="true">
+              <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth={2} strokeLinecap="round" strokeLinejoin="round">
+                <path d="M5 3v4M3 5h4M6 17v4m-2-2h4m5-16l2.286 6.857L21 12l-5.714 2.143L13 21l-2.286-6.857L5 12l5.714-2.143L13 3z" />
+              </svg>
+            </span>
+            <span className="featured-arch-text">
+              <span className="featured-arch-title">{towin.aiCaseStudy.title}</span>
+              <span className="featured-arch-sub">{towin.aiCaseStudy.sub}</span>
+            </span>
+            <svg className="featured-arch-arrow" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth={2.5} strokeLinecap="round" strokeLinejoin="round" aria-hidden="true">
+              <path d="M5 12h14M13 6l6 6-6 6" />
+            </svg>
+          </a>
+        )}
 
         {/* Link to the rest of the projects */}
         <div className="featured-more">
@@ -582,8 +602,8 @@ export default function FeaturedProject() {
           text-decoration: none;
           transition: transform 0.2s ease, border-color 0.2s ease, background 0.2s ease;
         }
-        /* Sits directly under the architecture card, so the two read as a pair. */
-        .featured-arch-video { margin-top: 0.75rem; }
+        /* The cards stack directly under the first, so they read as one group. */
+        .featured-arch + .featured-arch { margin-top: 0.75rem; }
         @media (hover: hover) {
           .featured-arch:hover {
             transform: translateY(-2px);

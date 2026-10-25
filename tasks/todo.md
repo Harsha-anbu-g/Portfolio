@@ -25,3 +25,29 @@ with a distinctive, product-grade light design that doesn't read as AI/template 
 
 ## Review
 (to fill after implementation)
+
+---
+
+# 2026-10-25: "Everything AI in Towinly" goes on the site
+
+Request: "addin my website", with the write-up "Everything AI in Towinly" pasted in chat
+(written 2026-10-25 for interview use). Shape chosen: a standalone case-study page in the
+Paper & Gold design, reached from a third link card in the featured Towinly block, plus one
+"Ask AI Assistant" feature card, two tech chips and three AI skills chips. Nothing is
+committed or pushed until Harsha reviews it on localhost.
+
+## Checklist
+- [x] public/towinly-ai.html: the write-up adapted for recruiters and engineers (one-minute
+      version, timeline, the twelve steps, privacy, how it was built, production, numbers,
+      still to do, six questions, glossary); own title, meta and OG tags; Lora + Poppins;
+      mobile-solid, 44px tap targets
+- [x] src/data/profile.js: aiCaseStudy link data, Ask AI bullet, pgvector + Groq chips,
+      AI skills chips
+- [x] src/components/FeaturedProject.jsx: heading for the new bullet, third link card
+- [x] Prose pass on the new copy: humanizer, then stop-slop as the final gate; grep for em dashes
+- [x] Verify: vite build green, localhost at 1440 and 390 wide, no horizontal scroll,
+      every link resolves
+- [x] Harsha reviews on localhost, then commit, then push only on an explicit "push"
+
+## Review
+Reviewed on localhost and approved with "push" on 2026-10-25. Page, link card, feature card and chips shipped together; About paragraph, experience bullets, hero subtext, OG card and resume PDF left for a later decision.
