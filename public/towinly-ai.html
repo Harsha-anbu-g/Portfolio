@@ -387,6 +387,39 @@
   .glossary dt { font-weight: 600; margin-bottom: 0.15rem; color: var(--ink); }
   .glossary dd { margin: 0; font-size: 0.95rem; color: rgba(34, 30, 22, 0.75); }
 
+  /* Wide tables: a pill for the works/stops column, and one card per row on phones */
+  .pill {
+    display: inline-block;
+    font-size: 0.78rem;
+    font-weight: 700;
+    letter-spacing: 0.04em;
+    padding: 0.15rem 0.6rem;
+    border-radius: 999px;
+    white-space: nowrap;
+  }
+  .pill-ok { color: var(--gold-deep); background: rgba(156, 122, 42, 0.12); border: 1px solid rgba(156, 122, 42, 0.3); }
+  .pill-stop { color: var(--muted); background: rgba(34, 30, 22, 0.04); border: 1px solid var(--hairline); }
+  .runs td:first-child { font-weight: 600; color: var(--ink); }
+  .compare td:first-child { font-weight: 600; color: var(--ink); width: 30%; }
+  @media (max-width: 640px) {
+    .stack thead { display: none; }
+    .stack, .stack tbody, .stack tr, .stack td { display: block; width: 100%; }
+    .stack tr { border-top: 1px solid var(--hairline); padding: 0.45rem 0; }
+    .stack tr:first-child { border-top: 0; }
+    .stack td { display: flex; gap: 0.75rem; border-top: 0; padding: 0.3rem 0.9rem; }
+    .stack td::before {
+      content: attr(data-label);
+      flex: 0 0 38%;
+      font-size: 0.72rem;
+      font-weight: 700;
+      letter-spacing: 0.1em;
+      text-transform: uppercase;
+      color: var(--gold-deep);
+      padding-top: 0.2rem;
+    }
+    .runs td:first-child, .compare td:first-child { width: 100%; }
+  }
+
   /* Footer */
   .foot {
     margin-top: 4rem;
@@ -473,7 +506,10 @@
       <a href="#production">In production</a>
       <a href="#numbers">Numbers</a>
       <a href="#todo">Still to do</a>
-      <a href="#questions">Six questions</a>
+      <a href="#where">What runs where</a>
+      <a href="#tools">The five tools</a>
+      <a href="#next">Next round</a>
+      <a href="#questions">Questions</a>
       <a href="#glossary">Glossary</a>
     </div>
   </nav>
@@ -733,16 +769,184 @@
           <li>The phone build on TestFlight (build 26, 2026-10-08) predates the app-side work. The versioned consent and the confirm-before-act actions are in the code on main, not yet in a build on a phone. The next build carries them.</li>
           <li>The live evals have not been run against the real model with a key; the file test runs on every build.</li>
           <li>Three database tests that need a local Postgres with pgvector have not been run locally (CI runs its own).</li>
-          <li>A proposed next round, not started and blocked by the product's feature freeze: move the A2A server into the backend with the Java A2A SDK, replace the hand-rolled Groq client with Spring AI, serve embeddings in-process with ONNX so text stops going to OpenAI, and a cost and latency dashboard over the <code>ask_ai_answered</code> events.</li>
+          <li>A proposed next round, not started: move the A2A server into the backend, Spring AI, embeddings run in-house, a cost and latency dashboard. <a href="#next">The parked next round</a> below explains each part. On 2026-10-25 I agreed in principle to part (c), in-process embeddings, subject to the running cost (about $3 to $5 a month more on Railway). No plan is written yet.</li>
         </ul>
       </div>
+    </div>
+  </section>
+
+  <section id="where" class="block">
+    <div class="wrap">
+      <span class="section-label">Server or laptop</span>
+      <h2>What runs where</h2>
+      <p class="aside-note" style="margin-bottom:1rem">Two groups. Everything an elder or a website visitor touches is in the first.</p>
+      <div class="table-wrap">
+        <table class="runs stack">
+          <thead><tr><th scope="col">Piece</th><th scope="col">Where it runs</th><th scope="col">Who uses it</th><th scope="col">Laptop off?</th></tr></thead>
+          <tbody>
+            <tr><td data-label="Piece">Ask AI chat (Groq answers)</td><td data-label="Where it runs">Backend on Railway</td><td data-label="Who uses it">The phone app and the website</td><td data-label="Laptop off?"><span class="pill pill-ok">Works</span></td></tr>
+            <tr><td data-label="Piece">pgvector and the 201 guide passages</td><td data-label="Where it runs">The Railway Postgres database</td><td data-label="Who uses it">Ask AI, through the backend</td><td data-label="Laptop off?"><span class="pill pill-ok">Works</span></td></tr>
+            <tr><td data-label="Piece">Semantic matching of helpers and requests</td><td data-label="Where it runs">Same database, same backend</td><td data-label="Who uses it">Discovery and browse screens</td><td data-label="Laptop off?"><span class="pill pill-ok">Works</span></td></tr>
+            <tr><td data-label="Piece">Read-only tools, propose-an-action, all the guards and caps</td><td data-label="Where it runs">Backend</td><td data-label="Who uses it">Ask AI</td><td data-label="Laptop off?"><span class="pill pill-ok">Works</span></td></tr>
+            <tr><td data-label="Piece">The embedding calls to OpenAI</td><td data-label="Where it runs">Made by the server</td><td data-label="Who uses it">The backend</td><td data-label="Laptop off?"><span class="pill pill-ok">Works</span></td></tr>
+            <tr><td data-label="Piece">MCP server</td><td data-label="Where it runs">My Mac</td><td data-label="Who uses it">An AI assistant on the Mac, like Claude Code</td><td data-label="Laptop off?"><span class="pill pill-stop">Stops</span></td></tr>
+            <tr><td data-label="Piece">A2A agent</td><td data-label="Where it runs">My Mac</td><td data-label="Who uses it">Other AI agents</td><td data-label="Laptop off?"><span class="pill pill-stop">Stops</span></td></tr>
+            <tr><td data-label="Piece">Local embed server</td><td data-label="Where it runs">My Mac</td><td data-label="Who uses it">The evaluator; a stand-in for OpenAI</td><td data-label="Laptop off?"><span class="pill pill-stop">Stops</span></td></tr>
+            <tr><td data-label="Piece">Goal agent</td><td data-label="Where it runs">My Mac</td><td data-label="Who uses it">Me, as a developer tool</td><td data-label="Laptop off?"><span class="pill pill-stop">Stops</span></td></tr>
+            <tr><td data-label="Piece">Evaluator agent</td><td data-label="Where it runs">My Mac</td><td data-label="Who uses it">Me, to test the A2A agent</td><td data-label="Laptop off?"><span class="pill pill-stop">Stops</span></td></tr>
+          </tbody>
+        </table>
+      </div>
+      <div class="prose">
+        <p>The five Mac-only pieces are developer and agent tools: Node programs that talk to the live backend while they run. No user needs them. They prove the patterns and let AI agents drive Towinly.</p>
+        <p>In neither place yet: the app-side changes (versioned consent, the confirm dialog for Ask AI actions) are in the code on GitHub, not in a build on any phone. The next TestFlight build carries them.</p>
+      </div>
+    </div>
+  </section>
+
+  <section id="tools" class="block">
+    <div class="wrap">
+      <span class="section-label">Plugs for AI programs</span>
+      <h2>The five Mac-only tools, in plain words</h2>
+      <div class="prose">
+        <p>The idea behind all five: today a person uses Towinly by tapping buttons. More and more, people have an AI assistant and will just say "book me a ride helper for Thursday". For that to work, the assistant needs a way to press Towinly's buttons on the person's behalf. These five are the plugs that make Towinly usable by AI programs, not only by fingers.</p>
+      </div>
+      <div class="steps">
+
+        <article class="step">
+          <div class="step-head"><h3>MCP server</h3></div>
+          <ul>
+            <li><strong>What it is:</strong> a standard plug, like a USB port, for AI assistants. MCP stands for Model Context Protocol. Any assistant that speaks MCP can plug into Towinly and see 93 "buttons" it may press: post a help request, check in today, show my connections, send a message.</li>
+            <li><strong>Problem it solves:</strong> without it an assistant can only talk about Towinly. With it, the assistant can act in Towinly for the person.</li>
+            <li><strong>Who benefits:</strong> an elder's daughter tells her assistant "check whether Mum checked in today" and it happens. The developer tests the app by talking to it. Claude used it on 2026-10-24 to check the deploy, by asking the live server a question.</li>
+            <li><strong>How it works:</strong> signs in as a real account and runs the exact code the app runs, so the assistant can do what that person can do and nothing more. The 19 risky buttons need an explicit confirm.</li>
+          </ul>
+          <p class="why"><strong>The interview answer:</strong> "What is MCP and have you used it?" "The standard for giving an AI assistant tools. I exposed Towinly as 93 tools, generated from the doc comments on our API functions, with confirmation required on the destructive ones."</p>
+        </article>
+
+        <article class="step">
+          <div class="step-head"><h3>A2A agent</h3></div>
+          <ul>
+            <li><strong>What it is:</strong> if MCP is a plug for one person's assistant, A2A (Agent2Agent) is a phone line between two organisations' AI programs. A care home's AI could ring Towinly's AI: "Do you have a helper near this postcode who does rides?"</li>
+            <li><strong>Problem it solves:</strong> letting organisations' systems cooperate machine to machine, in a standard way, without someone copying data between websites.</li>
+            <li><strong>Who benefits:</strong> future partners: care homes, hospital discharge teams, city seniors' programmes. Today nobody calls it; it is a working proof.</li>
+            <li><strong>How it works:</strong> it publishes a "business card" (the agent card) at a known web address saying what it can do and how to authenticate. Callers need a key. It answers questions; it never changes anything.</li>
+          </ul>
+          <p class="why"><strong>The interview answer:</strong> "Difference between MCP and A2A?" "MCP connects an assistant to an app's tools. A2A connects agents to each other as peers, across organisations. Towinly has both, over the same list of functions."</p>
+        </article>
+
+        <article class="step">
+          <div class="step-head"><h3>Local embed server</h3></div>
+          <ul>
+            <li><strong>First, the word:</strong> an embedding turns a sentence into a list of numbers that captures its meaning, so a computer can tell that "lift to the clinic" and "drive me to the doctor" mean nearly the same thing. Towinly uses OpenAI for this on the server; it powers the guide search and the helper matching.</li>
+            <li><strong>What it is:</strong> the same job done by a small free model on the Mac, dressed up to look exactly like OpenAI's service. Anything built for OpenAI can point at it with no code change.</li>
+            <li><strong>Problem it solves:</strong> cost, privacy and dependence. Text stops leaving your machines, nothing is billed, no vendor key to lose.</li>
+            <li><strong>Who benefits:</strong> today, the evaluator uses it for free. With part (c) of the next round below, elders: their profile text would never leave Towinly's server.</li>
+          </ul>
+          <p class="why"><strong>The interview answer:</strong> "How would you reduce cost or vendor lock-in for embeddings?" "I served an open model behind the same API shape, so swapping providers is a configuration change, and measured the quality trade-off against our eval set."</p>
+        </article>
+
+        <article class="step">
+          <div class="step-head"><h3>Goal agent</h3></div>
+          <ul>
+            <li><strong>What it is:</strong> an intern who knows every button in Towinly. Give it a goal in plain words ("Which of my friendships is closest to Fully Trusted, and what is my score?"). It works out the steps, presses the buttons, reports back. Before anything that changes data, it stops and asks.</li>
+            <li><strong>Problem it solves:</strong> a chatbot answers one question. An agent plans several steps to reach a goal. This is the pattern behind every "AI agent" product, and interviewers ask how you kept it safe.</li>
+            <li><strong>Who benefits:</strong> eventually an elder who struggles with menus could just say what they want. Today it is a developer tool, and every step is written to a trace file.</li>
+          </ul>
+          <p class="why"><strong>The interview answer:</strong> "Have you built an agent? How do you stop it doing damage?" "A plan-and-act loop over a model, the same tool catalog as our MCP server, a cap of 8 steps, confirm before any write, and a full trace of every step."</p>
+        </article>
+
+        <article class="step">
+          <div class="step-head"><h3>Evaluator agent</h3></div>
+          <ul>
+            <li><strong>What it is:</strong> a driving examiner for the AI. It asks the Towinly agent questions whose right answers we know, compares each answer to the reference by meaning (through the embed server), scores it 0 to 1, fails anything under 0.6. One failure blocks the release.</li>
+            <li><strong>Problem it solves:</strong> AI answers drift. Change a prompt or a model and a right answer can go wrong quietly. This catches it automatically.</li>
+            <li><strong>Who benefits:</strong> elders get answers that do not degrade unnoticed. The developer gets the freedom to change things.</li>
+          </ul>
+          <p class="why"><strong>The interview answer:</strong> "How do you test an AI feature?" "Two layers: a fixed set of 44 questions with required words on every build, and an evaluator agent that scores answers by semantic similarity and fails the build below a threshold."</p>
+        </article>
+
+      </div>
+      <p class="why" style="margin-top:1.1rem"><strong>One sentence for all five:</strong> "I made Towinly operable by AI, not only by people: a standard tool interface so assistants can act for a user, an agent-to-agent endpoint for partners, a goal-driven agent with confirm-before-write, an evaluator agent that scores answers and gates releases, and a local embedding model to cut cost and keep text in-house. The user-facing parts are in production; the agent tooling runs locally as proofs, and I have scoped what it takes to move it server-side."</p>
+    </div>
+  </section>
+
+  <section id="next" class="block">
+    <div class="wrap">
+      <span class="section-label">Scoped, not started</span>
+      <h2>The parked next round, in detail</h2>
+      <div class="prose">
+        <p>Where it comes from: on 2026-10-20 a job description named four things Towinly did not have. I said "I need this also". It exists as one paragraph in the app's task list, nothing more: no spec, no plan, no code. It waits behind the feature freeze of 2026-09-04 ("no new features, only better and faster").</p>
+      </div>
+      <div class="steps">
+
+        <article class="step">
+          <div class="step-head"><span class="step-num">Part a</span><h3>Move the A2A agent into the backend</h3></div>
+          <ul>
+            <li><strong>Today:</strong> a Node program on the Mac. Other agents reach Towinly only while the laptop runs it.</li>
+            <li><strong>Proposed:</strong> the same thing inside Spring Boot with the official Java A2A SDK (<code>a2a-java-sdk</code> 1.0.0.Final): an agent card at the backend's <code>/.well-known/agent-card.json</code>, always on, and an <code>AgentExecutor</code> routing messages to the same named functions the MCP server wraps.</li>
+            <li><strong>Effort and risk:</strong> 2 to 3 days with tests. Opens an internet-facing endpoint for machines; it must sit behind the same caps and auth as Ask AI, writes stay proposals.</li>
+          </ul>
+          <p class="why"><strong>The interview line:</strong> "I moved the agent endpoint from a laptop sidecar into the production service with the official Java SDK, over the same function catalog the MCP server uses."</p>
+        </article>
+
+        <article class="step">
+          <div class="step-head"><span class="step-num">Part b</span><h3>Spring AI instead of hand-written orchestration</h3></div>
+          <ul>
+            <li><strong>Today:</strong> custom code: <code>GroqClient</code> (240 lines), <code>AssistantTools</code> (222), <code>GuideRetriever</code> (47), <code>AssistantService</code> (435). Works, tested, mine to maintain.</li>
+            <li><strong>Proposed:</strong> Spring AI on Spring Boot 3.5.16 / Java 21. <code>ChatClient</code> replaces <code>GroqClient</code> (Groq speaks the OpenAI protocol, so it is the OpenAI starter with a different base URL); <code>@Tool</code> annotations replace hand-written tool schemas; <code>PgVectorStore</code> replaces the retrieval SQL; <code>spring-ai-starter-mcp-server-webmvc</code> serves the MCP tools from the backend over HTTP.</li>
+            <li><strong>Gain:</strong> about 900 lines become roughly a third in configuration and annotations; model swaps become settings; streaming and token metrics come free.</li>
+            <li><strong>Risk:</strong> a rewrite of working code. Guards must be re-wired as Spring AI advisors; token accounting must come from the framework's usage data; the MCP endpoint needs Spring Security. The 44-case eval set is the safety net. About a week. The biggest of the four.</li>
+          </ul>
+          <h4>Spring AI or what I built?</h4>
+          <div class="table-wrap">
+            <table class="compare stack">
+              <thead><tr><th scope="col">Criterion</th><th scope="col">Hand-built (what exists)</th><th scope="col">Spring AI</th></tr></thead>
+              <tbody>
+                <tr><td data-label="Criterion">Shows understanding</td><td data-label="Hand-built">Strong: every line explainable</td><td data-label="Spring AI">Weaker: "I called ChatClient"</td></tr>
+                <tr><td data-label="Criterion">Industry name on the CV</td><td data-label="Hand-built">None</td><td data-label="Spring AI">Yes</td></tr>
+                <tr><td data-label="Criterion">Code to maintain</td><td data-label="Hand-built">About 900 lines, mine</td><td data-label="Spring AI">About a third, plus a framework to track</td></tr>
+                <tr><td data-label="Criterion">Control over safety</td><td data-label="Hand-built">Full, inline</td><td data-label="Spring AI">Advisors wrapped around the client</td></tr>
+                <tr><td data-label="Criterion">Free extras</td><td data-label="Hand-built">None</td><td data-label="Spring AI">Streaming, metrics, structured output, MCP server, in-process embeddings</td></tr>
+                <tr><td data-label="Criterion">Dependencies and memory</td><td data-label="Hand-built">Small</td><td data-label="Spring AI">Many libraries, more memory</td></tr>
+                <tr><td data-label="Criterion">Fits Towinly's rules</td><td data-label="Hand-built">Yes: minimal, tested, no rewrite</td><td data-label="Spring AI">A rewrite, which the freeze exists to prevent</td></tr>
+              </tbody>
+            </table>
+          </div>
+          <p><strong>Recommendation:</strong> keep the hand-built layer in production and get the framework name honestly by adopting Spring AI for one module only, part (c). That shows judgement: a framework where it paid, declined where it did not.</p>
+          <p class="why"><strong>"Why didn't you use a framework?"</strong> "When I started in July 2026 the model API was one HTTP call, and I wanted the safety checks inline and the dependency footprint small on a cheap hosting plan. By October the custom layer was about 900 lines, all tested, with a 44-case eval set. I evaluated Spring AI: it would replace about two thirds of that with configuration and give streaming and token metrics for free. I adopted it for in-process embeddings, where it saved real work and removed a data flow to a third party, and kept the chat orchestration hand-built because the guardrails are easier to audit when you can read them. If the team standard were Spring AI, I'd move the rest module by module behind the eval set, never as a big-bang rewrite."</p>
+        </article>
+
+        <article class="step">
+          <div class="step-head"><span class="step-num">Part c</span><h3>Run embeddings inside the backend (ONNX)</h3></div>
+          <ul>
+            <li><strong>Today:</strong> every profile, request and question goes to OpenAI to become a vector of 1,536 numbers. Pennies a month, but the text leaves the server and the privacy policy must say so.</li>
+            <li><strong>Proposed:</strong> run the open model <code>all-MiniLM-L6-v2</code> (384 numbers, about 90 MB) inside the Java process through Spring AI's <code>TransformersEmbeddingModel</code> on ONNX Runtime. No network call, no key, no per-use cost, text never leaves Railway.</li>
+            <li><strong>Why it is cheap to do:</strong> the backend already has a provider switch, step 10 proved the model, and zero-padding 384 to 1,536 leaves similarity unchanged, so the database columns need no migration. Changing the model name makes the hash-based index re-embed everything at the next start.</li>
+            <li><strong>Trade-offs:</strong> the small model is weaker than OpenAI's and English-centric; for French and Tamil the multilingual variant is the right pick. About 2 days. Lowest risk, biggest privacy win.</li>
+            <li><strong>Running cost:</strong> no new account, key or licence. OpenAI drops to $0. Railway goes up roughly $3 to $5 a month: the model and its runtime hold about half a gigabyte of memory all the time, billed around $10 per gigabyte per month, plus under $1 of CPU. At Towinly's size OpenAI is cheaper; this buys privacy, independence and the framework on the CV, not savings. A compressed model brings it to $1 to $2 with a small quality loss.</li>
+          </ul>
+          <p class="why"><strong>The interview line:</strong> "I moved embeddings from a third-party API to an in-process ONNX model: one data flow removed from the privacy policy, zero per-call cost."</p>
+        </article>
+
+        <article class="step">
+          <div class="step-head"><span class="step-num">Part d</span><h3>Cost and latency evidence</h3></div>
+          <ul>
+            <li><strong>Today:</strong> every answer already sends <code>ask_ai_answered</code> to PostHog with tokens, milliseconds and cache hit. Nobody looks at it in a chart.</li>
+            <li><strong>Proposed:</strong> (1) a PostHog dashboard: questions and tokens per day against the 2 million cap, median and slowest-5% latency, cache rate, cost estimate, half a day; (2) streaming the answer word by word so the elder sees text within about a second instead of 3 to 9 seconds, 2 to 3 days, and the output guard must buffer or check as it goes; (3) small-model routing: strong guide matches go to <code>gpt-oss-20b</code>, hard questions to the 120b model, measured against the 44 evals, 1 to 2 days.</li>
+          </ul>
+          <p class="why"><strong>The interview line:</strong> "I measured cost and latency per answer, then cut both: streaming for felt speed, routing for cost, with the eval set as the guard."</p>
+        </article>
+
+      </div>
+      <p class="why" style="margin-top:1.1rem"><strong>Order, if the freeze is lifted for some of it:</strong> (c) first, then (d) dashboard and streaming, then (b), then (a). Parts (c) and (d) are "better and faster", which the freeze allows; (a) and (b) add surface and rewrite working code.</p>
     </div>
   </section>
 
   <section id="questions" class="block">
     <div class="wrap">
       <span class="section-label">In my words</span>
-      <h2>Six questions, short answers</h2>
+      <h2>Eight questions, short answers</h2>
       <dl class="qa">
         <dt>Tell me about an AI feature you built.</dt>
         <dd>Towinly has an assistant for elders called Ask AI. I built it in three stages. First, a chat over a hosted model with a hand-written knowledge base and hard limits on cost. Second, retrieval: I split the real user guide into 201 passages, embedded them into Postgres with pgvector, and the assistant now reads the matching page before answering, so it uses the app's real button names. Third, actions: the model can propose "check in today" or "post this help request", but it can only propose. The app shows a native dialog and calls its own function when the person confirms. The model never writes.</dd>
@@ -761,6 +965,12 @@
 
         <dt>What would you do next?</dt>
         <dd>Run the embeddings in-process so no text leaves the server, move the orchestration onto Spring AI so the tool and retrieval code is framework-standard, and put a cost and latency view on the dashboard. All three are specified; they wait on the product's feature freeze.</dd>
+
+        <dt>What is in production and what is not?</dt>
+        <dd>The user-facing parts are live on the server: the assistant, retrieval over the guide, semantic matching, the guards and caps. The agent tooling, the MCP server, the A2A agent, the goal agent and the evaluator, runs locally as working proofs, and I've scoped the two to three days it takes to move the agent endpoint server-side. I'd rather say exactly where the line is than let anyone assume.</dd>
+
+        <dt>Why does an elders' app need any of this?</dt>
+        <dd>Elders do not read manuals and many struggle with menus. The assistant answers in their own language from the real guide. Matching by meaning finds the helper whose words do not match the request's words. And the agent tooling is for the person's family and their assistants: "check whether Mum checked in today" should be one sentence, not six taps.</dd>
       </dl>
     </div>
   </section>
@@ -783,6 +993,13 @@
         <div><dt>Guardrail</dt><dd>A check in code that stops a known bad outcome, with a test that proves it.</dd></div>
         <div><dt>Eval</dt><dd>A fixed test question with the words a right answer must contain.</dd></div>
         <div><dt>Fail closed</dt><dd>When unsure, refuse, instead of guessing.</dd></div>
+        <div><dt>Agent</dt><dd>An AI program that plans several steps and uses tools to reach a goal, instead of answering one question.</dd></div>
+        <div><dt>Agent card</dt><dd>The "business card" an A2A agent publishes at a known web address: what it can do, how to reach it, what key it needs.</dd></div>
+        <div><dt>Function catalog</dt><dd>Towinly's list of named, documented API functions. The MCP server, the goal agent and the assistant actions all read the same list.</dd></div>
+        <div><dt>Spring AI</dt><dd>Spring's official framework for calling models, tools and vector stores from Java.</dd></div>
+        <div><dt>ONNX</dt><dd>A file format for running a trained model inside your own program, with no network call.</dd></div>
+        <div><dt>Streaming</dt><dd>Sending an answer word by word as it is written, so the reader sees text at once.</dd></div>
+        <div><dt>Zero-padding</dt><dd>Adding zeros to the end of a shorter vector so it fits a wider column; similarity scores do not change.</dd></div>
       </dl>
     </div>
   </section>

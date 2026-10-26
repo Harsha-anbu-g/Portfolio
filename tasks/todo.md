@@ -51,3 +51,11 @@ committed or pushed until Harsha reviews it on localhost.
 
 ## Review
 Reviewed on localhost and approved with "push" on 2026-10-25. Page, link card, feature card and chips shipped together; About paragraph, experience bullets, hero subtext, OG card and resume PDF left for a later decision.
+
+### Second pass, 2026-10-25 (same day, later)
+Harsha pasted an updated write-up ("i have update this"). Synced to the page: the "What runs
+where" table, the five Mac-only tools, the parked next round (parts a to d with the Spring AI
+comparison), two more interview answers (eight in all), seven more glossary terms, and the
+reworded fourth "still to do" bullet. Wide tables stack into one card per row under 640px.
+- [x] Edited, built, checked at 1440 and 390 (no overflow)
+- [x] Harsha reviewed on localhost and said "push" on 2026-10-25; committed and pushed
