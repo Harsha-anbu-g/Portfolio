@@ -59,3 +59,14 @@ comparison), two more interview answers (eight in all), seven more glossary term
 reworded fourth "still to do" bullet. Wide tables stack into one card per row under 640px.
 - [x] Edited, built, checked at 1440 and 390 (no overflow)
 - [x] Harsha reviewed on localhost and said "push" on 2026-10-25; committed and pushed
+
+### Third pass, 2026-10-27
+Harsha: "SEE TOWINLY FOR NEW AI STUFF AND UPDATE THE PORTFOLIO AND PUGH TO LIVE" (push approved
+up front). Source: the write-up in the ToWin App repo (docs/learning/towinly-ai-work.md, 15
+sections) plus the repos themselves. Synced: answers moved from Groq to OpenAI gpt-6-luna on
+2026-10-27 (merged to main; Railway deploy not claimed), consent version 3, 108 MCP tools with
+21 confirm-gated after the Reunion feature (dated notes keep the 93/19 of 2026-10-25), 45 eval
+cases, a "Before and after" section (14 cards) and a "Groq out, OpenAI only" section, two more
+glossary terms. Featured block: OpenAI chip replaces Groq, card and bullet text follow.
+- [x] Edited, built, checked at 1440 and 390 (no overflow)
+- [x] Committed and pushed on Harsha's standing approval in the request

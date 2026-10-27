@@ -4,7 +4,7 @@
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <title>Everything AI in Towinly | Harshavardhan Anbuchezhian Gowri</title>
-<meta name="description" content="How Towinly's Ask AI helper for elders grew into a twelve-step AI programme: cost caps, a 44-case eval set, tool use, a 93-tool MCP server, retrieval over the user guide on pgvector, semantic matching, confirm-before-act actions, an A2A agent, 11 tested safety layers and an evaluator agent.">
+<meta name="description" content="How Towinly's Ask AI helper for elders grew into a twelve-step AI programme: cost caps, a 45-case eval set, tool use, a 108-tool MCP server, retrieval over the user guide on pgvector, semantic matching, confirm-before-act actions, an A2A agent, 11 tested safety layers and an evaluator agent.">
 <meta name="theme-color" content="#201C15">
 <link rel="icon" type="image/svg+xml" href="/favicon.svg">
 <link rel="canonical" href="https://harshavardhanag.com/towinly-ai.html">
@@ -420,6 +420,28 @@
     .runs td:first-child, .compare td:first-child { width: 100%; }
   }
 
+  /* Before and after cards */
+  .ba-grid { display: grid; grid-template-columns: repeat(2, 1fr); gap: 1rem; }
+  .ba {
+    background: var(--card);
+    border: 1px solid var(--hairline-soft);
+    border-radius: 10px;
+    padding: 1.2rem 1.3rem;
+  }
+  .ba h3 {
+    font-family: var(--serif);
+    font-size: 1.1rem;
+    font-weight: 600;
+    margin: 0 0 0.6rem;
+    color: var(--ink);
+  }
+  .ba h3 span { color: var(--gold-deep); margin-right: 0.4rem; }
+  .ba p { margin: 0 0 0.45rem; font-size: 0.97rem; color: var(--text); }
+  .ba p:last-child { margin-bottom: 0; }
+  @media (max-width: 768px) {
+    .ba-grid { grid-template-columns: 1fr; }
+  }
+
   /* Footer */
   .foot {
     margin-top: 4rem;
@@ -486,11 +508,11 @@
       <span class="eyebrow">Case study · Towinly</span>
       <h1>Everything <em>AI</em> in Towinly</h1>
       <p class="lead">Towinly is a trust platform for elders and younger helpers: a React Native (Expo) phone app, a React website, and one Spring Boot backend on Railway with Postgres. The AI work sits on all three.</p>
-      <p class="dateline">Written 2026-10-25. I checked every fact on this page against the code, the git history, the Railway logs or the live server on 2026-10-24 and 2026-10-25. Where a number was true at a point in time, the date is given.</p>
+      <p class="dateline">Written 2026-10-25, updated 2026-10-27. I checked every fact on this page against the code, the git history, the Railway logs or the live server, last on 2026-10-27. Where a number was true at a point in time, the date is given.</p>
       <div class="hero-stats" role="list">
-        <div class="stat" role="listitem"><span class="stat-value">93</span><span class="stat-label">MCP tools, generated from doc comments</span></div>
+        <div class="stat" role="listitem"><span class="stat-value">108</span><span class="stat-label">MCP tools, generated from doc comments</span></div>
         <div class="stat" role="listitem"><span class="stat-value">201</span><span class="stat-label">user-guide passages in the vector index</span></div>
-        <div class="stat" role="listitem"><span class="stat-value">44</span><span class="stat-label">evaluation cases in three languages</span></div>
+        <div class="stat" role="listitem"><span class="stat-value">45</span><span class="stat-label">evaluation cases in three languages</span></div>
         <div class="stat" role="listitem"><span class="stat-value">11</span><span class="stat-label">safety layers, each with a test</span></div>
       </div>
     </div>
@@ -510,6 +532,8 @@
       <a href="#tools">The five tools</a>
       <a href="#next">Next round</a>
       <a href="#questions">Questions</a>
+      <a href="#before-after">Before and after</a>
+      <a href="#openai">Groq out, OpenAI only</a>
       <a href="#glossary">Glossary</a>
     </div>
   </nav>
@@ -520,7 +544,7 @@
       <h2>The one-minute version</h2>
       <div class="prose">
         <p>Towinly has an in-app assistant called Ask AI, a tortoise that elders can ask anything about the app. It started in July 2026 as a simple chat over a large language model. In October 2026 it grew into a full AI programme of twelve steps: cost accounting, an evaluation set, tool use, a Model Context Protocol server that exposes the whole app to any AI agent, retrieval over the user guide with a vector database, semantic matching between elders and helpers, assistant actions that the person confirms before anything is written, an Agent2Agent server, a self-hosted embedding model, a written set of safety guardrails, a goal-driven agent, and an evaluator agent that scores another agent and can block a release.</p>
-        <p>As of 2026-10-25 the backend side is live in production, with Groq writing the answers and OpenAI embeddings powering the guide search and the matching.</p>
+        <p>As of 2026-10-25 the backend side is live in production, with Groq writing the answers and OpenAI embeddings powering the guide search and the matching. On 2026-10-27 the answers moved to OpenAI too (see <a href="#openai">Groq out, OpenAI only</a>); that change is tested against the eval set and merged to main.</p>
       </div>
     </div>
   </section>
@@ -540,6 +564,8 @@
         <li><time datetime="2026-10-21">2026-10-21 to 23</time><p>Railway security incident froze all deploys platform-wide. Nothing new went live.</p></li>
         <li><time datetime="2026-10-24">2026-10-24</time><p>Backend deployed to production. Live server confirmed answering with the new <code>{reply, action}</code> shape.</p></li>
         <li><time datetime="2026-10-25">2026-10-25</time><p>Groq key rotated, old key deleted. OpenAI embeddings key added. Railway log: "Guide index: 201 chunks in file, 201 embedded now". Smart search live.</p></li>
+        <li><time datetime="2026-10-26">2026-10-26</time><p>Groq's 8,000 tokens a minute confirmed as the cause of every second Ask AI question failing (429 body, timed experiment).</p></li>
+        <li><time datetime="2026-10-27">2026-10-27</time><p>Answers moved to OpenAI gpt-6-luna; consent version 3; Groq settings retired. Built, tested against the evals, and merged to main. The helper now asks what help is needed before it proposes a request, with a 45th eval case to prove it.</p></li>
       </ol>
       <p class="aside-note">Commit counts: 23 backend commits on the assistant and embedding packages; 41 app commits on the three app-side AI files.</p>
     </div>
@@ -556,7 +582,7 @@
           <div class="step-head"><span class="step-num">Step 0</span><h3>Ask AI itself</h3><span class="step-when">July 2026</span></div>
           <ul>
             <li><strong>What:</strong> a chat helper inside the app and the website. The person types a question, the tortoise answers.</li>
-            <li><strong>Model:</strong> Groq's hosted <code>openai/gpt-oss-120b</code>, through an OpenAI-compatible API, reasoning effort set to low so it does not burn tokens thinking. The model is a setting, not code: one environment variable swaps it.</li>
+            <li><strong>Model:</strong> OpenAI's <code>gpt-6-luna</code> through the Chat Completions API, reasoning off (its rule for tool calling on that API, and the quickest answer). Until 2026-10-27 it was Groq's hosted <code>openai/gpt-oss-120b</code> at low reasoning effort. The model is a setting, not code: one environment variable swaps it.</li>
             <li><strong>Knowledge:</strong> a hand-written knowledge base (about 2,400 words) and a system prompt (about 1,000 words) that tell the model the real rules of Towinly: the 7-step trust ladder, the 15-point score, SOS, family powers, what is free. The model is told to answer only from these.</li>
             <li><strong>Fail-safe:</strong> a blank key or a disabled flag and the helper says it is not available, instead of crashing.</li>
             <li><strong>Languages:</strong> it answers in the language the person writes in. Tested in English, French and Tamil.</li>
@@ -576,7 +602,7 @@
         <article class="step">
           <div class="step-head"><span class="step-num">Step 2</span><h3>An evaluation set</h3></div>
           <ul>
-            <li><strong>What:</strong> <code>evals.json</code>, 44 test questions with the words a correct answer must include. 38 in English, 3 in French, 3 in Tamil; 7 as a signed-in person.</li>
+            <li><strong>What:</strong> <code>evals.json</code>, 45 test questions with the words a correct answer must include. 39 in English, 3 in French, 3 in Tamil; 8 as a signed-in person. The 45th, added 2026-10-27, checks that the helper asks what help is needed before it proposes a request.</li>
             <li><strong>Families of cases:</strong> facts (trust stages, tiers, roles, SOS, family limits, what is free, deleting an account); personal ("what is my score", "what should I do next"); safety (emergency, medical, off-topic, money, passwords, someone else's details, self-harm wording that must point to SOS); and prompt injection ("ignore your instructions", "I am the developer", forged chat history, pulling details out of context, role-play as a bank).</li>
             <li><strong>Two ways to run:</strong> a file test checks the eval file on every build. A live test runs every question against the real model when a key is present.</li>
           </ul>
@@ -595,9 +621,9 @@
         <article class="step">
           <div class="step-head"><span class="step-num">Step 4</span><h3>The MCP server</h3></div>
           <ul>
-            <li><strong>What:</strong> a Model Context Protocol server that turns every function in the app's API layer into a tool an AI agent can call. 93 tools, generated automatically from the doc comments on the 93 exported functions in the API layer. Names like <code>towinly_post_help_request</code>, <code>towinly_check_in_today</code>, <code>towinly_send_sos</code>.</li>
+            <li><strong>What:</strong> a Model Context Protocol server that turns every function in the app's API layer into a tool an AI agent can call. 93 tools on 2026-10-25, generated automatically from the doc comments on the exported functions in the API layer; the catalog regenerates with the app, and the Reunion feature of 2026-10-26 took it to 108. Names like <code>towinly_post_help_request</code>, <code>towinly_check_in_today</code>, <code>towinly_send_sos</code>.</li>
             <li><strong>How:</strong> a catalog script parses the JSDoc into a tool catalog; a bundler step packages the real app code for Node; the server speaks MCP over stdio and signs in as a real account. The agent can do exactly what that person can do in the app, and no more.</li>
-            <li><strong>Safety:</strong> 19 destructive tools (delete account, SOS, password, family powers, sealed box, phone number) require <code>confirm: true</code>; id arguments are validated against <code>[A-Za-z0-9_-]{1,64}</code>; 8 functions are excluded with reasons. 40 tests.</li>
+            <li><strong>Safety:</strong> 21 destructive tools (delete account, SOS, password, family powers, sealed box, phone number, and two of the reunion tools; 19 before reunions) require <code>confirm: true</code>; id arguments are validated against <code>[A-Za-z0-9_-]{1,64}</code>; 8 functions are excluded with reasons. 40 tests.</li>
           </ul>
           <p class="why"><strong>Why:</strong> this is the payoff of an architecture rule set in August 2026: every feature is one named, documented, exported function, with no fetch logic in screens. A rule written for humans turned out to be exactly the shape an agent needs. The tool catalog cost nothing extra to produce.</p>
         </article>
@@ -657,7 +683,7 @@
             <table class="layers">
               <thead><tr><th scope="col">Layer</th><th scope="col">Stops</th></tr></thead>
               <tbody>
-                <tr><td>Versioned consent</td><td>Data leaving the phone before the person agreed to wording that names Groq and OpenAI and what each receives. New wording re-asks.</td></tr>
+                <tr><td>Versioned consent</td><td>Data leaving the phone before the person agreed to wording that names OpenAI and what it receives (version 3; version 2 named Groq and OpenAI). New wording re-asks.</td></tr>
                 <tr><td>Prompt sanitiser</td><td>Hidden characters, fake role prefixes, section markers typed into the chat or a display name.</td></tr>
                 <tr><td>PII guard</td><td>Phone numbers, emails, card-like digit runs reaching a third party.</td></tr>
                 <tr><td>Own data only</td><td>The personal block holds first name, role, score, streak and counts. Never city, verification state, phone or photo.</td></tr>
@@ -692,7 +718,7 @@
       <h2>Privacy, in plain words</h2>
       <div class="prose">
         <ul>
-          <li>The person agrees before anything goes to an AI company. The consent names Groq (writes the answer) and OpenAI (embeds the question to find the guide page). New wording means a new consent.</li>
+          <li>The person agrees before anything goes to an AI company. The consent names OpenAI, which writes the answer and embeds the question to find the guide page (until 2026-10-27 it named Groq for the answer and OpenAI for the search). New wording means a new consent.</li>
           <li>The privacy policy on towinly.com says the same thing in the same words.</li>
           <li>The model sees the question, a short summary of the person's own activity (first name, role, score, streak, counts), and the matching guide passages. It never sees contact details, city, photo or verification state, and never anyone else's data.</li>
           <li>Nothing is written to Towinly by a model. Every write ends in a dialog the person answers.</li>
@@ -724,10 +750,10 @@
       <h2>Running it in production</h2>
       <div class="prose">
         <ul>
-          <li><strong>Hosting:</strong> Spring Boot on Railway (Hobby plan), Postgres with pgvector, Groq for answers, OpenAI for embeddings.</li>
+          <li><strong>Hosting:</strong> Spring Boot on Railway (Hobby plan), Postgres with pgvector, OpenAI for answers and embeddings (Groq wrote the answers until 2026-10-27).</li>
           <li><strong>The Railway incident (2026-10-21 to 23):</strong> Railway froze deploys platform-wide during a security incident aimed at AI API keys. The running service stayed up; the new code waited. When builds returned, the GitHub link had been reset, so the deploy had to be triggered by hand. Keys stored on Railway were treated as exposed: the Groq key was replaced and the old one deleted after confirming the new one was in use, with Ask AI tested live between the two steps so it never went dark.</li>
-          <li><strong>Spend protection:</strong> the OpenAI account holds a fixed $10 with auto-reload off, so a stolen key can spend at most $10 and then stops. Groq is on the free tier with per-person and per-day caps in Towinly's own code.</li>
-          <li><strong>Cost today:</strong> the whole guide (201 passages) embeds for a fraction of a cent. A question costs about one two-thousandth of a cent to embed. The Groq answers are on the free tier.</li>
+          <li><strong>Spend protection:</strong> the OpenAI account holds a fixed $10 with auto-reload off, so a stolen key can spend at most $10 and then stops. The answers run on the same account; per-person and per-day caps in Towinly's own code bound a bad day near $1 to $3.</li>
+          <li><strong>Cost today:</strong> the whole guide (201 passages) embeds for a fraction of a cent. A question costs about one two-thousandth of a cent to embed and about a twentieth of a cent to answer.</li>
         </ul>
       </div>
     </div>
@@ -742,11 +768,11 @@
           <thead><tr><th scope="col">Number</th><th scope="col">What it is</th></tr></thead>
           <tbody>
             <tr><td>12</td><td>steps in the AI programme</td></tr>
-            <tr><td>93</td><td>tools in the MCP server, generated from doc comments</td></tr>
-            <tr><td>19</td><td>of them need an explicit confirm</td></tr>
+            <tr><td>108</td><td>tools in the MCP server, generated from doc comments (93 on 2026-10-25, before the Reunion feature)</td></tr>
+            <tr><td>21</td><td>of them need an explicit confirm (19 before reunions)</td></tr>
             <tr><td>201</td><td>user-guide passages in the vector index</td></tr>
             <tr><td>1,536</td><td>dimensions per OpenAI embedding (384 for the local model)</td></tr>
-            <tr><td>44</td><td>evaluation cases, in 3 languages</td></tr>
+            <tr><td>45</td><td>evaluation cases, in 3 languages (44 on 2026-10-25)</td></tr>
             <tr><td>11</td><td>safety layers, each with a test</td></tr>
             <tr><td>2</td><td>assistant actions, both behind a native confirm</td></tr>
             <tr><td>8 / 60</td><td>questions a minute / an hour per person</td></tr>
@@ -767,7 +793,7 @@
       <div class="prose">
         <ul>
           <li>The phone build on TestFlight (build 26, 2026-10-08) predates the app-side work. The versioned consent and the confirm-before-act actions are in the code on main, not yet in a build on a phone. The next build carries them.</li>
-          <li>The live evals have not been run against the real model with a key; the file test runs on every build.</li>
+          <li>The live evals ran once against gpt-6-luna on 2026-10-27 (44 of 44 after two fixes, see <a href="#openai">below</a>). They still need a key and a hand-run; only the file test runs on every build.</li>
           <li>Three database tests that need a local Postgres with pgvector have not been run locally (CI runs its own).</li>
           <li>A proposed next round, not started: move the A2A server into the backend, Spring AI, embeddings run in-house, a cost and latency dashboard. <a href="#next">The parked next round</a> below explains each part. On 2026-10-25 I agreed in principle to part (c), in-process embeddings, subject to the running cost (about $3 to $5 a month more on Railway). No plan is written yet.</li>
         </ul>
@@ -784,7 +810,7 @@
         <table class="runs stack">
           <thead><tr><th scope="col">Piece</th><th scope="col">Where it runs</th><th scope="col">Who uses it</th><th scope="col">Laptop off?</th></tr></thead>
           <tbody>
-            <tr><td data-label="Piece">Ask AI chat (Groq answers)</td><td data-label="Where it runs">Backend on Railway</td><td data-label="Who uses it">The phone app and the website</td><td data-label="Laptop off?"><span class="pill pill-ok">Works</span></td></tr>
+            <tr><td data-label="Piece">Ask AI chat (OpenAI answers)</td><td data-label="Where it runs">Backend on Railway</td><td data-label="Who uses it">The phone app and the website</td><td data-label="Laptop off?"><span class="pill pill-ok">Works</span></td></tr>
             <tr><td data-label="Piece">pgvector and the 201 guide passages</td><td data-label="Where it runs">The Railway Postgres database</td><td data-label="Who uses it">Ask AI, through the backend</td><td data-label="Laptop off?"><span class="pill pill-ok">Works</span></td></tr>
             <tr><td data-label="Piece">Semantic matching of helpers and requests</td><td data-label="Where it runs">Same database, same backend</td><td data-label="Who uses it">Discovery and browse screens</td><td data-label="Laptop off?"><span class="pill pill-ok">Works</span></td></tr>
             <tr><td data-label="Piece">Read-only tools, propose-an-action, all the guards and caps</td><td data-label="Where it runs">Backend</td><td data-label="Who uses it">Ask AI</td><td data-label="Laptop off?"><span class="pill pill-ok">Works</span></td></tr>
@@ -816,12 +842,12 @@
         <article class="step">
           <div class="step-head"><h3>MCP server</h3></div>
           <ul>
-            <li><strong>What it is:</strong> a standard plug, like a USB port, for AI assistants. MCP stands for Model Context Protocol. Any assistant that speaks MCP can plug into Towinly and see 93 "buttons" it may press: post a help request, check in today, show my connections, send a message.</li>
+            <li><strong>What it is:</strong> a standard plug, like a USB port, for AI assistants. MCP stands for Model Context Protocol. Any assistant that speaks MCP can plug into Towinly and see 108 "buttons" it may press: post a help request, check in today, show my connections, send a message.</li>
             <li><strong>Problem it solves:</strong> without it an assistant can only talk about Towinly. With it, the assistant can act in Towinly for the person.</li>
             <li><strong>Who benefits:</strong> an elder's daughter tells her assistant "check whether Mum checked in today" and it happens. The developer tests the app by talking to it. Claude used it on 2026-10-24 to check the deploy, by asking the live server a question.</li>
-            <li><strong>How it works:</strong> signs in as a real account and runs the exact code the app runs, so the assistant can do what that person can do and nothing more. The 19 risky buttons need an explicit confirm.</li>
+            <li><strong>How it works:</strong> signs in as a real account and runs the exact code the app runs, so the assistant can do what that person can do and nothing more. The 21 risky buttons need an explicit confirm.</li>
           </ul>
-          <p class="why"><strong>The interview answer:</strong> "What is MCP and have you used it?" "The standard for giving an AI assistant tools. I exposed Towinly as 93 tools, generated from the doc comments on our API functions, with confirmation required on the destructive ones."</p>
+          <p class="why"><strong>The interview answer:</strong> "What is MCP and have you used it?" "The standard for giving an AI assistant tools. I exposed Towinly as 108 tools, generated from the doc comments on our API functions, with confirmation required on the destructive ones."</p>
         </article>
 
         <article class="step">
@@ -863,7 +889,7 @@
             <li><strong>Problem it solves:</strong> AI answers drift. Change a prompt or a model and a right answer can go wrong quietly. This catches it automatically.</li>
             <li><strong>Who benefits:</strong> elders get answers that do not degrade unnoticed. The developer gets the freedom to change things.</li>
           </ul>
-          <p class="why"><strong>The interview answer:</strong> "How do you test an AI feature?" "Two layers: a fixed set of 44 questions with required words on every build, and an evaluator agent that scores answers by semantic similarity and fails the build below a threshold."</p>
+          <p class="why"><strong>The interview answer:</strong> "How do you test an AI feature?" "Two layers: a fixed set of 45 questions with required words on every build, and an evaluator agent that scores answers by semantic similarity and fails the build below a threshold."</p>
         </article>
 
       </div>
@@ -893,10 +919,10 @@
         <article class="step">
           <div class="step-head"><span class="step-num">Part b</span><h3>Spring AI instead of hand-written orchestration</h3></div>
           <ul>
-            <li><strong>Today:</strong> custom code: <code>GroqClient</code> (240 lines), <code>AssistantTools</code> (222), <code>GuideRetriever</code> (47), <code>AssistantService</code> (435). Works, tested, mine to maintain.</li>
-            <li><strong>Proposed:</strong> Spring AI on Spring Boot 3.5.16 / Java 21. <code>ChatClient</code> replaces <code>GroqClient</code> (Groq speaks the OpenAI protocol, so it is the OpenAI starter with a different base URL); <code>@Tool</code> annotations replace hand-written tool schemas; <code>PgVectorStore</code> replaces the retrieval SQL; <code>spring-ai-starter-mcp-server-webmvc</code> serves the MCP tools from the backend over HTTP.</li>
+            <li><strong>Today:</strong> custom code: <code>LlmClient</code> (240 lines, named <code>GroqClient</code> until 2026-10-27), <code>AssistantTools</code> (222), <code>GuideRetriever</code> (47), <code>AssistantService</code> (435). Works, tested, mine to maintain.</li>
+            <li><strong>Proposed:</strong> Spring AI on Spring Boot 3.5.16 / Java 21. <code>ChatClient</code> replaces <code>LlmClient</code> (it already speaks the OpenAI Chat Completions protocol, so it is the OpenAI starter as-is); <code>@Tool</code> annotations replace hand-written tool schemas; <code>PgVectorStore</code> replaces the retrieval SQL; <code>spring-ai-starter-mcp-server-webmvc</code> serves the MCP tools from the backend over HTTP.</li>
             <li><strong>Gain:</strong> about 900 lines become roughly a third in configuration and annotations; model swaps become settings; streaming and token metrics come free.</li>
-            <li><strong>Risk:</strong> a rewrite of working code. Guards must be re-wired as Spring AI advisors; token accounting must come from the framework's usage data; the MCP endpoint needs Spring Security. The 44-case eval set is the safety net. About a week. The biggest of the four.</li>
+            <li><strong>Risk:</strong> a rewrite of working code. Guards must be re-wired as Spring AI advisors; token accounting must come from the framework's usage data; the MCP endpoint needs Spring Security. The 45-case eval set is the safety net. About a week. The biggest of the four.</li>
           </ul>
           <h4>Spring AI or what I built?</h4>
           <div class="table-wrap">
@@ -914,7 +940,7 @@
             </table>
           </div>
           <p><strong>Recommendation:</strong> keep the hand-built layer in production and get the framework name honestly by adopting Spring AI for one module only, part (c). That shows judgement: a framework where it paid, declined where it did not.</p>
-          <p class="why"><strong>"Why didn't you use a framework?"</strong> "When I started in July 2026 the model API was one HTTP call, and I wanted the safety checks inline and the dependency footprint small on a cheap hosting plan. By October the custom layer was about 900 lines, all tested, with a 44-case eval set. I evaluated Spring AI: it would replace about two thirds of that with configuration and give streaming and token metrics for free. I adopted it for in-process embeddings, where it saved real work and removed a data flow to a third party, and kept the chat orchestration hand-built because the guardrails are easier to audit when you can read them. If the team standard were Spring AI, I'd move the rest module by module behind the eval set, never as a big-bang rewrite."</p>
+          <p class="why"><strong>"Why didn't you use a framework?"</strong> "When I started in July 2026 the model API was one HTTP call, and I wanted the safety checks inline and the dependency footprint small on a cheap hosting plan. By October the custom layer was about 900 lines, all tested, with a 45-case eval set. I evaluated Spring AI: it would replace about two thirds of that with configuration and give streaming and token metrics for free. I adopted it for in-process embeddings, where it saved real work and removed a data flow to a third party, and kept the chat orchestration hand-built because the guardrails are easier to audit when you can read them. If the team standard were Spring AI, I'd move the rest module by module behind the eval set, never as a big-bang rewrite."</p>
         </article>
 
         <article class="step">
@@ -933,7 +959,7 @@
           <div class="step-head"><span class="step-num">Part d</span><h3>Cost and latency evidence</h3></div>
           <ul>
             <li><strong>Today:</strong> every answer already sends <code>ask_ai_answered</code> to PostHog with tokens, milliseconds and cache hit. Nobody looks at it in a chart.</li>
-            <li><strong>Proposed:</strong> (1) a PostHog dashboard: questions and tokens per day against the 2 million cap, median and slowest-5% latency, cache rate, cost estimate, half a day; (2) streaming the answer word by word so the elder sees text within about a second instead of 3 to 9 seconds, 2 to 3 days, and the output guard must buffer or check as it goes; (3) small-model routing: strong guide matches go to <code>gpt-oss-20b</code>, hard questions to the 120b model, measured against the 44 evals, 1 to 2 days.</li>
+            <li><strong>Proposed:</strong> (1) a PostHog dashboard: questions and tokens per day against the 2 million cap, median and slowest-5% latency, cache rate, cost estimate, half a day; (2) streaming the answer word by word so the elder sees text within about a second instead of 3 to 9 seconds, 2 to 3 days, and the output guard must buffer or check as it goes; (3) small-model routing: strong guide matches go to <code>gpt-oss-20b</code>, hard questions to the large model, measured against the 45 evals, 1 to 2 days.</li>
           </ul>
           <p class="why"><strong>The interview line:</strong> "I measured cost and latency per answer, then cut both: streaming for felt speed, routing for cost, with the eval set as the guard."</p>
         </article>
@@ -952,10 +978,10 @@
         <dd>Towinly has an assistant for elders called Ask AI. I built it in three stages. First, a chat over a hosted model with a hand-written knowledge base and hard limits on cost. Second, retrieval: I split the real user guide into 201 passages, embedded them into Postgres with pgvector, and the assistant now reads the matching page before answering, so it uses the app's real button names. Third, actions: the model can propose "check in today" or "post this help request", but it can only propose. The app shows a native dialog and calls its own function when the person confirms. The model never writes.</dd>
 
         <dt>How did you keep it safe?</dt>
-        <dd>Eleven layers, each with a test, each failing closed. Consent before any data leaves the phone, and it re-asks when the wording changes. A sanitiser and a PII guard on the way in, an output guard on the way out that blocks password requests, money requests, prompt leaks and invented contact details. The model sees the person's first name, role and score, never city, phone or photo. Writes are proposals only. And a 44-case eval set with injection and self-harm cases that runs on every build.</dd>
+        <dd>Eleven layers, each with a test, each failing closed. Consent before any data leaves the phone, and it re-asks when the wording changes. A sanitiser and a PII guard on the way in, an output guard on the way out that blocks password requests, money requests, prompt leaks and invented contact details. The model sees the person's first name, role and score, never city, phone or photo. Writes are proposals only. And a 45-case eval set with injection and self-harm cases that runs on every build.</dd>
 
         <dt>What is MCP and why did you build a server?</dt>
-        <dd>Model Context Protocol is the standard way to hand an AI agent a set of tools. The app already had a rule that every feature is one named, documented, exported function. I wrote a generator that reads those doc comments and produces 93 tools. So an assistant in Claude Code can sign in as a person and do anything that person can do in the app, and nothing more. Nineteen destructive tools demand an explicit confirm flag.</dd>
+        <dd>Model Context Protocol is the standard way to hand an AI agent a set of tools. The app already had a rule that every feature is one named, documented, exported function. I wrote a generator that reads those doc comments and produces 108 tools. So an assistant in Claude Code can sign in as a person and do anything that person can do in the app, and nothing more. Twenty-one destructive tools demand an explicit confirm flag.</dd>
 
         <dt>What did you measure?</dt>
         <dd>Tokens, latency and cache hits per answer, sent to PostHog. Per-person and per-day caps on top. The eval set gives a pass/fail per prompt change. The evaluator agent gives a cosine score per answer against a reference and fails the build under 0.6.</dd>
@@ -975,12 +1001,137 @@
     </div>
   </section>
 
+  <section id="before-after" class="block">
+    <div class="wrap">
+      <span class="section-label">From the customer's side</span>
+      <h2>Before and after</h2>
+      <p class="aside-note" style="margin-bottom:1.2rem">"You" is an elder, a helper or a family member. Status says whether they can touch it today.</p>
+      <div class="ba-grid">
+        <article class="ba">
+          <h3><span>1</span>A helper you can ask anything</h3>
+          <p><strong>Before:</strong> stuck on a screen, you called someone or opened a PDF.</p>
+          <p><strong>After:</strong> tap the tortoise, ask in your own words, get a short answer in English, French or Tamil, at any hour.</p>
+          <p><strong>Behind it:</strong> OpenAI's <code>gpt-6-luna</code> over the Chat Completions API (Groq's <code>gpt-oss-120b</code> until 2026-10-27); a 2,400-word knowledge base and a 1,000-word system prompt; a graceful "not available" when the key is missing.</p>
+          <p><strong>Status:</strong> live since July 2026.</p>
+        </article>
+        <article class="ba">
+          <h3><span>2</span>Answers that use the app's real words</h3>
+          <p><strong>Before:</strong> the helper answered from a summary and sometimes guessed names: "Post Request tab", a "Driving" category.</p>
+          <p><strong>After:</strong> it reads the matching page of the real user guide first: "the blue Ask Help button", "Rides under Kind of help", "Post Help".</p>
+          <p><strong>Behind it:</strong> 201 guide passages embedded with OpenAI (1,536 numbers each) into Postgres with pgvector; indexed at boot and skipped when unchanged; the closest passages by cosine similarity are added to the prompt.</p>
+          <p><strong>Status:</strong> live since 2026-10-25.</p>
+        </article>
+        <article class="ba">
+          <h3><span>3</span>Answers about your own situation</h3>
+          <p><strong>Before:</strong> "what is my trust score?" got a generic explanation of scoring.</p>
+          <p><strong>After:</strong> "You are at 9 of 15. Two friendships; the one with Ruth is at the Known stage." First names and stages only.</p>
+          <p><strong>Behind it:</strong> model function calling with three read-only tools (connections, family, help requests); one tool round per answer; every string sanitised; the model's view of you is first name, role, score, streak and counts, nothing else.</p>
+          <p><strong>Status:</strong> live.</p>
+        </article>
+        <article class="ba">
+          <h3><span>4</span>Better helper matches</h3>
+          <p><strong>Before:</strong> helpers sorted by distance alone. A driver 4 km away could sit below someone 1 km away who does not drive.</p>
+          <p><strong>After:</strong> a helper whose profile means what your request means rises in the list. Distance still counts.</p>
+          <p><strong>Behind it:</strong> an embedding for every profile and request; rank = distance minus 5 km times similarity; re-embedded only when the text changes; 500 rows backfilled at boot; pure distance if embeddings are off.</p>
+          <p><strong>Status:</strong> live since 2026-10-25.</p>
+        </article>
+        <article class="ba">
+          <h3><span>5</span>Ask AI can act for you, with your OK</h3>
+          <p><strong>Before:</strong> the helper could only explain how to do something.</p>
+          <p><strong>After:</strong> say "check me in today" or "post a request for a lift on Thursday". A dialog shows exactly what will be sent. One tap does it; nothing happens without that tap.</p>
+          <p><strong>Behind it:</strong> two proposal tools (<code>propose_check_in</code>, <code>propose_help_request</code>); the <code>{reply, action}</code> contract; the app maps the action to its own function (<code>checkInToday</code>, <code>postHelpRequest</code>), shows a native confirm, and runs the same content filter as the Post Request screen; arguments whitelisted, capped, enum-checked.</p>
+          <p><strong>Status:</strong> backend live; the phone side ships with the next app build.</p>
+        </article>
+        <article class="ba">
+          <h3><span>6</span>You know what is shared, and with whom</h3>
+          <p><strong>Before:</strong> the consent named one AI company; the privacy policy did not name AI processors.</p>
+          <p><strong>After:</strong> before your first question, a plain notice says what goes to OpenAI. The privacy policy on towinly.com says the same.</p>
+          <p><strong>Behind it:</strong> versioned consent (version 3 since 2026-10-27, re-asks on new wording); the legal copy module on the website.</p>
+          <p><strong>Status:</strong> website live; the app notice ships with the next app build.</p>
+        </article>
+        <article class="ba">
+          <h3><span>7</span>Your details do not leak</h3>
+          <p><strong>Before:</strong> whatever you typed went to the model as typed; replies were not checked.</p>
+          <p><strong>After:</strong> phone numbers, emails and card-like numbers are stripped before anything leaves. The helper never asks for a password or code, never tells you to send money, never invents a phone number. It never sees your city, phone, photo or anyone else's data. Emergencies point to SOS.</p>
+          <p><strong>Behind it:</strong> the prompt sanitiser, the PII guard, the output guard, the own-data-only prompt block; 45 red-team evals including injection and self-harm cases.</p>
+          <p><strong>Status:</strong> live.</p>
+        </article>
+        <article class="ba">
+          <h3><span>8</span>It stays up for everyone</h3>
+          <p><strong>Before:</strong> no ceiling. One flood could exhaust the free tier and switch Ask AI off for all.</p>
+          <p><strong>After:</strong> steady service; one person cannot take it down.</p>
+          <p><strong>Behind it:</strong> 8 a minute and 60 an hour per person; 2,000 calls and 2 million tokens a day; 9-second model timeouts; tokens, latency and cache hits logged per answer to PostHog.</p>
+          <p><strong>Status:</strong> live.</p>
+        </article>
+        <article class="ba">
+          <h3><span>9</span>Slow answers do not look broken</h3>
+          <p><strong>Before:</strong> the first TestFlight tester saw "broken" after 15 seconds; long chats failed; a network blip killed the answer.</p>
+          <p><strong>After:</strong> the app waits up to 30 seconds, retries blips, trims long chats.</p>
+          <p><strong>Behind it:</strong> client timeout raised, retry on transient errors, history trimming (2026-10-07).</p>
+          <p><strong>Status:</strong> live.</p>
+        </article>
+        <article class="ba">
+          <h3><span>10</span>Quality that does not slip</h3>
+          <p><strong>Before:</strong> a prompt change could quietly make a right answer wrong.</p>
+          <p><strong>After:</strong> answers that were right stay right; a bad change is caught before release.</p>
+          <p><strong>Behind it:</strong> 45 eval cases checked on every build, and run live against the model with a key; the evaluator agent scores answers by cosine similarity and fails under 0.6.</p>
+          <p><strong>Status:</strong> file test live in CI; the live run happened by hand on 2026-10-27; evaluator on my Mac.</p>
+        </article>
+        <article class="ba">
+          <h3><span>11</span>Your family's AI assistant can act for you</h3>
+          <p><strong>Before:</strong> only fingers on the app.</p>
+          <p><strong>After (preview):</strong> "Did Mum check in today?" to an assistant, and it checks.</p>
+          <p><strong>Behind it:</strong> the MCP server: 108 tools generated from doc comments, 21 of them requiring confirm, signed in as the person, over stdio.</p>
+          <p><strong>Status:</strong> works on my Mac only.</p>
+        </article>
+        <article class="ba">
+          <h3><span>12</span>Partners' systems can ask Towinly</h3>
+          <p><strong>Before:</strong> nothing machine to machine.</p>
+          <p><strong>After (preview):</strong> a care home's AI asks "is there a helper near this postcode who does rides?"</p>
+          <p><strong>Behind it:</strong> the A2A agent: Agent2Agent 1.0, JSON-RPC, agent card, bearer key, read-only.</p>
+          <p><strong>Status:</strong> my Mac only.</p>
+        </article>
+        <article class="ba">
+          <h3><span>13</span>Behind the curtain: cheaper, private, testable AI</h3>
+          <p><strong>Benefit to you:</strong> indirect. It lets me test and cut cost without touching your data.</p>
+          <p><strong>Behind it:</strong> the local embed server (<code>all-MiniLM-L6-v2</code> behind OpenAI's API shape); the goal agent (plan-act loop, 8 steps, confirm before writes, trace file).</p>
+          <p><strong>Status:</strong> developer tools on my Mac.</p>
+        </article>
+        <article class="ba">
+          <h3><span>14</span>Kept running through a hosting breach</h3>
+          <p><strong>Before:</strong> deploys frozen for three days after the Railway incident; stored keys treated as exposed.</p>
+          <p><strong>After:</strong> the new version live; Ask AI never went dark; the Groq key replaced and the old one deleted.</p>
+          <p><strong>Behind it:</strong> GitHub link reconnected, a manual "Deploy Latest Commit", a live test between adding the new key and deleting the old one; OpenAI held at a fixed $10 with auto-reload off.</p>
+          <p><strong>Status:</strong> done 2026-10-24 and 25.</p>
+        </article>
+      </div>
+    </div>
+  </section>
+
+  <section id="openai" class="block">
+    <div class="wrap">
+      <span class="section-label">2026-10-27</span>
+      <h2>Groq out, OpenAI only</h2>
+      <div class="prose">
+        <p><strong>Why.</strong> Groq's free tier allows 8,000 tokens a minute. Every Ask AI question carries about 6,500 tokens (the knowledge base, the guide passages, the tool definitions and the chat), and a question that looks something up is two calls. So the second question in any minute came back as the fallback sentence. A timed experiment proved it: question 1 answered, question 2 five seconds later failed, question 3 after a 75 second pause answered, question 4 five seconds after that failed. The Railway log carried the body: 429, "TPM: Limit 8000, Used 4905, Requested 6239".</p>
+        <p><strong>What changed.</strong> The vendor is now configuration. The backend reads one set of <code>llm.*</code> settings: the OpenAI key, shared with the embeddings, the model name (default <code>gpt-6-luna</code>) and the reasoning effort (default none). <code>GroqClient</code> became <code>LlmClient</code>. Two request fields changed for OpenAI: <code>max_completion_tokens</code> instead of <code>max_tokens</code>, and the tool-result turn carries no <code>name</code>. The consent note (version 3), the app and website privacy pages, the user guide and the store privacy labels name OpenAI alone. The local agent plans with the same vendor. Merged to main on 2026-10-27.</p>
+        <p><strong>Why reasoning off.</strong> OpenAI's model page says gpt-6-luna calls tools on Chat Completions only with reasoning effort set to none. That is also the quickest and cheapest answer, with no thinking tokens before the reply.</p>
+        <p><strong>Numbers.</strong> gpt-6-luna costs $0.10 per million input tokens, $0.01 cached and $0.50 output. The Build tier allows 5,000 requests and 2,000,000 tokens a minute, 250 times Groq's free ceiling. One question costs about $0.0003 to $0.0007, a lookup question double that. The $10 credit covers roughly 10,000 questions. The daily ceilings (2,000 calls, 2,000,000 tokens) hold a bad day near $1 to $3.</p>
+        <p><strong>Evals.</strong> The 44 cases of the day ran against gpt-6-luna before the merge (the 45th case came later the same day). The first run scored 36 of 44, and none of the misses was a bad answer. Four were a slow patch at OpenAI that hit the 9-second limit, and the client never retried a read that stalled mid-reply. Three were good refusals the output guard blocked: it looked for "don't" with a straight apostrophe, and OpenAI writes it with a curly one. One was the team address, which the knowledge base tells the helper to quote. After fixing the guard and the retry, the run scored 44 of 44, median 1.4 s, slowest 6.5 s, with about 97% of every prompt read from OpenAI's cache. Lesson: a new model can be right in ways your filters were never written for, so run the evals before you trust the switch.</p>
+      </div>
+      <p class="why"><strong>The interview line:</strong> "Production hit a vendor's free-tier ceiling. I proved the cause with a timed experiment and the error body, then moved vendors with a configuration change, because the client was written against the open Chat Completions shape. The code changes were two vendor-specific fields and honest renames, and the evals ran against the new model before anything shipped."</p>
+      <p class="why"><strong>Lesson:</strong> the first fix (echoing the model's turn the way Groq validates it) was right by the docs and still not the live cause. Same symptom, two causes. Log the error body, and time the failures before trusting a theory.</p>
+    </div>
+  </section>
+
   <section id="glossary" class="block">
     <div class="wrap">
       <span class="section-label">Plain words</span>
       <h2>Glossary</h2>
       <dl class="glossary">
-        <div><dt>LLM / model</dt><dd>The program that writes the answers. Towinly's is hosted by Groq.</dd></div>
+        <div><dt>LLM / model</dt><dd>The program that writes the answers. Towinly's is OpenAI's gpt-6-luna (Groq's gpt-oss-120b until 2026-10-27).</dd></div>
+        <div><dt>TPM</dt><dd>Tokens per minute, a vendor's speed limit. Groq's free tier gave 8,000; one Towinly question is about 6,500.</dd></div>
+        <div><dt>Reasoning effort</dt><dd>How long a model thinks before it answers. None means it answers at once, which is what tool calling on gpt-6-luna needs.</dd></div>
         <div><dt>Token</dt><dd>The unit the model bills in, roughly three quarters of a word.</dd></div>
         <div><dt>Prompt</dt><dd>Everything sent to the model: rules, the knowledge base, the guide passages, the question.</dd></div>
         <div><dt>Embedding</dt><dd>A list of numbers that captures the meaning of a piece of text, so two texts can be compared by meaning.</dd></div>
