@@ -176,7 +176,7 @@ const profile = {
       ],
     },
     {
-      role: "Backend Developer",
+      role: "Software Engineer",
       company: "Vosyn",
       location: "Canada",
       period: "Apr 2026 – Sep 2026",
@@ -197,7 +197,7 @@ const profile = {
       ],
     },
     {
-      role: "Full Stack Application Developer",
+      role: "Software Engineer",
       company: "Ideal Corporate Services",
       location: "Chennai, India",
       period: "Jan 2021 – Aug 2023",
