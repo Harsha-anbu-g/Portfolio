@@ -70,3 +70,28 @@ cases, a "Before and after" section (14 cards) and a "Groq out, OpenAI only" sec
 glossary terms. Featured block: OpenAI chip replaces Groq, card and bullet text follow.
 - [x] Edited, built, checked at 1440 and 390 (no overflow)
 - [x] Committed and pushed on Harsha's standing approval in the request
+
+---
+
+# 2026-10-28: "Why Towinly", one deep page for the whole product
+
+Request (spoken, 2026-10-28): a new page inside the portfolio that explains Towinly end to
+end: why it exists, who built it, how it was built and how long it took, the AI tools used,
+every feature (Trust Score, Trust Ladder, boxes, family, reunions, check-in, SOS), the demo
+accounts, screenshots, social-media material, the pitch deck facts. Tabs on top for
+different readers: elders first (the main user), helpers, family, technical, AI. The existing
+"Everything AI in Towinly" page folds into this one as its AI tab. Plain words first,
+technical where it earns its place. Interactive, not a wall of text.
+
+## Running queue (in the order given)
+1. [ ] Build the page inside the portfolio (main request)
+2. [ ] Use the superpowers process: brainstorm, spec, plan, build
+3. [ ] Load every skill the job needs (design, copy passes, verification)
+4. [ ] `ui-ux-pro-max` on the design
+5. [ ] UX quality is the main rule for this page
+
+## Checklist
+(filled in by the implementation plan once the design is approved)
+
+## Review
+(to fill after Harsha reviews on localhost)
