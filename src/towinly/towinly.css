@@ -18,7 +18,9 @@
   --ease: cubic-bezier(0.2, 0.7, 0.2, 1);
 }
 
-body { background: var(--paper); color: var(--ink); }
+/* index.css sets body { overflow-x: hidden }, which turns body into a scroll container
+   and defeats position: sticky. clip prevents sideways scroll without doing that. */
+body { background: var(--paper); color: var(--ink); overflow-x: clip; }
 .page [id], .panel-title { scroll-margin-top: calc(var(--bar-h) + 16px); }
 .page-wrap { width: min(100% - 32px, 1120px); margin-inline: auto; }
 button { cursor: pointer; font: inherit; color: inherit; background: none; border: 0; padding: 0; }
@@ -56,9 +58,15 @@ button { cursor: pointer; font: inherit; color: inherit; background: none; borde
 .chooser[hidden] { display: none; }
 .chooser-title { font-family: var(--font-serif); font-weight: 500; font-size: 1.25rem; text-align: center; margin: 0 0 16px; color: var(--ink-soft); }
 .chooser-grid { display: grid; gap: 12px; grid-template-columns: repeat(auto-fit, minmax(260px, 1fr)); }
-.choose { display: grid; grid-template-columns: auto 1fr auto; align-items: center; gap: 16px; min-height: 120px; text-align: left; background: var(--card); border: 1px solid var(--line); border-radius: 12px; padding: 20px; transition: transform 0.18s var(--ease), border-color 0.18s var(--ease); }
+.choose { position: relative; display: grid; grid-template-columns: auto 1fr auto; align-items: center; gap: 16px; min-height: 120px; text-align: left; background: var(--card); border: 1px solid var(--line); border-radius: 12px; padding: 20px; transition: transform 0.18s var(--ease), border-color 0.18s var(--ease); }
 .choose:hover, .choose:focus-visible { transform: translateY(-2px); border-color: var(--gold); }
 .choose:first-child { grid-column: 1 / -1; border-color: var(--bronze); }
+/* Wide screens: the elder card across the top, the other five in one row underneath. */
+@media (min-width: 1024px) {
+  .chooser-grid { grid-template-columns: repeat(5, 1fr); }
+  .choose:not(:first-child) { grid-template-columns: 1fr; align-content: start; gap: 12px; min-height: 196px; padding: 18px; }
+  .choose:not(:first-child) .choose-arrow { position: absolute; top: 18px; right: 18px; }
+}
 .choose-icon { display: grid; place-items: center; width: 48px; height: 48px; border-radius: 999px; background: var(--paper-alt); color: var(--bronze); }
 .choose-text { display: grid; gap: 4px; }
 .choose-title { font-family: var(--font-serif); font-size: 1.35rem; font-weight: 600; line-height: 1.2; }
@@ -79,8 +87,12 @@ button { cursor: pointer; font: inherit; color: inherit; background: none; borde
 .panel-head { padding: 40px 0 8px; }
 .panel-title { font-family: var(--font-serif); font-weight: 600; font-size: clamp(1.75rem, 4vw, 2.4rem); line-height: 1.2; margin: 0 0 8px; outline-offset: 6px; }
 .panel-lead { max-width: 68ch; font-size: 1.1rem; line-height: 1.6; color: var(--ink-soft); margin: 0; }
-.tab-layout { display: grid; gap: 32px; align-items: start; }
+/* minmax(0, 1fr) everywhere: an auto track would grow to an image's intrinsic width. */
+.tab-layout { display: grid; grid-template-columns: minmax(0, 1fr); gap: 32px; align-items: start; }
 @media (min-width: 1024px) { .tab-layout { grid-template-columns: 220px minmax(0, 1fr); gap: 48px; } }
+/* Headings and sections take focus for screen readers after a tab change; the ring is
+   for controls, so these keep none. */
+.page [tabindex="-1"]:focus-visible { outline: none; }
 
 /* ── Sub-nav: a chip row on phones, a sticky rail on wide screens ────── */
 .subnav ol { display: flex; gap: 8px; list-style: none; margin: 0; padding: 12px 0; overflow-x: auto; scrollbar-width: none; }
@@ -96,12 +108,20 @@ button { cursor: pointer; font: inherit; color: inherit; background: none; borde
 }
 
 /* ── Chapters (the reading column) ──────────────────────────────────── */
-.prose-col { max-width: 68ch; font-size: 1.0625rem; line-height: 1.7; }
+.prose-col { min-width: 0; font-size: 1.0625rem; line-height: 1.7; }
 .prose-col.prose-lg { font-size: 1.125rem; line-height: 1.75; }
+.chapter > p, .chapter .more, .chapter-links, .panel-lead { max-width: 68ch; }
 .chapter { padding: 32px 0; border-top: 1px solid var(--line-soft); }
+/* Wide screens: the phone sits beside the words it illustrates and stays put while they scroll. */
+@media (min-width: 1024px) {
+  .chapter.has-shots { display: grid; grid-template-columns: minmax(0, 1fr) 260px; column-gap: 32px; }
+  .chapter.has-shots > * { grid-column: 1; }
+  .chapter.has-shots > .gallery { grid-column: 2; grid-row: 1 / span 40; align-self: start; position: sticky; top: calc(var(--bar-h) + 16px); margin: 0; }
+  .chapter.has-shots .phone img { width: 240px; }
+}
 .chapter:first-child { border-top: 0; padding-top: 8px; }
 .chapter h3 { font-family: var(--font-serif); font-weight: 600; font-size: 1.5rem; line-height: 1.25; margin: 0 0 12px; display: flex; align-items: center; gap: 8px; }
-.chapter h3 .anchor { color: var(--bronze); opacity: 0; transition: opacity 0.15s var(--ease); display: inline-flex; min-width: 32px; min-height: 32px; align-items: center; justify-content: center; }
+.chapter h3 .anchor { color: var(--bronze); opacity: 0; transition: opacity 0.15s var(--ease); display: inline-flex; min-width: 44px; min-height: 44px; margin: -8px 0; align-items: center; justify-content: center; }
 .chapter h3:hover .anchor, .chapter h3 .anchor:focus-visible { opacity: 1; }
 .chapter p { margin: 0 0 12px; }
 .chapter p:last-child { margin-bottom: 0; }
@@ -119,7 +139,7 @@ button { cursor: pointer; font: inherit; color: inherit; background: none; borde
 
 /* ── Phone gallery ──────────────────────────────────────────────────── */
 .gallery { margin: 20px 0 0; }
-.phone img { display: block; width: min(100%, 280px); height: auto; margin-inline: auto; border-radius: 28px; }
+.phone img { display: block; width: 280px; max-width: 100%; height: auto; margin-inline: auto; border-radius: 28px; }
 .gallery-caption { text-align: center; font-size: 0.9rem; color: var(--ink-soft); margin-top: 8px; }
 .thumbs { display: flex; gap: 8px; justify-content: center; flex-wrap: wrap; margin-top: 12px; }
 .thumb { width: 52px; min-height: 44px; border-radius: 8px; border: 1px solid var(--line); overflow: hidden; background: var(--card); padding: 0; transition: border-color 0.15s var(--ease); }
@@ -176,7 +196,7 @@ button { cursor: pointer; font: inherit; color: inherit; background: none; borde
 .cast-example { margin-top: 16px; padding: 14px 16px; border: 1px solid var(--line); border-radius: 12px; background: var(--card); }
 .cast-example h4 { font-family: var(--font-serif); font-size: 1.1rem; margin: 0 0 6px; }
 .cast-filters { display: flex; flex-wrap: wrap; gap: 8px; margin-top: 18px; }
-.chip { display: inline-flex; align-items: center; min-height: 40px; padding: 0 14px; border: 1px solid var(--line); border-radius: 999px; background: var(--card); color: var(--ink); font-size: 0.9rem; transition: border-color 0.15s var(--ease); }
+.chip { display: inline-flex; align-items: center; min-height: 44px; padding: 0 14px; border: 1px solid var(--line); border-radius: 999px; background: var(--card); color: var(--ink); font-size: 0.9rem; transition: border-color 0.15s var(--ease); }
 .chip:hover { border-color: var(--bronze); }
 .chip[aria-pressed="true"], .chip[aria-expanded="true"] { border-color: var(--gold); background: var(--paper-alt); font-weight: 600; }
 .cast-grid { display: grid; gap: 10px; grid-template-columns: repeat(auto-fill, minmax(220px, 1fr)); list-style: none; padding: 0; margin: 12px 0 0; }

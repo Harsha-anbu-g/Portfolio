@@ -16,15 +16,29 @@ export default function TowinlyPage() {
   const current = TABS.find((t) => t.id === tab);
 
   // After a change: scroll the target into view (the section, or the panel heading so the
-  // bar sits at the top) and move focus there so screen readers follow.
+  // bar sits at the top) and move focus there so screen readers follow. The scroll runs
+  // again once the web fonts are in, because the swap reflows the text above the target.
   useEffect(() => {
     if (!tab) return;
+    let cancelled = false;
+    const target = () => (section ? document.getElementById(section) : headingRef.current);
+    // Instant on purpose: a tab or section change is a jump, and index.css's smooth
+    // scrolling would animate thousands of pixels and get cut short by the second call.
+    const scrollTo = () => target()?.scrollIntoView({ block: "start", behavior: "instant" });
     const frame = requestAnimationFrame(() => {
-      const target = section ? document.getElementById(section) : headingRef.current;
-      target?.scrollIntoView({ block: "start" });
-      target?.focus({ preventScroll: true });
+      const el = target();
+      if (!el) return;
+      scrollTo();
+      if (!el.hasAttribute("tabindex")) el.tabIndex = -1;
+      el.focus({ preventScroll: true });
+      document.fonts?.ready.then(() => {
+        if (!cancelled) scrollTo();
+      });
     });
-    return () => cancelAnimationFrame(frame);
+    return () => {
+      cancelled = true;
+      cancelAnimationFrame(frame);
+    };
   }, [tab, section]);
 
   return (

@@ -9,7 +9,7 @@ import { shots } from "../../data/towinly/screenshots";
 export default function Chapter({ section }) {
   const { id, title, body = [], more = [], links = [] } = section;
   return (
-    <section className="chapter" id={id} aria-labelledby={`${id}-h`}>
+    <section className={`chapter${section.shots ? " has-shots" : ""}`} id={id} aria-labelledby={`${id}-h`}>
       <h3 id={`${id}-h`} tabIndex={-1}>
         {title}
         <a className="anchor" href={`#${id}`} aria-label={`Link to ${title}`}>
