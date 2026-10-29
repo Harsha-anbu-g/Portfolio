@@ -144,7 +144,8 @@ Plan: docs/superpowers/plans/2026-10-28-why-towinly-page.md (branch feat/why-tow
       the gallery image's intrinsic width widened the phone layout (track is minmax(0,1fr)),
       smooth scrolling cut the second scroll short (tab jumps are instant now)
 - [x] 20 Harsha reviewed on localhost (laptop and phone) and said "Looks good, merge it locally"
-- [x] 21 Merged into main with --no-ff on 2026-10-28. NOT pushed: push only on "push"
+- [x] 21 Merged into main with --no-ff on 2026-10-28, then pushed on Harsha's "push to live"
+      (origin/main 558179c..881ae65)
 - [x] 22 Memory note why-towinly-page-2026-10-28; observations 356 to 359 in the skill log
 
 ## Review
