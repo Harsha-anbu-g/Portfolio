@@ -13,7 +13,7 @@ export default function TopBar() {
         <ul className="page-topbar-links">
           {TOPBAR_LINKS.map((link) => (
             <li key={link.href}>
-              <a href={link.href} target="_blank" rel="noopener noreferrer">
+              <a href={link.href} target="_blank" rel="noopener noreferrer" aria-label={link.label}>
                 <Icon name={link.icon} size={16} />
                 <span>{link.label}</span>
               </a>

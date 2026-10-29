@@ -165,3 +165,31 @@ Approved on localhost on 2026-10-28. What shipped to main (local only):
 - To push: `git push origin main` (Vercel deploys from main). To rerun the page's checks:
   `node scripts/check-towinly.mjs`; to refresh screenshots and counts:
   `bash scripts/towinly-assets.sh && node scripts/towinly-captions.mjs`.
+
+---
+
+# 2026-10-29: Why Towinly as cards, with colour and photos
+
+Requests (in order): (1) one card at a time, swipe for the next, picture beside the words
+at the same height, less text on screen; (2) the Trust Ladder vertical, like a real ladder;
+(3) more colours, photos found on the web, animation, "mainly use images".
+Branch: feat/towinly-cards. Show on localhost before any push.
+
+## Queue
+1. [ ] Card deck per tab, Read more sheet, contents, swipe, keys, hash per card
+2. [ ] Vertical ladder, climbed bottom to top
+3. [ ] Per-tab colours from Towinly's palette, licensed colour photos (Pexels/Unsplash,
+       face-free next to "you" copy, credits recorded), motion on cards, ladder, score
+
+## Checklist
+- [x] Branch feat/towinly-cards
+- [x] 34 colour photos (Pexels, no faces), script + credits file
+- [x] Deck builder, per-card picture map, AI sections as cards
+- [x] Card, deck, sheets, swipe, keys, contents; vertical ladder; colour per tab; hero
+      collage and photo chooser; motion with reduced-motion fallbacks
+- [x] Check script knows photos and screens; lint clean; build green
+- [x] Headless walk of all 89 cards at 1440: no broken image, no clipped words, no phone
+      taller than its card; ladder bottom-up and arrow-up climbs; sheets open and close;
+      AI sheet renders its 12 steps; phone swipe moves on; nothing wider than 390px
+- [ ] Harsha reviews on localhost
+- [ ] Merge to main and push only on "push"

@@ -1,0 +1,68 @@
+// The picture on each card, keyed by card id. A card with a phone screen, an artwork or an
+// interactive piece keeps it; this map adds a photo behind it (bg), or replaces an empty
+// side with a photo (photo), a big number (panel), or the founder's own photo (founder).
+// Every number here comes from the spec's fact sheet, with its source.
+export const VISUALS = {
+  // Elders
+  "for-you": { photo: "walk-park-two-gen" },
+  "ask-help": { bg: "bag-paper" },
+  ladder: { bg: "sprout-hands" },
+  friends: { bg: "chess-pieces" },
+  messages: { bg: "phone-texting" },
+  "check-in": { bg: "tea-glasses-window" },
+  "family-watch": { bg: "phone-chat-hands" },
+  boxes: { bg: "keys-box" },
+  reunions: { bg: "tea-table" },
+  "ask-ai": { bg: "phone-blue" },
+  peekaboo: { bg: "chessboard-top" },
+  languages: { panel: { big: "English · Français · தமிழ்", small: "Every screen, every button, every message." }, bg: "books-held" },
+  safety: { photo: "padlock-blue-shutter" },
+  "elders-iphone": { bg: "walk-autumn-pair" },
+  // Helpers
+  "h-nearby": { bg: "bag-outdoors" },
+  "h-ladder": { bg: "garden-gloves" },
+  "h-love-first": { photo: "teapot-two-cups" },
+  "h-passed-on": { bg: "envelope" },
+  "h-reunions": { photo: "wheel-day" },
+  "h-safety": { photo: "padlock-blue-door" },
+  // Family
+  "f-account": { bg: "phone-thumbs" },
+  "f-journey": { bg: "walk-tunnel" },
+  "f-powers": { bg: "two-armchairs" },
+  "f-check-in": { photo: "coffee-windowsill" },
+  "f-keyholders": { photo: "keys-box" },
+  // Story
+  "s-new-elder": { panel: { big: "47 → 73", small: "years of life expectancy, 1950 to today (United Nations)" }, bg: "walk-autumn-pair" },
+  "s-two-things": { photo: "empty-armchair" },
+  "s-why-now": { panel: { big: "13% → 78%", small: "of Americans over 65 with a smartphone, 2012 to 2025 (Pew Research Center)" }, bg: "phone-chat-hands" },
+  "s-why-matters": { panel: { big: "50%", small: "better odds of survival with strong social ties, across 148 studies (PLOS Medicine, 2010)" }, bg: "teapot-two-cups" },
+  "s-solution": { photo: "walk-forest-far" },
+  "s-business": { panel: { big: "Free", small: "and always free for elders who cannot pay" }, bg: "coffee-flowers" },
+  "s-team": { founder: true },
+  "s-built-live": { panel: { big: "Live", small: "on towinly.com, with the iPhone app in Apple's review" }, bg: "laptop-code" },
+  "s-ask": { photo: "envelope" },
+  // Technical
+  "t-stack": { panel: { big: "Java 21 · React 19 · Expo 54", small: "Spring Boot, PostgreSQL with pgvector, Redis, Railway and Vercel" }, bg: "laptop-code-2" },
+  "t-events": { panel: { big: "WebSocket · Push · SMS", small: "chat, alerts, and the job that watches for quiet days" }, bg: "laptop-dark" },
+  "t-api-first": { panel: { big: "108", small: "MCP tools, generated from the API's own doc comments" } },
+  "t-security": { photo: "key-drawer" },
+  "t-quality": { panel: { big: "1,124 · 1,401", small: "backend tests (25 Oct 2026) and app tests (29 Aug 2026)" } },
+  "t-links": { bg: "books-stack" },
+  // AI
+  "ai-intro": { bg: "phone-blue" },
+  "one-minute": { panel: { big: "Ask AI", small: "a tortoise elders can ask anything about the app" }, bg: "phone-chat-hands" },
+  timeline: { panel: { big: "Jul → Oct", small: "2026, from a help bot to retrieval, tools and agents" } },
+  steps: { panel: { big: "12", small: "steps, each shipped with its tests" } },
+  privacy: { photo: "padlock-pink" },
+  built: { panel: { big: "Spec first", small: "then tests, then a security review on every commit" } },
+  production: { panel: { big: "Live", small: "since 24 October 2026, on Railway with pgvector" }, bg: "laptop-dark" },
+  numbers: { panel: { big: "108", small: "MCP tools, beside 201 guide passages, 45 eval cases and 11 safety layers" } },
+  todo: { panel: { big: "Open", small: "the items not built yet" } },
+  where: { panel: { big: "5", small: "tools on the laptop; everything people use runs on the server" } },
+  tools: { photo: "laptop-code-2" },
+  next: { panel: { big: "a to d", small: "the next round, scoped and not started" } },
+  questions: { panel: { big: "8", small: "questions, short answers" } },
+  "before-after": { panel: { big: "14", small: "changes a person can feel" } },
+  openai: { panel: { big: "8,000", small: "tokens a minute on Groq's free tier; one question used about 6,500" } },
+  glossary: { photo: "books-stack" },
+};

@@ -48,6 +48,30 @@ for (const n of artNames) {
   if (!manifest[n]) problems.push(`no size in manifest: ${n}`);
 }
 
+// 2b. Every photo in photos.js exists with a size, and every photo a card or tab names is one of them.
+const photoNames = names("photos.js");
+for (const n of photoNames) {
+  if (!existsSync(join(PUBLIC, "photos", `${n}.webp`))) problems.push(`missing photo: ${n}.webp`);
+  if (!manifest[n]) problems.push(`no size in manifest: ${n}`);
+}
+const photoSet = new Set(photoNames);
+for (const file of ["visuals.js", "tabs.js"]) {
+  const t = texts[join(DATA, file)] || "";
+  for (const m of t.matchAll(/\b(?:photo|bg): "([a-z0-9-]+)"/g)) {
+    if (!photoSet.has(m[1])) problems.push(`unknown photo "${m[1]}" in ${file}`);
+  }
+}
+
+// 2c. Every screen named in a shots: [...] list is one screenshots.js knows.
+const shotSet = new Set(shotNames);
+for (const [p, t] of Object.entries(texts)) {
+  for (const m of t.matchAll(/shots: \[([^\]]*)\]/g)) {
+    for (const s of m[1].matchAll(/"([a-z0-9-]+)"/g)) {
+      if (!shotSet.has(s[1])) problems.push(`unknown screen "${s[1]}" in ${rel(p)}`);
+    }
+  }
+}
+
 // 3. Section ids are unique across the page and every #link points at one of them (or a tab).
 const ids = [];
 for (const [p, t] of Object.entries(texts)) {
@@ -87,5 +111,5 @@ if (problems.length) {
   process.exit(1);
 }
 console.log(
-  `check-towinly: ok (${files.length} data files, ${shotNames.length} shots, ${artNames.length} artworks, ${seen.size} ids)`
+  `check-towinly: ok (${files.length} data files, ${shotNames.length} shots, ${artNames.length} artworks, ${photoNames.length} photos, ${seen.size} ids)`
 );

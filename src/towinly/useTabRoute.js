@@ -1,14 +1,15 @@
 import { useCallback, useEffect, useState } from "react";
-import { TABS, SECTION_INDEX } from "../data/towinly/tabs";
+import { TABS } from "../data/towinly/tabs";
+import { CARD_INDEX } from "../data/towinly/deck";
 
 const TAB_IDS = new Set(TABS.map((t) => t.id));
 
-/** "#elders" → that tab; "#ladder" → the tab that holds it; anything else → the chooser. */
+/** "#elders" → that tab; "#ladder" → the tab whose deck holds that card; else the chooser. */
 export function resolveHash(raw) {
   const id = (raw || "").replace(/^#/, "");
   if (!id) return { tab: null, section: null };
   if (TAB_IDS.has(id)) return { tab: id, section: null };
-  const tab = SECTION_INDEX[id];
+  const tab = CARD_INDEX[id];
   return tab ? { tab, section: id } : { tab: null, section: null };
 }
 
@@ -21,18 +22,24 @@ export default function useTabRoute() {
     return () => window.removeEventListener("hashchange", onHash);
   }, []);
 
-  // Setting location.hash adds a history entry and fires hashchange, so the browser's
-  // back and forward buttons move between tabs for free.
+  // A new tab is a new history entry, so Back returns to the previous tab.
   const go = useCallback((id) => {
     if (window.location.hash === `#${id}`) setRoute(resolveHash(`#${id}`));
     else window.location.hash = id;
   }, []);
 
+  // Moving between cards replaces the entry: Back leaves the tab instead of
+  // stepping through every card, and the address still names the card on screen.
+  const replace = useCallback((id) => {
+    window.history.replaceState(null, "", `#${id}`);
+    setRoute(resolveHash(`#${id}`));
+  }, []);
+
   const home = useCallback(() => {
     window.history.pushState(null, "", window.location.pathname + window.location.search);
     setRoute({ tab: null, section: null });
-    window.scrollTo({ top: 0 });
+    window.scrollTo({ top: 0, behavior: "instant" });
   }, []);
 
-  return { ...route, go, home };
+  return { ...route, go, replace, home };
 }

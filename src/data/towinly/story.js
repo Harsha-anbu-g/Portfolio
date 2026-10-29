@@ -80,6 +80,7 @@ export default {
       body: [
         "Help nearby. Chat inside the app. Family watch. The daily check-in. Stories, letters and a sealed box. SOS, blocks that hold on every phone, and alerts that never carry message text. Since October 2026: Reunions, and Ask AI.",
       ],
+      shots: ["elder-home"],
       links: [
         { label: "Help nearby", href: "#ask-help" },
         { label: "Chat", href: "#messages" },
@@ -98,8 +99,12 @@ export default {
         "Everyone else matches. Towinly builds trust.",
         "Other services match an elder with a stranger instantly. Towinly makes trust itself the product: a ladder both people climb, a score the elder reads first, and a family watching over.",
       ],
-      more: [
-        "Match instantly with strangers, or seven trust steps both say yes to. Built for the young, or designed for a 75-year-old. The elder as a customer, or elders who give back skills and stories. Family locked out, or family watch, SOS and the daily check-in.",
+      extra: "compare",
+      compare: [
+        ["Match instantly with strangers", "Seven trust steps both say yes to"],
+        ["Built for the young", "Designed for a 75-year-old"],
+        ["The elder as a customer", "Elders who give back skills and stories"],
+        ["Family locked out", "Family watch, SOS and the daily check-in"],
       ],
     },
     {

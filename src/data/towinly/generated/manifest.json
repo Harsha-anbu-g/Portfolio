@@ -194,5 +194,141 @@
   "towinly-ig-47-five-people-one-switch": {
     "w": 540,
     "h": 675
+  },
+  "bag-outdoors": {
+    "w": 933,
+    "h": 1400
+  },
+  "bag-paper": {
+    "w": 933,
+    "h": 1400
+  },
+  "books-held": {
+    "w": 1400,
+    "h": 788
+  },
+  "books-stack": {
+    "w": 933,
+    "h": 1400
+  },
+  "chess-pieces": {
+    "w": 1392,
+    "h": 1400
+  },
+  "chessboard-top": {
+    "w": 1400,
+    "h": 935
+  },
+  "coffee-flowers": {
+    "w": 933,
+    "h": 1400
+  },
+  "coffee-windowsill": {
+    "w": 1050,
+    "h": 1400
+  },
+  "empty-armchair": {
+    "w": 1050,
+    "h": 1400
+  },
+  "envelope": {
+    "w": 934,
+    "h": 1400
+  },
+  "garden-gloves": {
+    "w": 933,
+    "h": 1400
+  },
+  "key-drawer": {
+    "w": 1400,
+    "h": 934
+  },
+  "keys-box": {
+    "w": 1400,
+    "h": 933
+  },
+  "laptop-code-2": {
+    "w": 1400,
+    "h": 934
+  },
+  "laptop-code": {
+    "w": 1400,
+    "h": 930
+  },
+  "laptop-dark": {
+    "w": 933,
+    "h": 1400
+  },
+  "letter-writing": {
+    "w": 934,
+    "h": 1400
+  },
+  "padlock-blue-door": {
+    "w": 1400,
+    "h": 934
+  },
+  "padlock-blue-shutter": {
+    "w": 933,
+    "h": 1400
+  },
+  "padlock-pink": {
+    "w": 1400,
+    "h": 933
+  },
+  "phone-blue": {
+    "w": 1400,
+    "h": 934
+  },
+  "phone-chat-hands": {
+    "w": 933,
+    "h": 1400
+  },
+  "phone-texting": {
+    "w": 1400,
+    "h": 934
+  },
+  "phone-thumbs": {
+    "w": 1400,
+    "h": 934
+  },
+  "sprout-hands": {
+    "w": 1400,
+    "h": 934
+  },
+  "tea-glasses-window": {
+    "w": 1026,
+    "h": 1400
+  },
+  "tea-table": {
+    "w": 1400,
+    "h": 938
+  },
+  "teapot-two-cups": {
+    "w": 1050,
+    "h": 1400
+  },
+  "two-armchairs": {
+    "w": 934,
+    "h": 1400
+  },
+  "walk-autumn-pair": {
+    "w": 933,
+    "h": 1400
+  },
+  "walk-forest-far": {
+    "w": 933,
+    "h": 1400
+  },
+  "walk-park-two-gen": {
+    "w": 1400,
+    "h": 935
+  },
+  "walk-tunnel": {
+    "w": 933,
+    "h": 1400
+  },
+  "wheel-day": {
+    "w": 1400,
+    "h": 830
   }
 }

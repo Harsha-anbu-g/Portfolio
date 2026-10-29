@@ -1,0 +1,127 @@
+/* The deck: one card on screen, words beside one picture at the same height. */
+.deck { --card-h: clamp(500px, calc(100svh - 200px), 620px); width: min(100% - 32px, 1160px); margin: 22px auto 0; }
+.card {
+  position: relative; display: grid; grid-template-columns: minmax(0, 0.92fr) minmax(0, 1.08fr);
+  height: var(--card-h); background: var(--card); border: 1px solid var(--line); border-radius: 26px;
+  overflow: hidden; touch-action: pan-y;
+  box-shadow: 0 34px 80px -46px color-mix(in srgb, var(--accent-deep) 70%, transparent);
+}
+.card.is-dragging { user-select: none; }
+
+.card-words { position: relative; display: flex; flex-direction: column; justify-content: center; gap: 14px; padding: clamp(28px, 4vw, 56px); min-width: 0; overflow: hidden; }
+.card-eyebrow { align-self: flex-start; margin: 0; padding: 6px 12px; border-radius: 999px; background: var(--accent-tint); color: var(--accent-ink); font-size: 0.72rem; font-weight: 700; letter-spacing: 0.12em; text-transform: uppercase; }
+.card-title { margin: 0; font-family: var(--font-serif); font-weight: 600; font-size: clamp(1.7rem, 2.8vw, 2.4rem); line-height: 1.12; color: var(--ink); }
+.card-lead p { margin: 0 0 10px; max-width: 52ch; font-size: 1.08rem; line-height: 1.65; color: var(--ink-soft); }
+.card-lead p:last-child { margin-bottom: 0; }
+.deck[data-size="lg"] .card-lead p { font-size: 1.17rem; }
+.card-actions { display: flex; flex-wrap: wrap; gap: 8px; align-items: center; margin-top: 4px; }
+.btn-more { display: inline-flex; align-items: center; gap: 8px; min-height: 46px; padding: 0 20px; border-radius: 999px; background: var(--accent-ink); color: #fff; font-weight: 600; transition: transform 160ms var(--ease-out), background-color 160ms ease; }
+.btn-more:hover { background: color-mix(in srgb, var(--accent-ink) 85%, black); }
+.btn-more:active { transform: scale(0.97); }
+.page .card-link { display: inline-flex; align-items: center; min-height: 44px; padding: 0 14px; border-radius: 999px; background: var(--accent-tint); color: var(--accent-ink); font-weight: 500; font-size: 0.92rem; transition: background-color 160ms ease; }
+.page .card-link:hover { text-decoration: none; background: color-mix(in srgb, var(--accent-tint) 72%, var(--accent)); }
+
+/* The picture side. */
+.card-visual { position: relative; display: grid; place-items: center; padding: 28px; min-height: 0; overflow: hidden; isolation: isolate; container-type: inline-size; }
+.card-visual[data-tone="deep"] {
+  color: #fff;
+  background:
+    radial-gradient(120% 90% at 12% 0%, color-mix(in srgb, var(--accent) 72%, transparent), transparent 62%),
+    radial-gradient(90% 80% at 100% 100%, color-mix(in srgb, var(--accent) 42%, transparent), transparent 60%),
+    var(--accent-deep);
+}
+.card-visual[data-tone="tint"] {
+  color: var(--ink);
+  background: radial-gradient(110% 80% at 88% 0%, color-mix(in srgb, var(--accent) 24%, transparent), transparent 66%), var(--accent-tint);
+}
+.card-visual[data-tone="photo"] { color: #fff; }
+.visual-bg { position: absolute; inset: 0; width: 100%; height: 100%; object-fit: cover; z-index: -2; }
+.visual-scrim { position: absolute; inset: 0; z-index: -1; background: linear-gradient(170deg, color-mix(in srgb, var(--accent-deep) 56%, transparent), color-mix(in srgb, var(--accent-deep) 80%, transparent)); }
+.card-visual[data-kind="shots"] .visual-scrim { background: linear-gradient(180deg, color-mix(in srgb, var(--accent-deep) 10%, transparent) 30%, color-mix(in srgb, var(--accent-deep) 72%, transparent)); }
+.visual-fg { position: relative; width: 100%; height: 100%; min-height: 0; display: grid; place-items: center; }
+.card-visual[data-kind="photo"],
+.card-visual[data-kind="founder"] { padding: 0; }
+.visual-photo { display: block; width: 100%; height: 100%; object-fit: cover; }
+.visual-art { display: block; height: 100%; width: auto; max-width: 100%; object-fit: contain; border-radius: 14px; box-shadow: 0 24px 50px -20px rgba(34, 30, 22, 0.5); }
+.visual-panel { text-align: center; max-width: 30ch; padding: 0 8px; }
+.panel-big { margin: 0; font-family: var(--font-serif); font-weight: 600; font-size: clamp(2.2rem, 9cqi, 4.6rem); line-height: 1.05; color: #fff; text-shadow: 0 2px 24px rgba(0, 0, 0, 0.25); }
+.panel-small { margin: 14px 0 0; font-size: 1.05rem; line-height: 1.5; color: rgba(255, 255, 255, 0.92); text-shadow: 0 1px 12px rgba(0, 0, 0, 0.25); }
+.card-visual[data-kind="widget"] { overflow: auto; }
+.card-visual[data-kind="widget"] .visual-fg { height: auto; min-height: 100%; }
+
+/* Controls under the card. */
+.deck-controls { display: flex; align-items: center; gap: 12px; margin: 14px 0 0; }
+.deck-btn { display: inline-flex; align-items: center; justify-content: center; gap: 8px; min-width: 52px; height: 52px; padding: 0; border-radius: 999px; border: 1.5px solid var(--line); background: var(--card); color: var(--ink); transition: transform 160ms var(--ease-out), border-color 160ms ease, background-color 160ms ease; }
+.deck-btn:hover { border-color: var(--accent); }
+.deck-btn:active { transform: scale(0.96); }
+.deck-btn:disabled { opacity: 0.4; cursor: default; transform: none; }
+.deck-next { padding: 0 18px; background: var(--accent-ink); border-color: var(--accent-ink); color: #fff; }
+.deck-next:hover { background: color-mix(in srgb, var(--accent-ink) 85%, black); }
+.deck-next-label { font-weight: 600; white-space: nowrap; }
+.deck-progress { flex: 1; display: flex; align-items: center; gap: 12px; min-width: 0; }
+.deck-count { font-variant-numeric: tabular-nums; font-weight: 600; min-width: 4.5ch; }
+.deck-bar { flex: 1; height: 6px; border-radius: 99px; background: color-mix(in srgb, var(--accent) 18%, transparent); overflow: hidden; }
+.deck-bar > span { display: block; height: 100%; background: var(--accent); transform-origin: left; transition: transform 340ms var(--ease-out); }
+.deck-contents { display: inline-flex; align-items: center; gap: 8px; min-height: 44px; padding: 0 14px; border-radius: 999px; border: 1.5px solid var(--line); font-weight: 500; transition: border-color 160ms ease; }
+.deck-contents:hover { border-color: var(--accent); }
+
+/* Card changes: the words rise in turn, the picture slides from the side it came from, and
+   a photo settles from a slight zoom. A keyboard change swaps with no motion at all. */
+@keyframes fg-next { from { opacity: 0; transform: translateX(44px) scale(0.98); } }
+@keyframes fg-prev { from { opacity: 0; transform: translateX(-44px) scale(0.98); } }
+@keyframes fg-fade { from { opacity: 0; transform: scale(0.97); } }
+@keyframes photo-settle { from { transform: scale(1.1); } }
+.card[data-dir="next"] .visual-fg { animation: fg-next 460ms var(--ease-out) both; }
+.card[data-dir="prev"] .visual-fg { animation: fg-prev 460ms var(--ease-out) both; }
+.card[data-dir="none"] .visual-fg { animation: fg-fade 520ms var(--ease-out) both; }
+.card:not([data-dir="key"]) .visual-bg,
+.card:not([data-dir="key"]) .visual-photo { animation: photo-settle 1400ms var(--ease-out) both; }
+.card:not([data-dir="key"]) .card-words > * { animation: words-in 420ms var(--ease-out) both; }
+.card-words > :nth-child(2) { animation-delay: 60ms; }
+.card-words > :nth-child(3) { animation-delay: 120ms; }
+.card-words > :nth-child(4) { animation-delay: 180ms; }
+
+/* Phones: picture on top, words under it, controls fixed at the bottom for the thumb. */
+@media (max-width: 899px) {
+  .deck { width: 100%; margin-top: 8px; }
+  .card { grid-template-columns: minmax(0, 1fr); height: auto; border-radius: 0; border-inline: 0; box-shadow: none; }
+  .card-visual { order: -1; height: clamp(300px, 52svh, 470px); padding: 18px; }
+  /* An interactive piece needs its instruction first, so on phones its words lead. */
+  .card-visual[data-kind="widget"] { order: 0; height: auto; min-height: 300px; padding: 22px 16px; overflow: visible; }
+  .card-words { padding: 22px 18px 26px; justify-content: flex-start; overflow: visible; }
+  .deck-controls { position: fixed; left: 0; right: 0; bottom: 0; z-index: 30; margin: 0; gap: 10px; padding: 10px 14px calc(10px + env(safe-area-inset-bottom)); background: rgba(255, 253, 249, 0.95); backdrop-filter: blur(10px); -webkit-backdrop-filter: blur(10px); border-top: 1px solid var(--line-soft); }
+  .deck-contents span { display: none; }
+  .deck-contents { width: 52px; height: 52px; padding: 0; justify-content: center; }
+  .panel { padding-bottom: 96px; }
+}
+
+/* Sheets: Read more and All cards. */
+.sheet { width: min(700px, calc(100% - 32px)); max-height: min(86svh, 920px); padding: 0; border: 0; border-radius: 22px; background: var(--card); color: var(--ink); overflow: auto; box-shadow: 0 40px 120px -20px rgba(20, 16, 10, 0.45); }
+.sheet::backdrop { background: rgba(20, 16, 10, 0.5); backdrop-filter: blur(3px); }
+.sheet[open] { animation: sheet-in 240ms var(--ease-out); }
+.sheet[open]::backdrop { animation: fade-in 240ms ease; }
+@keyframes sheet-in { from { opacity: 0; transform: translateY(14px) scale(0.98); } }
+@keyframes sheet-up { from { transform: translateY(100%); } }
+.sheet-head { position: sticky; top: 0; z-index: 1; display: flex; align-items: center; justify-content: space-between; gap: 12px; padding: 14px 14px 14px 24px; background: var(--card); border-bottom: 1px solid var(--line-soft); }
+.sheet-head h2 { margin: 0; font-family: var(--font-serif); font-size: 1.3rem; font-weight: 600; line-height: 1.25; }
+.sheet-close { flex: none; width: 44px; height: 44px; display: grid; place-items: center; border-radius: 999px; background: var(--accent-tint); color: var(--accent-ink); transition: transform 160ms var(--ease-out); }
+.sheet-close:active { transform: scale(0.95); }
+.sheet-body { padding: 18px 24px 28px; font-size: 1.05rem; line-height: 1.7; }
+.sheet-body > p { margin: 0 0 14px; }
+@media (max-width: 640px) {
+  .sheet { width: 100%; max-width: 100%; margin: auto 0 0; border-radius: 22px 22px 0 0; max-height: 88svh; }
+  .sheet[open] { animation-name: sheet-up; animation-duration: 300ms; animation-timing-function: cubic-bezier(0.32, 0.72, 0, 1); }
+}
+.contents { list-style: none; margin: 0; padding: 0; display: grid; gap: 4px; }
+.contents-item { width: 100%; display: grid; grid-template-columns: 36px minmax(0, 1fr); gap: 10px; align-items: center; min-height: 48px; padding: 6px 10px; border-radius: 12px; text-align: left; transition: background-color 140ms ease; }
+.contents-item:hover { background: var(--accent-tint); }
+.contents-item[aria-current="true"] { background: var(--accent-ink); color: #fff; }
+.contents-num { width: 30px; height: 30px; border-radius: 999px; display: grid; place-items: center; background: var(--accent-tint); color: var(--accent-ink); font-size: 0.85rem; font-weight: 700; font-variant-numeric: tabular-nums; }
+.contents-item[aria-current="true"] .contents-num { background: rgba(255, 255, 255, 0.2); color: #fff; }
+
+@media (prefers-reduced-motion: reduce) {
+  .card .visual-fg, .card .visual-bg, .card .visual-photo, .card .card-words > * { animation: fade-in 160ms ease both !important; }
+  .sheet[open], .sheet[open]::backdrop { animation: fade-in 160ms ease !important; }
+  .deck-bar > span, .btn-more, .deck-btn { transition: none !important; }
+  .btn-more:active, .deck-btn:active { transform: none !important; }
+}

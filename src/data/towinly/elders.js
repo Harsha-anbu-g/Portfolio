@@ -1,6 +1,8 @@
 // The Elders tab: the main reader. Larger body text, the friendliest voice, the real
 // screens. Facts from the app's own copy (landingSlides.js, passOnLocks.js, trustStages.js,
 // reunions.js) and the user-guide chapters.
+import { DEMO_NOTE, WORKED_EXAMPLE } from "./cast";
+
 export default {
   id: "elders",
   title: "For elders",
@@ -15,7 +17,6 @@ export default {
         "You ask once, in one screen. Helpers close to you see it and offer. You choose who helps you, and you lead every step after that.",
         "Nobody is rushed. Slow is the point.",
       ],
-      shots: ["elder-home"],
     },
     {
       id: "ask-help",
@@ -36,9 +37,11 @@ export default {
       body: [
         "Every member carries a Trust Score. Open a helper's profile and read it before you say yes to anyone.",
         "Each person a helper has helped can add up to 15 points: 3 for a checked profile with ID, phone and photo, 7 for the seven steps of the Trust Ladder climbed together, and 5 from that person's review.",
-        "It is a reputation. It keeps changing as the helper connects with new people. Tap the three parts below to see how a score fills up.",
+        "It is a reputation. It keeps changing as the helper connects with new people.",
       ],
       extra: "score",
+      tryTitle: "Fill a Trust Score",
+      tryLead: "Tap the three parts and watch a helper's score fill: up to 15 points for each person they help.",
       shots: ["elder-trust-people"],
     },
     {
@@ -47,9 +50,10 @@ export default {
       body: [
         "In real life you do not trust a stranger on day one. You message. Then a phone call. Then video. Then you meet. Towinly works the same way.",
         "Every friendship climbs the same seven steps, from Just Connected to Fully Trusted. Both of you must say yes to each step. Nothing personal, like a phone number, is shared until trust has grown.",
-        "Tap a step to see what it is and what it opens.",
       ],
       extra: "ladder",
+      tryTitle: "Climb the seven steps",
+      tryLead: "Start at the bottom. Tap a step to see what it is and what it opens.",
       more: [
         "Either of you can pause the climb or stop it, at any step. A pause keeps what you have; a stop ends the friendship on both phones.",
         "On the day you first meet a helper in person, the app tells the people you named as emergency contacts.",
@@ -83,7 +87,7 @@ export default {
         "A streak counts the days in a row. Skipping a day is never a problem. The app calls it a gentle signal, never a duty.",
         "If you go quiet, the app texts the people you named. You choose how many quiet days pass first, from 1 to 30, for each of them.",
       ],
-      shots: ["elder-checkin", "elder-emergency-contacts"],
+      shots: ["elder-checkin"],
     },
     {
       id: "sos",
@@ -92,6 +96,7 @@ export default {
         "Name up to three people: a daughter, a neighbour, a family friend. Their name, their number, who they are to you. Tap a name to call them.",
         "One SOS button texts all of them at once. You may never need it. It is there.",
       ],
+      shots: ["elder-emergency-contacts"],
     },
     {
       id: "family-watch",
@@ -172,7 +177,6 @@ export default {
         "Scammers go after elders, and elders deserve to be safe. So a person at Towinly checks your ID before your profile is full, and no member ever sees the photo.",
         "Nothing personal is shared until trust has grown. Block a person and they are gone from every phone you sign in on. Report from any profile. Towinly never sells your data, and you can export it or delete your account from your profile.",
       ],
-      shots: ["elder-profile"],
     },
     {
       id: "demo",
@@ -181,7 +185,7 @@ export default {
         "The demo on towinly.com has twenty people in it, and three of them are one tap away on the login page, with no sign-up. Tap Try as an Elder and you are Margaret, 73, a retired teacher who likes chess, gardening and a good cup of tea.",
       ],
       extra: "cast",
-      shots: ["login"],
+      more: [DEMO_NOTE, ...WORKED_EXAMPLE],
     },
     {
       id: "elders-iphone",
@@ -189,6 +193,7 @@ export default {
       body: [
         "Towinly is a native iPhone app, in TestFlight since August 2026 and in Apple's review since October. The same build runs in your phone's browser at towinly.com/app.",
       ],
+      shots: ["landing-01"],
       links: [{ label: "The iPhone app, in full", href: "#iphone-app" }],
     },
   ],

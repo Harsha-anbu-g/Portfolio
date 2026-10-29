@@ -462,3 +462,27 @@ User guides: copied from `ToWin App/docs/user-guide/*.pdf` into `public/towinly/
 - The "how long" line reads "about six and a half months so far, one person, alongside a
   master's and a job search". Correct it if the hours or the framing are off.
 - Whether to add a "Download the pitch deck" link (off by default).
+
+## 12. Revision 2 (2026-10-29): cards, colour, photos
+
+Owner feedback on the live page: the phone screenshot beside the text was too tall and left
+empty space; every tab looked the same with no pictures; it read like a long blog. Asked for:
+one card at a time with a swipe to the next; the Trust Ladder vertical, like a real ladder;
+more colours, photos found on the web, animation, "mainly use images".
+
+What changed:
+- Each tab is a deck (`src/data/towinly/deck.js` builds the cards from the same section data).
+  One idea per card: a section with a screen and an interactive piece becomes two cards; each
+  Instagram post in the problem and origin runs is its own card; the AI case study's sections
+  are cards whose Read more shows the section as written.
+- A card is words beside one picture at the same fixed height on wide screens (the phone fits
+  the card's height), picture on top on phones, controls fixed at the bottom. Swipe (touch,
+  with velocity), arrow keys (no motion for keyboard), progress bar, All cards sheet, Read
+  more sheet (native dialog). The address names the card; Back leaves the tab.
+- Colours: each tab has its own accent from Towinly's palette (green, blue, amber,
+  terracotta, navy, violet); small text uses the darker ink of each, all above 6:1.
+- Photos: 34 colour photos from Pexels (27 found by web search, 7 of Towinly's own), none
+  with a face; credits in `docs/towinly-photo-credits.md`; built by
+  `scripts/towinly-photos.sh`. Number cards sit on a photo under a colour scrim.
+- The ladder is vertical, climbed from the bottom, rails filling to the chosen rung.
+- Only the three one-tap demo seats are named (2026-10-29 owner call).

@@ -52,6 +52,7 @@ export default {
       body: [
         "Every friendship has its own switch. Your parent decides which ones you see, and can turn any of them off, any day.",
       ],
+      shots: ["elder-family-sharing"],
     },
     {
       id: "f-demo",
