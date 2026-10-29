@@ -36,8 +36,9 @@ that.
   review; Android is not built.
 - No demo passwords on the page. The demo is reached through the one-tap buttons on
   towinly.com; the page links there.
-- Nothing is committed until Harsha reviews on localhost; nothing is pushed until he says
-  "push".
+- The build happens on a branch, `feat/why-towinly`, with small local commits so nothing
+  is lost. Nothing lands on `main` until Harsha reviews on localhost; nothing is pushed
+  until he says "push".
 
 ## 3. Page shape
 
