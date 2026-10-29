@@ -1,5 +1,7 @@
 // The Helpers tab. Facts from the store listing, the user guide's helper chapter,
 // landingSlides.js and the founder's story (love and care first).
+import { DEMO_NOTE } from "./cast";
+
 export default {
   id: "helpers",
   title: "For helpers",
@@ -20,9 +22,11 @@ export default {
       title: "Earn a Trust Score",
       body: [
         "Each person you help can add up to 15 points to your score: 3 for your checked profile, 7 for the seven steps you climb together, and 5 from their review.",
-        "The score is a reputation. It keeps changing as you connect with new people, and an elder reads it before saying yes. Tap the parts to see it fill.",
+        "The score is a reputation. It keeps changing as you connect with new people, and an elder reads it before saying yes.",
       ],
       extra: "score",
+      tryTitle: "How your score fills",
+      tryLead: "Tap the three parts. Each person you help can add up to 15 points.",
       shots: ["helper-reviews-card"],
     },
     {
@@ -30,9 +34,11 @@ export default {
       title: "The ladder from your seat",
       body: [
         "Every friendship climbs the same seven steps, and both of you say yes to each. The elder's phone number appears only at Phone Ready, and so does yours.",
-        "Either side can pause or stop. Tap a step to see what it opens.",
+        "Either side can pause or stop.",
       ],
       extra: "ladder",
+      tryTitle: "The seven steps, from the bottom",
+      tryLead: "Tap a step to see what it opens. Both of you say yes to each one.",
       shots: ["helper-ladder-open"],
     },
     {
@@ -75,6 +81,7 @@ export default {
         "Tap Try as a Helper on towinly.com and you are Harsha, 23, a tech support volunteer who likes chess. An elder's three-day Toronto trip is open, and you can offer on it.",
       ],
       extra: "cast:helper",
+      more: [DEMO_NOTE],
     },
   ],
 };

@@ -6,7 +6,7 @@ import { readdirSync, writeFileSync, mkdirSync } from "node:fs";
 import { join } from "node:path";
 
 const ROOT = new URL("..", import.meta.url).pathname;
-const dirs = [join(ROOT, "public/towinly/shots"), join(ROOT, "public/towinly/social")];
+const dirs = ["shots", "social", "photos"].map((d) => join(ROOT, "public/towinly", d));
 const manifest = {};
 for (const dir of dirs) {
   for (const name of readdirSync(dir).filter((n) => n.endsWith(".webp"))) {

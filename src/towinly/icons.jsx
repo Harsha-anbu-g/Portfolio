@@ -17,6 +17,9 @@ const PATHS = {
   link: <path d="M10 14a4 4 0 005.7 0l3-3a4 4 0 00-5.7-5.7l-1 1M14 10a4 4 0 00-5.7 0l-3 3a4 4 0 005.7 5.7l1-1" />,
   check: <path d="M5 12.5l4.5 4.5L19 7.5" />,
   back: <path d="M19 12H5M11 6l-6 6 6 6" />,
+  list: <path d="M9 6h11M9 12h11M9 18h11M4.5 6h.01M4.5 12h.01M4.5 18h.01" />,
+  close: <path d="M6 6l12 12M18 6L6 18" />,
+  plus: <path d="M12 5v14M5 12h14" />,
 };
 
 export default function Icon({ name, size = 20 }) {

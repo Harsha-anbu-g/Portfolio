@@ -35,6 +35,7 @@ export default function TabBar({ active, onSelect, barRef }) {
             aria-controls={active === tab.id ? `panel-${tab.id}` : undefined}
             tabIndex={index === activeIndex ? 0 : -1}
             className="tab"
+            data-accent={tab.accent}
             onClick={() => onSelect(tab.id)}
             onKeyDown={(event) => onKeyDown(event, index)}
           >
