@@ -89,9 +89,36 @@ technical where it earns its place. Interactive, not a wall of text.
 3. [ ] Load every skill the job needs (design, copy passes, verification)
 4. [ ] `ui-ux-pro-max` on the design
 5. [ ] UX quality is the main rule for this page
+6. [ ] Tell the iPhone app clearly (its own section)
+7. [ ] All social links, Towinly's and Harsha's
+8. [ ] Story tab built mainly from the Instagram story run and the pitch decks
+
+Spec: docs/superpowers/specs/2026-10-28-why-towinly-page-design.md
+Plan: docs/superpowers/plans/2026-10-28-why-towinly-page.md (branch feat/why-towinly)
 
 ## Checklist
-(filled in by the implementation plan once the design is approved)
+- [ ] 1 Branch and todo
+- [ ] 2 Check script (red first)
+- [ ] 3 Assets: WebP shots and artworks, size manifest, commit counts
+- [ ] 4 Captions pulled word for word from the marketing file
+- [ ] 5 AI fragment and its scoped CSS
+- [ ] 6 Shared data files
+- [ ] 7 Entry, Vite config, route hook
+- [ ] 8 Shell components
+- [ ] 9 Content components
+- [ ] 10 Elders tab
+- [ ] 11 Helpers and Family tabs
+- [ ] 12 Story tab
+- [ ] 13 Technical tab
+- [ ] 14 Copy passes: humanizer, then stop-slop
+- [ ] 15 Home page card and the forwarding page
+- [ ] 16 Styles pass with the design skills
+- [ ] 17 Build and checks
+- [ ] 18 Localhost smoke test by script
+- [ ] 19 Keyboard and reduced-motion walk (ask first)
+- [ ] 20 Harsha reviews on localhost
+- [ ] 21 Merge locally, no push
+- [ ] 22 Memory and observations
 
 ## Review
 (to fill after Harsha reviews on localhost)
