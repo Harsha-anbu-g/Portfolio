@@ -191,5 +191,5 @@ Branch: feat/towinly-cards. Show on localhost before any push.
 - [x] Headless walk of all 89 cards at 1440: no broken image, no clipped words, no phone
       taller than its card; ladder bottom-up and arrow-up climbs; sheets open and close;
       AI sheet renders its 12 steps; phone swipe moves on; nothing wider than 390px
-- [ ] Harsha reviews on localhost
-- [ ] Merge to main and push only on "push"
+- [x] Harsha reviewed on localhost and said "Looks good, push it live" (2026-10-29)
+- [x] Merged to main and pushed
