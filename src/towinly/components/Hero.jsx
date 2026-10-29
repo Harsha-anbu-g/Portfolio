@@ -9,7 +9,7 @@ export default function Hero({ compact, onHome }) {
       </p>
       <p className="page-lead">
         Towinly connects elders with younger helpers nearby, and makes trust grow one step at a
-        time. Pick who you are and the page speaks to you.
+        time. Pick who you are. Each tab is written for one reader.
       </p>
       {compact && (
         <button type="button" className="page-choose-again" onClick={onHome}>

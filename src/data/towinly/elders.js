@@ -36,7 +36,7 @@ export default {
       body: [
         "Every member carries a Trust Score. Open a helper's profile and read it before you say yes to anyone.",
         "Each person a helper has helped can add up to 15 points: 3 for a checked profile with ID, phone and photo, 7 for the seven steps of the Trust Ladder climbed together, and 5 from that person's review.",
-        "It is a reputation, not a one-time badge. It keeps changing as the helper connects with new people. Tap the three parts below to see how a score fills up.",
+        "It is a reputation. It keeps changing as the helper connects with new people. Tap the three parts below to see how a score fills up.",
       ],
       extra: "score",
       shots: ["elder-trust-people"],
@@ -51,16 +51,16 @@ export default {
       ],
       extra: "ladder",
       more: [
-        "Either of you can pause the climb or stop it altogether, at any step. A pause keeps what you have; a stop ends the friendship on both phones.",
-        "The people you named as emergency contacts are told on the day you first meet a helper in person.",
+        "Either of you can pause the climb or stop it, at any step. A pause keeps what you have; a stop ends the friendship on both phones.",
+        "On the day you first meet a helper in person, the app tells the people you named as emergency contacts.",
       ],
       shots: ["elder-trust", "elder-home-building-trust"],
     },
     {
       id: "friends",
-      title: "Friends, never matches",
+      title: "Finding friends",
       body: [
-        "Towinly says friends. Tap the plus on your home screen to find helpers near you, closest first, each with their Trust Score, or New here if they have just joined.",
+        "Towinly says friends, never matches. Tap the plus on your home screen to find helpers near you, closest first, each with their Trust Score, or New here if they have just joined.",
         "You choose how far Towinly looks, from 5 to 100 kilometres. Tap a person to read their full profile, then tap Connect to ask. They are asked before anything happens.",
         "Invites from others wait on the New invites tab. Accept or decline. Declining is final, and the app checks first.",
       ],
@@ -81,7 +81,7 @@ export default {
       body: [
         "One tap a day tells the family you linked that you are alright. The first time you open the app on a day, Towinly walks you to the check-in. Tap I'm here today, and the screen names who can see it.",
         "A streak counts the days in a row. Skipping a day is never a problem. The app calls it a gentle signal, never a duty.",
-        "If you go quiet, the people you named are told. You choose how many quiet days pass first, from 1 to 30, for each of them.",
+        "If you go quiet, the app texts the people you named. You choose how many quiet days pass first, from 1 to 30, for each of them.",
       ],
       shots: ["elder-checkin", "elder-emergency-contacts"],
     },
@@ -169,8 +169,8 @@ export default {
       id: "safety",
       title: "Staying safe",
       body: [
-        "Scammers go after elders, and elders deserve to be safe. So ID is checked before a profile is full, and the ID photo is never shown to members.",
-        "Nothing personal is shared until trust has grown. Block a person and they are gone from every phone you sign in on. Report from any profile. Your data is never sold, and you can export it or delete your account from your profile.",
+        "Scammers go after elders, and elders deserve to be safe. So a person at Towinly checks your ID before your profile is full, and no member ever sees the photo.",
+        "Nothing personal is shared until trust has grown. Block a person and they are gone from every phone you sign in on. Report from any profile. Towinly never sells your data, and you can export it or delete your account from your profile.",
       ],
       shots: ["elder-profile"],
     },

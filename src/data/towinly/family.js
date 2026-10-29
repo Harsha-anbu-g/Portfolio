@@ -19,7 +19,7 @@ export default {
       title: "See the journey, hear right away",
       body: [
         "Each friendship your parent shares with you appears with the step it has reached, from Just Connected to Fully Trusted. You get an alert the moment something needs attention: a first meeting planned, a quiet stretch, an SOS.",
-        "You can look at a new helper and share your view. Once a friendship reaches Messaging, you can message that helper directly.",
+        "You can look at a new helper and share your view. Once a friendship reaches Messaging, you can message that helper yourself.",
       ],
       shots: ["family-parent-today"],
     },
@@ -35,7 +35,7 @@ export default {
       id: "f-check-in",
       title: "The daily check-in, from your side",
       body: [
-        "When your parent taps I'm here today, you see it. If they go quiet for the number of days they chose, you are told, in the app and by text.",
+        "When your parent taps I'm here today, you see it. If they go quiet for the number of days they chose, the app tells you, on your phone and by text.",
       ],
     },
     {

@@ -45,7 +45,7 @@ export default {
       id: "t-score",
       title: "The score",
       body: [
-        "3 + 7 + 5 per connection: profile completeness, rungs climbed together, and the review from that person. Summed across every real friendship, so it is a reputation that keeps moving, not a badge earned once.",
+        "3 + 7 + 5 per connection: profile completeness, rungs climbed together, and the review from that person. Summed across every real friendship, so it is a reputation that keeps moving.",
         "Tiers on the website: New Member at 0, Getting Started from 1 to 14, Reliable from 15 to 44, Highly Trusted from 45 to 89, Community Champion at 90 and above.",
       ],
       extra: "score",
@@ -71,8 +71,8 @@ export default {
       id: "t-security",
       title: "Security and privacy",
       body: [
-        "Blocks are enforced on the server, so they hold on every device. Rate limits on sign-in and the public endpoints. An 18+ age gate at sign-up. ID photos are stored for a one-time staff check and never shown to members.",
-        "Location is rounded on the device to about two kilometres before it is sent, and the API never returns a stored position. The sealed box is encrypted before it is saved, with the key kept away from the data, and every opening is logged.",
+        "The server enforces blocks, so they hold on every device. Rate limits guard sign-in and the public endpoints. An 18+ age gate runs at sign-up. Staff check an ID photo once; no member ever sees it.",
+        "The phone rounds a location to about two kilometres before sending it, and the API never returns a stored position. The app encrypts the sealed box before saving it, keeps the key away from the data, and logs every opening.",
       ],
       more: [
         "What is collected, and where it goes. Name, photo, bio, interests, age and languages: shown to other members. Email and phone: run the account; the phone number is revealed only at Phone Ready and is sent to Twilio to deliver codes and alerts. The ID photo, optional: S3 in the US, for a staff check. Coarse location, optional: a town name, geocoded. Messages: between the two people, with a safety review only if reported. Questions to Ask AI: sent to the model with a first name and trust score, never contact details. Emergency contacts: texted on a first meeting and after quiet days.",
