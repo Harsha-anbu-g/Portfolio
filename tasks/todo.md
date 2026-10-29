@@ -89,9 +89,78 @@ technical where it earns its place. Interactive, not a wall of text.
 3. [ ] Load every skill the job needs (design, copy passes, verification)
 4. [ ] `ui-ux-pro-max` on the design
 5. [ ] UX quality is the main rule for this page
+6. [ ] Tell the iPhone app clearly (its own section)
+7. [ ] All social links, Towinly's and Harsha's
+8. [ ] Story tab built mainly from the Instagram story run and the pitch decks
+
+Spec: docs/superpowers/specs/2026-10-28-why-towinly-page-design.md
+Plan: docs/superpowers/plans/2026-10-28-why-towinly-page.md (branch feat/why-towinly)
 
 ## Checklist
-(filled in by the implementation plan once the design is approved)
+- [x] 1 Branch and todo (feat/why-towinly)
+- [x] 2 Check script (red first: no data dir; green once the data landed)
+- [x] 3 Assets: 37 shots at 480w (960K) and 12 artworks at 540w (336K), manifest with real
+      sizes, commit counts 937 web + 472 app on main as of 2026-10-28. User-guide PDFs
+      (5.6 to 17.9 MB each) NOT copied; the Technical tab shows the in-app guide instead
+- [x] 4 Captions pulled word for word from CAPTIONS-TO-POST.txt and captions.md (12 posts);
+      the extractor normalises the title-case "It Takes Two to Win" in post 47's alt text
+      to the exact brand line
+- [x] 5 AI fragment (public/towinly-ai.html lines 506 to 1156, h1 and toc dropped) and its
+      CSS nested under .ai-tab with :root → &, html/body/topbar/toc/foot blocks removed
+- [x] 6 Shared data files
+- [x] 7 Entry, Vite config (two inputs), route hook
+- [x] 8 Shell components
+- [x] 9 Content components
+- [x] 10 Elders tab (17 sections, 18px body)
+- [x] 11 Helpers and Family tabs
+- [x] 12 Story tab: the six-part origin run and the problem run as artworks with their
+      captions, the deck's order around them (18 sections)
+- [x] 13 Technical tab (11 sections)
+- [x] 14 Copy passes: humanizer then stop-slop applied by hand to every sentence I wrote
+      (passives made active, two "X, not Y" contrasts cut, adverbs removed); the owner's
+      Instagram captions and alt text left untouched; grep for em dashes: none
+- [x] 15 Home page card ("Why Towinly", /towinly/) and the AI card now /towinly/#ai;
+      public/towinly-ai.html is a forwarding stub (meta refresh + link, noindex)
+- [x] 16 Styles pass: impeccable hook ran on every file (two findings fixed, two kept on
+      purpose: the sub-nav rail's 2px indicator and the timeline spine, structural lines not
+      card accents); ui-ux-pro-max checklist §1 to §3, §5 to §7, §9 walked; after the
+      screenshots: the elder card across the top with the other five in one row, the phone
+      sticky beside the words on wide screens, 44px targets everywhere, no ring on
+      programmatically focused headings
+- [x] 17 Build and checks: lint clean on src and scripts (the 285 pre-existing errors are
+      all in clark-master/js), check-towinly ok (19 data files, 37 shots, 12 artworks,
+      76 ids); dist: towinly JS 148 KB (47 KB gzip), CSS 25 KB (5.4 KB gzip)
+- [x] 18 Localhost smoke test by script: title, shots, artworks, logo, forwarding stub,
+      home card all 200 on http://localhost:5176/towinly/
+- [x] 19 Keyboard and reduced-motion walk (Harsha said yes; both MCP browsers were held by
+      the other session, so an isolated headless Chromium ran from a scratchpad script):
+      Tab + Enter opens #elders with focus on the panel title; ArrowRight → #helpers; Back →
+      #elders; /towinly/#ladder opens the Elders tab with the ladder 72px under the bar and
+      focused; same-document and hard-reload deep links all land at 72px; the AI tab renders
+      15 sections with a 15-item sub-nav; no element wider than a 390px screen (measured
+      element by element, since overflow-x: clip hides it from scrollWidth); every image
+      declares its size; reduced motion removes the panel animation; no console errors.
+      Found and fixed on the way: body overflow-x hidden defeated the sticky bar (now clip),
+      the gallery image's intrinsic width widened the phone layout (track is minmax(0,1fr)),
+      smooth scrolling cut the second scroll short (tab jumps are instant now)
+- [x] 20 Harsha reviewed on localhost (laptop and phone) and said "Looks good, merge it locally"
+- [x] 21 Merged into main with --no-ff on 2026-10-28. NOT pushed: push only on "push"
+- [x] 22 Memory note why-towinly-page-2026-10-28; observations 356 to 359 in the skill log
 
 ## Review
-(to fill after Harsha reviews on localhost)
+Approved on localhost on 2026-10-28. What shipped to main (local only):
+- /towinly/: hero, six-card chooser, sticky tab bar, six tabs (Elders 17 sections, Helpers 8,
+  Family 7, Story 18, Technical 11, AI 15), hash routing with shareable section links,
+  tap-through Trust Ladder, 3 + 7 + 5 score meter, phone galleries (37 screens), demo cast
+  (20 people, three Try-as links), timeline, stat tiles with dates, architecture figure,
+  the problem run and the six-part origin run as artworks with their captions, social
+  links for Towinly and Harsha, the closing card.
+- Home page: "Why Towinly" card; the AI card points at /towinly/#ai; /towinly-ai.html
+  forwards there.
+- Scripts: towinly-assets.sh (WebP + manifest + commit counts), towinly-captions.mjs
+  (captions and alt text word for word), check-towinly.mjs (dashes, files, ids, brand lines).
+- Pre-existing lint errors in clark-master/js untouched. The user-guide PDFs stay out of
+  the repo (too large); the Technical tab shows the in-app guide screen instead.
+- To push: `git push origin main` (Vercel deploys from main). To rerun the page's checks:
+  `node scripts/check-towinly.mjs`; to refresh screenshots and counts:
+  `bash scripts/towinly-assets.sh && node scripts/towinly-captions.mjs`.

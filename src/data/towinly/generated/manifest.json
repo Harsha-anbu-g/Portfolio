@@ -1,0 +1,198 @@
+{
+  "elder-ask-ai": {
+    "w": 480,
+    "h": 1034
+  },
+  "elder-ask-help": {
+    "w": 480,
+    "h": 1034
+  },
+  "elder-chat-ethan": {
+    "w": 480,
+    "h": 1034
+  },
+  "elder-checkin": {
+    "w": 480,
+    "h": 1034
+  },
+  "elder-emergency-contacts": {
+    "w": 480,
+    "h": 1034
+  },
+  "elder-family-sharing": {
+    "w": 480,
+    "h": 1034
+  },
+  "elder-family": {
+    "w": 480,
+    "h": 1034
+  },
+  "elder-friends-invites": {
+    "w": 480,
+    "h": 1034
+  },
+  "elder-friends": {
+    "w": 480,
+    "h": 1034
+  },
+  "elder-home-building-trust": {
+    "w": 480,
+    "h": 1034
+  },
+  "elder-home": {
+    "w": 480,
+    "h": 1034
+  },
+  "elder-messages": {
+    "w": 480,
+    "h": 1034
+  },
+  "elder-pass-on-sheet": {
+    "w": 480,
+    "h": 1034
+  },
+  "elder-pass-on": {
+    "w": 480,
+    "h": 1034
+  },
+  "elder-posted-help": {
+    "w": 480,
+    "h": 1034
+  },
+  "elder-profile": {
+    "w": 480,
+    "h": 1034
+  },
+  "elder-sealed-items": {
+    "w": 480,
+    "h": 1034
+  },
+  "elder-story-detail": {
+    "w": 480,
+    "h": 1034
+  },
+  "elder-trust-people": {
+    "w": 480,
+    "h": 1034
+  },
+  "elder-trust": {
+    "w": 480,
+    "h": 1034
+  },
+  "elder-updates": {
+    "w": 480,
+    "h": 1034
+  },
+  "family-home": {
+    "w": 480,
+    "h": 1034
+  },
+  "family-parent-cando": {
+    "w": 480,
+    "h": 1034
+  },
+  "family-parent-today": {
+    "w": 480,
+    "h": 1034
+  },
+  "family-parent": {
+    "w": 480,
+    "h": 1034
+  },
+  "game-menu-elder": {
+    "w": 480,
+    "h": 1034
+  },
+  "guide": {
+    "w": 480,
+    "h": 1034
+  },
+  "helper-home": {
+    "w": 480,
+    "h": 1034
+  },
+  "helper-job-open": {
+    "w": 480,
+    "h": 1034
+  },
+  "helper-ladder-open": {
+    "w": 480,
+    "h": 1034
+  },
+  "helper-my-jobs": {
+    "w": 480,
+    "h": 1034
+  },
+  "helper-offer-help": {
+    "w": 480,
+    "h": 1034
+  },
+  "helper-passed-on": {
+    "w": 480,
+    "h": 1034
+  },
+  "helper-reviews-card": {
+    "w": 480,
+    "h": 1034
+  },
+  "landing-01": {
+    "w": 480,
+    "h": 1034
+  },
+  "login": {
+    "w": 480,
+    "h": 1034
+  },
+  "register-role": {
+    "w": 480,
+    "h": 1034
+  },
+  "towinly-ig-02-trust-ladder": {
+    "w": 540,
+    "h": 675
+  },
+  "towinly-ig-33-stranger-at-the-door": {
+    "w": 540,
+    "h": 675
+  },
+  "towinly-ig-34-all-fine-here": {
+    "w": 540,
+    "h": 675
+  },
+  "towinly-ig-35-a-quiet-week": {
+    "w": 540,
+    "h": 675
+  },
+  "towinly-ig-36-she-pays-online-now": {
+    "w": 540,
+    "h": 675
+  },
+  "towinly-ig-37-first-digital-elders": {
+    "w": 540,
+    "h": 675
+  },
+  "towinly-ig-38-the-mix": {
+    "w": 540,
+    "h": 675
+  },
+  "towinly-ig-39-how-i-found-the-trust-ladder": {
+    "w": 540,
+    "h": 675
+  },
+  "towinly-ig-40-where-the-boxes-came-from": {
+    "w": 540,
+    "h": 675
+  },
+  "towinly-ig-41-team-of-one": {
+    "w": 540,
+    "h": 675
+  },
+  "towinly-ig-42-how-i-built-trust-2": {
+    "w": 540,
+    "h": 675
+  },
+  "towinly-ig-47-five-people-one-switch": {
+    "w": 540,
+    "h": 675
+  }
+}

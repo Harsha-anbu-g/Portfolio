@@ -242,10 +242,16 @@ const profile = {
       instagram: TOWINLY_INSTAGRAM,
       linkedin: TOWINLY_LINKEDIN,
       video: "https://www.linkedin.com/posts/harsha-anbu-gowri_fullstackdeveloper-springboot-java-ugcPost-7481541368083918848-WYBQ/",
-      /* Standalone case study (public/towinly-ai.html). The featured block
-         renders it as a link card beside the architecture and video cards. */
+      /* The whole product explained on one page, six kinds of reader (/towinly/). */
+      whyTowinly: {
+        href: "/towinly/",
+        title: "Why Towinly",
+        sub: "The story, the people, every feature and the iPhone app, explained for whoever you are",
+      },
+      /* The AI case study, now the AI tab of the Why Towinly page. The featured
+         block renders it as a link card beside the architecture and video cards. */
       aiCaseStudy: {
-        href: "/towinly-ai.html",
+        href: "/towinly/#ai",
         title: "Everything AI in Towinly",
         sub: "The full case study: Ask AI, retrieval on pgvector, a 108-tool MCP server, agents and 11 tested safety layers",
       },
