@@ -72,7 +72,7 @@ export default {
       id: "h-demo",
       title: "Try it as Harsha",
       body: [
-        "Tap Try as a Helper on towinly.com and you are Harsha, 23, a tech support volunteer who likes chess. David Chen's Toronto trip is open, and you can offer on it.",
+        "Tap Try as a Helper on towinly.com and you are Harsha, 23, a tech support volunteer who likes chess. An elder's three-day Toronto trip is open, and you can offer on it.",
       ],
       extra: "cast:helper",
     },

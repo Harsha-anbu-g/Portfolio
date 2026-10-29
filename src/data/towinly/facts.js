@@ -8,7 +8,7 @@ export const FACTS = [
   { value: "1,401", label: "app tests, more since", asOf: "2026-08-29" },
   { value: "108", label: "MCP tools, generated from the API", asOf: "2026-10-25" },
   { value: "3", label: "languages: English, French, Tamil", asOf: "2026-10-28" },
-  { value: "20", label: "demo seats anyone can try", asOf: "2026-10-28" },
+  { value: "20", label: "demo people, three of them one tap away", asOf: "2026-10-28" },
 ];
 
 export const BUILD_LINE =

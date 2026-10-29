@@ -178,8 +178,7 @@ export default {
       id: "demo",
       title: "Try it as Margaret",
       body: [
-        "Twenty demo people live on towinly.com, so you can try the app before you join. Tap Try as an Elder on the login page and you are Margaret, 73, a retired teacher who likes chess, gardening and a good cup of tea.",
-        "Below are the people you will meet there.",
+        "The demo on towinly.com has twenty people in it, and three of them are one tap away on the login page, with no sign-up. Tap Try as an Elder and you are Margaret, 73, a retired teacher who likes chess, gardening and a good cup of tea.",
       ],
       extra: "cast",
       shots: ["login"],

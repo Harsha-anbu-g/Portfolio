@@ -13,7 +13,7 @@ const SHOTS = {
   "elder-friends": { file: "elder-friends", caption: "Find new helpers nearby", alt: "The Add friends screen: helpers nearby, closest first, each with a Trust Score and a Connect button." },
   "elder-friends-invites": { file: "elder-friends-invites", caption: "New invites", alt: "The New invites tab with a helper's card and Accept and Decline buttons." },
   "elder-messages": { file: "elder-messages", caption: "Messages stay inside the app", alt: "The Messages list: one row per friend, with the newest message and its time." },
-  "elder-chat-ethan": { file: "elder-chat-ethan", caption: "A chat with a helper", alt: "A chat with Ethan: messages on both sides and a text box at the bottom." },
+  "elder-chat-ethan": { file: "elder-chat-ethan", caption: "A chat with a helper", alt: "A chat with a helper: messages on both sides and a text box at the bottom." },
   "elder-checkin": { file: "elder-checkin", caption: "The daily check-in", alt: "The Daily check-in screen: Let your family know you're alright, and the I'm here today button." },
   "elder-emergency-contacts": { file: "elder-emergency-contacts", caption: "Emergency contacts", alt: "The Emergency contacts screen: up to three named people, who they are, and the quiet days before each one is told." },
   "elder-family": { file: "elder-family", caption: "Family can watch over", alt: "The Family screen listing the elder's family members and the friendships shared with them." },
