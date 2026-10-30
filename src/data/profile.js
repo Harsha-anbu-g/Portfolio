@@ -181,9 +181,9 @@ const profile = {
       location: "Canada",
       period: "Apr 2026 – Sep 2026",
       bullets: [
-        "Owned an ad decision microservice's caching from requirement to production, measured by ad decisions kept off a database round trip and a 60-second staleness ceiling, by designing dual-invalidation cache-aside Redis caches in Java and Spring Boot on GCP Cloud Run.",
-        "Hardened a real-time watch-party feature before release, measured by 8 defects closed and a 126/126 suite restored from 6 never-failing tests, by verifying an untested Java branch at three privilege levels and closing an unguarded HTTP PUT method.",
-        "Verified the merged release branch safe to ship, measured by a 383-test Java backend suite green, 30 more live checks at 0 failures, and 0 commits lost, by tracing two release-blocking startup failures to root cause, one a dropped import failing 68 tests, and fixing both.",
+        "Owned an ad decision microservice's caching from requirement to production, measured by ad decisions kept off a database round trip and a 60-second staleness ceiling, by designing dual-invalidation cache-aside caches for the service.",
+        "Hardened a real-time watch-party feature before release, measured by 8 defects closed and a 126/126 suite restored from 6 never-failing tests, by verifying an untested code branch at three privilege levels and closing an unguarded HTTP PUT method.",
+        "Verified the merged release branch safe to ship, measured by a 383-test backend suite green, 30 more live checks at 0 failures, and 0 commits lost, by tracing two release-blocking startup failures to root cause, one a dropped import failing 68 tests, and fixing both.",
       ],
     },
     {
