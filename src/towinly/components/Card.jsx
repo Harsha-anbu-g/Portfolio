@@ -2,8 +2,8 @@ import { forwardRef } from "react";
 import Visual from "./Visual";
 import Icon from "../icons";
 
-/* One card: a label, a title, a line or two, and one picture. The rest of the words wait
-   behind Read more, so the card reads at a glance. */
+/* One card: a label, a title, a line or two, and one picture. On most tabs the rest of the
+   words wait behind Read more; Story cards show every word they have. */
 const Card = forwardRef(function Card({ card, dir, headingRef, onMore, dragHandlers }, ref) {
   return (
     <article

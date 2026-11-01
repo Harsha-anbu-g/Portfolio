@@ -162,7 +162,7 @@ export default function Deck({ tabId, cardId, onCardChange, onNextTab, headingRe
   };
 
   return (
-    <div className="deck" ref={deckRef} data-accent={tab.accent} data-size={TAB_DATA[tabId].bodySize === "lg" ? "lg" : "md"}>
+    <div className="deck" ref={deckRef} data-tab={tabId} data-accent={tab.accent} data-size={TAB_DATA[tabId].bodySize === "lg" ? "lg" : "md"}>
       <Card
         key={card.id}
         ref={cardRef}

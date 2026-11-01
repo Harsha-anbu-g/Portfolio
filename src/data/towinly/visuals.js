@@ -32,14 +32,11 @@ export const VISUALS = {
   "f-check-in": { photo: "coffee-windowsill" },
   "f-keyholders": { photo: "keys-box" },
   // Story
-  "s-new-elder": { panel: { big: "47 → 73", small: "years of life expectancy, 1950 to today (United Nations)" }, bg: "walk-autumn-pair" },
-  "s-two-things": { photo: "empty-armchair" },
   "s-why-now": { panel: { big: "13% → 78%", small: "of Americans over 65 with a smartphone, 2012 to 2025 (Pew Research Center)" }, bg: "phone-chat-hands" },
   "s-why-matters": { panel: { big: "50%", small: "better odds of survival with strong social ties, across 148 studies (PLOS Medicine, 2010)" }, bg: "teapot-two-cups" },
   "s-solution": { photo: "walk-forest-far" },
-  "s-business": { panel: { big: "Free", small: "and always free for elders who cannot pay" }, bg: "coffee-flowers" },
+  "s-business": { panel: { big: "Free", small: "nothing is charged today" }, bg: "coffee-flowers" },
   "s-team": { founder: true },
-  "s-built-live": { panel: { big: "Live", small: "on towinly.com, with the iPhone app in Apple's review" }, bg: "laptop-code" },
   "s-ask": { photo: "envelope" },
   // Technical
   "t-stack": { panel: { big: "Java 21 · React 19 · Expo 54", small: "Spring Boot, PostgreSQL with pgvector, Redis, Railway and Vercel" }, bg: "laptop-code-2" },

@@ -193,3 +193,33 @@ Branch: feat/towinly-cards. Show on localhost before any push.
       AI sheet renders its 12 steps; phone swipe moves on; nothing wider than 390px
 - [x] Harsha reviewed on localhost and said "Looks good, push it live" (2026-10-29)
 - [x] Merged to main and pushed
+
+---
+
+# 2026-10-31: the Story tab, minimal
+
+Harsha's notes: the picture is too big; no Read more in the Story, every word on screen,
+short and minimal, less noise; the pictures in their real order; the first five to ten
+cards are unwanted, the Story really starts at the six-part "How Towinly began".
+Branch: feat/towinly-story-minimal (a separate worktree, so the other session's main stays
+untouched). Show on localhost before any push.
+
+## Queue
+1. [x] Story starts at Part 1 of 6; cut the six cards before it
+2. [x] No Read more in the Story: short words that fit, links trimmed
+3. [x] Smaller picture on the six artworks, words given the room (whole Story tab, so it
+       does not change size halfway; phones too)
+4. [x] Pictures in order, Part 1 to 6, each card's title matching its artwork
+
+## Checklist
+- [x] Story is 19 cards: the six parts, the founder, then the pitch facts; the founder card
+      follows Part 6, "Built and live" folded into the iPhone and ask cards
+- [x] Words trimmed from his own captions; humanizer then stop-slop; no dashes; brand
+      lines exact
+- [x] Fixed on the way: number tiles spilled out of the narrower side; story artworks were
+      cropped on phones
+- [x] Check script ok; lint clean; build green
+- [x] Headless walk of all 82 cards at 1440 (no broken image, nothing clipped or wider than
+      its side, no Read more in the Story), 1280x720 spot checks, phone 390: every Story
+      card's words end above the controls, no picture cut; other tabs match the live build
+- [ ] Harsha reviews on localhost
