@@ -193,3 +193,49 @@ Branch: feat/towinly-cards. Show on localhost before any push.
       AI sheet renders its 12 steps; phone swipe moves on; nothing wider than 390px
 - [x] Harsha reviewed on localhost and said "Looks good, push it live" (2026-10-29)
 - [x] Merged to main and pushed
+
+---
+
+# 2026-10-31: the Story tab, minimal
+
+Harsha's notes: the picture is too big; no Read more in the Story, every word on screen,
+short and minimal, less noise; the pictures in their real order; the first five to ten
+cards are unwanted, the Story really starts at the six-part "How Towinly began".
+Branch: feat/towinly-story-minimal (a separate worktree, so the other session's main stays
+untouched). Show on localhost before any push.
+
+## Queue
+1. [x] Story starts at Part 1 of 6; cut the six cards before it
+2. [x] No Read more in the Story: short words that fit, links trimmed
+3. [x] Smaller picture on the six artworks, words given the room (whole Story tab, so it
+       does not change size halfway; phones too)
+4. [x] Pictures in order, Part 1 to 6, each card's title matching its artwork
+
+## Checklist
+- [x] Story is 19 cards: the six parts, the founder, then the pitch facts; the founder card
+      follows Part 6, "Built and live" folded into the iPhone and ask cards
+- [x] Words trimmed from his own captions; humanizer then stop-slop; no dashes; brand
+      lines exact
+- [x] Fixed on the way: number tiles spilled out of the narrower side; story artworks were
+      cropped on phones
+- [x] Check script ok; lint clean; build green
+- [x] Headless walk of all 82 cards at 1440 (no broken image, nothing clipped or wider than
+      its side, no Read more in the Story), 1280x720 spot checks, phone 390: every Story
+      card's words end above the controls, no picture cut; other tabs match the live build
+- [x] Harsha reviewed on localhost (2026-11-01): he wants the old words and Read more back
+
+## 2026-11-01 review round
+Harsha: "keep it the old version itself with read more" (asked: the Story keeps its Part 1
+start, the longer words come back behind Read more), "increase the pic size", and "keep the
+why towinly button below the numbers in portfolio with different color".
+
+1. [x] Story is the old version from Part 1 onward: old titles, old words, Read more, the
+       full caption behind each origin card; only the six cards before Part 1 stay cut (20 cards)
+2. [x] Bigger Story pictures: artworks 380px wide on desktop (were 290; the card split is
+       back to the other tabs'), 338px tall on a 390 phone (were 236)
+3. [x] Portfolio home: the Why Towinly card sits under the numbers strip, filled in Towinly
+       green #067A41 with white words (5.4:1); the architecture, video and AI cards stay below
+- [x] Check script ok; lint clean; build green; headless walk of all 83 cards with no
+      problems and no console errors; Part 5's Read more opens all 11 paragraphs; home page
+      checked at 1440 and 390, nothing wider than the screen
+- [ ] Harsha reviews on localhost

@@ -1,6 +1,6 @@
-// The Story tab, built mainly from the Instagram story run (the six "How Towinly began"
-// posts, word for word, through artworks.js) and the two pitch decks (District 3, 26 Oct
-// 2026; investor deck, Aug to Sep 2026). Numbers are the verified ones in RESEARCH.md.
+// The Story tab. It opens on the Instagram story run (the six "How Towinly began" posts,
+// word for word, through artworks.js), then the facts from the two pitch decks (District 3,
+// 26 Oct 2026; investor deck, Aug to Sep 2026). Numbers are the verified ones in RESEARCH.md.
 import { AI_TOOLS, BUILD_LINE, METHOD } from "./facts";
 import { TOWINLY_INSTAGRAM, TOWINLY_LINKEDIN, TOWINLY_GITHUB_WEB, TOWINLY_GITHUB_APP, TOWINLY_VIDEO } from "./links";
 
@@ -10,34 +10,6 @@ export default {
   lead: "Told mainly the way it was told on Instagram and in the pitch: six parts from the founder, and the facts behind them.",
   bodySize: "md",
   sections: [
-    {
-      id: "s-new-elder",
-      title: "A new kind of elder is coming, and more of them than ever",
-      body: [
-        "My grandfather is an elder today. My father will be one in ten years. Both use a phone. The difference: my father pays online every day, and my grandfather never has.",
-        "The next generation of elders is the first in history that arrives at old age already online. That changes what is possible for them. And there will be more of them than ever: medicine keeps people alive longer, fewer children are born, and the baby boom generation is turning 65 right now.",
-      ],
-      more: [
-        "Life expectancy went from 47 years in 1950 to 73 today (United Nations). Canada is down to 1.26 children per woman, one of the lowest rates in the world (Statistics Canada, 2023). By 2050, 2.1 billion people on Earth will be over 60, double what it was in 2020 (World Health Organization).",
-      ],
-    },
-    {
-      id: "s-problem-run",
-      title: "Four pictures of the problem",
-      body: [
-        "Before Towinly said a word about itself on Instagram, it showed what is broken. Four posts, Towinly nowhere in them, on purpose. Tap one to read it.",
-      ],
-      extra: "artworks:problem",
-    },
-    {
-      id: "s-two-things",
-      title: "Two things about growing old have not changed",
-      body: [
-        "The first is loneliness. The US Surgeon General compared chronic loneliness to smoking fifteen cigarettes a day. In Canada, 42 percent of people over 85 live alone.",
-        "The second is energy. Simple tasks get hard. Groceries. A ride to the clinic. A light bulb.",
-        "Meanwhile, young people nearby have energy to spare. Each side has what the other needs. So why has nobody connected them? Trust. An elder cannot let a stranger into their home on day one. Help is easy to find. Trust takes time.",
-      ],
-    },
     {
       id: "s-origin-run",
       title: "How Towinly began, in six parts",

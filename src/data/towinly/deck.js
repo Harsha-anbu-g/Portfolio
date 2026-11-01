@@ -1,8 +1,8 @@
 // Turns each tab's sections into the cards the page shows one at a time. One idea per card:
 // a section with both a phone screen and an interactive piece becomes two cards, and each
-// Instagram post in the story runs becomes its own card with the artwork as its picture.
+// Instagram post in the origin run becomes its own card with the artwork as its picture.
 import { TABS, TAB_DATA } from "./tabs";
-import { PROBLEM_RUN, ORIGIN_RUN } from "./artworks";
+import { ORIGIN_RUN } from "./artworks";
 import { AI_CARDS } from "./ai";
 import { VISUALS } from "./visuals";
 
@@ -41,7 +41,6 @@ function artCards(section, run, label) {
 }
 
 function cardsFor(section) {
-  if (section.extra === "artworks:problem") return artCards(section, PROBLEM_RUN, "The problem, as posted");
   if (section.extra === "artworks:origin") return artCards(section, ORIGIN_RUN, "How Towinly began");
   const widget = WIDGETS.has(section.extra) ? { kind: "widget", name: section.extra, section } : null;
   const shots = section.shots ? { kind: "shots", shots: section.shots } : null;

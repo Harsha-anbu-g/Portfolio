@@ -38,11 +38,16 @@
 .visual-bg { position: absolute; inset: 0; width: 100%; height: 100%; object-fit: cover; z-index: -2; }
 .visual-scrim { position: absolute; inset: 0; z-index: -1; background: linear-gradient(170deg, color-mix(in srgb, var(--accent-deep) 56%, transparent), color-mix(in srgb, var(--accent-deep) 80%, transparent)); }
 .card-visual[data-kind="shots"] .visual-scrim { background: linear-gradient(180deg, color-mix(in srgb, var(--accent-deep) 10%, transparent) 30%, color-mix(in srgb, var(--accent-deep) 72%, transparent)); }
-.visual-fg { position: relative; width: 100%; height: 100%; min-height: 0; display: grid; place-items: center; }
+.visual-fg { position: relative; width: 100%; height: 100%; min-height: 0; display: grid; grid-template-columns: minmax(0, 1fr); place-items: center; }
 .card-visual[data-kind="photo"],
 .card-visual[data-kind="founder"] { padding: 0; }
 .visual-photo { display: block; width: 100%; height: 100%; object-fit: cover; }
 .visual-art { display: block; height: 100%; width: auto; max-width: 100%; object-fit: contain; border-radius: 14px; box-shadow: 0 24px 50px -20px rgba(34, 30, 22, 0.5); }
+/* Story artworks print the whole post, so they sit beside the words as a card, not a poster. */
+@media (min-width: 900px) {
+  .deck[data-tab="story"] .visual-art { width: min(100%, 380px); height: auto; max-height: 100%; }
+}
+.deck[data-tab="story"] .visual-art { box-shadow: 0 14px 34px -18px rgba(34, 30, 22, 0.38); }
 .visual-panel { text-align: center; max-width: 30ch; padding: 0 8px; }
 .panel-big { margin: 0; font-family: var(--font-serif); font-weight: 600; font-size: clamp(2.2rem, 9cqi, 4.6rem); line-height: 1.05; color: #fff; text-shadow: 0 2px 24px rgba(0, 0, 0, 0.25); }
 .panel-small { margin: 14px 0 0; font-size: 1.05rem; line-height: 1.5; color: rgba(255, 255, 255, 0.92); text-shadow: 0 1px 12px rgba(0, 0, 0, 0.25); }
@@ -86,6 +91,9 @@
   .deck { width: 100%; margin-top: 8px; }
   .card { grid-template-columns: minmax(0, 1fr); height: auto; border-radius: 0; border-inline: 0; box-shadow: none; }
   .card-visual { order: -1; height: clamp(300px, 52svh, 470px); padding: 18px; }
+  .deck[data-tab="story"] { --story-pic: clamp(260px, 40svh, 380px); }
+  .deck[data-tab="story"] .card-visual:not([data-kind="widget"]) { height: var(--story-pic); padding: 14px; }
+  .deck[data-tab="story"] .visual-art { height: calc(var(--story-pic) - 28px); width: auto; }
   /* An interactive piece needs its instruction first, so on phones its words lead. */
   .card-visual[data-kind="widget"] { order: 0; height: auto; min-height: 300px; padding: 22px 16px; overflow: visible; }
   .card-words { padding: 22px 18px 26px; justify-content: flex-start; overflow: visible; }

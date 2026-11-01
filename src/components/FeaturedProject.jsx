@@ -118,6 +118,26 @@ export default function FeaturedProject() {
         </div>
         <p className="featured-metrics-note">{towin.metricsNote}</p>
 
+        {/* The Why Towinly page (/towinly/), the whole product for six kinds of reader.
+            It sits under the numbers in Towinly green, so it reads as the next step.
+            Text comes from profile.js. */}
+        {towin.whyTowinly && (
+          <a href={towin.whyTowinly.href} className="featured-arch featured-why">
+            <span className="featured-arch-icon" aria-hidden="true">
+              <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth={2} strokeLinecap="round" strokeLinejoin="round">
+                <path d="M4 5.5A2.5 2.5 0 016.5 3H12v15H6.5A2.5 2.5 0 004 20.5zM12 3h5.5A2.5 2.5 0 0120 5.5v15A2.5 2.5 0 0017.5 18H12z" />
+              </svg>
+            </span>
+            <span className="featured-arch-text">
+              <span className="featured-arch-title">{towin.whyTowinly.title}</span>
+              <span className="featured-arch-sub">{towin.whyTowinly.sub}</span>
+            </span>
+            <svg className="featured-arch-arrow" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth={2.5} strokeLinecap="round" strokeLinejoin="round" aria-hidden="true">
+              <path d="M5 12h14M13 6l6 6-6 6" />
+            </svg>
+          </a>
+        )}
+
         {/* Overview */}
         <p className="featured-overview">{overview}</p>
 
@@ -200,26 +220,7 @@ export default function FeaturedProject() {
           </svg>
         </a>
 
-        {/* Third card → the Why Towinly page (/towinly/), the whole product for six
-            kinds of reader. Text comes from profile.js. */}
-        {towin.whyTowinly && (
-          <a href={towin.whyTowinly.href} className="featured-arch">
-            <span className="featured-arch-icon" aria-hidden="true">
-              <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth={2} strokeLinecap="round" strokeLinejoin="round">
-                <path d="M4 5.5A2.5 2.5 0 016.5 3H12v15H6.5A2.5 2.5 0 004 20.5zM12 3h5.5A2.5 2.5 0 0120 5.5v15A2.5 2.5 0 0017.5 18H12z" />
-              </svg>
-            </span>
-            <span className="featured-arch-text">
-              <span className="featured-arch-title">{towin.whyTowinly.title}</span>
-              <span className="featured-arch-sub">{towin.whyTowinly.sub}</span>
-            </span>
-            <svg className="featured-arch-arrow" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth={2.5} strokeLinecap="round" strokeLinejoin="round" aria-hidden="true">
-              <path d="M5 12h14M13 6l6 6-6 6" />
-            </svg>
-          </a>
-        )}
-
-        {/* Fourth card → the AI case study, the AI tab of the same page, so it opens
+        {/* Third card → the AI case study, the AI tab of the same page, so it opens
             in place. Text comes from profile.js. */}
         {towin.aiCaseStudy && (
           <a href={towin.aiCaseStudy.href} className="featured-arch">
@@ -633,6 +634,29 @@ export default function FeaturedProject() {
             transform: translateX(3px);
             color: #8A6D1B;
           }
+        }
+        /* Why Towinly: filled in Towinly green (the app icon's colour), right under the
+           numbers, so it stands apart from the cream cards further down. */
+        .featured-metrics-note:has(+ .featured-why) { margin-bottom: 1.25rem; }
+        .featured-arch.featured-why {
+          margin: 0 auto 2.75rem;
+          background: #067A41;
+          border-color: #067A41;
+        }
+        .featured-why .featured-arch-icon {
+          color: #FFFFFF;
+          background: rgba(255, 255, 255, 0.14);
+          border-color: rgba(255, 255, 255, 0.3);
+        }
+        .featured-why .featured-arch-title { color: #FFFFFF; }
+        .featured-why .featured-arch-sub { color: rgba(255, 255, 255, 0.9); }
+        .featured-why .featured-arch-arrow { color: #FFFFFF; }
+        @media (hover: hover) {
+          .featured-arch.featured-why:hover {
+            background: #05673A;
+            border-color: #05673A;
+          }
+          .featured-arch.featured-why:hover .featured-arch-arrow { color: #FFFFFF; }
         }
         .featured-arch-icon {
           display: inline-flex;
