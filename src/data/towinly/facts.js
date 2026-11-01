@@ -24,3 +24,10 @@ export const AI_TOOLS = [
   "HeyGen HyperFrames and Remotion, for the reels",
   "Expo EAS, for the phone builds",
 ];
+
+export const METHOD = [
+  "A written spec before any code, then a step-by-step plan.",
+  "Tests first. Every step shipped with its tests, and the suite stayed green.",
+  "Every change reviewed on localhost before it was pushed.",
+  "Security review on every commit in the AI round, findings fixed the same day.",
+];

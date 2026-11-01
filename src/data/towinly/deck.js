@@ -1,6 +1,6 @@
 // Turns each tab's sections into the cards the page shows one at a time. One idea per card:
 // a section with both a phone screen and an interactive piece becomes two cards, and each
-// post in the six-part origin run becomes its own card with the artwork as its picture.
+// Instagram post in the origin run becomes its own card with the artwork as its picture.
 import { TABS, TAB_DATA } from "./tabs";
 import { ORIGIN_RUN } from "./artworks";
 import { AI_CARDS } from "./ai";
@@ -28,22 +28,20 @@ function textCard(section) {
   };
 }
 
-/** One card per artwork of the origin run, Part 1 to 6, with the short words the section
-    gives that part. The artwork carries the full post, so there is no Read more. */
-function originCards(section) {
-  return ORIGIN_RUN.map((art, i) => ({
+function artCards(section, run, label) {
+  return run.map((art, i) => ({
     id: i === 0 ? section.id : `${section.id}-${i + 1}`,
-    label: `How Towinly began · Part ${art.part} of 6`,
-    title: section.parts[i].title,
-    lead: section.parts[i].body,
-    sheet: null,
+    label: art.part ? `${label} · Part ${art.part} of 6` : `${label} · ${i + 1} of ${run.length}`,
+    title: art.title,
+    lead: art.paragraphs.slice(0, 1),
+    sheet: art.paragraphs,
     links: [],
     visual: { kind: "art", art },
   }));
 }
 
 function cardsFor(section) {
-  if (section.extra === "artworks:origin") return originCards(section);
+  if (section.extra === "artworks:origin") return artCards(section, ORIGIN_RUN, "How Towinly began");
   const widget = WIDGETS.has(section.extra) ? { kind: "widget", name: section.extra, section } : null;
   const shots = section.shots ? { kind: "shots", shots: section.shots } : null;
   if (widget && shots) {
