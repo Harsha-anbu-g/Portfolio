@@ -642,6 +642,9 @@ export default function FeaturedProject() {
           margin: 0 auto 2.75rem;
           background: #221E16;
           border-color: #221E16;
+          /* Same depth as the preview above it, scaled to the card's size. */
+          box-shadow: 0 18px 44px rgba(34, 30, 22, 0.38);
+          transition: transform 0.3s ease, box-shadow 0.3s ease, background 0.3s ease, border-color 0.3s ease;
         }
         .featured-why .featured-arch-icon {
           color: #C9A227;
@@ -655,6 +658,8 @@ export default function FeaturedProject() {
           .featured-arch.featured-why:hover {
             background: #2A251C;
             border-color: rgba(201, 162, 39, 0.5);
+            transform: translateY(-4px);
+            box-shadow: 0 26px 56px rgba(34, 30, 22, 0.46);
           }
           .featured-arch.featured-why:hover .featured-arch-arrow { color: #C9A227; }
         }
