@@ -119,7 +119,7 @@ export default function FeaturedProject() {
         <p className="featured-metrics-note">{towin.metricsNote}</p>
 
         {/* The Why Towinly page (/towinly/), the whole product for six kinds of reader.
-            It sits under the numbers in Towinly green, so it reads as the next step.
+            It sits under the numbers, ink-filled, so it reads as the next step.
             Text comes from profile.js. */}
         {towin.whyTowinly && (
           <a href={towin.whyTowinly.href} className="featured-arch featured-why">
@@ -635,28 +635,28 @@ export default function FeaturedProject() {
             color: #8A6D1B;
           }
         }
-        /* Why Towinly: filled in Towinly green (the app icon's colour), right under the
-           numbers, so it stands apart from the cream cards further down. */
+        /* Why Towinly: ink-filled with gold accents (the site's primary-button look), right
+           under the numbers, so it stands apart from the cream cards further down. */
         .featured-metrics-note:has(+ .featured-why) { margin-bottom: 1.25rem; }
         .featured-arch.featured-why {
           margin: 0 auto 2.75rem;
-          background: #067A41;
-          border-color: #067A41;
+          background: #221E16;
+          border-color: #221E16;
         }
         .featured-why .featured-arch-icon {
-          color: #FFFFFF;
-          background: rgba(255, 255, 255, 0.14);
-          border-color: rgba(255, 255, 255, 0.3);
+          color: #C9A227;
+          background: rgba(201, 162, 39, 0.12);
+          border-color: rgba(201, 162, 39, 0.35);
         }
-        .featured-why .featured-arch-title { color: #FFFFFF; }
-        .featured-why .featured-arch-sub { color: rgba(255, 255, 255, 0.9); }
-        .featured-why .featured-arch-arrow { color: #FFFFFF; }
+        .featured-why .featured-arch-title { color: #FAF7F1; }
+        .featured-why .featured-arch-sub { color: rgba(240, 234, 224, 0.78); }
+        .featured-why .featured-arch-arrow { color: #C9A227; }
         @media (hover: hover) {
           .featured-arch.featured-why:hover {
-            background: #05673A;
-            border-color: #05673A;
+            background: #2A251C;
+            border-color: rgba(201, 162, 39, 0.5);
           }
-          .featured-arch.featured-why:hover .featured-arch-arrow { color: #FFFFFF; }
+          .featured-arch.featured-why:hover .featured-arch-arrow { color: #C9A227; }
         }
         .featured-arch-icon {
           display: inline-flex;
