@@ -251,7 +251,7 @@ Decision carried from the spec: the user-guide PDFs (5.6 to 17.9 MB each) are NO
 # Converts the Towinly screenshots and Instagram artworks this page uses into small WebP
 # files, and records the commit counts. Reads only; never writes into the Towinly projects.
 set -euo pipefail
-SRC="/Users/aghar/Documents/Projects/ToWin App"
+SRC="/Users/aghar/Documents/Projects/Towinly app"
 WEB="/Users/aghar/Documents/Projects/ToWin"
 SHOTS="$SRC/docs/user-guide/screenshots/ios-framed"
 POSTS="$SRC/marketing/instagram/posts"
@@ -350,7 +350,7 @@ git commit -q -m "feat(towinly): screenshots and artworks as WebP, with a size m
 import { readFileSync, writeFileSync, mkdirSync } from "node:fs";
 import { join } from "node:path";
 
-const MK = "/Users/aghar/Documents/Projects/ToWin App/marketing";
+const MK = "/Users/aghar/Documents/Projects/Towinly app/marketing";
 const captions = readFileSync(join(MK, "CAPTIONS-TO-POST.txt"), "utf8").split("\n");
 const altFile = readFileSync(join(MK, "instagram/captions.md"), "utf8").split("\n");
 const POSTS = ["33", "34", "35", "36", "37", "38", "39", "42", "40", "41", "02", "47"];

@@ -7,7 +7,7 @@ set -euo pipefail
 ROOT="$(cd "$(dirname "$0")/.." && pwd)"
 OUT="$ROOT/public/towinly/photos"
 TMP="${TOWINLY_TMP:-$(mktemp -d)}"
-TOWINLY="/Users/aghar/Documents/Projects/ToWin App/marketing/instagram/assets/photos"
+TOWINLY="/Users/aghar/Documents/Projects/Towinly app/marketing/instagram/assets/photos"
 mkdir -p "$OUT" "$TMP"
 
 # name  pexels-id

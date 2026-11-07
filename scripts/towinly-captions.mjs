@@ -6,7 +6,7 @@
 import { readFileSync, writeFileSync, mkdirSync } from "node:fs";
 import { join } from "node:path";
 
-const MK = "/Users/aghar/Documents/Projects/ToWin App/marketing";
+const MK = "/Users/aghar/Documents/Projects/Towinly app/marketing";
 const captions = readFileSync(join(MK, "CAPTIONS-TO-POST.txt"), "utf8").split("\n");
 const altFile = readFileSync(join(MK, "instagram/captions.md"), "utf8").split("\n");
 const POSTS = ["33", "34", "35", "36", "37", "38", "39", "42", "40", "41", "02", "47"];

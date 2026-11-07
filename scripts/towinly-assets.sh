@@ -2,7 +2,7 @@
 # Converts the Towinly screenshots and Instagram artworks this page uses into small WebP
 # files, and records the commit counts. Reads only; never writes into the Towinly projects.
 set -euo pipefail
-SRC="/Users/aghar/Documents/Projects/ToWin App"
+SRC="/Users/aghar/Documents/Projects/Towinly app"
 WEB="/Users/aghar/Documents/Projects/ToWin"
 SHOTS="$SRC/docs/user-guide/screenshots/ios-framed"
 POSTS="$SRC/marketing/instagram/posts"
