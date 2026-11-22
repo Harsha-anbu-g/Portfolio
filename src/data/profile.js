@@ -74,7 +74,7 @@ const profile = {
     },
     {
       category: "Frontend",
-      items: ["React", "React Native", "HTML", "CSS"],
+      items: ["React", "React Native", "JavaScript", "TypeScript", "HTML", "CSS"],
     },
     {
       category: "AI & Tooling",
@@ -144,6 +144,7 @@ const profile = {
       category: "Languages",
       items: [
         "Java",
+        "Python",
         "Go",
         "Kotlin",
         "C#",
