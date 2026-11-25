@@ -239,3 +239,47 @@ why towinly button below the numbers in portfolio with different color".
       problems and no console errors; Part 5's Read more opens all 11 paragraphs; home page
       checked at 1440 and 390, nothing wider than the screen
 - [ ] Harsha reviews on localhost
+
+---
+
+# 2026-11-25: Deep Work, the private planner at /deep-work/
+
+Request queue, in the order given:
+1. "Can you make this in the this portfolio website and create a user ID password so I can
+   see what is inside that, and store those data in my database with THOSE server." The
+   "this" is the Hour Planner built in a claude.ai chat. "Don't rebuild, it is already built."
+2. "THE APP NAME IS DEEP WORK" (its purpose: deep work, no task switching).
+3. "ENHANCE IT BY USING OUR SKILLS" 4. "AND PLUGINS"
+
+Owner decision (asked once): the list is saved in its own private store on the portfolio's
+hosting, separate from Towinly. Nothing in Towinly changes.
+
+## Checklist
+- [x] Read the shared chat and pull the planner's source and saved list (11 tasks, 4 hours)
+- [x] Tests first: sign-in, session, validation, storage (40 tests, `npm test`)
+- [x] Server: `server/deepwork/*` and `api/deepwork/{session,data,doc}.js`; scrypt password
+      hash, signed HttpOnly cookie, same-site check, 5-tries lockout, input checks, size limits
+- [x] Planner ported by script from the built source (logic unchanged); storage swapped for
+      `src/deepwork/store.js` on top of the named API in `src/deepwork/api.js`
+- [x] Renamed Deep Work; Paper & Gold restyle; sign-in screen; Focus view; tab title shows
+      the task in hand
+- [x] Localhost API through `server/deepwork/devPlugin.js`; `vercel.json` security headers
+- [x] Sign-in created (`deepwork-login.local`, git-ignored); list copied in through the API
+- [x] Lint clean, build green, browser walk at 1440 and 390, light and dark, no console errors
+- [x] Plugin reviews (ecc security-reviewer, ecc typescript-reviewer) and fixes: tries counted
+      before the password check, IPv6 grouped by network, 15s request time limit, "Offline
+      copy" badge, keyboard focus follows the screen, tab title moves on in a background tab,
+      sign-out waits for saves; 48 tests pass
+- [ ] Harsha reviews on localhost (http://localhost:4175/deep-work/)
+- [ ] Owner call from the security review: `public/architecture.html` loads a chart script
+      from an outside address with no pinned version; a bad copy of that script could reach
+      the Deep Work list while signed in. Options: give Deep Work its own web address
+      (deepwork.harshavardhanag.com), or keep a copy of that script on the site
+- [ ] Hosting: add a Postgres database to the Vercel project and the `DEEPWORK_LOGIN` setting
+- [ ] Commit and push only on an explicit "push"; then copy the list to the live site with
+      `node scripts/deepwork-import.mjs https://harshavardhanag.com deepwork-export.json.local`
+
+## Not done, on purpose
+- `eslint.config.js` is protected by a hook, so the server files import `process` and
+  `Buffer` explicitly. `scripts/*.mjs` stay outside the lint config, as before.
+- No link to /deep-work/ from the public pages, and the page is marked noindex.
