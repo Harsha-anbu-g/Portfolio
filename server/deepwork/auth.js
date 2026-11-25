@@ -1,6 +1,7 @@
 import { Buffer } from 'node:buffer';
 import { createHash, createHmac, randomBytes, scrypt, timingSafeEqual } from 'node:crypto';
 import { promisify } from 'node:util';
+import { MAX_PASSWORD_LENGTH } from './config.js';
 
 const scryptAsync = promisify(scrypt);
 
@@ -12,7 +13,6 @@ const MIN_LOG2_N = 14;
 const MAX_LOG2_N = 18;
 const KEY_BYTES = 32;
 const SALT_BYTES = 16;
-const MAX_PASSWORD_LENGTH = 200;
 const MAX_TOKEN_LENGTH = 512;
 const USER_ID_PATTERN = /^[a-z0-9][a-z0-9_-]{2,31}$/;
 const HASH_PATTERN = /^scrypt\.(\d{1,2})\.(\d{1,2})\.(\d{1,2})\.([\w-]{16,})\.([\w-]{32,})$/;

@@ -275,7 +275,12 @@ hosting, separate from Towinly. Nothing in Towinly changes.
       from an outside address with no pinned version; a bad copy of that script could reach
       the Deep Work list while signed in. Options: give Deep Work its own web address
       (deepwork.harshavardhanag.com), or keep a copy of that script on the site
-- [ ] Hosting: add a Postgres database to the Vercel project and the `DEEPWORK_LOGIN` setting
+- [x] Hosting: Neon Postgres connected, `DEEPWORK_LOGIN` set, redeployed; live; list copied in
+- [x] Owner decision 2026-11-25: no separate address for Deep Work
+- [x] Change password on the site (current password required; stored in `deepwork_login`,
+      overrides the Vercel setting; other devices signed out): 58 tests, browser-checked at
+      1440 and 390. **Local only, not pushed.**
+- [ ] Harsha reviews the change-password dialog, then says "push"
 - [ ] Commit and push only on an explicit "push"; then copy the list to the live site with
       `node scripts/deepwork-import.mjs https://harshavardhanag.com deepwork-export.json.local`
 

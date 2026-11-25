@@ -1,7 +1,9 @@
 #!/usr/bin/env node
 /* Create the Deep Work sign-in.
 
-   Usage:  node scripts/deepwork-make-login.mjs [userId] [--replace]
+   Usage:  node scripts/deepwork-make-login.mjs [userId] [--replace] [--choose]
+     --replace  make a new sign-in even though one exists
+     --choose   type your own password (hidden) instead of getting a random one
 
    Writes two git-ignored files in the project root:
      deepwork-login.local  the user ID, the password, and the hosting setting to paste
@@ -19,6 +21,44 @@ const ALPHABET = 'abcdefghjkmnpqrstuvwxyz23456789'; // no look-alikes such as i,
 const GROUPS = 4;
 const GROUP_LENGTH = 5;
 const OWNER_ONLY = 0o600;
+
+const MIN_PASSWORD_LENGTH = 12;
+const MAX_PASSWORD_LENGTH = 200;
+
+/** Ask for a password in the terminal without showing what is typed. Run it in your own terminal. */
+function askPassword(prompt) {
+  if (!process.stdin.isTTY) throw new Error('--choose needs a real terminal, so run it yourself, not through an assistant.');
+  return new Promise((resolve) => {
+    let typed = '';
+    process.stdout.write(prompt);
+    process.stdin.setRawMode(true);
+    process.stdin.resume();
+    process.stdin.setEncoding('utf8');
+    process.stdin.on('data', function onKey(key) {
+      for (const char of key) {
+        if (char === '\u0003') process.exit(130); // Ctrl+C
+        if (char === '\r' || char === '\n') {
+          process.stdin.setRawMode(false);
+          process.stdin.pause();
+          process.stdin.off('data', onKey);
+          process.stdout.write('\n');
+          resolve(typed);
+          return;
+        }
+        typed = char === '\u007f' ? typed.slice(0, -1) : typed + char;
+      }
+    });
+  });
+}
+
+async function chosenPassword() {
+  const first = await askPassword('New password: ');
+  if (first.length < MIN_PASSWORD_LENGTH || first.length > MAX_PASSWORD_LENGTH) {
+    throw new Error(`The password must be ${MIN_PASSWORD_LENGTH} to ${MAX_PASSWORD_LENGTH} characters.`);
+  }
+  if ((await askPassword('Type it again: ')) !== first) throw new Error('The two did not match. Nothing was changed.');
+  return first;
+}
 
 const randomGroup = () => Array.from({ length: GROUP_LENGTH }, () => ALPHABET[randomInt(ALPHABET.length)]).join('');
 const makePassword = () => Array.from({ length: GROUPS }, randomGroup).join('-');
@@ -39,7 +79,7 @@ async function main() {
     throw new Error(`${LOGIN_FILE} already exists. Add --replace to make a new password (the old one stops working once the new setting is live).`);
   }
 
-  const password = makePassword();
+  const password = args.includes('--choose') ? await chosenPassword() : makePassword();
   const setting = `${SETTING}=${formatLogin(userId, await hashPassword(password))}`;
   const note = [
     'Deep Work sign-in',

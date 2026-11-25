@@ -41,6 +41,9 @@ export const getSession = () => request('GET', '/session');
 /** Sign in with a user ID and password. Resolves to `{ signedIn, userId }`. */
 export const signIn = (userId, password) => request('POST', '/session', { userId, password });
 
+/** Change the password. Needs the current one. This device stays signed in; every other device is signed out. */
+export const changePassword = (currentPassword, newPassword) => request('PUT', '/password', { currentPassword, newPassword });
+
 /** Sign out on this browser. */
 export const signOut = () => request('DELETE', '/session');
 

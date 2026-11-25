@@ -119,6 +119,12 @@ input[type="checkbox"] { width: 18px; height: 18px; margin: 0; accent-color: var
 .signin-error { padding: 9px 12px; border-radius: var(--radius-control); background: var(--late-soft); color: var(--late); font-size: 13.5px; }
 .signin .btn { justify-self: start; margin-top: 4px; }
 
+/* ---------- change password ---------- */
+.password-form { display: grid; gap: 14px; padding: 16px 14px 14px; overflow-y: auto; }
+.password-form .signin-field input { background: var(--bg); }
+.password-hint { color: var(--muted); font-size: 13px; }
+.password-actions { display: flex; flex-wrap: wrap; gap: 8px; }
+
 /* ---------- top bar ---------- */
 .top {
   display: grid;
@@ -472,6 +478,8 @@ dialog.picker::backdrop { background: rgba(20, 17, 11, 0.5); }
   .nowbar { grid-column: 1 / -1; order: 3; }
   .now-items { flex-basis: 100%; order: 3; }
   .notice { margin: 0 12px 10px; }
+  .top { grid-template-columns: minmax(0, 1fr); }
+  .account { order: 2; flex-wrap: wrap; justify-content: flex-start; margin-left: -11px; }
   .tabs { display: flex; }
   main { grid-template-columns: minmax(0, 1fr); padding: 0 12px 12px; }
   body[data-tab="list"] .col-hours, body[data-tab="hours"] .col-list { display: none; }

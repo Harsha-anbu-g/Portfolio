@@ -1,8 +1,9 @@
 import './deepwork.css';
-import { getSession, signIn, signOut } from './api.js';
+import { changePassword, getSession, signIn, signOut } from './api.js';
 import { $ } from './dom.js';
 import { createFocusView } from './focus.js';
 import { showSignIn } from './login.js';
+import { setupPasswordChange } from './password.js';
 import { startPlanner } from './planner.js';
 import { createStore } from './store.js';
 
@@ -75,6 +76,10 @@ function openApp() {
   $('focus-exit').addEventListener('click', () => showScreen('plan'));
   document.addEventListener('keydown', (event) => {
     if (event.key === 'Escape' && !$('focus').hidden) showScreen('plan');
+  });
+  setupPasswordChange({
+    changePassword,
+    onChanged: () => showToast('Password changed. Other devices are signed out.'),
   });
   $('signout').addEventListener('click', async () => {
     if (store.hasPendingWrites()) {

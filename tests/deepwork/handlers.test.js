@@ -26,7 +26,7 @@ beforeEach(async () => {
   const repo = createRepository(db);
   handlers = createHandlers({ repo, login, now: () => clock, logger: quiet });
   await repo.countDocs('nobody', 'tasks'); // first use creates the tables
-  await db.query('TRUNCATE deepwork_docs, deepwork_sign_in_attempts');
+  await db.query('TRUNCATE deepwork_docs, deepwork_sign_in_attempts, deepwork_login');
 });
 
 after(async () => {
@@ -278,6 +278,111 @@ test('unsupported methods are refused', async () => {
   assert.equal((await call('data', 'POST', { cookie, body: {} })).status, 405);
   assert.equal((await call('doc', 'GET', { cookie, path: '?coll=tasks&id=t1' })).status, 405);
   assert.equal((await call('session', 'PUT', { body: {} })).status, 405);
+});
+
+const NEW_PASSWORD = 'a-brand-new-passphrase';
+const changePassword = (cookie, body, options = {}) => call('password', 'PUT', { body, cookie, ...options });
+const cookieOf = (response) => (response.headers.get('set-cookie') || '').split(';')[0];
+
+test('the right current password changes the password and keeps this device signed in', async () => {
+  const { cookie } = await signIn();
+
+  const response = await changePassword(cookie, { currentPassword: PASSWORD, newPassword: NEW_PASSWORD });
+  const stillIn = await call('data', 'GET', { cookie: cookieOf(response) });
+
+  assert.equal(response.status, 200);
+  assert.match(cookieOf(response), /^dw_session=v1\./);
+  assert.equal(stillIn.status, 200);
+});
+
+test('after a change the old password stops working and the new one signs in', async () => {
+  const { cookie } = await signIn();
+  await changePassword(cookie, { currentPassword: PASSWORD, newPassword: NEW_PASSWORD });
+
+  const oldPassword = await signIn();
+  const newPassword = await call('session', 'POST', { body: { userId: 'harsha', password: NEW_PASSWORD } });
+
+  assert.equal(oldPassword.response.status, 401);
+  assert.equal(newPassword.status, 200);
+});
+
+test('after a change every other signed-in device is signed out', async () => {
+  const { cookie: otherDevice } = await signIn();
+  const { cookie } = await signIn();
+  await changePassword(cookie, { currentPassword: PASSWORD, newPassword: NEW_PASSWORD });
+
+  const response = await call('data', 'GET', { cookie: otherDevice });
+
+  assert.equal(response.status, 401);
+});
+
+test('the new password is kept in the database, so a fresh server instance uses it', async () => {
+  const { cookie } = await signIn();
+  await changePassword(cookie, { currentPassword: PASSWORD, newPassword: NEW_PASSWORD });
+  const freshInstance = createHandlers({ repo: createRepository(db), login, now: () => clock, logger: quiet });
+
+  const response = await call('session', 'POST', { body: { userId: 'harsha', password: NEW_PASSWORD }, use: freshInstance });
+
+  assert.equal(response.status, 200);
+});
+
+test('a wrong current password is refused and nothing changes', async () => {
+  const { cookie } = await signIn();
+
+  const response = await changePassword(cookie, { currentPassword: 'not it', newPassword: NEW_PASSWORD });
+  const oldStillWorks = await signIn();
+
+  assert.equal(response.status, 401);
+  assert.equal((await response.json()).error.code, 'wrong_password');
+  assert.equal(oldStillWorks.response.status, 200);
+});
+
+test('a new password that is too short, too long or the same as the old one is refused', async () => {
+  const { cookie } = await signIn();
+  const cases = [
+    { currentPassword: PASSWORD, newPassword: 'short' },
+    { currentPassword: PASSWORD, newPassword: 'x'.repeat(201) },
+    { currentPassword: PASSWORD, newPassword: PASSWORD },
+    { currentPassword: PASSWORD, newPassword: 12345678901234 },
+    { currentPassword: PASSWORD },
+  ];
+
+  for (const body of cases) {
+    const response = await changePassword(cookie, body);
+    assert.equal(response.status, 400, JSON.stringify(body).slice(0, 60));
+  }
+  assert.equal((await signIn()).response.status, 200, 'the old password still works');
+});
+
+test('changing the password needs a signed-in session', async () => {
+  const response = await changePassword(undefined, { currentPassword: PASSWORD, newPassword: NEW_PASSWORD });
+
+  assert.equal(response.status, 401);
+});
+
+test('a password change sent from another website is refused', async () => {
+  const { cookie } = await signIn();
+
+  const response = await changePassword(cookie, { currentPassword: PASSWORD, newPassword: NEW_PASSWORD }, { origin: 'https://evil.test' });
+
+  assert.equal(response.status, 403);
+});
+
+test('guessing the current password is limited the same way as signing in', async () => {
+  const { cookie } = await signIn();
+  const guess = { currentPassword: 'wrong', newPassword: NEW_PASSWORD };
+  for (let i = 0; i < 5; i++) await changePassword(cookie, guess);
+
+  const locked = await changePassword(cookie, { currentPassword: PASSWORD, newPassword: NEW_PASSWORD });
+
+  assert.equal(locked.status, 429);
+});
+
+test('only PUT is accepted when changing the password', async () => {
+  const { cookie } = await signIn();
+
+  assert.equal((await call('password', 'GET', { cookie })).status, 405);
+  assert.equal((await call('password', 'POST', { cookie, body: {} })).status, 405);
 });
 
 test('without a login or a database the API says it is not set up', async () => {

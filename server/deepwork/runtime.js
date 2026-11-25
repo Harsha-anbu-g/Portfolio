@@ -25,7 +25,10 @@ function getHandlers() {
 export const handleSession = (request) => getHandlers().session(request);
 
 /** @param {Request} request @returns {Promise<Response>} */
-export const handleData = (request) => getHandlers().data(request);
+export const handlePassword = (request) => getHandlers().password(request);
+
+/** @param {Request} request @returns {Promise<Response>} */
+export const handleData =(request) => getHandlers().data(request);
 
 /** @param {Request} request @returns {Promise<Response>} */
 export const handleDoc = (request) => getHandlers().doc(request);

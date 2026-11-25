@@ -10,7 +10,7 @@ import { createRepository } from './repository.js';
 
 const DEV_DATA_DIR = 'deepwork-dev-db.local';
 const MAX_DEV_BODY_BYTES = 64 * 1024;
-const ROUTES = new Set(['session', 'data', 'doc']);
+const ROUTES = new Set(['session', 'data', 'doc', 'password']);
 
 /** Use DATABASE_URL when .env.local has one; otherwise a small Postgres kept in a git-ignored folder. */
 async function openDatabase(root, env) {

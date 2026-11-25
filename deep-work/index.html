@@ -58,6 +58,7 @@
         </section>
         <div class="account">
           <p class="sync" id="sync" role="status" data-state="busy">Loading</p>
+          <button type="button" class="btn small ghost" id="password-open">Change password</button>
           <button type="button" class="btn small ghost" id="signout">Sign out</button>
         </div>
       </header>
@@ -160,6 +161,33 @@
         <label class="sr" for="pick-title">New task for this hour</label>
         <input type="text" id="pick-title" maxlength="200" placeholder="Or type a new task" />
         <button type="submit" class="btn primary" id="pick-add">Add</button>
+      </form>
+    </dialog>
+
+    <dialog class="picker" id="password-dialog" aria-labelledby="password-h">
+      <div class="pick-head">
+        <h3 id="password-h">Change password</h3>
+        <button type="button" class="btn small ghost" id="password-close">Close</button>
+      </div>
+      <form class="password-form" id="password-form" novalidate>
+        <p class="signin-error" id="password-error" role="alert" hidden></p>
+        <label class="signin-field" for="password-current">
+          Current password
+          <input type="password" id="password-current" autocomplete="current-password" maxlength="200" required />
+        </label>
+        <label class="signin-field" for="password-new">
+          New password
+          <input type="password" id="password-new" autocomplete="new-password" maxlength="200" required aria-describedby="password-hint" />
+        </label>
+        <label class="signin-field" for="password-confirm">
+          Type the new password again
+          <input type="password" id="password-confirm" autocomplete="new-password" maxlength="200" required />
+        </label>
+        <p class="password-hint" id="password-hint">At least 12 characters. Other devices will be signed out.</p>
+        <div class="password-actions">
+          <button type="submit" class="btn primary" id="password-save">Change password</button>
+          <button type="button" class="btn" id="password-cancel">Cancel</button>
+        </div>
       </form>
     </dialog>
 

@@ -9,6 +9,11 @@ const SCHEMA = [
      updated_at timestamptz NOT NULL DEFAULT now(),
      PRIMARY KEY (user_id, coll, id)
    )`,
+  `CREATE TABLE IF NOT EXISTS deepwork_login (
+     user_id text PRIMARY KEY,
+     password_hash text NOT NULL,
+     updated_at timestamptz NOT NULL DEFAULT now()
+   )`,
   `CREATE TABLE IF NOT EXISTS deepwork_sign_in_attempts (
      id bigserial PRIMARY KEY,
      address text NOT NULL,
@@ -54,6 +59,21 @@ export function createRepository(db) {
   };
 
   return {
+    /** The password hash a user chose on the site, or null while the hosting setting is still in use. */
+    async getPasswordHash(userId) {
+      const { rows } = await run('SELECT password_hash FROM deepwork_login WHERE user_id = $1', [userId]);
+      return rows.length ? rows[0].password_hash : null;
+    },
+
+    /** Keep the hash of a newly chosen password. It takes over from the hosting setting. */
+    async savePasswordHash(userId, passwordHash) {
+      await run(
+        `INSERT INTO deepwork_login (user_id, password_hash) VALUES ($1, $2)
+         ON CONFLICT (user_id) DO UPDATE SET password_hash = EXCLUDED.password_hash, updated_at = now()`,
+        [userId, passwordHash],
+      );
+    },
+
     /** Every task and planned hour for one user. */
     async listDocs(userId) {
       const { rows } = await run(

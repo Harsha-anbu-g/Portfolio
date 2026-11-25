@@ -8,6 +8,9 @@ export const SIGN_IN_MAX_ATTEMPTS = 5;
 export const SIGN_IN_WINDOW_MINUTES = 15;
 export const ATTEMPT_RETENTION_HOURS = 24;
 
+export const MIN_PASSWORD_LENGTH = 12;
+export const MAX_PASSWORD_LENGTH = 200;
+
 export const MAX_BODY_BYTES = 4096;
 export const TITLE_MAX_LENGTH = 200;
 export const COLLECTIONS = Object.freeze(['tasks', 'blocks']);
